@@ -1,4 +1,4 @@
-# hotel-booking
+# Hotel-booking
 Project for PHP internship team
 
 ### Prototype
