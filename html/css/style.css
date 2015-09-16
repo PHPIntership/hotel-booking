@@ -1,0 +1,1256 @@
+@font-face{
+  font-family: "myfont";
+  src:url(../font/OTF/HelveticaNeue.otf);
+}
+
+@font-face{
+  font-family: "myfont-bold";
+  src:url(../font/OTF/HelveticaNeue-Bold.otf);
+}
+@font-face{
+  font-family: "myfont-bolditalic";
+  src:url(../font/OTF/HelveticaNeue-BoldItalic.otf);
+}
+*{
+margin:0px;
+padding:0px;
+font-family: 'sans-serif';
+}
+a{
+  text-decoration: none;
+  color:white;
+}
+a:hover{
+  color:#dc9300;
+}
+h1,h2,h3,h4,h5,h6{
+  color:white;
+}
+
+body{
+  font-family: "sans-serif";
+  background: url(../images/bg.png);
+  background: url("../images/bg1.jpg") no-repeat fixed center top transparent;
+}
+h1{
+  font-family: "myfont";
+  font-size: 25px;
+  letter-spacing: -2px;
+  color: white;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+#header{
+
+  height: 150px;
+  width: 1000px;
+  margin:0 auto;
+ 
+}
+#login{
+ padding-top:8px;
+  widows: 167px;
+  height: 32px;
+  background: black;
+  position: absolute;
+  top:0px;
+border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+#login ul{
+  padding-left: 10px;
+  padding-right: 10px;
+}
+#login li{
+  display: inline;
+ 
+}
+#login a{
+  text-decoration: none;
+  color: white;
+}
+#login a:hover{
+  color:#dc9300;
+}
+#header img{
+  padding-top:40px;
+
+}
+#userinfo{
+  text-align: right;
+}
+
+#content{
+  
+  width: 1000px;
+  min-height: 1000px;
+  margin:0 auto;
+}
+#navigationbar{
+  height: 80px;
+  width: 1000px;
+  border-radius: 18px;
+  background: black;
+  
+}
+#navigationbar ul{
+}
+#navigationbar li{
+  
+  float:left;
+    display:inline-block;
+    position:relative;
+    font-size:19px;
+}
+#navigationbar a{
+  text-align: center;
+    padding:33px 0px;
+  width: 166.6px;
+    display:inline-block;
+    text-shadow:0px 1px 0px rgba(0,0,0,0.4);
+  text-decoration: none;
+  font-size: 12px ;
+}
+
+#navigationbar a:hover{
+  background: rgb(35,35,30);
+  color:white;
+}
+.first{
+  
+  border-bottom-left-radius: 18px;
+  border-top-left-radius: 18px;
+  
+}
+.last{
+  border-bottom-right-radius: 18px;
+  border-top-right-radius: 18px;
+}
+
+#slider_wrapper{
+  margin-top:20px;
+}
+.current_page{
+  color:white;
+  background: #dc9300;
+}
+.normal_page{
+  
+}
+#slider1_container{
+  padding-bottom: 20px;
+}
+#maincontent_bot{
+  padding-top: 20px;
+  min-height: 350px;
+}
+.bot{
+  text-align: center;
+  float:left;
+  width: 330px;
+  height: 300px;
+ 
+}
+.bot p{
+  color: #eee;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+}
+#footer{
+  padding-top: 30px;
+  text-align: center;
+  clear:both;
+  height: 80px;
+  background: black;
+}
+/*phan nay cua registerform*/
+#register{
+  text-align: center;
+  color:#dc9300;
+  width: 900;
+  margin: 0 auto;
+}
+#register label{
+  display: block;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+#register input,select{
+  text-align: center;
+  width: 306px;
+  height: 30px;
+  border-radius: 7px;
+  text-align: center;
+}
+#register input[type=button],input[type=submit]{
+  cursor: pointer;
+  width: 100px;
+  background: #dc9300;
+  border: none;
+  color: white;
+  font-size: 13px;
+  font-family: "myfont-bold"
+  
+}
+#register input[type=submit]{
+  width: 100px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+}
+#register input[type=button]:hover, input[type=submit]:hover{
+  opacity: 0.8;
+}
+#condition{
+  text-align: left;
+  width: 306px;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+ol{
+  margin-top:20px;
+  list-style-type: circle;
+  margin-bottom: 10px;
+}
+#condition input{
+  width: 20px;
+  height:10px;
+  display: initial;
+}
+#registerform input[type=radio]{
+  width: 30px;
+  height: 10px;
+}
+/*phan nay cua Alert page*/
+#alerter{
+ padding-top: 8px;
+  font-family: "sans-serif";
+  font-size: 17px;
+  font-weight: bold;
+  width: 1000px;
+  margin: 0 auto;
+  background: #fff;
+  height: 60px;
+  border-top: 5px solid #dc9300;
+  color: #444;
+}
+#alerter h4{
+  margin-top: 4px;
+  text-align: left;
+  padding-bottom: 20px;
+  color: #444;
+}
+#alerter a{
+  color:#dc9300;
+}
+#alerter a:hover{
+  opacity: 0.7;
+}
+
+
+.activenav{
+  color:white;
+  background: #dc9300;
+}
+
+/* phan nay cua bookview */
+#booktitle{
+  width: 50%;
+  text-align: left;
+  padding-left: 10px;
+  height: 30px;
+  background: linear-gradient(#dc9300 , #dc7300);
+  background: #f96906;
+  text-transform: uppercase;
+ height: 30px;
+  color: white;
+  font-weight: bold;
+  font-size: 17px;
+  padding-top: 10px;
+   border-bottom-right-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+#viewbook{
+  font-family: "sans-serif";
+  color:black;;
+  min-height: 500px;
+  border-radius: 10px;
+  margin-bottom: 40px;
+  background: url(../images/bg1.png);
+  background: white;
+  background-size:100%; 
+  padding-bottom: 10px; 
+}
+#bookinfo{
+  padding: 20px 10px;
+  
+}
+#bookpicture{
+  float:left;
+  padding-right: 15px;
+  
+}
+#bookinfo{
+  height: 250px;
+}
+#bookpicture img{
+  height:250px;
+  width: 180px;
+}
+
+#bookinfo table{
+  color:#3e3e3e;
+  width: 780px;
+  border-collapse: collapse;
+  font-family: "sans-serif";
+  background: white;
+  height: 250px;
+}
+#bookinfo table,#bookinfo th,#bookinfo td{
+  padding: 10px;
+  border: 1px solid #d4d4d4;
+  text-align: left;
+  
+  
+}
+#bookinfo th{
+ background: linear-gradient(#f1f1f1, #e2e2e2);
+  width: 30%;
+  
+}
+#bookinfo td{
+cursor: pointer;
+  
+}
+.titlebox{
+  width: 50%;
+  text-align: left;
+  padding-left: 10px;
+  height: 30px;
+  background: #0674b1;
+  text-transform: uppercase;
+  color: white;
+  font-size: 17px;
+  padding-top: 10px;
+  font-weight: bold;
+  border-bottom-right-radius: 20px;
+  border-top-right-radius: 20px;
+}
+.titlebox1{
+  width: 50%;
+  text-align: left;
+  padding-left: 10px;
+  height: 30px;
+  background: #00aa7a;
+  text-transform: uppercase;
+  color: white;
+  font-size: 17px;
+  padding-top: 10px;
+  font-weight: bold;
+   border-bottom-right-radius: 20px;
+  border-top-right-radius: 20px;
+}
+.bookcontent{
+  padding: 20px 10px;;
+}
+
+.line-separator{
+margin-bottom: 20px;
+margin-top: 20px;
+height:1px;
+
+background:#717171;
+
+border-bottom:1px solid black;
+
+}
+#option{
+  text-align: center;
+  height: 45px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+#option input{
+  width: 180px;
+  height: 38px;
+  background: linear-gradient(#f1f1f1, #e2e2e2);
+  border: none;
+  box-shadow: 1px 1px 1px gray;
+  cursor: pointer;
+  margin-bottom: 20px;
+  color: #3e3e3e;
+  font-weight: bold;
+  font-size: 15px;
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+#option input:hover{
+  opacity: 0.8;
+  color: black;
+}
+
+/*----- Tabs -----*/
+.tabs {
+  font-family: "sans-serif";
+    width:100%;
+    display:inline-block;
+   margin-bottom: 40px;
+}
+ 
+    /*----- Tab Links -----*/
+    /* Clearfix */
+    .tab-links:after {
+        display:block;
+        clear:both;
+        content:'';
+    }
+ 
+    .tab-links li {
+        margin:0px 5px;
+        float:left;
+        list-style:none;
+    }
+ 
+        .tab-links a {
+            padding:9px 15px;
+            display:inline-block;
+            border-radius:3px 3px 0px 0px;
+            background:white;
+            font-size:16px;
+            font-weight:600;
+            color:#4c4c4c;
+            transition:all linear 0.15s;
+        }
+ 
+        .tab-links a:hover {
+            background:#fef2c8;
+            text-decoration:none;
+        }
+ 
+    li.active a, li.active a:hover {
+        background:#ffc303;
+        color:#4c4c4c;
+    }
+ 
+    /*----- Content of Tabs -----*/
+    .tab-content {
+        padding:15px;
+        box-shadow:-1px 1px 1px rgba(0,0,0,0.15);
+        background:#fff;
+       min-height: 500px;
+      border-top: 4px solid #febf00;
+      border-bottom-right-radius:  3px;
+      border-bottom-left-radius: 3px;
+    }
+ 
+        .tab {
+            display:none;
+        }
+ 
+        .tab.active {
+            display:block;
+        }
+#tab1 table{
+  text-align: left;
+}
+
+.tab label, .tab input {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+  height: 35px;
+}
+
+.tab label {
+	font-weight: bold;
+	background: linear-gradient(#f1f1f1, #e2e2e2);
+	padding: 5px 10px;
+	color: #444;
+	
+	border: 1px solid #d4d4d4;
+	/* lets remove the right border */
+	border-right: 0;
+	border-bottom-left-radius: 5px;
+	border-top-left-radius: 5px;
+	
+	line-height: 1.5em;
+	width: 30%;
+	
+	/* takes the width properly now and also the
+	spacing between the label and input field got removed. */
+	float: left;
+	
+	text-align: center;
+	cursor: pointer;
+}
+
+/* The label is looking good now. Onto the input field! */
+
+/*
+Everything is broken now! But we can fix it. Lets see how.
+*/
+.tab input[type=text],textarea {
+	width: 65%;
+	padding: 5px;
+	border: 1px solid #d4d4d4;
+	border-bottom-right-radius: 5px;
+	border-top-right-radius: 4px;
+	
+	line-height: 1.5em;
+	
+	/* some box shadow sauce :D */
+	box-shadow: inset 0px 2px 2px #ececec;
+}
+.tab select{
+  text-align: left;
+  height: 35px;
+  	width: 65%;
+	padding: 5px;
+	border: 1px solid #d4d4d4;
+	border-bottom-right-radius: 5px;
+	border-top-right-radius: 4px;
+	
+	line-height: 1.5em;
+	
+	/* some box shadow sauce :D */
+	box-shadow: inset 0px 2px 2px #ececec;
+}
+.row{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 60%;
+}
+.tabs input[type=submit],.tabs input[type=button]{
+  margin-top: 10px;
+  font-family: "sans-serif";
+  font-size: 15px;
+  font-weight: bold;
+  background: linear-gradient(#f1f1f1, #e2e2e2);
+  color: #444;
+}
+.tabs input[type=button]{
+  border: none;
+  width: 175px;
+  border-radius: 5px;
+  
+  cursor: pointer;
+}
+.tabs input[type=button]:hover{
+  box-shadow: 1px 1px 1px #999;
+}
+.tabs h3,.tabs h4{
+  color: #444;
+}
+.infowrapper{
+  margin: 5px 0px;
+}
+.tabs table{
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 10px;
+}
+.tabs table,.tabs th,.tabs td{
+  padding: 10px;
+  border: 1px solid #d4d4d4;
+  text-align: left;
+  
+  
+}
+.tabs th{
+ background: linear-gradient(#f1f1f1, #e2e2e2);
+}
+.accountbook{
+  margin: 10px 0px;
+}
+.accountbook img{
+  height: 250px;
+  width: 200px;
+  margin-bottom: 5px;
+  float:left;
+  margin-right: 15px;
+}
+.bookdiscrip{
+}
+#notyetlogin{
+  font-family: "sans-serif";
+  font-size: 17px;
+  font-weight: bold;
+  width: 1000px;
+  margin: 0 auto;
+  background: #fff;
+  height: 60px;
+  border-top: 5px solid #dc9300;
+  
+}
+#infoimg{
+  margin-left: 20px;
+  float: left;
+  padding-right: 20px;
+}
+#infoimg img{
+  height: 50px;
+  width: 90px;
+}
+#notyetlogin a{
+color:#dc9300;
+}
+#notyetlogin a:hover{
+opacity: 0.7;
+}
+#notyetlogin p{
+  padding-top: 13px;
+}
+.paybook{
+  color: #444;
+}
+.paybook label{
+  border-radius: 0px; 
+  text-align: left;
+  border: none;
+  height: 40px;
+  width: 100%;
+  background: none;
+  padding: 8px;
+  margin-bottom: 10px;
+  border-bottom: 3px solid #dc9300;
+}
+.paybook input[type=radio]{
+  height: 10px;
+  width: 30px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.paybook fieldset{
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+}
+.paybook input[type=button],.paybook input[type=submit],.paybook input[type=reset]{
+  background: linear-gradient(#ffc303, #dc9300);
+  width: 150px;
+  border: none;
+  font-weight: bold;
+  color: #444;
+  border-radius: 0px;
+  cursor: pointer;
+  
+}
+.paybook input[type=button]:hover,.paybook input[type=submit]:hover,.paybook input[type=reset]:hover{
+  box-shadow: 1px 1px 1px gray;
+}
+/*phan nay cua commend cua sach*/
+#cmwraper{
+  width: 1000px;
+  margin:0 auto;
+  background: white;
+  font-family: "sans-serif";
+  
+}
+#bookcommend{
+  padding: 10px;
+  
+}
+#allcommend{
+  height: 600px;
+  margin: 10px 0px;
+}
+#bookcommend h3,#bookcommend h2{
+  font-family: "sans-serif";
+  color:#444;
+  margin-bottom: 10px;
+}
+.eachcommend{
+  margin: 10px 0px;
+}
+.usercminfo img{
+  height: 100px;
+  width: 100px;
+  
+}
+.usercminfo{
+  padding-top: 20px;
+  text-align: center;
+  height: 180px;
+  width: 200px;
+  float: left;
+  
+}
+.userscommend{
+  padding: 10px;
+  margin-left: 220px;
+ 
+}
+.eachcommend{
+  height: 200px;
+  border-top: 3px solid #dc9300;
+  padding-top: 10px;
+}
+#usercommend{
+  clear: both;
+  display: none;
+  margin-top: 20px;
+  padding: 10px 0px;
+}
+#bookcommend span{
+  color: #444;
+  font-size: 17px;
+  font-weight: bold;
+  
+}
+#usercommend input[type=text]{
+  width: 622px;
+	padding: 5px;
+	border: 1px solid #d4d4d4;
+	
+	line-height: 1.5em;
+	
+	/* some box shadow sauce :D */
+	box-shadow: inset 0px 2px 2px #ececec;
+  height: 36px;
+}
+#usercommend label{
+ font-size: 16px;
+  font-weight: bold;
+  color: #444;
+	
+  
+}
+#usercommend textarea{
+  width: 622px;
+  border-radius: 0px; 
+}
+#usercommend input[type=submit]{
+  font-family: "sans-serif";
+  font-weight: bold;
+  font-size: 16px;
+  width: 150px;
+  height: 30px;
+  border-radius: 5px;
+  background: linear-gradient(#f1f1f1, #e2e2e2);
+  color: #444;
+  box-shadow: 1px 1px 1px gray;
+  
+}
+#bookcommend input[type=button]{
+  font-family: "sans-serif";
+  font-weight: bold;
+  font-size: 16px;
+  width: 150px;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  background: linear-gradient(#f1f1f1, #e2e2e2);
+  color: #444;
+  box-shadow: 1px 1px 1px gray;
+  cursor: pointer;
+  
+}
+#bookcommend input[type=button]:hover{
+  opacity: 0.7;
+}
+/* phan nay cua suggest book*/
+
+.horizontal-images.content{
+	height: 280px;
+	width: 1000px;
+  margin: 0 auto;
+	max-width: 97%;
+	padding: 10px;
+  color: #444;
+  text-align: center;
+  padding-bottom: 40px;
+}
+
+.horizontal-images.content h2, .horizontal-images.content li img{ height: 230px;width: 180px; cursor:pointer;margin-left: 7px;}
+
+.horizontal-images.content h2{
+	color: #fff;
+	background-color: #eb3755;
+	padding: 10px 20px;
+	margin: 0;
+	-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;
+	font-size: 165%;
+}
+
+.horizontal-images.content ul, .vertical-images.content ul{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	overflow: hidden;
+}
+
+.horizontal-images.content li{
+	margin: 0 3px;
+	float: left;
+}
+
+.content p{
+  width: 180px;
+}
+.horizontal-images.content li:first-child{ margin-left: 0; }
+.susgestbookstar{
+}
+/* phan nay cua hover img*/
+.holder
+{
+    float: left;
+    position: relative;    
+    overflow: hidden;
+    box-shadow: 0px 0px 5px #333333;
+}
+.holder img{
+  width: 175px;
+  height: 250px;
+}
+/* Caption and Light */
+.caption
+{
+    color: rgba(0,0,0,0);
+    line-height: 100px;
+    
+}
+
+/* Smooth Caption */
+.smooth:hover
+{
+    opacity: 1;
+    box-shadow: 0px 0px 10px #333333;
+}
+.go-left
+{
+    background-color: rgba(0,0,0,0.7);
+    color: #FFFFFF;
+    position: absolute;
+  height: 15%;
+    bottom: 0px;
+   // right: -600px;
+  bottom: -600px;
+    width: 100%;
+    text-align:center;   
+    font-size: 13px;
+  padding-top:10px;
+    -webkit-transition: 0.1s Ease;
+    -moz-transition: 0.1s Ease;
+    -o-transition: 0.1s Ease;
+    transition: 0.1s Ease;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: "sans-serif";
+}
+.smooth:hover > .go-left
+{    
+    //right:0px;
+  bottom: 0px;
+}
+/*phan nay cua category*/
+select[name=categorytype]{
+  width: 450px;
+margin-left: 130px;
+}
+#paginationdemo{
+  margin-top: 30px;
+}
+.book_item{
+  float:left;
+  text-align: center;
+  width: 220px;
+  padding-left: 20px;
+  padding-bottom: 30px;
+}
+.book_item img{
+  width: 190px;
+  height: 250px;
+  margin-bottom: 10px;
+}
+.book_item p{
+  color: #fff;
+}
+#demo5{
+  clear: both;
+  margin-left: 30px;
+}
+.jPaginate{
+    height:34px;
+    position:relative;
+    color:#a5a5a5;
+    font-size:small;   
+	width:100%;
+}
+.jPaginate a{
+    line-height:15px;
+    height:18px;
+    cursor:pointer;
+    padding:2px 5px;
+    margin:2px;
+    float:left;
+}
+.jPag-control-back{
+	position:absolute;
+	left:0px;
+}
+.jPag-control-front{
+	position:absolute;
+	top:0px;
+}
+.jPaginate span{
+    cursor:pointer;
+}
+ul.jPag-pages{
+    float:left;
+    list-style-type:none;
+    margin:0px 0px 0px 0px;
+    padding:0px;
+}
+ul.jPag-pages li{
+    display:inline;
+    float:left;
+    padding:0px;
+    margin:0px;
+}
+ul.jPag-pages li a{
+    float:left;
+    padding:2px 5px;
+}
+span.jPag-current{
+    cursor:default;
+    font-weight:normal;
+    line-height:15px;
+    height:18px;
+    padding:2px 5px;
+    margin:2px;
+    float:left;
+}
+ul.jPag-pages li span.jPag-previous,
+ul.jPag-pages li span.jPag-next,
+span.jPag-sprevious,
+span.jPag-snext,
+ul.jPag-pages li span.jPag-previous-img,
+ul.jPag-pages li span.jPag-next-img,
+span.jPag-sprevious-img,
+span.jPag-snext-img{
+    height:22px;
+    margin:2px;
+    float:left;
+    line-height:18px;
+}
+
+ul.jPag-pages li span.jPag-previous,
+ul.jPag-pages li span.jPag-previous-img{
+    margin:2px 0px 2px 2px;
+    font-size:12px;
+    font-weight:bold;
+        width:10px;
+
+}
+ul.jPag-pages li span.jPag-next,
+ul.jPag-pages li span.jPag-next-img{
+    margin:2px 2px 2px 0px;
+    font-size:12px;
+    font-weight:bold;
+    width:10px;
+}
+span.jPag-sprevious,
+span.jPag-sprevious-img{
+    margin:2px 0px 2px 2px;
+    font-size:18px;
+    width:15px;
+    text-align:right;
+}
+span.jPag-snext,
+span.jPag-snext-img{
+    margin:2px 2px 2px 0px;
+    font-size:18px;
+    width:15px;
+     text-align:right;
+}
+ul.jPag-pages li span.jPag-previous-img{
+    background:transparent url(../images/previous.png) no-repeat center right;
+            }
+ul.jPag-pages li span.jPag-next-img{
+    background:transparent url(../images/next.png) no-repeat center left;
+            }
+span.jPag-sprevious-img{
+    background:transparent url(../images/sprevious.png) no-repeat center right;
+            }
+span.jPag-snext-img{
+    background:transparent url(../images/snext.png) no-repeat center left;
+            }
+/*phan nay cua searchbook*/
+#searchbox{
+ 
+  height: 170px;
+  width: 930px;
+  margin:0 auto;
+  background: linear-gradient(#dc9300, #dc9900);
+  border-radius: 15px;
+  position: relative;
+  margin-bottom: 30px;
+}
+#searchcontent{
+  width: 70%;
+ position: absolute;
+  top:50px;
+  left:210px;
+  
+}
+#searchcontent input[type=text]{
+
+	border:none;
+	color:#888888;
+	background:url("../images/searchBox.png") no-repeat;
+	
+	float:left;
+	font-family:Arial,Helvetica,sans-serif;
+	font-size:15px;
+	height:36px;
+	line-height:36px;
+	margin-right:12px;
+	outline:medium none;
+	padding:0 0 0 35px;
+	text-shadow:1px 1px 0 white;
+	width:385px;
+}
+#searchcontent input[type=button]{
+background:url('../images/buttons.png') no-repeat;
+	width:83px;
+	height:36px;
+	text-indent:-9999px;
+	overflow:hidden;
+	text-transform:uppercase;
+	border:none;
+	cursor:pointer;
+}
+#searchInContainer{
+  color: #fff;
+	float:left;
+	margin-top:12px;
+	width:80%;
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+}
+#searchInContainer input{
+  margin-bottom:10px;
+}
+#searchInContainer select{
+  height: 20px;
+  font-family: "myfont";
+   height: 25px;
+  	width: 77%;
+	border: 1px solid #d4d4d4;
+	border-bottom-right-radius: 5px;
+	border-top-right-radius: 4px;
+	
+	line-height: 1.5em;
+	
+	/* some box shadow sauce :D */
+	box-shadow: inset 0px 2px 2px #ececec;
+}
+#searchInContainer>label{
+  margin-right: 10px;
+}
+#searchcontent input[type=submit]:hover{
+	background-position:left bottom;
+}
+/*Phan nay cua requestbook*/
+#requestbook label {
+	font-weight: bold;
+	background: linear-gradient(#dc9300, #dc9300);
+	padding: 5px 10px;
+	color: #fff;
+	
+	border: 1px solid #dc9700;
+	/* lets remove the right border */
+	border-right: 0;
+	border-bottom-left-radius: 5px;
+	border-top-left-radius: 5px;
+	line-height: 1.5em;
+	width: 30%;
+	
+	/* takes the width properly now and also the
+	spacing between the label and input field got removed. */
+	float: left;
+	
+	text-align: center;
+	cursor: pointer;
+}
+
+/* The label is looking good now. Onto the input field! */
+
+/*
+Everything is broken now! But we can fix it. Lets see how.
+*/
+#requestbook input[type=text] {
+	width: 65%;
+	padding: 5px;
+	border: 1px solid #d4d4d4;
+	border-bottom-right-radius: 5px;
+	border-top-right-radius: 4px;
+	height: 36px;
+	line-height: 1.5em;
+	
+	/* some box shadow sauce :D */
+	box-shadow: inset 0px 2px 2px #ececec;
+}
+#requestbook input[type=submit],.tab input[type=reset],.tab input[type=button]{
+  margin-top: 10px;
+  cursor: pointer;
+  font-weight: bold;
+	background: linear-gradient(#dc9300, #dc9300);
+	padding: 5px 10px;
+	color: #fff;
+	
+	border: 1px solid #dc9300;
+	/* lets remove the right border */
+	border-right: 0;
+border-radius: 5px; 
+	
+	line-height: 1.5em;
+	width: 200px;
+}
+#requestbook{
+  clear:both;
+  color: white;
+  width: 1000px;
+padding-left: 250px;
+  margin-bottom: 20px;
+}
+#requestbook img{
+  width: 170px;
+  height: 200px;
+  margin-top: 10px;
+}
+#requestingbook a{
+  font-size: 17px;
+}
+#requestingbook img{
+   cursor: pointer;
+}
+#requestingbook h1{
+  clear:both;
+}
+/*hover tooltip cho home page*/
+.wrapper {
+  text-transform: uppercase;
+  background: #ececec;
+  color: #444;
+  font-weight: bold;
+  cursor: help;
+  font-size: 18px;
+  margin: 10px 50px 0px 40px;
+  padding: 6px 20px;
+  border-radius: 7px; 
+  position: relative;
+  text-align: center;
+  width: 210px;
+  -webkit-transform: translateZ(0); /* webkit flicker fix */
+  -webkit-font-smoothing: antialiased; /* webkit text rendering fix */
+}
+
+.wrapper .tooltip {
+  font-size: 15px;
+  background: #dc9300;
+  bottom: 100%;
+  color: #fff;
+  display: block;
+  left: -25px;
+  margin-bottom: 15px;
+  opacity: 0;
+  padding: 20px;
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+  -webkit-transform: translateY(10px);
+     -moz-transform: translateY(10px);
+      -ms-transform: translateY(10px);
+       -o-transform: translateY(10px);
+          transform: translateY(10px);
+  -webkit-transition: all .25s ease-out;
+     -moz-transition: all .25s ease-out;
+      -ms-transition: all .25s ease-out;
+       -o-transition: all .25s ease-out;
+          transition: all .25s ease-out;
+  -webkit-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+     -moz-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+      -ms-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+       -o-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+          box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+}
+
+/* This bridges the gap so you can mouse into the tooltip without it disappearing */
+.wrapper .tooltip:before {
+  bottom: -20px;
+  content: " ";
+  display: block;
+  height: 20px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+}  
+
+/* CSS Triangles - see Trevor's post */
+.wrapper .tooltip:after {
+  border-left: solid transparent 10px;
+  border-right: solid transparent 10px;
+  border-top: solid #dc9300 10px;
+  bottom: -10px;
+  content: " ";
+  height: 0;
+  left: 50%;
+  margin-left: -13px;
+  position: absolute;
+  width: 0;
+}
+  
+.wrapper:hover .tooltip {
+  opacity: 1;
+  pointer-events: auto;
+  -webkit-transform: translateY(0px);
+     -moz-transform: translateY(0px);
+      -ms-transform: translateY(0px);
+       -o-transform: translateY(0px);
+          transform: translateY(0px);
+}
+
+/* IE can just show/hide with no transition */
+.lte8 .wrapper .tooltip {
+  display: none;
+}
+
+.lte8 .wrapper:hover .tooltip {
+  display: block;
+}
+#footer-wrapper{
+  width: 1000px;
+  margin: 0 auto;
+}
+#footer li{
+  display: inline;
+  
+}
+#footer {
+  text-align: left;
+ 
+}
+#footer a{
+  font-size: 13px;
+  color: #eee; 
+}
+#footer a:hover{
+  font-style: italic;
+}
+#footer ul{
+}
+#footer-wrapper div{
+  color: #eee;
+  font-size: 13px;
+  margin-left: 600px;
+}
+#header img{
+  width: 180px;
+  height: 80px;
+}
