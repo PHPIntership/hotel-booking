@@ -31,6 +31,13 @@ or set the git url in git config file
 vim .git/config #open git config file by vim, then set the url
 ```
 
+##### Install packages by composer
+Execute
+```bash
+composer install
+```
+to download all required packages to vendor directory. But before execute that command, make sure [composer](https://getcomposer.org/doc/00-intro.md#globally) is globally installed in your local machine.
+
 ##### Directory Permissions
 ```bash
 sudo chmod -R 777 storage
@@ -50,6 +57,11 @@ Verison: ^2.0
 
 ### Recommended Packages (not Installed)
 
+Add the name and the version of package to `composer.json` file then execute
+```bash
+composer update
+```
+to install the package.
 - [Laravel Former](https://github.com/formers/former) : Easier way to handle form
 - [Intervention Image](http://image.intervention.io/) : The great package for working with image
 - [Laravel Collective](http://laravelcollective.com/)
