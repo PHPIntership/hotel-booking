@@ -1167,7 +1167,7 @@ Everything is broken now! But we can fix it. Lets see how.
   background: #fff;
   padding-bottom:40px;
   margin-bottom: 20px;
-  border-radius: 5px; 
+  border-radius: 5px;
   text-align: left;
 }
 .register form{
@@ -1206,7 +1206,7 @@ Everything is broken now! But we can fix it. Lets see how.
   border: none;
   color: white;
   font-size: 13px;
-  
+
 }
 .register td{
   padding: 10px;
@@ -1346,17 +1346,22 @@ float: left;
 /*--Pian-Order--*/
 #order-wrap{
   width: 1000px;
+  height: 480px;
   background: #FFF;
+}
+
+#order-wrap h1{
+  color: #000;
 }
 
 #order-info{
   width: 400px;
   float: left;
+  padding-left:40px;
 }
 
 #order-info p{
   margin: 20px 0;
-  color: #FFF;
 }
 
 #order-info img{
@@ -1365,12 +1370,11 @@ float: left;
 }
 
 #order-form{
-  width: 550px;
+  width: 520px;
   float: right;
 }
 
 #order-form th{
-  color: #FFF;
   height: 50px;
   text-align: right;
 }
@@ -1381,7 +1385,12 @@ float: left;
 
 #order-form input[type="text"],
 #order-form textarea{
+  resize: none;
   width: 300px;
+}
+
+#order-form textarea{
+  height: 120px;
 }
 
 #order-form select{
@@ -1407,4 +1416,3 @@ float: left;
 }
 
 /*--Pian-Order-End--*/
-
