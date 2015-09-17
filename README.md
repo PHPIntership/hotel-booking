@@ -1,4 +1,4 @@
-# Asiantech PHP Team - Laravel Sample Project
+# Asiantech PHP Team - Laravel Skeleton Project
 
 This repository is used for projects that use [Laravel](http://laravel.com) framework.
 
@@ -56,4 +56,4 @@ Verison: ^2.0
 - [Laravel-Excel](https://github.com/Maatwebsite/Laravel-Excel): Working with Excel is more easier and fun
 - [API](https://github.com/dingo/api): It's for building an API project
 - [Laravel Mongodb](https://github.com/jenssegers/laravel-mongodb): The Eloquent for Mongodb
-[Sloquent Sluggable](https://github.com/cviebrock/eloquent-sluggable): Making slug
+- [Sloquent Sluggable](https://github.com/cviebrock/eloquent-sluggable): Making slug
