@@ -1,0 +1,149 @@
+<!Doctype html>
+<html>
+<head>
+<title>Company Library</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
+<link rel="stylesheet" type="text/css" href="css/loginform.css"/>
+
+ <link rel="stylesheet" href="css/nivo-slider.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/default/default.css" type="text/css" media="screen" />
+
+<script type="text/javascript" src="scripts/jquery-1.9.0.min.js"></script>
+<script type="text/javascript" src="scripts/jquery.nivo.slider.js"></script>
+<script type="text/javascript" charset="utf-8" src="scripts/jquery.leanModal.min.js"></script>
+
+<script type="text/javascript">
+ $(window).load(function() {
+        $('#slider').nivoSlider();
+    });
+$(document).ready(function(){
+  $('#loginform').submit(function(e){
+    return false;
+  });
+  
+   
+
+
+	
+	$('.home').addClass('current_page');
+	$('#navigationbar a').addClass('normal_page');
+	
+  $('#modaltrigger').leanModal({ top: 110, overlay: 0.45, closeButton: ".hidemodal" });
+});
+</script>
+</head>
+<body>
+				<div id="loginmodal" style="display:none;">
+				<h1>User Login</h1>
+				<form id="loginform" name="loginform" method="post" action="index.html">
+				  <label for="username">Username:</label>
+				  <input type="text" name="username" id="username" class="txtfield" tabindex="1">
+				  
+				  <label for="password">Password:</label>
+				  <input type="password" name="password" id="password" class="txtfield" tabindex="2">
+				  
+				  <div class="center"><input type="submit" name="loginbtn" id="loginbtn" class="flatbtn-blu hidemodal" value="Đăng nhập" tabindex="3"></div>
+				</form>
+			  </div><!--End #loginmodal-->
+	<div id="wrapper">
+		<div id="header">
+			<img src="images/logo2.png" title="Company library"/>
+			
+			<div id="userinfo">
+				<h4>Hello <a href="#">User0123 </a><a href="#">| Log out</a></h4>
+			</div><!--End #userinfo-->
+			
+			<div id="login">
+				<ul>
+				<li><a href="#loginmodal" id="modaltrigger">Log in |</a></li>
+				<li><a href="#">Register</a></li>
+				</ul>
+			</div><!--End #login-->
+		</div><!--End #header-->
+		<div id="content">
+						<div id="navigationbar">
+							<ul>
+							<li><a href="#" class="home" >HOME</a></li>
+								<li><a href="#">SEARCH</a></li>
+								<li><a href="#">HOTEL INFO</a></li>
+								<li><a href="#">PROFILE</a></li>
+								<li><a href="#">GALLERY</a></li>
+								<li><a href="#">CONTACT</a></li>
+								
+							</ul>
+						</div><!--End #navigationbar-->
+						<div id="slider_wrapper" class="slider-wrapper theme-default">
+							<div id="slider" class="nivoSlider">
+							
+								<img src="images/slider.jpg" title="Hotel Booking"/>
+								<img src="images/slider1.jpg" title="Hotel Booking"/>
+								<img src="images/slider2.jpg" title="Hotel Booking"/>
+								<img src="images/slider3.jpg" title="Hotel Booking"/>
+							</div><!--End #slide-->
+						</div><!--End #slider-wrapper-->
+						
+						<div id="maincontent"><!--moi thay doi cua website nam o day-->
+							<div class="register">
+								<form id="registerform" action="" method="">
+									<img src="images/user.png"/>
+									<table>
+										<tr>
+											<td>Select profile picture:</td>
+											<td><input type="file" name="pic"/></td>
+										</tr>
+											<td>Username:*</td>
+											<td><input type="text" name="username" placeholder="Username for log in"/></td>
+										<tr>
+											</tr>
+											<td>Password:*</td>
+											<td><input type="password" name="password" placeholder="Password for log in"/></td>
+										<tr>
+										<tr>
+											</tr>
+											<td>Name:*</td>
+											<td><input type="text" name="name" placeholder="Your real name"/></td>
+										<tr>
+										<tr>
+											</tr>
+											<td>Address:*</td>
+											<td><input type="text" name="address" placeholder="Your address"/></td>
+										<tr>
+										<tr>
+											</tr>
+											<td>Email:*</td>
+											<td><input type="text" name="email" placeholder="Your email"/></td>
+										<tr>
+										<tr>
+											</tr>
+											<td>Phone:</td>
+											<td><input type="text" name="phone" placeholder="Your phone"/></td>
+										
+									</table>
+									<input type="submit" value="Register" name="register"/>
+									<input type="reset" value="Reset" name="reset"/>
+						
+								</form>
+							</div>
+	
+						</div><!--End #maincontent-->
+		</div><!--End #content-->
+		
+		<div id="footer">
+			<div id="footer-wrapper">
+			<ul>
+				<li><a href="#">Travel agent |</a></li>
+				<li><a href="#">Corporate Responsibility |</a></li>
+				<li><a href="#">Pricy |</a></li>
+				<li><a href="#">Sitemap</a></li>
+			</ul>
+			<div>
+			<p>74 Bach Dang Street, Hai Chau,Da Nang, Viet Nam</p>
+			<p>Copyrights © AsianTech | Powered by PHP Internship</p>
+			</div>
+		</div>
+		</div><!--End #footer-->
+	</div><!--End #wrapper-->
+</body>
+
+</html>
