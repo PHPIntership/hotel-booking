@@ -1342,6 +1342,10 @@ float: left;
 /*-------------*/
 
 /*--Pian-Order--*/
+#order-wrap{
+  width: 1000px;
+  background: #FFF;
+}
 
 #order-info{
   width: 400px;
