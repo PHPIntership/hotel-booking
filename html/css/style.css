@@ -524,42 +524,15 @@ Everything is broken now! But we can fix it. Lets see how.
   margin-bottom: 10px;
   width: 60%;
 }
-.tabs input[type=submit],.tabs input[type=button]{
-  margin-top: 10px;
-  font-family: "sans-serif";
-  font-size: 15px;
-  font-weight: bold;
-  background: linear-gradient(#f1f1f1, #e2e2e2);
-  color: #444;
-}
-.tabs input[type=button]{
-  border: none;
-  width: 175px;
-  border-radius: 5px;
-  
-  cursor: pointer;
-}
-.tabs input[type=button]:hover{
-  box-shadow: 1px 1px 1px #999;
-}
+
+
 .tabs h3,.tabs h4{
   color: #444;
 }
 .infowrapper{
   margin: 5px 0px;
 }
-.tabs table{
-  width: 100%;
-  border-collapse: collapse;
-  border-radius: 10px;
-}
-.tabs table,.tabs th,.tabs td{
-  padding: 10px;
-  border: 1px solid #d4d4d4;
-  text-align: left;
-  
-  
-}
+
 .tabs th{
  background: linear-gradient(#f1f1f1, #e2e2e2);
 }
@@ -1056,83 +1029,15 @@ background:url('../images/buttons.png') no-repeat;
 #searchcontent input[type=submit]:hover{
 	background-position:left bottom;
 }
-/*Phan nay cua requestbook*/
-#requestbook label {
-	font-weight: bold;
-	background: linear-gradient(#dc9300, #dc9300);
-	padding: 5px 10px;
-	color: #fff;
-	
-	border: 1px solid #dc9700;
-	/* lets remove the right border */
-	border-right: 0;
-	border-bottom-left-radius: 5px;
-	border-top-left-radius: 5px;
-	line-height: 1.5em;
-	width: 30%;
-	
-	/* takes the width properly now and also the
-	spacing between the label and input field got removed. */
-	float: left;
-	
-	text-align: center;
-	cursor: pointer;
-}
+
+
 
 /* The label is looking good now. Onto the input field! */
 
 /*
 Everything is broken now! But we can fix it. Lets see how.
 */
-#requestbook input[type=text] {
-	width: 65%;
-	padding: 5px;
-	border: 1px solid #d4d4d4;
-	border-bottom-right-radius: 5px;
-	border-top-right-radius: 4px;
-	height: 36px;
-	line-height: 1.5em;
-	
-	/* some box shadow sauce :D */
-	box-shadow: inset 0px 2px 2px #ececec;
-}
-#requestbook input[type=submit],.tab input[type=reset],.tab input[type=button]{
-  margin-top: 10px;
-  cursor: pointer;
-  font-weight: bold;
-	background: linear-gradient(#dc9300, #dc9300);
-	padding: 5px 10px;
-	color: #fff;
-	
-	border: 1px solid #dc9300;
-	/* lets remove the right border */
-	border-right: 0;
-border-radius: 5px; 
-	
-	line-height: 1.5em;
-	width: 200px;
-}
-#requestbook{
-  clear:both;
-  color: white;
-  width: 1000px;
-padding-left: 250px;
-  margin-bottom: 20px;
-}
-#requestbook img{
-  width: 170px;
-  height: 200px;
-  margin-top: 10px;
-}
-#requestingbook a{
-  font-size: 17px;
-}
-#requestingbook img{
-   cursor: pointer;
-}
-#requestingbook h1{
-  clear:both;
-}
+
 /*hover tooltip cho home page*/
 .wrapper {
   text-transform: uppercase;
@@ -1254,3 +1159,73 @@ padding-left: 250px;
   width: 180px;
   height: 80px;
 }
+/*Dung.Register*/
+.register{
+  margin: 0 auto;
+  background: #fff;
+  padding-bottom:40px;
+  margin-bottom: 20px;
+  border-radius: 5px; 
+  text-align: left;
+}
+.register form{
+}
+.register img{
+  width: 100px;
+  height: 100px;
+  margin-left: 140px;
+  margin-top: 50px;
+}
+
+.register table{
+  margin-left: 150px;
+  text-align: left;
+  margin-bottom: 20px;
+}
+.register input[type=text],.register input[type=password]{
+	width: 500px;
+	height: 50px;
+	padding: 10px;
+}
+.register input[type=file]{
+	width: 500px;
+	height: 50px;
+}
+.register input[type=submit]{
+  margin-left: 150px;
+  width: 100px;
+  height: 50px;
+  background: #dc9300;
+}
+.register input[type=reset]{
+  width: 100px;
+  height: 50px;
+  background: #dc9300;
+  border: none;
+  color: white;
+  font-size: 13px;
+  
+}
+.register td{
+  padding: 10px;
+}
+#orderhistory table{
+ border-collapse: collapse;
+  text-align: left;
+}
+#orderhistory th{
+  padding: 10px;
+}
+#orderhistory td{
+  padding: 10px;
+  border-bottom: 2px solid #dc9300;
+}
+#orderhistory tr{
+}
+#orderhistory table a{
+  color: #dc9300;
+}
+#orderhistory a:hover{
+  font-style: italic;
+}
+/*-------------*/

@@ -21,49 +21,31 @@ $(document).ready(function(){
   $('#loginform').submit(function(e){
     return false;
   });
+  
+   
+
+
+	
 	$('.home').addClass('current_page');
 	$('#navigationbar a').addClass('normal_page');
 	
   $('#modaltrigger').leanModal({ top: 110, overlay: 0.45, closeButton: ".hidemodal" });
-  
 });
 </script>
-<script type="text/javascript">
-$(document).ready(function(){
-jQuery('.tabs .tab-links a').on('click', function(e)  {
+<script>
+jQuery(document).ready(function() {
+    jQuery('.tabs .tab-links a').on('click', function(e)  {
         var currentAttrValue = jQuery(this).attr('href');
  
         // Show/Hide Tabs
         jQuery('.tabs ' + currentAttrValue).show().siblings().hide();
-       
+ 
         // Change/remove current tab to active
         jQuery(this).parent('li').addClass('active').siblings().removeClass('active');
-        e.preventDefault();
-    });
-	
-	 function close_accordion_section() {
-        $('.accordion .accordion-section-title').removeClass('active');
-        $('.accordion .accordion-section-content').slideUp(300).removeClass('open');
-    }
- 
-    $('.accordion-section-title').click(function(e) {
-        // Grab current anchor value
-        var currentAttrValue = $(this).attr('href');
- 
-        if($(e.target).is('.active')) {
-            close_accordion_section();
-        }else {
-            close_accordion_section();
- 
-            // Add active class to section title
-            $(this).addClass('active');
-            // Open up the hidden content panel
-            $('.accordion ' + currentAttrValue).slideDown(300).addClass('open'); 
-        }
  
         e.preventDefault();
     });
-	}
+});
 </script>
 </head>
 <body>
@@ -76,7 +58,7 @@ jQuery('.tabs .tab-links a').on('click', function(e)  {
 				  <label for="password">Password:</label>
 				  <input type="password" name="password" id="password" class="txtfield" tabindex="2">
 				  
-				  <div class="center"><input type="submit" name="loginbtn" id="loginbtn" class="flatbtn-blu hidemodal" value="Đăng nhập" tabindex="3"></div>
+				  <div class="center"><input type="submit" name="loginbtn" id="loginbtn" class="flatbtn-blu hidemodal" value="�ang nh?p" tabindex="3"></div>
 				</form>
 			  </div><!--End #loginmodal-->
 	<div id="wrapper">
@@ -117,8 +99,107 @@ jQuery('.tabs .tab-links a').on('click', function(e)  {
 						</div><!--End #slider-wrapper-->
 						
 						<div id="maincontent"><!--moi thay doi cua website nam o day-->
-							
-	
+					
+							<div class="tabs">
+								<ul class="tab-links">
+									<li class="active"><a href="#tab1">Profile</a></li>
+									<li><a href="#tab2">Order history</a></li>
+								</ul>
+
+								<div class="tab-content">
+									<div id="tab1" class="tab active">
+											<div class="register">
+												<form id="updateprofile" action="" method="">
+													<img src="images/user.png"/>
+													<table>
+														<tr>
+															<td>Select profile picture:</td>
+															<td><input type="file" name="pic"/></td>
+														</tr>
+															<td>Username:*</td>
+															<td><input type="text" name="username" placeholder="Username for log in"/></td>
+														<tr>
+															</tr>
+															<td>Password:*</td>
+															<td><input type="password" name="password" placeholder="Password for log in"/></td>
+														<tr>
+														<tr>
+															</tr>
+															<td>Name:*</td>
+															<td><input type="text" name="name" placeholder="Your real name"/></td>
+														<tr>
+														<tr>
+															</tr>
+															<td>Address:*</td>
+															<td><input type="text" name="address" placeholder="Your address"/></td>
+														<tr>
+														<tr>
+															</tr>
+															<td>Email:*</td>
+															<td><input type="text" name="email" placeholder="Your email"/></td>
+														<tr>
+														<tr>
+															</tr>
+															<td>Phone:</td>
+															<td><input type="text" name="phone" placeholder="Your phone"/></td>
+														
+													</table>
+													<input type="submit" value="Register" name="register"/>
+													<input type="reset" value="Reset" name="reset"/>
+										
+												</form>
+											</div>
+									</div>
+
+									<div id="tab2" class="tab">
+										<div id="orderhistory">
+										<table>
+											<thead>
+												<th>Order day</th>
+												<th>Room type</th>
+												<th>Coming day</th>
+												<th>Leave day</th>
+												<th>Quantity</th>
+												<th>Price</th>
+												<th>Status</th>
+												<th>Comments</th>
+												<th>Option</th>
+											</thead>
+											<tbody>
+												<tr>
+													<td>19/09/2015</td>
+													<td>Good</td>
+													<td>20/09/2015</td>
+													<td>25/09/2015</td>
+													<td>3</td>
+													<td>2000$</td>
+													<td>Accepted</td>
+													<td>Welcome to our hotel! we have accepted your request</td>
+													<td></td>
+												</tr>
+												
+												<tr>
+													<td>18/08/2015</td>
+													<td>5 *</td>
+													<td>13/08/2015</td>
+													<td>20/09/2015</td>
+													<td>2</td>
+													<td>1500$</td>
+													<td>Waiting for accept</td>
+													<td>Please wait us to reply your request</td>
+													<td><a href="#">Cancel</a></td>
+												</tr>
+											</tbody>
+										</table>
+										</div>
+									</div>
+
+								
+
+									
+								
+							</div>
+						</div>
 						</div><!--End #maincontent-->
 		</div><!--End #content-->
 		
@@ -132,7 +213,7 @@ jQuery('.tabs .tab-links a').on('click', function(e)  {
 			</ul>
 			<div>
 			<p>74 Bach Dang Street, Hai Chau,Da Nang, Viet Nam</p>
-			<p>Copyrights © AsianTech | Powered by PHP Internship</p>
+			<p>Copyrights � AsianTech | Powered by PHP Internship</p>
 			</div>
 		</div>
 		</div><!--End #footer-->
