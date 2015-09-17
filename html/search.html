@@ -48,7 +48,7 @@ $(document).ready(function(){
 			  </div><!--End #loginmodal-->
 	<div id="wrapper">
 		<div id="header">
-			<img src="images/logo.png" title="Company library"/>
+			<img src="images/logo2.png" title="Company library"/>
 			
 			<div id="userinfo">
 				<h4>Hello <a href="#">User0123 </a><a href="#">| Log out</a></h4>
@@ -84,7 +84,72 @@ $(document).ready(function(){
 						</div><!--End #slider-wrapper-->
 						
 						<div id="maincontent"><!--moi thay doi cua website nam o day-->
-							
+							<div class="tabsearch">
+								<div class="search1">
+									<h4>Check in</h4>
+									<h4>Check out</h4>
+									<h4>Rooms</h4>
+								</div>
+								<div class="search2">
+									<input type="date" id="myDate" value="2015-09-09">
+									<input type="date" id="myDate" value="2015-09-09">
+									<select >
+										<option value="">Superior Double Room</option>
+										<option value="">Superior Twin Room</option>
+										<option value="">Deluxe Double Room</option>
+										<option value="">Superior Triple Room	</option>
+									</select>
+									<button type="button">Search</button>
+								</div>
+							</div>
+
+
+							<div class="resultsearch">
+							<div id="roomlist">
+							<table>
+							<h3>Result for search</h3>
+								<tr>
+									<th>Room type</th>
+									<th>Image</th>
+									<th>Price</th>
+									<th>Action</th>
+								</tr>
+								<tr>
+									<td><h4>Superior Double Room</h4>
+									<h6>1 double bed<br>
+									Entertainment - Free WiFi and cable channels <br>
+									Food & Drink - Refrigerator<br>
+									Bathroom - Hair dryer and shower<br>
+									Practical - Air conditioning and desk</h6>	</td>
+									<td><img src="images/double bed.jpg"></td>
+									<td>400 $</td>
+									<td><a href="#">Book</a></td>
+								</tr>
+								<tr>
+									<td><h4>Superior Twin Room</h4>
+									<h6>2 single beds
+										Entertainment - Free WiFi and cable channels <br>
+										Food & Drink - Refrigerator<br>
+										Bathroom - Hair dryer and shower<br>
+										Practical - Air conditioning and desk</h6></td>
+									<td><img src="images/single bed.jpg"></td>
+									<td>200 $</td>
+									<td><a href="#">Book</a></td>
+								</tr>
+								<tr>
+									<td><h4>Deluxe Double Room</h4>
+									<h6>1 double bed
+										Entertainment - Free WiFi and cable channels <br>
+										Food & Drink - Refrigerator<br>
+										Bathroom - Hair dryer and shower<br>
+										Practical - Air conditioning and desk</h6></td>
+									<td><img src="images/1single+1.jpg"></td>
+									<td>100 $</td>
+									<td><a href="#">Book</a></td>
+								</tr>
+							</table>
+							</div>
+						</div>
 	
 						</div><!--End #maincontent-->
 		</div><!--End #content-->

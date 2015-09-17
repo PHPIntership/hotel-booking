@@ -23,9 +23,7 @@ a{
 a:hover{
   color:#dc9300;
 }
-h1,h2,h3,h4,h5,h6{
-  color:white;
-}
+
 
 body{
   font-family: "sans-serif";
@@ -1254,3 +1252,114 @@ padding-left: 250px;
   width: 180px;
   height: 80px;
 }
+/*Duc Room list*/
+#maincontent{
+  width: 1000px;
+  background-color: #fff;
+}
+#roomlist{
+  background-color: #fff;
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+#roomlist table{
+  
+  width: 960px;
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+#roomlist table thead{
+  width: 960px;
+}
+#roomlist table td{
+  border-bottom:  2px solid #dc9300;
+  padding: 30px;
+  width: 25%;
+  text-align: center;
+}
+#roomlist table tr{
+ 
+}
+#roomlist th{
+  background-color: #dc9300;
+  font-style: normal;
+  padding: 20px;
+  color: #fff;
+  font-size: 20px;
+}
+#roomlist h4{
+    color: #000;
+    margin-left: 10px;
+    text-align: left;
+}
+#roomlist h6{
+    margin-left: 10px;
+    color: #000;
+    text-align: left;
+}
+#roomlist img{
+  width: 300px;
+  height: 200px;
+}
+#roomlist a{
+background-color: #dc9300;
+color: #fff;
+border-radius: 10px; 
+border: none;
+  padding: 20px 30px;
+  font-size: 15px;
+}
+
+/*Search by Duc*/
+
+.tabsearch{
+  background-color: #fff;
+  min-height: 100px;
+  padding-top: 30px;
+  padding-left: 30px;
+  border-bottom: 2px solid black;
+}
+.tabsearch input{
+  height: 30px;
+  width: 180px;
+  margin-right: 20px;
+  text-align: center;
+}
+.resultsearch{
+}
+#roomlist h3{
+color: #000;
+text-align: center;
+font-style: italic;
+margin-bottom: 10px;
+}
+.tabsearch h4{
+  color: #000;
+  width: 200px;
+  float: left;
+  margin-left: 5px;
+}
+.tabsearch select{
+
+  height: 30px;
+  width: 180px;
+  padding-left: 10px;
+  color: #fff;
+  background-color: #dc9300; 
+  border: none;
+}
+.tabsearch button{
+  height: 40px;
+  width: 80px;
+  padding-left: 10px;
+  background-color: #dc9300;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  margin-left: 100px;
+}
+.search2{
+float: left;
+}
+
+/*End Duc*/
