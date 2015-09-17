@@ -23,7 +23,9 @@ a{
 a:hover{
   color:#dc9300;
 }
-
+h1, h2, h3, h4, h5, h6{
+  color: white;
+}
 
 body{
   font-family: "sans-serif";
@@ -1158,11 +1160,80 @@ Everything is broken now! But we can fix it. Lets see how.
   height: 80px;
 }
 
-/*Duc Room list*/
-#maincontent{
-  width: 1000px;
-  background-color: #fff;
+
+/*Dung.Register*/
+.register{
+  margin: 0 auto;
+  background: #fff;
+  padding-bottom:40px;
+  margin-bottom: 20px;
+  border-radius: 5px; 
+  text-align: left;
 }
+.register form{
+}
+.register img{
+  width: 100px;
+  height: 100px;
+  margin-left: 140px;
+  margin-top: 50px;
+}
+
+.register table{
+  margin-left: 150px;
+  text-align: left;
+  margin-bottom: 20px;
+}
+.register input[type=text],.register input[type=password]{
+	width: 500px;
+	height: 50px;
+	padding: 10px;
+}
+.register input[type=file]{
+	width: 500px;
+	height: 50px;
+}
+.register input[type=submit]{
+  margin-left: 150px;
+  width: 100px;
+  height: 50px;
+  background: #dc9300;
+}
+.register input[type=reset]{
+  width: 100px;
+  height: 50px;
+  background: #dc9300;
+  border: none;
+  color: white;
+  font-size: 13px;
+  
+}
+.register td{
+  padding: 10px;
+}
+#orderhistory table{
+ border-collapse: collapse;
+  text-align: left;
+}
+#orderhistory th{
+  padding: 10px;
+}
+#orderhistory td{
+  padding: 10px;
+  border-bottom: 2px solid #dc9300;
+}
+#orderhistory tr{
+}
+#orderhistory table a{
+  color: #dc9300;
+}
+#orderhistory a:hover{
+  font-style: italic;
+}
+/*-------------*/
+
+/*Duc Room list*/
+
 #roomlist{
   background-color: #fff;
   padding-top: 10px;
@@ -1218,14 +1289,14 @@ border: none;
 
 /*Search by Duc*/
 
-.tabsearch{
+.search{
   background-color: #fff;
   min-height: 100px;
   padding-top: 30px;
   padding-left: 30px;
   border-bottom: 2px solid black;
 }
-.tabsearch input{
+.search input{
   height: 30px;
   width: 180px;
   margin-right: 20px;
@@ -1239,13 +1310,13 @@ text-align: center;
 font-style: italic;
 margin-bottom: 10px;
 }
-.tabsearch h4{
+.search h4{
   color: #000;
   width: 200px;
   float: left;
   margin-left: 5px;
 }
-.tabsearch select{
+.search select{
 
   height: 30px;
   width: 180px;
@@ -1254,7 +1325,7 @@ margin-bottom: 10px;
   background-color: #dc9300;
   border: none;
 }
-.tabsearch button{
+.search button{
   height: 40px;
   width: 80px;
   padding-left: 10px;
@@ -1270,76 +1341,7 @@ float: left;
 
 /*End Duc*/
 
-/*Dung.Register*/
-.register{
-  margin: 0 auto;
-  background: #fff;
-  padding-bottom:40px;
-  margin-bottom: 20px;
-  border-radius: 5px;
-  text-align: left;
-}
-.register form{
-}
-.register img{
-  width: 100px;
-  height: 100px;
-  margin-left: 140px;
-  margin-top: 50px;
-}
 
-.register table{
-  margin-left: 150px;
-  text-align: left;
-  margin-bottom: 20px;
-}
-.register input[type=text],.register input[type=password]{
-	width: 500px;
-	height: 50px;
-	padding: 10px;
-}
-.register input[type=file]{
-	width: 500px;
-	height: 50px;
-}
-.register input[type=submit]{
-  margin-left: 150px;
-  width: 100px;
-  height: 50px;
-  background: #dc9300;
-}
-.register input[type=reset]{
-  width: 100px;
-  height: 50px;
-  background: #dc9300;
-  border: none;
-  color: white;
-  font-size: 13px;
-
-}
-.register td{
-  padding: 10px;
-}
-#orderhistory table{
- border-collapse: collapse;
-  text-align: left;
-}
-#orderhistory th{
-  padding: 10px;
-}
-#orderhistory td{
-  padding: 10px;
-  border-bottom: 2px solid #dc9300;
-}
-#orderhistory tr{
-}
-#orderhistory table a{
-  color: #dc9300;
-}
-#orderhistory a:hover{
-  font-style: italic;
-}
-/*-------------*/
 
 /*--Pian-Order--*/
 #order-wrap{
@@ -1405,3 +1407,4 @@ float: left;
 }
 
 /*--Pian-Order-End--*/
+
