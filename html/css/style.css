@@ -47,7 +47,7 @@ h1{
   height: 150px;
   width: 1000px;
   margin:0 auto;
- 
+
 }
 #login{
  padding-top:8px;
@@ -65,7 +65,7 @@ border-bottom-left-radius: 10px;
 }
 #login li{
   display: inline;
- 
+
 }
 #login a{
   text-decoration: none;
@@ -83,7 +83,7 @@ border-bottom-left-radius: 10px;
 }
 
 #content{
-  
+
   width: 1000px;
   min-height: 1000px;
   margin:0 auto;
@@ -93,12 +93,12 @@ border-bottom-left-radius: 10px;
   width: 1000px;
   border-radius: 18px;
   background: black;
-  
+
 }
 #navigationbar ul{
 }
 #navigationbar li{
-  
+
   float:left;
     display:inline-block;
     position:relative;
@@ -119,10 +119,10 @@ border-bottom-left-radius: 10px;
   color:white;
 }
 .first{
-  
+
   border-bottom-left-radius: 18px;
   border-top-left-radius: 18px;
-  
+
 }
 .last{
   border-bottom-right-radius: 18px;
@@ -137,7 +137,7 @@ border-bottom-left-radius: 10px;
   background: #dc9300;
 }
 .normal_page{
-  
+
 }
 #slider1_container{
   padding-bottom: 20px;
@@ -151,7 +151,7 @@ border-bottom-left-radius: 10px;
   float:left;
   width: 330px;
   height: 300px;
- 
+
 }
 .bot p{
   color: #eee;
@@ -193,7 +193,7 @@ border-bottom-left-radius: 10px;
   color: white;
   font-size: 13px;
   font-family: "myfont-bold"
-  
+
 }
 #register input[type=submit]{
   width: 100px;
@@ -282,17 +282,17 @@ ol{
   margin-bottom: 40px;
   background: url(../images/bg1.png);
   background: white;
-  background-size:100%; 
-  padding-bottom: 10px; 
+  background-size:100%;
+  padding-bottom: 10px;
 }
 #bookinfo{
   padding: 20px 10px;
-  
+
 }
 #bookpicture{
   float:left;
   padding-right: 15px;
-  
+
 }
 #bookinfo{
   height: 250px;
@@ -314,17 +314,17 @@ ol{
   padding: 10px;
   border: 1px solid #d4d4d4;
   text-align: left;
-  
-  
+
+
 }
 #bookinfo th{
  background: linear-gradient(#f1f1f1, #e2e2e2);
   width: 30%;
-  
+
 }
 #bookinfo td{
 cursor: pointer;
-  
+
 }
 .titlebox{
   width: 50%;
@@ -400,7 +400,7 @@ border-bottom:1px solid black;
     display:inline-block;
    margin-bottom: 40px;
 }
- 
+
     /*----- Tab Links -----*/
     /* Clearfix */
     .tab-links:after {
@@ -408,13 +408,13 @@ border-bottom:1px solid black;
         clear:both;
         content:'';
     }
- 
+
     .tab-links li {
         margin:0px 5px;
         float:left;
         list-style:none;
     }
- 
+
         .tab-links a {
             padding:9px 15px;
             display:inline-block;
@@ -425,17 +425,17 @@ border-bottom:1px solid black;
             color:#4c4c4c;
             transition:all linear 0.15s;
         }
- 
+
         .tab-links a:hover {
             background:#fef2c8;
             text-decoration:none;
         }
- 
+
     li.active a, li.active a:hover {
         background:#ffc303;
         color:#4c4c4c;
     }
- 
+
     /*----- Content of Tabs -----*/
     .tab-content {
         padding:15px;
@@ -446,11 +446,11 @@ border-bottom:1px solid black;
       border-bottom-right-radius:  3px;
       border-bottom-left-radius: 3px;
     }
- 
+
         .tab {
             display:none;
         }
- 
+
         .tab.active {
             display:block;
         }
@@ -470,20 +470,20 @@ border-bottom:1px solid black;
 	background: linear-gradient(#f1f1f1, #e2e2e2);
 	padding: 5px 10px;
 	color: #444;
-	
+
 	border: 1px solid #d4d4d4;
 	/* lets remove the right border */
 	border-right: 0;
 	border-bottom-left-radius: 5px;
 	border-top-left-radius: 5px;
-	
+
 	line-height: 1.5em;
 	width: 30%;
-	
+
 	/* takes the width properly now and also the
 	spacing between the label and input field got removed. */
 	float: left;
-	
+
 	text-align: center;
 	cursor: pointer;
 }
@@ -499,9 +499,9 @@ Everything is broken now! But we can fix it. Lets see how.
 	border: 1px solid #d4d4d4;
 	border-bottom-right-radius: 5px;
 	border-top-right-radius: 4px;
-	
+
 	line-height: 1.5em;
-	
+
 	/* some box shadow sauce :D */
 	box-shadow: inset 0px 2px 2px #ececec;
 }
@@ -513,9 +513,9 @@ Everything is broken now! But we can fix it. Lets see how.
 	border: 1px solid #d4d4d4;
 	border-bottom-right-radius: 5px;
 	border-top-right-radius: 4px;
-	
+
 	line-height: 1.5em;
-	
+
 	/* some box shadow sauce :D */
 	box-shadow: inset 0px 2px 2px #ececec;
 }
@@ -557,7 +557,7 @@ Everything is broken now! But we can fix it. Lets see how.
   background: #fff;
   height: 60px;
   border-top: 5px solid #dc9300;
-  
+
 }
 #infoimg{
   margin-left: 20px;
@@ -581,7 +581,7 @@ opacity: 0.7;
   color: #444;
 }
 .paybook label{
-  border-radius: 0px; 
+  border-radius: 0px;
   text-align: left;
   border: none;
   height: 40px;
@@ -610,7 +610,7 @@ opacity: 0.7;
   color: #444;
   border-radius: 0px;
   cursor: pointer;
-  
+
 }
 .paybook input[type=button]:hover,.paybook input[type=submit]:hover,.paybook input[type=reset]:hover{
   box-shadow: 1px 1px 1px gray;
@@ -621,11 +621,11 @@ opacity: 0.7;
   margin:0 auto;
   background: white;
   font-family: "sans-serif";
-  
+
 }
 #bookcommend{
   padding: 10px;
-  
+
 }
 #allcommend{
   height: 600px;
@@ -642,7 +642,7 @@ opacity: 0.7;
 .usercminfo img{
   height: 100px;
   width: 100px;
-  
+
 }
 .usercminfo{
   padding-top: 20px;
@@ -650,12 +650,12 @@ opacity: 0.7;
   height: 180px;
   width: 200px;
   float: left;
-  
+
 }
 .userscommend{
   padding: 10px;
   margin-left: 220px;
- 
+
 }
 .eachcommend{
   height: 200px;
@@ -672,15 +672,15 @@ opacity: 0.7;
   color: #444;
   font-size: 17px;
   font-weight: bold;
-  
+
 }
 #usercommend input[type=text]{
   width: 622px;
 	padding: 5px;
 	border: 1px solid #d4d4d4;
-	
+
 	line-height: 1.5em;
-	
+
 	/* some box shadow sauce :D */
 	box-shadow: inset 0px 2px 2px #ececec;
   height: 36px;
@@ -689,12 +689,12 @@ opacity: 0.7;
  font-size: 16px;
   font-weight: bold;
   color: #444;
-	
-  
+
+
 }
 #usercommend textarea{
   width: 622px;
-  border-radius: 0px; 
+  border-radius: 0px;
 }
 #usercommend input[type=submit]{
   font-family: "sans-serif";
@@ -706,7 +706,7 @@ opacity: 0.7;
   background: linear-gradient(#f1f1f1, #e2e2e2);
   color: #444;
   box-shadow: 1px 1px 1px gray;
-  
+
 }
 #bookcommend input[type=button]{
   font-family: "sans-serif";
@@ -720,7 +720,7 @@ opacity: 0.7;
   color: #444;
   box-shadow: 1px 1px 1px gray;
   cursor: pointer;
-  
+
 }
 #bookcommend input[type=button]:hover{
   opacity: 0.7;
@@ -771,7 +771,7 @@ opacity: 0.7;
 .holder
 {
     float: left;
-    position: relative;    
+    position: relative;
     overflow: hidden;
     box-shadow: 0px 0px 5px #333333;
 }
@@ -784,7 +784,7 @@ opacity: 0.7;
 {
     color: rgba(0,0,0,0);
     line-height: 100px;
-    
+
 }
 
 /* Smooth Caption */
@@ -803,7 +803,7 @@ opacity: 0.7;
    // right: -600px;
   bottom: -600px;
     width: 100%;
-    text-align:center;   
+    text-align:center;
     font-size: 13px;
   padding-top:10px;
     -webkit-transition: 0.1s Ease;
@@ -815,7 +815,7 @@ opacity: 0.7;
   font-family: "sans-serif";
 }
 .smooth:hover > .go-left
-{    
+{
     //right:0px;
   bottom: 0px;
 }
@@ -850,7 +850,7 @@ margin-left: 130px;
     height:34px;
     position:relative;
     color:#a5a5a5;
-    font-size:small;   
+    font-size:small;
 	width:100%;
 }
 .jPaginate a{
@@ -954,7 +954,7 @@ span.jPag-snext-img{
             }
 /*phan nay cua searchbook*/
 #searchbox{
- 
+
   height: 170px;
   width: 930px;
   margin:0 auto;
@@ -968,14 +968,14 @@ span.jPag-snext-img{
  position: absolute;
   top:50px;
   left:210px;
-  
+
 }
 #searchcontent input[type=text]{
 
 	border:none;
 	color:#888888;
 	background:url("../images/searchBox.png") no-repeat;
-	
+
 	float:left;
 	font-family:Arial,Helvetica,sans-serif;
 	font-size:15px;
@@ -1017,9 +1017,9 @@ background:url('../images/buttons.png') no-repeat;
 	border: 1px solid #d4d4d4;
 	border-bottom-right-radius: 5px;
 	border-top-right-radius: 4px;
-	
+
 	line-height: 1.5em;
-	
+
 	/* some box shadow sauce :D */
 	box-shadow: inset 0px 2px 2px #ececec;
 }
@@ -1048,7 +1048,7 @@ Everything is broken now! But we can fix it. Lets see how.
   font-size: 18px;
   margin: 10px 50px 0px 40px;
   padding: 6px 20px;
-  border-radius: 7px; 
+  border-radius: 7px;
   position: relative;
   text-align: center;
   width: 210px;
@@ -1095,7 +1095,7 @@ Everything is broken now! But we can fix it. Lets see how.
   left: 0;
   position: absolute;
   width: 100%;
-}  
+}
 
 /* CSS Triangles - see Trevor's post */
 .wrapper .tooltip:after {
@@ -1110,7 +1110,7 @@ Everything is broken now! But we can fix it. Lets see how.
   position: absolute;
   width: 0;
 }
-  
+
 .wrapper:hover .tooltip {
   opacity: 1;
   pointer-events: auto;
@@ -1135,15 +1135,15 @@ Everything is broken now! But we can fix it. Lets see how.
 }
 #footer li{
   display: inline;
-  
+
 }
 #footer {
   text-align: left;
- 
+
 }
 #footer a{
   font-size: 13px;
-  color: #eee; 
+  color: #eee;
 }
 #footer a:hover{
   font-style: italic;
@@ -1240,7 +1240,7 @@ Everything is broken now! But we can fix it. Lets see how.
   padding-bottom: 20px;
 }
 #roomlist table{
-  
+
   width: 960px;
   margin: 0 auto;
   border-collapse: collapse;
@@ -1255,7 +1255,7 @@ Everything is broken now! But we can fix it. Lets see how.
   text-align: center;
 }
 #roomlist table tr{
- 
+
 }
 #roomlist th{
   background-color: #dc9300;
@@ -1281,7 +1281,7 @@ Everything is broken now! But we can fix it. Lets see how.
 #roomlist a{
 background-color: #dc9300;
 color: #fff;
-border-radius: 10px; 
+border-radius: 10px;
 border: none;
   padding: 20px 30px;
   font-size: 15px;
@@ -1322,7 +1322,7 @@ margin-bottom: 10px;
   width: 180px;
   padding-left: 10px;
   color: #fff;
-  background-color: #dc9300; 
+  background-color: #dc9300;
   border: none;
 }
 .search button{
@@ -1340,3 +1340,67 @@ float: left;
 }
 
 /*End Duc*/
+
+
+
+/*--Pian-Order--*/
+
+#order-info{
+  width: 400px;
+  float: left;
+}
+
+#order-info p{
+  margin: 20px 0;
+  color: #FFF;
+}
+
+#order-info img{
+  width: 360px;
+  height: 240px;
+}
+
+#order-form{
+  width: 550px;
+  float: right;
+}
+
+#order-form th{
+  color: #FFF;
+  height: 50px;
+  text-align: right;
+}
+
+#order-form td{
+  padding-left: 20px;
+}
+
+#order-form input[type="text"],
+#order-form textarea{
+  width: 300px;
+}
+
+#order-form select{
+  width: 50px;
+}
+
+#order-form input[type="button"]{
+  cursor: pointer;
+  width: 100px;
+  background: #dc9300;
+  border: none;
+  color: white;
+  font-size: 13px;
+  font-family: "myfont-bold"
+
+}
+#order-form input[type="button"]:hover{
+  opacity: 0.8;
+}
+
+#order-form .form-button{
+  float: right;
+}
+
+/*--Pian-Order-End--*/
+
