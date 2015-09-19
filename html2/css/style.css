@@ -1,0 +1,136 @@
+
+body{
+	min-height: 1000px;
+  background: url(../images/bg.png);
+   
+}
+a{
+    color: white;
+}
+#top{
+	background: #1b1b1b;
+    
+	padding-top: 15px;
+    padding-bottom: 15px;
+   border-bottom: 3px solid white;
+    color: #1b1b1b;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+#top a{
+	color: #1b1b1b;
+	font-size: 13px;
+}
+#top a:hover{
+    color: white;
+    text-decoration: none;
+}
+
+#aftertop{
+    height: 190px;
+    padding-bottom: 10px;
+  //background: url(../images/aftertop.png);
+   // background: url(../images/book.png) 100%;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+#loginbar span{
+    padding: 10px;
+    background: #dc9300;
+}
+#loginbar span a{
+    color:#1b1b1b;
+}
+#loginbar span a:hover{
+    
+}
+#loginbar-r{
+	font-size: 16px;
+}
+#loginbar-r span{
+    background: #dc9300;
+    padding: 10px;
+}
+.logout{
+    text-align: right;
+}
+.clearfix:after {
+    display:block;
+    clear:both;
+}
+ 
+/*----- Menu Outline -----*/
+
+.active_item{
+    background: #dc9300;
+}
+#content{
+    color: white;
+    margin-top: 20px;
+    min-height: 600px;
+}
+footer{
+    margin-top: 20px;
+    background: #1b1b1b;
+    border-top: 3px solid #fff; 
+    padding: 30px;
+    color: #eee;
+}
+#follow{
+    text-align: center;
+}
+footer img{
+    min-width: 100%;
+    max-height: 200px;
+}
+.logo img{
+    width: 200px;
+    height: 150px;
+    margin-bottom: 40px;
+}
+.navall .navbar{
+    background: black;
+    border: none;
+     border-radius: 10px;
+    
+}
+#loginmodal{
+    margin-top: 50px;
+}
+#loginmodal .modal-body{
+     background: url(../images/bg.png);
+    color: white;
+    padding: 20px;
+    font-size: 15px; 
+}
+#loginmodal .modal-header{
+    background: #dc9300;
+    border: none;
+    text-align: center;
+    color: white;
+}
+.submitlogin{
+    background: #dc9300;
+    border: none;
+}
+.submitlogin:hover{
+    background: #dc9300;
+    opacity: 0.7;
+}
+.mynav_wrapper{
+   width: 1000px;
+    margin: 0 auto;
+}
+.mynav ul li{
+}
+.mynav ul li a{
+    padding: 40px 50px;
+    font-size: 13px;
+    text-transform: uppercase;
+    color: yellow;
+}
+.mynav ul li:hover{
+    background: #dc9300;
+}
+#myCarousel{
+}
