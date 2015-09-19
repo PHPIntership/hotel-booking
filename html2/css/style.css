@@ -1,8 +1,12 @@
+@font-face{
+  font-family: "awesome";
+  src:url(../fonts/HelveticaNeue.otf);
+}
 
 body{
 	min-height: 1000px;
   background: url(../images/bg.png);
-   
+   font-family: 'awesome';
 }
 a{
     color: white;
