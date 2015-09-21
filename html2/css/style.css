@@ -157,11 +157,11 @@ footer img{
     background: #dc9300;
     padding: 10px;
     font-size: 20px;
-    
+
 }
 .registerform .formtitle{
     margin-bottom: 40px;
-    
+
 }
 .registerform button{
     background: #dc9300;
@@ -200,14 +200,9 @@ footer img{
     margin: 0 auto;
 }
 .search-top{
-    height: 100px;
-    width: 100%;
     padding: 10px;
 }
 .search1{
-    width: 25%;
-    height: 100px;
-    float: left;
     padding: 10px;
 }
 .mysearch h4{
@@ -261,8 +256,6 @@ border-radius: 5px;
                 transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 }
 .myresult{
-    width: 100%;
-    background-color: white;
 }
 .divpage{
     text-align: center;
@@ -280,18 +273,18 @@ border-radius: 5px;
     padding: 10px;
 }
 .myresult .table img{
-    width: 100%;
-    height: 100%;
+    width: 200px;
+    height: 150px;
 }
 .myresult .table button{
     height: 50px;
     width: 100px;
-    margin: 20px;
+    margin: 20px 0px;
 }
 .myresult .table th{
  font-style: normal;
- padding: 20px;
  font-size: 20px;
+ padding-left: 10px;
 }
 
 /*....End....*/
@@ -323,6 +316,7 @@ border-radius: 5px;
     margin-top: 15px;
     margin-bottom: 15px;
 }
+
 .listHotel a{
       color: black;
       font-size: 20px;
@@ -332,8 +326,35 @@ border-radius: 5px;
 }
 #hotels img{
 min-width:150px;
+
+#search{
+    background: white;
+}
+#search .searchform{
+    padding: 20px;
+}
+#search .myresult{
+    padding: 20px;
+}
+#content{
+    background: white;
+
 }
 /*.................*/
 /*. End hai home page .*/
 /*.................*/
+/*--Pian-Order--*/
+#order-wrap{
+  background: #FFF;
+  color: #000;
+}
 
+#order-form textarea{
+  resize: none;
+}
+
+#order-form .form-button{
+  float: right;
+}
+
+/*--Pian-Order-End--*/
