@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Hotel Booking</title>
+	<!-- Latest compiled and minified CSS & JS -->
+	<link rel="stylesheet" media="screen" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Aller">
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/bootstrap-datepicker.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/animations.css">
+	
+	<style type="text/css">
+		a{
+			color: black;
+			font-size: 20px;
+		}
+	</style>
+
+</head>
+<body>
+	
+	<div class="container-fluid" id="top">
+		<div class="container">
+			
+			<div class="row" >
+				<div class="col-md-6" id="loginbar">
+				<span class="label label-warning">	
+						   <a href="#loginmodal" data-toggle="modal">Log in |</a>
+						   <a href="#">Register</a>	
+				</span>		  
+						   	<div class="modal fade" id="loginmodal">
+						   		<div class="modal-dialog">
+						   			<div class="modal-content">
+						   				<div class="modal-header">
+						   					<h4 class="modal-title">Log in</h4>
+						   				</div>
+						   				<div class="modal-body">
+						   					<form action="" method="POST" role="form">
+											  
+											  
+											  	<div class="form-group">
+											  		<label for="">Username</label>
+											  		<input type="text" class="form-control input-md" id="" placeholder="Your username for log in" name="username">
+											  	</div>
+
+											  	<div class="form-group">
+											  		<label for="">Password</label>
+											  		<input type="password" class="form-control input-md" id="" placeholder="Your password" name="password">
+											  	</div>
+											  
+											  	
+											  
+											  	<button type="submit" class="btn btn-danger btn-block submitlogin">Submit</button>
+											  </form>
+						   				</div>
+						   				
+						   			</div>
+						   		</div>
+						   	</div>	
+				</div>
+				
+				<div class="col-md-6 logout">
+					<div id="loginbar-r">
+						<span class="label label-info">Hello <a href="#">Users |</a><a href="#"> Log out</a></span>
+						
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	<div class="container-fluid" id="aftertop">
+	<div class="container" >
+		<div class="row">
+				<div class="col-md-3 logo">
+					<img src="images/logo1.png" class="img-responsive" alt="Image">
+				</div>
+				<div class="col-md-6"></div>
+				<div class="col-md-3">
+					
+				</div>
+			</div>
+	</div>
+	</div>
+
+	<div class="container">
+		<div class="row navall">
+			<nav class="navbar navbar-default" role="navigation">
+				<!-- Brand and toggle get grouped for better mobile display -->
+
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					
+				</div>
+			
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="mynav_wrapper">
+				<div class="collapse navbar-collapse navbar-ex1-collapse mynav">
+					<ul class="nav navbar-nav">
+						<li class="active_item"><a href="#">Home</a></li>
+						<li><a href="#">search</a></li>
+						<li><a href="#">hotel</a></li>
+						<li><a href="#">profile</a></li>
+						<li><a href="#">gallery</a></li>
+						<li><a href="#">contact</a></li>
+
+					</ul>
+					
+					
+				</div><!-- /.navbar-collapse -->
+				</div>
+			</nav>
+		</div>
+	</div>
+	
+	<div class="container">
+		
+			
+			
+
+			
+
+			<div class="row">
+					<div id="myCarousel" class="carousel slide" data-ride="carousel"> 
+  <!-- Indicators -->
+  
+  <ol class="carousel-indicators">
+   	
+   		v>  
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+    <li data-target="#myCarousel" data-slide-to="3"></li>
+    
+  </ol>
+
+  <div class="carousel-inner">
+    <div class="item active"> <img src="images/slider.jpg" style="width:100%;" alt="First slide">
+     
+    </div>
+    <div class="item"> <img src="images/slider1.jpg" style="width:100%;" data-src="" alt="Second    slide">
+      <div class="container">
+      
+      </div>
+    </div>
+    <div class="item"> <img src="images/slider2.jpg" style="width:100%;" data-src="" alt="Third slide">
+      <div class="container">
+      
+      </div>
+    </div>
+    <div class="item"> <img src="images/slider3.jpg" style="width:100%;" data-src="" alt="Third slide">
+      <div class="container">
+       
+      </div>
+    </div>
+  </div>
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a> </div>		
+			</div>
+		
+	
+</div>
+	<div id="content" class="container animatedParent" style="color: black;">
+	<div class="row">
+	<div class="panel panel-primary" id="panelSearch">
+      <div class="panel-heading" id="panelHeadingSearch" style=""><h3><span class="glyphicon glyphicon-search"></span>SEARCH</h3></div>
+      <div class="panel-body">
+      		<form action="#" method="post" >
+      			<div class="form-group col-md-4">
+				  <label for="city">Position</label>
+				  <select class="form-control" id="city" name="city">
+				  	<option disabled="disable" selected="selected">Position</option>
+				    <option>Đà Nẵng</option>
+				    <option>Hà Nội</option>
+				    <option>TP Hồ Chí Minh</option>
+				    <option>Hải Phòng</option>
+				  </select>
+				</div>
+				<div class="form-group col-md-4">
+				  <label for="type">Room type</label>
+				  <select class="form-control" id="type" name="type">
+				    <option>Single</option>
+				    <option>Double</option>				   
+				  </select>
+				</div>
+				<div class="form-group col-md-4">
+					 <label for="price">Price</label>
+					 <input type="text" class="form-control" id="price" name="price">
+				</div>
+				<div class="form-group col-md-4">
+					 <!-- <label for="checkin">Check in</label>
+					 <input type="date" class="form-control" id="checkin" name="checkin"> -->
+					 <label>Check in</label><p><input class="form-control" type="text" id="datepicker_checkin" name="checkin"></p>
+					  <script>
+  $(function() {
+    $( "#datepicker_checkin" ).datepicker();
+  });
+  </script>
+				</div>
+				<div class="form-group col-md-4">
+					 <label>Check out</label><p><input class="form-control" type="text" id="datepicker_checkout" name="checkout"></p>
+					  <script>
+  $(function() {
+    $( "#datepicker_checkout" ).datepicker();
+  });
+  </script>
+				</div>			
+				<div class="form-group col-md-4" style="margin-top: 15px">
+					<button class="btn btn-success btn-lg btn-block">Search</button>
+				</div>			
+      		</form>
+      </div>
+    </div>
+   </div>
+   <div class="row">
+   		<div class="container  col-md-6 animated bounceInLeft">
+		<div class="panel panel-default  ">
+  				<div class="panel-heading">Đà Nẵng</div>
+  				<div class="panel-body">
+  					<div class="col-md-6">	
+						<img src="images/double bed.jpg" class="img-thumbnail img-responsive">
+					</div>
+					<div class="col-md-6" style="
+    margin-top: 15px;
+    margin-bottom: 15px;">
+						<a href="#">Hotel 1</a><br>
+						<a href="#">Hotel 1</a><br>
+						<a href="#">Hotel 1</a><br>
+						<a href="#">Hotel 1</a>	<br>				
+						<a href="#">Hotel 1</a>	<br>
+						
+					</div>
+  				</div>
+		</div>
+		</div>
+		<div class="container  col-md-6 animated bounceInRight">
+		<div class="panel panel-default  ">
+  				<div class="panel-heading">Đà Nẵng</div>
+  				<div class="panel-body">
+  					<div class="col-md-6">	
+						<img src="images/double bed.jpg" class="img-thumbnail img-responsive">
+					</div>
+					<div class="col-md-6" style="
+    margin-top: 15px;
+    margin-bottom: 15px;">
+						<a href="#">Hotel 1</a><br>
+						<a href="#">Hotel 1</a><br>
+						<a href="#">Hotel 1</a><br>
+						<a href="#">Hotel 1</a>	<br>				
+						<a href="#">Hotel 1</a>	<br>
+						
+					</div>
+  				</div>
+		</div>
+		</div>v>
+	</div>
+	<div class="row">
+		<div class="container col-md-6 animated bounceInLeft">
+		<div class="panel panel-default ">
+  				<div class="panel-heading">Đà Nẵng</div>
+  				<div class="panel-body">
+  					<div class="col-md-6">	
+						<img src="images/double bed.jpg" class="img-thumbnail img-responsive">
+					</div>
+					<div class="col-md-6" style="
+    margin-top: 15px;
+    margin-bottom: 15px;">
+						<a href="#">Hotel 1</a><br>
+						<a href="#">Hotel 1</a><br>
+						<a href="#">Hotel 1</a><br>
+						<a href="#">Hotel 1</a>	<br>				
+						<a href="#">Hotel 1</a>	<br>
+						
+					</div>
+  				</div>
+		</div>
+		</div>
+		<div class="container col-md-6 animated bounceInRight">
+		<div class="panel panel-default   ">
+  				<div class="panel-heading">Đà Nẵng</div>
+  				<div class="panel-body">
+  					<div class="col-md-6" >	
+						<img src="images/double bed.jpg" class="img-thumbnail img-responsive">
+					</div>
+					<div class="col-md-6" style="
+    margin-top: 15px;
+    margin-bottom: 15px;">
+						<a href="#">Hotel 1</a><br>
+						<a href="#">Hotel 1</a><br>
+						<a href="#">Hotel 1</a><br>
+						<a href="#">Hotel 1</a>	<br>				
+						<a href="#">Hotel 1</a>	<br>
+						
+					</div>
+  				</div>
+		</div>
+		</div>
+		<div>
+			<a href="http://blog.bizweb.vn/lam-cach-nao-de-banner-quang-cao-du-khach-hang-hieu-qua-hon/"><img src="images/banner-quang-cao-du-khach-hang-hieu-qua-2.jpg" 
+    width = 100%;
+    height =  70px;></a>
+		</div>
+
+</div>
+	</div>
+
+		<footer>
+			<div class="row">
+				<p class="text-center">Copyrights © AsianTech | Powered by PHP Internship</p>
+			</div>
+			<div class="row" id="follow">
+			  <div class="col-sm-12 col-md-4">
+			    <div class="thumbnail">
+			      <img src="images/footer1.jpg" class="img-responsive footer-img" alt="Image">
+			      <div class="caption">
+			        <h3>Follow us on facebook</h3>
+			        <p>Follow us on facebook for more information about Hotels's room stati</p>
+			        <p><a href="#" class="btn btn-primary btn-block" role="button"><span class="glyphicon glyphicon-star"></span> Follow</a>
+			      </div>
+			    </div>
+			  </div>
+
+			  <div class="col-sm-12 col-md-4">
+			    <div class="thumbnail">
+			      <img src="images/footer2.jpg" class="img-responsive footer-img" alt="Image" >
+			      <div class="caption">
+			        <h3>Follow us on Twitter</h3>
+			        <p>Follow us on Twitter for more information about Hotels's room stati</p>
+			        <p><a href="#" class="btn btn-primary btn-block" role="button"><span class="glyphicon glyphicon-star"></span> Follow</a>
+			      </div>
+			    </div>
+			  </div>
+
+			  <div class="col-sm-12 col-md-4">
+			    <div class="thumbnail">
+			      <img src="images/footer3.jpg" class="img-responsive footer-img" alt="Image">
+			      <div class="caption">
+			        <h3>Follow us on Google+</h3>
+			        <p>Follow us on Google+ for more information about Hotels's room stati</p>
+			        <p><a href="#" class="btn btn-primary btn-block" role="button"><span class="glyphicon glyphicon-star"></span> Follow</a>
+			      </div>
+			    </div>
+			  </div>
+
+			  
+
+			 
+			</div>
+		</footer>
+	
+</body>
+<script src="js/css3-animate-it.js"></script>
+
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Hotel Booking</title>
+	<!-- Latest compiled and minified CSS & JS -->
+	<link rel="stylesheet" media="screen" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Aller">
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/bootstrap-datepicker.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/animations.css">
+	
+	<style type="text/css">
+		a{
+			color: black;
+			font-size: 20px;
+		}
+	</style>
+
+</head>
+<body>
+	
+	<div class="container-fluid" id="top">
+		<div class="container">
+			
+			<div class="row" >
+				<div class="col-md-6" id="loginbar">
+				<span class="label label-warning">	
+						   <a href="#loginmodal" data-toggle="modal">Log in |</a>
+						   <a href="#">Register</a>	
+				</span>		  
+						   	<div class="modal fade" id="loginmodal">
+						   		<div class="modal-dialog">
+						   			<div class="modal-content">
+						   				<div class="modal-header">
+						   					<h4 class="modal-title">Log in</h4>
+						   				</div>
+						   				<div class="modal-body">
+						   					<form action="" method="POST" role="form">
+											  
+											  
+											  	<div class="form-group">
+											  		<label for="">Username</label>
+											  		<input type="text" class="form-control input-md" id="" placeholder="Your username for log in" name="username">
+											  	</div>
+
+											  	<div class="form-group">
+											  		<label for="">Password</label>
+											  		<input type="password" class="form-control input-md" id="" placeholder="Your password" name="password">
+											  	</div>
+											  
+											  	
+											  
+											  	<button type="submit" class="btn btn-danger btn-block submitlogin">Submit</button>
+											  </form>
+						   				</div>
+						   				
+						   			</div>
+						   		</div>
+						   	</div>	
+				</div>
+				
+				<div class="col-md-6 logout">
+					<div id="loginbar-r">
+						<span class="label label-info">Hello <a href="#">Users |</a><a href="#"> Log out</a></span>
+						
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	<div class="container-fluid" id="aftertop">
+	<div class="container" >
+		<div class="row">
+				<div class="col-md-3 logo">
+					<img src="images/logo1.png" class="img-responsive" alt="Image">
+				</div>
+				<div class="col-md-6"></div>
+				<div class="col-md-3">
+					
+				</div>
+			</div>
+	</div>
+	</div>
+
+	<div class="container">
+		<div class="row navall">
+			<nav class="navbar navbar-default" role="navigation">
+				<!-- Brand and toggle get grouped for better mobile display -->
+
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					
+				</div>
+			
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="mynav_wrapper">
+				<div class="collapse navbar-collapse navbar-ex1-collapse mynav">
+					<ul class="nav navbar-nav">
+						<li class="active_item"><a href="#">Home</a></li>
+						<li><a href="#">search</a></li>
+						<li><a href="#">hotel</a></li>
+						<li><a href="#">profile</a></li>
+						<li><a href="#">gallery</a></li>
+						<li><a href="#">contact</a></li>
+
+					</ul>
+					
+					
+				</div><!-- /.navbar-collapse -->
+				</div>
+			</nav>
+		</div>
+	</div>
+	
+	<div class="container">
+		
+			
+			
+
+			
+
+			<div class="row">
+					<div id="myCarousel" class="carousel slide" data-ride="carousel"> 
+  <!-- Indicators -->
+  
+  <ol class="carousel-indicators">     	
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+    <li data-target="#myCarousel" data-slide-to="3"></li>
+    
+  </ol>
+
+  <div class="carousel-inner">
+    <div class="item active"> <img src="images/slider.jpg" style="width:100%;" alt="First slide">
+     
+    </div>
+    <div class="item"> <img src="images/slider1.jpg" style="width:100%;" data-src="" alt="Second    slide">
+      <div class="container">
+      
+      </div>
+    </div>
+    <div class="item"> <img src="images/slider2.jpg" style="width:100%;" data-src="" alt="Third slide">
+      <div class="container">
+      
+      </div>
+    </div>
+    <div class="item"> <img src="images/slider3.jpg" style="width:100%;" data-src="" alt="Third slide">
+      <div class="container">
+       
+      </div>
+    </div>
+  </div>
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a> </div>		
+			</div>
+		
+	
+</div>
+<div id="content" class="container animatedParent" style="color: black;">
+	<div class="row">
+		<div class="panel panel-primary" id="panelSearch">
+     		<div class="panel-heading" id="panelHeadingSearch">
+     			<h3><span class="glyphicon glyphicon-search"></span>SEARCH</h3>
+     		</div>
+	      	<div class="panel-body">
+	      		<form action="#" method="post" >
+	      			<div class="form-group col-md-4">
+					  	<label for="city">Position</label>
+						<select class="form-control" id="city" name="city">
+						  	<option disabled="disable" selected="selected">Position</option>
+						    <option>Đà Nẵng</option>
+						    <option>Hà Nội</option>
+						    <option>TP Hồ Chí Minh</option>
+						    <option>Hải Phòng</option>
+						</select>
+					</div>
+					<div class="form-group col-md-4">
+					  	<label for="type">Room type</label>
+						<select class="form-control" id="type" name="type">
+						    <option>Single</option>
+						    <option>Double</option>				   
+						</select>
+					</div>
+					<div class="form-group col-md-4">
+						<label for="price">Price</label>
+						<input type="text" class="form-control" id="price" name="price">
+					</div>
+					<div class="form-group col-md-4">					
+						<label>Check in</label>
+						<p><input class="form-control" type="text" id="datepicker_checkin" name="checkin"></p>
+						<script>
+							  $(function() {
+							    $( "#datepicker_checkin" ).datepicker();
+							  });
+	  					</script>
+					</div>
+					<div class="form-group col-md-4">
+						<label>Check out</label>
+						<p><input class="form-control" type="text" id="datepicker_checkout" name="checkout"></p>
+						<script>
+						  $(function() {
+						    $( "#datepicker_checkout" ).datepicker();
+						  });
+	  					</script>
+					</div>			
+					<div class="form-group col-md-4" id="btnSearch">
+						<button class="btn btn-success btn-lg btn-block">Search</button>
+					</div>			
+	      		</form>
+	      	</div>
+    	</div>
+   </div>
+   <div class="row">
+   		<div class="container col-md-6 animated bounceInLeft">
+			<div class="panel panel-default  ">
+  				<div class="panel-heading">Đà Nẵng</div>
+  				<div class="panel-body">
+  					<div class="col-md-6">	
+						<img src="images/double bed.jpg" class="img-thumbnail img-responsive">
+					</div>
+					<div class="col-md-6" class="listHotel">
+						<a href="#">Hotel 1</a><br>
+						<a href="#">Hotel 1</a><br>
+						<a href="#">Hotel 1</a><br>
+						<a href="#">Hotel 1</a><br>				
+						<a href="#">Hotel 1</a><br>						
+					</div>
+  				</div>
+			</div>
+		</div>
+		<div class="container col-md-6 animated bounceInRight">
+			<div class="panel panel-default  ">
+  				<div class="panel-heading">Đà Nẵng</div>
+  				<div class="panel-body">
+  					<div class="col-md-6">	
+						<img src="images/double bed.jpg" class="img-thumbnail img-responsive">
+					</div>
+					<div class="col-md-6" class="listHotel">
+						<a href="#">Hotel 1</a><br>
+						<a href="#">Hotel 1</a><br>
+						<a href="#">Hotel 1</a><br>
+						<a href="#">Hotel 1</a><br>				
+						<a href="#">Hotel 1</a><br>						
+					</div>
+  				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="container col-md-6 animated bounceInLeft">
+			<div class="panel panel-default  ">
+  				<div class="panel-heading">Đà Nẵng</div>
+  				<div class="panel-body">
+  					<div class="col-md-6">	
+						<img src="images/double bed.jpg" class="img-thumbnail img-responsive">
+					</div>
+					<div class="col-md-6" class="listHotel">
+						<a href="#">Hotel 1</a><br>
+						<a href="#">Hotel 1</a><br>
+						<a href="#">Hotel 1</a><br>
+						<a href="#">Hotel 1</a><br>				
+						<a href="#">Hotel 1</a><br>						
+					</div>
+  				</div>
+			</div>
+		</div>
+		<div class="container col-md-6 animated bounceInRight">
+			<div class="panel panel-default  ">
+  				<div class="panel-heading">Đà Nẵng</div>
+  				<div class="panel-body">
+  					<div class="col-md-6">	
+						<img src="images/double bed.jpg" class="img-thumbnail img-responsive">
+					</div>
+					<div class="col-md-6" class="listHotel">
+						<a href="#">Hotel 1</a><br>
+						<a href="#">Hotel 1</a><br>
+						<a href="#">Hotel 1</a><br>
+						<a href="#">Hotel 1</a><br>				
+						<a href="#">Hotel 1</a><br>						
+					</div>
+  				</div>
+			</div>
+		</div>
+		<div>
+			<a href="http://blog.bizweb.vn/lam-cach-nao-de-banner-quang-cao-du-khach-hang-hieu-qua-hon/">
+				<img  src="images/banner-quang-cao-du-khach-hang-hieu-qua-2.jpg" width = 100%;height =  70px;>
+			</a>
+		</div>
+</div>
+	</div>
+
+		<footer>
+			<div class="row">
+				<p class="text-center">Copyrights © AsianTech | Powered by PHP Internship</p>
+			</div>
+			<div class="row" id="follow">
+			  <div class="col-sm-12 col-md-4">
+			    <div class="thumbnail">
+			      <img src="images/footer1.jpg" class="img-responsive footer-img" alt="Image">
+			      <div class="caption">
+			        <h3>Follow us on facebook</h3>
+			        <p>Follow us on facebook for more information about Hotels's room stati</p>
+			        <p><a href="#" class="btn btn-primary btn-block" role="button"><span class="glyphicon glyphicon-star"></span> Follow</a>
+			      </div>
+			    </div>
+			  </div>
+
+			  <div class="col-sm-12 col-md-4">
+			    <div class="thumbnail">
+			      <img src="images/footer2.jpg" class="img-responsive footer-img" alt="Image" >
+			      <div class="caption">
+			        <h3>Follow us on Twitter</h3>
+			        <p>Follow us on Twitter for more information about Hotels's room stati</p>
+			        <p><a href="#" class="btn btn-primary btn-block" role="button"><span class="glyphicon glyphicon-star"></span> Follow</a>
+			      </div>
+			    </div>
+			  </div>
+
+			  <div class="col-sm-12 col-md-4">
+			    <div class="thumbnail">
+			      <img src="images/footer3.jpg" class="img-responsive footer-img" alt="Image">
+			      <div class="caption">
+			        <h3>Follow us on Google+</h3>
+			        <p>Follow us on Google+ for more information about Hotels's room stati</p>
+			        <p><a href="#" class="btn btn-primary btn-block" role="button"><span class="glyphicon glyphicon-star"></span> Follow</a>
+			      </div>
+			    </div>
+			  </div>
+
+			  
+
+			 
+			</div>
+		</footer>
+	
+</body>
+<script src="js/css3-animate-it.js"></script>
+
+</html>
