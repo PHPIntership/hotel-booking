@@ -241,3 +241,57 @@ border-radius: 5px;
 }
 
 /*....End....*/
+
+/*--Pian-Order--*/
+#order-wrap{
+
+  height: 480px;
+  background: #FFF;
+  color: #000;
+}
+
+#order-info{
+  //padding-left:40px;
+}
+
+#order-info p{
+  //margin: 20px 0;
+}
+
+#order-info img{
+  width: 360px;
+  height: 240px;
+}
+
+#order-form{
+
+}
+/**
+#order-form th{
+  height: 50px;
+  text-align: right;
+}
+
+#order-form td{
+  padding-left: 20px;
+}
+
+#order-form input[type="text"],
+#order-form textarea{
+
+  width: 300px;
+}
+*/
+#order-form textarea{
+  resize: none;
+}
+
+
+
+
+
+#order-form .form-button{
+  float: right;
+}
+
+/*--Pian-Order-End--*/
