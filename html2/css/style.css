@@ -297,8 +297,16 @@ border-radius: 5px;
 /*....End....*/
 
 /*.................*/
-/*... Home page ...*/
+/*...Hai Home page ...*/
 /*.................*/
+
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    background-color: red;
+}
+
 #panelSearch{
     opacity: 0.9;
     border: 1px solid #FF9900;
@@ -322,7 +330,10 @@ border-radius: 5px;
 #search{
     color: black;
 }
+#hotels img{
+min-width:150px;
+}
 /*.................*/
-/*. End home page .*/
+/*. End hai home page .*/
 /*.................*/
 
