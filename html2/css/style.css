@@ -138,3 +138,55 @@ footer img{
 }
 #myCarousel{
 }
+/*Dung.Register+Profile*/
+#content{
+    color: #1b1b1b;
+}
+.registerform{
+    background: white;
+    color:#1b1b1b;
+    padding-top: 30px;
+}
+.registerform{
+}
+.registerform .formtitle{
+    text-align: center;
+}
+.registerform .label-register{
+    background: #dc9300;
+    padding: 10px;
+    font-size: 20px;
+    
+}
+.registerform .formtitle{
+    margin-bottom: 40px;
+    
+}
+.registerform button{
+    background: #dc9300;
+    border: none;
+}
+.registerform button:hover{
+    background: #dc9300;
+    opacity: 0.7;
+}
+.registerform .userpic{
+    max-width: 150px;
+    max-height: 120px;
+    margin-bottom: 30px;
+}
+.profile{
+    background:white;
+}
+#profilepage{
+    background: white;
+    min-height: 700px;
+}
+#profilepage ul li a{
+    color: #1b1b1b;
+}
+#profilepage a{
+    color: #dc9300;
+    font-size: 16px;
+}
+/*End.Dung.Register+Profile*/
