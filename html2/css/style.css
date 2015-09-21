@@ -293,19 +293,17 @@ border-radius: 5px;
 /*...Hai Home page ...*/
 /*.................*/
 
-#panelSearch{
-    opacity: 0.9;
-    border: 1px solid #FF9900;
-}
+
 
 #panelSearch{
     opacity: 0.9;
-    border: 1px solid #FF9900;
+    border: none;
 }
 #panelHeadingSearch{
     text-align:left;
     background-color:#FF9900;
-    border: 1px solid #FF9900
+    border: none;
+    border-radius: 0px;
 }
 #btnSearch{
     margin-top: 15px
