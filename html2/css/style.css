@@ -293,11 +293,9 @@ border-radius: 5px;
 /*...Hai Home page ...*/
 /*.................*/
 
-@media only screen 
-  and (min-device-width: 320px) 
-  and (max-device-width: 480px)
-  and (-webkit-min-device-pixel-ratio: 2) {
-    background-color: red;
+#panelSearch{
+    opacity: 0.9;
+    border: 1px solid #FF9900;
 }
 
 #panelSearch{
