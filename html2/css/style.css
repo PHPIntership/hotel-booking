@@ -320,14 +320,8 @@ border-radius: 5px;
 /*.................*/
 /*--Pian-Order--*/
 #order-wrap{
-  height: 480px;
   background: #FFF;
   color: #000;
-}
-
-#order-info img{
-  width: 360px;
-  height: 240px;
 }
 
 #order-form textarea{
