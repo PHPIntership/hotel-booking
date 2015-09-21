@@ -159,64 +159,57 @@
 	<div id="content" class="container">
 
 		<!--.....Search by Duc......-->
-	<div class="row">
-		<div class="wrapsearch">
-			<div class="mysearch">
-				<div class="search-top">
-					<div class="search1">
-						<h4>		City:		</h4>
-						<select class="formcontrol-search">
-						  <option>Sài Gòn</option>
-						  <option>Đà Nẵng</option>
-						  <option>Huế</option>
-						  <option>Hà Nội</option>
-						  <option>Hội An</option>
-						</select>
-					</div>
-					<div class="search1">
-						<h4>		Room type:	</h4>
+	<div id="search">
 
-					<select class="formcontrol-search">
-						<option>Double</option>
-						<option>Single</option>
-						<option>City View</option>
-						<option>Sea View</option>
-						<option>River View</option>
-					</select>
-					</div>
-					<div class="search1">
-					<h4>		Price:		</h4>
-					<select class="formcontrol-search">
-						<option> < 100 $ </option>
-						<option> 100 $ - 500 $ </option>
-						<option> 500 $ - 1000 $ </option>
-						<option> 1000 $ - 2000 $ </option>
-						<option> > 2000 $ </option>
-					</select>
+	<div class="container-fluid searchform">
+		<div class="row">
+			<form action="" method="POST" role="form">
+			
+			<div class="row">
+				<div class="form-group col-md-4">
+					<label for="">City</label>
+					<input type="text" class="form-control" id="" placeholder="Input field">
 				</div>
-				</div>
-				<div class="search-bot">
 
-					<p>Check in: <input type="text" id="datepicker"></p>
-							<script>
-										$(function() {										
-										$( "#datepicker" ).datepicker();
-										});
-							</script>
-						<p>Check out: <input type="text" id="datepicker1"></p>
-									<script>
-												$(function() {
-												$( "#datepicker1" ).datepicker();
-												});
-							</script>
-							<button type="button" class="btn btn-success">Search</button>
+				<div class="form-group col-md-4">
+					<label for="">Roomtype</label>
+					<input type="text" class="form-control" id="" placeholder="Input field">
+				</div>
+
+				<div class="form-group col-md-4">
+					<label for="">Price</label>
+					<input type="text" class="form-control" id="" placeholder="Input field">
 				</div>
 			</div>
-			<div class="myresult">
+
+			<div class="row">
+				<div class="form-group col-md-4 col-md-offset-2">
+					<label for="">Check in</label>
+					<input type="text" class="form-control" id="" placeholder="Input field">
+				</div>
+
+				<div class="form-group col-md-4">
+					<label for="">Checkout</label>
+					<input type="text" class="form-control" id="" placeholder="Input field">
+				</div>
+			</div>
+			
+				<div class="row">
+				<button type="submit" class="btn btn-primary col-md-4 col-md-offset-4 btn-responsive">Submit</button>
+				</div>
+			</form>
+		</div>
+
+		</div>
+		
+
+		
+			<div class="container-fluid result">
+			<div class="myresult row">
 				<h2>
 					Result Search
 				</h2>
-
+				<div class="row table-responsive">
 				<table class="table">
                     <thead>
                         <tr>
@@ -274,8 +267,8 @@
 							</tr>
                     </tbody>
                 </table>
-
-
+				</div>
+			<div class="row">
 				<div class="divpage">
 				<ul class="pagination pagination-sm">
 				  <li class="disabled"><a href="#">«</a></li>
@@ -287,11 +280,16 @@
 				  <li><a href="#">»</a></li>
 				</ul>
 			</div>
+
 			</div>
-		</div>
+			</div>
+			</div>
+		
+	</div>
+
 	</div>
 		<!--.....End......-->
-	</div>
+	
 
 		<footer>
 			<div class="row">
