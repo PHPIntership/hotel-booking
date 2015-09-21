@@ -157,11 +157,11 @@ footer img{
     background: #dc9300;
     padding: 10px;
     font-size: 20px;
-    
+
 }
 .registerform .formtitle{
     margin-bottom: 40px;
-    
+
 }
 .registerform button{
     background: #dc9300;
@@ -323,4 +323,24 @@ border-radius: 5px;
 /*.................*/
 /*. End home page .*/
 /*.................*/
+/*--Pian-Order--*/
+#order-wrap{
+  height: 480px;
+  background: #FFF;
+  color: #000;
+}
 
+#order-info img{
+  width: 360px;
+  height: 240px;
+}
+
+#order-form textarea{
+  resize: none;
+}
+
+#order-form .form-button{
+  float: right;
+}
+
+/*--Pian-Order-End--*/
