@@ -142,50 +142,50 @@ footer img{
 /*....Search by Duc...*/
 
 .wrapsearch{
-	background-color: #eee;
-	margin: 0 auto;
+    background-color: #eee;
+    margin: 0 auto;
 }
 .search-top{
-	height: 100px;
-	width: 100%;
-	padding: 10px;
+    height: 100px;
+    width: 100%;
+    padding: 10px;
 }
 .search1{
-	width: 25%;
-	height: 100px;
-	float: left;
-	padding: 10px;
+    width: 25%;
+    height: 100px;
+    float: left;
+    padding: 10px;
 }
 .mysearch h4{
-	color: black;
-	width: 100%;
-	float: left;
-	font-style: normal;
-	margin-left: 20px;
+    color: black;
+    width: 100%;
+    float: left;
+    font-style: normal;
+    margin-left: 20px;
 }
 .mysearch p{
-	color: black;
-	float: left;
-	margin-left: 10px;
+    color: black;
+    float: left;
+    margin-left: 10px;
 }
 .search-bot{
-	height: 100px;
-	width: 100%;
-	padding: 35px;
+    height: 100px;
+    width: 100%;
+    padding: 35px;
 }
 .search-bot input{
-	margin-left: 10px;
-	margin-right: 50px;
-	width: 200px;
-	height: 34px;
-	border: 1px solid #ccc;
-	border-radius: 5px;
+    margin-left: 10px;
+    margin-right: 50px;
+    width: 200px;
+    height: 34px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 .search-bot button{
-	float: right;
-	height: 50px;
-	width: 100px;
-	margin-right: 100px;
+    float: right;
+    height: 50px;
+    width: 100px;
+    margin-right: 100px;
 }
 .formcontrol-search {
 display: block;
@@ -201,38 +201,38 @@ background-image: none;
 border: 1px solid #ccc;
 border-radius: 5px;
 -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-				box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+                box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
 -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
-		 -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-				transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+         -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+                transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 }
 .myresult{
-	width: 100%;
-	background-color: white;
+    width: 100%;
+    background-color: white;
 }
 .divpage{
-	text-align: center;
+    text-align: center;
 }
 .myresult h2{
-	color: black;
-	font-style: oblique;
-	text-align: center;
+    color: black;
+    font-style: oblique;
+    text-align: center;
 }
 .myresult .table{
-	color: black;
+    color: black;
 }
 .myresult .table td{
-	width: 25%;
-	padding: 10px;
+    width: 25%;
+    padding: 10px;
 }
 .myresult .table img{
-	width: 100%;
-	height: 100%;
+    width: 100%;
+    height: 100%;
 }
 .myresult .table button{
-	height: 50px;
-	width: 100px;
-	margin: 20px;
+    height: 50px;
+    width: 100px;
+    margin: 20px;
 }
 .myresult .table th{
  font-style: normal;
@@ -242,25 +242,25 @@ border-radius: 5px;
 
 /*....End....*/
 
-/*--Pian-Order--*/
-#order-wrap{
-
-  height: 480px;
-  background: #FFF;
-  color: #000;
+/*.................*/
+/*... Home page ...*/
+/*.................*/
+#panelSearch{
+    opacity: 0.9;
+    border: 1px solid #FF9900;
 }
-
-#order-info img{
-  width: 360px;
-  height: 240px;
+#panelHeadingSearch{
+    text-align:left;
+    background-color:#FF9900;
+    border: 1px solid #FF9900
 }
-
-#order-form textarea{
-  resize: none;
+#btnSearch{
+    margin-top: 15px
 }
-
-#order-form .form-button{
-  float: right;
+.listHotel{
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
-
-/*--Pian-Order-End--*/
+/*.................*/
+/*. End home page .*/
+/*.................*/
