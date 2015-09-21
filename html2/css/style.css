@@ -195,46 +195,8 @@ footer img{
 
 /*....Search by Duc...*/
 
-.wrapsearch{
-    background-color: #eee;
-    margin: 0 auto;
-}
-.search-top{
-    padding: 10px;
-}
-.search1{
-    padding: 10px;
-}
-.mysearch h4{
-    color: black;
-    width: 100%;
-    float: left;
-    font-style: normal;
-    margin-left: 20px;
-}
-.mysearch p{
-    color: black;
-    float: left;
-    margin-left: 10px;
-}
-.search-bot{
-    height: 100px;
-    width: 100%;
-    padding: 35px;
-}
-.search-bot input{
-    margin-left: 10px;
-    margin-right: 50px;
-    width: 200px;
-    height: 34px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-.search-bot button{
-    float: right;
-    height: 50px;
-    width: 100px;
-    margin-right: 100px;
+.mysearch{
+  border-bottom: 2px solid black;
 }
 .formcontrol-search {
 display: block;
@@ -255,8 +217,7 @@ border-radius: 5px;
          -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
                 transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 }
-.myresult{
-}
+
 .divpage{
     text-align: center;
 }
@@ -265,9 +226,7 @@ border-radius: 5px;
     font-style: oblique;
     text-align: center;
 }
-.myresult .table{
-    color: black;
-}
+
 .myresult .table td{
     width: 25%;
     padding: 10px;
