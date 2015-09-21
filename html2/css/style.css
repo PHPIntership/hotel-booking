@@ -315,6 +315,13 @@ border-radius: 5px;
     margin-top: 15px;
     margin-bottom: 15px;
 }
+.listHotel a{
+      color: black;
+      font-size: 20px;
+}
+#search{
+    color: black;
+}
 /*.................*/
 /*. End home page .*/
 /*.................*/
