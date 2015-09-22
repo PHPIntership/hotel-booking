@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace HotelBooking\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

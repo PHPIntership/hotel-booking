@@ -51,3 +51,6 @@ Follow [PSR-2](http://www.php-fig.org/psr/psr-2/) Coding style
 
 ## Issue management
 [https://waffle.io/PHPIntership/hotel-booking](https://waffle.io/PHPIntership/hotel-booking)
+
+## Testing
+[http://laravel.com/docs/5.1/testing](http://laravel.com/docs/5.1/testing)
