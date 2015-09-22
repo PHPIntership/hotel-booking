@@ -160,40 +160,64 @@
 
 		<!--.....Search by Duc......-->
 	<div id="search">
-
+<div class="mysearch">
 	<div class="container-fluid searchform">
 		<div class="row">
 			<form action="" method="POST" role="form">
-			
+
 			<div class="row">
 				<div class="form-group col-md-4">
 					<label for="">City</label>
-					<input type="text" class="form-control" id="" placeholder="Input field">
+					<select class="form-control" id="" name="city">
+							<option disabled="disable" selected="selected">Position</option>
+							<option>Đà Nẵng</option>
+							<option>Hà Nội</option>
+							<option>TP Hồ Chí Minh</option>
+							<option>Hải Phòng</option>
+					</select>
 				</div>
 
 				<div class="form-group col-md-4">
 					<label for="">Roomtype</label>
-					<input type="text" class="form-control" id="" placeholder="Input field">
+					<select class="form-control" id="" name="type">
+							<option>Single</option>
+							<option>Double</option>
+					</select>
 				</div>
 
 				<div class="form-group col-md-4">
 					<label for="">Price</label>
-					<input type="text" class="form-control" id="" placeholder="Input field">
+					<select class="form-control" id="" name="price">
+							<option> < 500 $</option>
+							<option>500 $ - 1000 $</option>
+							<option>1000 $ - 5000 $</option>
+							<option> > 5000 $ </option>
+					</select>
 				</div>
 			</div>
 
 			<div class="row">
 				<div class="form-group col-md-4 col-md-offset-2">
 					<label for="">Check in</label>
-					<input type="text" class="form-control" id="" placeholder="Input field">
+					<input type="text" class="form-control" id="datepicker1" placeholder="mm/dd/yyyy">
+					<script>
+							$(function () {
+									$("#datepicker1").datepicker();
+							});
+					</script>
 				</div>
 
 				<div class="form-group col-md-4">
 					<label for="">Checkout</label>
-					<input type="text" class="form-control" id="" placeholder="Input field">
+					<input type="text" class="form-control" id="datepicker2" placeholder="mm/dd/yyyy">
+					<script>
+							$(function () {
+									$("#datepicker2").datepicker();
+							});
+					</script>
 				</div>
 			</div>
-			
+
 				<div class="row">
 				<button type="submit" class="btn btn-primary col-md-4 col-md-offset-4 btn-responsive">Submit</button>
 				</div>
@@ -201,9 +225,9 @@
 		</div>
 
 		</div>
-		
 
-		
+</div>
+
 			<div class="container-fluid result">
 			<div class="myresult row">
 				<h2>
@@ -284,12 +308,12 @@
 			</div>
 			</div>
 			</div>
-		
+
 	</div>
 
 	</div>
 		<!--.....End......-->
-	
+
 
 		<footer>
 			<div class="row">
