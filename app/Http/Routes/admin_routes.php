@@ -2,6 +2,4 @@
 /**
  * Routes for admin pages
  */
-Route::get('admin',function(){
-  return view('layouts.admin');
-});
+Route::get('admin',['as'=>'admin.index','uses'=>'Admin\AdminBaseController@index']);

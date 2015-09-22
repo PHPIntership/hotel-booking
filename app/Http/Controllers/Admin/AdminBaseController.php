@@ -10,4 +10,7 @@ use HotelBooking\Http\Controllers\Controller;
 
 class AdminBaseController extends Controller
 {
+  public function index(){
+    return view('admin.index');
+  }
 }

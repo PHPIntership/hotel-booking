@@ -63,8 +63,8 @@
         </section>
 
         <!-- Main content -->
+        @yield('content')
 
-        
         <!--End content-->
       </div><!-- /.content-wrapper -->
       @include('admin_partials.footer')
