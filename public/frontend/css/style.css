@@ -1,0 +1,356 @@
+@font-face{
+  font-family: "awesome";
+  src:url(../fonts/HelveticaNeue.otf);
+}
+
+body{
+	min-height: 1000px;
+  background: url(../images/bg.png);
+   font-family: 'awesome';
+}
+a{
+    color: white;
+}
+#top{
+	background: #1b1b1b;
+
+	padding-top: 15px;
+    padding-bottom: 15px;
+   border-bottom: 3px solid white;
+    color: #1b1b1b;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+#top a{
+	color: #1b1b1b;
+	font-size: 13px;
+}
+#top a:hover{
+    color: white;
+    text-decoration: none;
+}
+
+#aftertop{
+    height: 190px;
+    padding-bottom: 10px;
+  //background: url(../images/aftertop.png);
+   // background: url(../images/book.png) 100%;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+#loginbar span{
+    padding: 10px;
+    background: #dc9300;
+}
+#loginbar span a{
+    color:#1b1b1b;
+}
+#loginbar span a:hover{
+
+}
+#loginbar-r{
+	font-size: 16px;
+}
+#loginbar-r span{
+    background: #dc9300;
+    padding: 10px;
+}
+.logout{
+    text-align: right;
+}
+.clearfix:after {
+    display:block;
+    clear:both;
+}
+
+/*----- Menu Outline -----*/
+
+.active_item{
+    background: #dc9300;
+}
+#content{
+    color: white;
+    margin-top: 20px;
+    min-height: 600px;
+}
+footer{
+    margin-top: 20px;
+    background: #1b1b1b;
+    border-top: 3px solid #fff;
+    padding: 30px;
+    color: #eee;
+}
+#follow{
+    text-align: center;
+}
+footer img{
+    min-width: 100%;
+    max-height: 200px;
+}
+.logo img{
+    width: 200px;
+    height: 150px;
+    margin-bottom: 40px;
+}
+.navall .navbar{
+    background: black;
+    border: none;
+     border-radius: 10px;
+
+}
+#loginmodal{
+    margin-top: 50px;
+}
+#loginmodal .modal-body{
+     background: url(../images/bg.png);
+    color: white;
+    padding: 20px;
+    font-size: 15px;
+}
+#loginmodal .modal-header{
+    background: #dc9300;
+    border: none;
+    text-align: center;
+    color: white;
+}
+.submitlogin{
+    background: #dc9300;
+    border: none;
+}
+.submitlogin:hover{
+    background: #dc9300;
+    opacity: 0.7;
+}
+.mynav_wrapper{
+   width: 1000px;
+    margin: 0 auto;
+}
+.mynav ul li{
+}
+.mynav ul li a{
+    padding: 40px 50px;
+    font-size: 13px;
+    text-transform: uppercase;
+    color: yellow;
+}
+.mynav ul li:hover{
+    background: #dc9300;
+}
+#myCarousel{
+}
+
+/*Dung.Register+Profile*/
+#content{
+    color: #1b1b1b;
+}
+.registerform{
+    background: white;
+    color:#1b1b1b;
+    padding-top: 30px;
+}
+.registerform{
+}
+.registerform .formtitle{
+    text-align: center;
+}
+.registerform .label-register{
+    background: #dc9300;
+    padding: 10px;
+    font-size: 20px;
+
+}
+.registerform .formtitle{
+    margin-bottom: 40px;
+
+}
+.registerform button{
+    background: #dc9300;
+    border: none;
+}
+.registerform button:hover{
+    background: #dc9300;
+    opacity: 0.7;
+}
+.registerform .userpic{
+    max-width: 150px;
+    max-height: 120px;
+    margin-bottom: 30px;
+}
+.profile{
+    background:white;
+}
+#profilepage{
+    background: white;
+    min-height: 700px;
+}
+#profilepage ul li a{
+    color: #1b1b1b;
+}
+#profilepage a{
+    color: #dc9300;
+    font-size: 16px;
+}
+/*End.Dung.Register+Profile*/
+
+
+/*....Search by Duc...*/
+
+.mysearch{
+  border-bottom: 2px solid black;
+}
+.formcontrol-search {
+display: block;
+width: 200px;
+height: 34px;
+margin-left: 10px;
+padding: 6px 12px;
+font-size: 14px;
+line-height: 1.42857143;
+color: #000;
+background-color: white;
+background-image: none;
+border: 1px solid #ccc;
+border-radius: 5px;
+-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+                box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+-webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+         -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+                transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+.divpage{
+    text-align: center;
+}
+.myresult h2{
+    color: black;
+    font-style: oblique;
+    text-align: center;
+}
+
+.myresult .table td{
+    width: 25%;
+    padding: 10px;
+}
+.myresult .table img{
+    width: 200px;
+    height: 150px;
+}
+.myresult .table button{
+    height: 50px;
+    width: 100px;
+    margin: 20px 0px;
+}
+.myresult .table th{
+ font-style: normal;
+ font-size: 20px;
+ padding-left: 10px;
+}
+
+/*....End....*/
+
+/*.................*/
+/*...Hai Home page ...*/
+/*.................*/
+
+
+
+#panelSearch{
+    opacity: 0.9;
+    border: none;
+}
+#panelHeadingSearch{
+    text-align:left;
+    background-color:#FF9900;
+    border: none;
+    border-radius: 0px;
+}
+#btnSearch{
+    margin-top: 15px
+}
+.listHotel{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.listHotel a{
+      color: black;
+      font-size: 20px;    
+      text-decoration: none;
+}
+.animated { 
+    -webkit-animation-duration: 1s; 
+    animation-duration: 1s; 
+    -webkit-animation-fill-mode: both; 
+    animation-fill-mode: both; 
+} 
+
+@-webkit-keyframes wobble { 
+  0% { -webkit-transform: translateX(0%); } 
+  15% { -webkit-transform: translateX(-25%) rotate(-5deg); } 
+  30% { -webkit-transform: translateX(20%) rotate(3deg); } 
+  45% { -webkit-transform: translateX(-15%) rotate(-3deg); } 
+  60% { -webkit-transform: translateX(10%) rotate(2deg); } 
+  75% { -webkit-transform: translateX(-5%) rotate(-1deg); } 
+  100% { -webkit-transform: translateX(0%); } 
+} 
+@keyframes wobble { 
+  0% { transform: translateX(0%); } 
+  15% { transform: translateX(-25%) rotate(-5deg); } 
+  30% { transform: translateX(20%) rotate(3deg); } 
+  45% { transform: translateX(-15%) rotate(-3deg); } 
+  60% { transform: translateX(10%) rotate(2deg); } 
+  75% { transform: translateX(-5%) rotate(-1deg); } 
+  100% { transform: translateX(0%); } 
+} 
+.wobble { 
+    -webkit-animation-name: wobble; 
+    animation-name: wobble; 
+}
+#search{
+    color: black;
+}
+#hotels img{
+min-width:150px;
+}
+#search{
+    background: white;
+}
+#search .searchform{
+    padding: 20px;
+}
+#search .myresult{
+    padding: 20px;
+}
+#content{
+    background: white;
+
+}
+.tooltipImg {
+    display:none;
+    position:absolute;
+    border:1px solid #333;
+    background-color:#161616;
+    border-radius:5px;
+    padding:10px;
+    color:#fff;
+    font-size:12px Arial;
+    max-width: 300px;
+}
+/*.................*/
+/*. End hai home page .*/
+/*.................*/
+/*--Pian-Order--*/
+#order-wrap{
+  background: #FFF;
+  color: #000;
+}
+
+#order-form textarea{
+  resize: none;
+}
+
+#order-form .form-button{
+  float: right;
+}
+
+/*--Pian-Order-End--*/
