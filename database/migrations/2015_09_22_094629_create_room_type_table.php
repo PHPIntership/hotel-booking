@@ -13,13 +13,13 @@ class CreateRoomTypeTable extends Migration
     public function up()
     {
         Schema::create('room_type', function (Blueprint $table) {
-           $table->increments('id');
-            $table->integer('hotel_id');
+            $table->increments('id');
+            $table->integer('hotel_id')->unsigned()->index();
             $table->string('name');
             $table->string('quality');
             $table->integer('quantity');
-            $table->integer('price');
-            $table->string('image');
+            $table->float('price');
+            $table->string('image')->nullable();
             $table->text('description');
             $table->timestamps();
         });
