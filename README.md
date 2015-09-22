@@ -1,6 +1,4 @@
-# Asiantech PHP Team - Laravel Skeleton Project
-
-This repository is used for projects that use [Laravel](http://laravel.com) framework.
+# Hotel-booking - Asiantech PHP Internship Project
 
 ### Version
 Laravel 5.1.*
@@ -20,17 +18,6 @@ Laravel 5.1.*
 ```
 git clone link_to_this_repo project_name
 ```
-##### Change git url
-
-Change the git url to point to your project's repository
-```
-git remote set-url origin your_git_project_url
-```
-or set the git url in git config file
-```
-vim .git/config #open git config file by vim, then set the url
-```
-
 ##### Install packages by composer
 Execute
 ```bash
@@ -55,17 +42,19 @@ Using [Homestead](http://laravel.com/docs/5.1/homestead) is recommended. You can
 
 Verison: ^2.0
 
-### Recommended Packages (not Installed)
+##### MultiAuth
+[MultiAuth](https://github.com/Kbwebs/MultiAuth)
 
-Add the name and the version of package to `composer.json` file then execute
-```bash
-composer update
-```
-to install the package.
-- [Laravel Former](https://github.com/formers/former) : Easier way to handle form
-- [Intervention Image](http://image.intervention.io/) : The great package for working with image
-- [Laravel Collective](http://laravelcollective.com/)
-- [Laravel-Excel](https://github.com/Maatwebsite/Laravel-Excel): Working with Excel is more easier and fun
-- [API](https://github.com/dingo/api): It's for building an API project
-- [Laravel Mongodb](https://github.com/jenssegers/laravel-mongodb): The Eloquent for Mongodb
-- [Sloquent Sluggable](https://github.com/cviebrock/eloquent-sluggable): Making slug
+Version: 1.0
+
+### Prototype
+Use [http://framebox.org/](http://framebox.org/) to draw frontend prototype
+
+### Admin template
+[https://almsaeedstudio.com/AdminLTE](https://almsaeedstudio.com/AdminLTE)
+
+### Coding style
+Follow [PSR-2](http://www.php-fig.org/psr/psr-2/) Coding style
+
+### Issue management
+[https://waffle.io/PHPIntership/hotel-booking](https://waffle.io/PHPIntership/hotel-booking)
