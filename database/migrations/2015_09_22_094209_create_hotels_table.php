@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class RoomType extends Migration
+class CreateHotelsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,14 +12,14 @@ class RoomType extends Migration
      */
     public function up()
     {
-        Schema::create('room_type', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('hotel_id');
+        Schema::create('hotels_table', function (Blueprint $table) {
+               $table->increments('id');
+            $table->integer('city_id')->unsigned();
             $table->string('name');
-            $table->string('quality');
-            $table->integer('quantity');
-            $table->integer('price');
-            $table->string('image');
+            $table->string('address');
+            $table->string('email')->unique();
+            $table->string('phone',15);
+            $table->string('website')->nullable();
             $table->text('description');
             $table->timestamps();
         });
@@ -32,6 +32,6 @@ class RoomType extends Migration
      */
     public function down()
     {
-        Schema::drop('room_type');
+        Schema::drop('hotels_table');
     }
 }

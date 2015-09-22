@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Hotels extends Migration
+class CreateAdminHotelsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,15 +12,14 @@ class Hotels extends Migration
      */
     public function up()
     {
-        Schema::create('hotels', function (Blueprint $table) {
+        Schema::create('admin_hotels', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('city_id');
+            $table->integer('hotel_id');
+            $table->string('username')->unique();
+            $table->string('password',60);
             $table->string('name');
-            $table->string('address');
             $table->string('email');
             $table->string('phone',15);
-            $table->string('website');
-            $table->text('description');
             $table->timestamps();
         });
     }
@@ -32,6 +31,6 @@ class Hotels extends Migration
      */
     public function down()
     {
-        Schema::drop('hotels');
+        Schema::drop('admin_hotels');
     }
 }
