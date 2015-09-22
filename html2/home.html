@@ -10,7 +10,8 @@
         <script src="js/bootstrap.min.js"></script>
         <script src="js/bootstrap-datepicker.js"></script>
         <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/animations.css">      
+        <link rel="stylesheet" href="css/animations.css">    
+         
     </head>
     <body>
 
@@ -168,8 +169,7 @@
                         <form action="#" method="post" >
                             <div class="form-group col-md-4">
                                 <label for="city">Position</label>
-                                <select class="form-control" id="city" name="city">
-                                    <option disabled="disable" selected="selected">Position</option>
+                                <select class="form-control" id="city" name="city">                                    
                                     <option>Đà Nẵng</option>
                                     <option>Hà Nội</option>
                                     <option>TP Hồ Chí Minh</option>
@@ -185,7 +185,11 @@
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="price">Price</label>
-                                <input type="text" class="form-control" id="price" name="price">
+                                 <select class="form-control" id="price" name="price">                                    
+                                    <option><5tr</option>
+                                    <option>5tr -> 10tr</option>
+                                    <option>>10tr</option>                                    
+                                </select>
                             </div>
                             <div class="form-group col-md-4">					
                                 <label>Check in</label><p><input class="form-control" type="text" id="datepicker_checkin" name="checkin"></p>
@@ -204,7 +208,7 @@
                                 </script>
                             </div>			
                             <div class="form-group col-md-4">
-                                <button class="btn btn-success btn-lg btn-block">Search</button>
+                                <button class="btn btn-success btn-lg btn-block" id="btnSearch">Search</button>
                             </div>			
                         </form>
                     </div>
@@ -212,71 +216,63 @@
             </div>
             <div class="row">
                 <div class="container  col-md-6 animated bounceInLeft">
-                    <div class="panel panel-default  ">
-                        <div class="panel-heading">Đà Nẵng</div>
+                    <div class="panel panel-default  ">                      
                         <div class="panel-body">
                             <div class="col-md-6 col-sm-6">	
-                                <img src="images/double bed.jpg" class="img-thumbnail img-responsive">
+                                <img src="images/The_Ocean_Villas.jpg" class="img-thumbnail img-responsive masterTooltip"  title="The Ocean Villa là một đẳng cấp mới của hệ thống các resort ở Việt Nam, với 115 villa được thiết kế sang trọng, tiện nghi, hiện đại. Mỗi villa là một sự khác biệt: có hồ bơi riêng, gara riêng... "  width="100%" >                                                           
                             </div>
-                            <div class="col-md-6 col-sm-6 listHotel">
-                                <a href="#">Hotel 1</a><br>
-                                <a href="#">Hotel 1</a><br>
-                                <a href="#">Hotel 1</a><br>
-                                <a href="#">Hotel 1</a>	<br>				
-                                <a href="#">Hotel 1</a>	<br>
+                            <div class="col-md-6 col-sm-6">
+                                <h3>The Ocean Villas
+                                <img src="images/5star.jpg" id="star" height ="40px"></h3>     
+                                <p>171, Truong Son Street, Da Nang, Viet Nam</p>                                                       
+                                <a href="#"><button class="btn btn-primary">Book</button></a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="container  col-md-6 animated bounceInRight">
-                    <div class="panel panel-default  ">
-                        <div class="panel-heading">Đà Nẵng</div>
+                 <div class="container  col-md-6 animated bounceInRight">
+                    <div class="panel panel-default  ">                       
                         <div class="panel-body">
-                            <div class="col-md-6 col-sm-6">	
-                                <img src="images/double bed.jpg" class="img-thumbnail img-responsive">
+                            <div class="col-md-6 col-sm-6"> 
+                                <img src="images/The_Ocean_Villas.jpg" class="img-thumbnail img-responsive masterTooltip"  title="The Ocean Villa là một đẳng cấp mới của hệ thống các resort ở Việt Nam, với 115 villa được thiết kế sang trọng, tiện nghi, hiện đại. Mỗi villa là một sự khác biệt: có hồ bơi riêng, gara riêng... "  width="100%" >                                                           
                             </div>
-                            <div class="col-md-6 col-sm-6 listHotel">
-                                <a href="#">Hotel 1</a><br>
-                                <a href="#">Hotel 1</a><br>
-                                <a href="#">Hotel 1</a><br>
-                                <a href="#">Hotel 1</a>	<br>				
-                                <a href="#">Hotel 1</a>	<br>
+                            <div class="col-md-6 col-sm-6">
+                                <h3>The Ocean Villas
+                                <img src="images/5star.jpg" id="star" height ="40px"></h3>     
+                                <p>171, Truong Son Street, Da Nang, Viet Nam</p>                                                       
+                                <a href="#"><button class="btn btn-primary">Book</button></a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="container  col-md-6 animated bounceInLeft">
-                    <div class="panel panel-default  ">
-                        <div class="panel-heading">Đà Nẵng</div>
+                 <div class="container  col-md-6 animated bounceInLeft">
+                    <div class="panel panel-default  ">                       
                         <div class="panel-body">
-                            <div class="col-md-6 col-sm-6">	
-                                <img src="images/double bed.jpg" class="img-thumbnail img-responsive">
+                            <div class="col-md-6 col-sm-6"> 
+                                <img src="images/The_Ocean_Villas.jpg" class="img-thumbnail img-responsive masterTooltip"  title="The Ocean Villa là một đẳng cấp mới của hệ thống các resort ở Việt Nam, với 115 villa được thiết kế sang trọng, tiện nghi, hiện đại. Mỗi villa là một sự khác biệt: có hồ bơi riêng, gara riêng... "  width="100%" >                                                           
                             </div>
-                            <div class="col-md-6 col-sm-6 listHotel">
-                                <a href="#">Hotel 1</a><br>
-                                <a href="#">Hotel 1</a><br>
-                                <a href="#">Hotel 1</a><br>
-                                <a href="#">Hotel 1</a>	<br>				
-                                <a href="#">Hotel 1</a>	<br>
+                            <div class="col-md-6 col-sm-6">
+                                <h3>The Ocean Villas
+                                <img src="images/5star.jpg" id="star" height ="40px"></h3>     
+                                <p>171, Truong Son Street, Da Nang, Viet Nam</p>                                                       
+                                <a href="#"><button class="btn btn-primary">Book</button></a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="container  col-md-6  animated bounceInRight">
-                    <div class="panel panel-default  ">
-                        <div class="panel-heading">Đà Nẵng</div>
+                 <div class="container  col-md-6 animated bounceInRight">
+                    <div class="panel panel-default  ">                    
                         <div class="panel-body">
-                            <div class="col-md-6 col-sm-6">	
-                                <img src="images/double bed.jpg" class="img-thumbnail img-responsive">
+                            <div class="col-md-6 col-sm-6"> 
+                                <img src="images/The_Ocean_Villas.jpg" class="img-thumbnail img-responsive masterTooltip"  title="The Ocean Villa là một đẳng cấp mới của hệ thống các resort ở Việt Nam, với 115 villa được thiết kế sang trọng, tiện nghi, hiện đại. Mỗi villa là một sự khác biệt: có hồ bơi riêng, gara riêng... "  width="100%" >                                                           
                             </div>
-                            <div class="col-md-6 col-sm-6 listHotel">
-                                <a href="#">Hotel 1</a><br>
-                                <a href="#">Hotel 1</a><br>
-                                <a href="#">Hotel 1</a><br>
-                                <a href="#">Hotel 1</a>	<br>				
-                                <a href="#">Hotel 1</a>	<br>
+                            <div class="col-md-6 col-sm-6">
+                                <h3>The Ocean Villas
+                                <img src="images/5star.jpg" id="star" height ="40px"></h3>     
+                                <p>171, Truong Son Street, Da Nang, Viet Nam</p>                                                       
+                                <a href="#"><button class="btn btn-primary">Book</button></a>
                             </div>
                         </div>
                     </div>
@@ -289,7 +285,7 @@
                     </a>
                 </div>
 
-            </div>
+            </div> -->
         </div>
 
         <footer>
@@ -337,6 +333,29 @@
         </footer>
 
     </body>
-    <script src="js/css3-animate-it.js"></script>
+    <script src="js/css3-animate-it.js"></script>  
+   <script type="text/javascript">
+$(document).ready(function() {
+// Tooltip only Text
+$('.masterTooltip').hover(function(){
 
+        // Hover over code
+        var title = $(this).attr('title');      
+        $(this).data('tipText', title).removeAttr('title');
+        $('<p class="tooltipImg"></p>')
+        .text(title)
+        .appendTo('body')
+        .fadeIn('slow');
+}, function() {
+        // Hover out code
+        $(this).attr('title', $(this).data('tipText'));
+        $('.tooltipImg').remove();
+}).mousemove(function(e) {
+        var mousex = e.pageX + 20; //Get X coordinates
+        var mousey = e.pageY + 10; //Get Y coordinates
+        $('.tooltipImg')
+        .css({ top: mousey, left: mousex })
+});
+});
+</script> 
 </html>
