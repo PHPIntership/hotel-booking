@@ -6,7 +6,7 @@ use HotelBooking\Http\Controllers\Controller;
 /**
  * FrontendBaseController
  */
-class ClassName extends Controller
+class FrontendBaseController extends Controller
 {
 
 }

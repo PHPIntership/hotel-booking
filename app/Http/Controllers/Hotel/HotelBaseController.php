@@ -7,6 +7,6 @@ use HotelBooking\Http\Controllers\Controller;
 /**
  * HotelBaseController
  */
-class ClassName extends Controller
+class HotelBaseController extends Controller
 {
 }

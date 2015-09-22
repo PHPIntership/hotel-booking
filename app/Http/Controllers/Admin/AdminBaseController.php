@@ -8,6 +8,6 @@ use HotelBooking\Http\Controllers\Controller;
  * AdminBaseController
  */
 
-class ClassName extends Controller
+class AdminBaseController extends Controller
 {
 }
