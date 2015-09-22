@@ -1,9 +1,9 @@
 # Hotel-booking - Asiantech PHP Internship Project
 
-### Version
+## Version
 Laravel 5.1.*
 
-### Install
+## Install
 
 ##### Server Requirements
 
@@ -35,26 +35,19 @@ sudo chmod -R 777 bootstrap/cache
 
 Using [Homestead](http://laravel.com/docs/5.1/homestead) is recommended. You can also settup the vhost for Apache or Nginx on you local machine
 
-### Installed Packages
+## Installed Packages
 
 ##### Laravel Debugbar
-[Laravel Debugbar](https://github.com/barryvdh/laravel-debugbar) is used for debuging. Only use this package on local environment.
-
-Verison: ^2.0
+[Laravel Debugbar](https://github.com/barryvdh/laravel-debugbar) is used for debuging. Only use this package on local environment. Verison: ^2.0
 
 ##### MultiAuth
-[MultiAuth](https://github.com/Kbwebs/MultiAuth)
+[MultiAuth](https://github.com/Kbwebs/MultiAuth). Version: 1.0
 
-Version: 1.0
-
-### Prototype
-Use [http://framebox.org/](http://framebox.org/) to draw frontend prototype
-
-### Admin template
+## Admin template
 [https://almsaeedstudio.com/AdminLTE](https://almsaeedstudio.com/AdminLTE)
 
-### Coding style
+## Coding style
 Follow [PSR-2](http://www.php-fig.org/psr/psr-2/) Coding style
 
-### Issue management
+## Issue management
 [https://waffle.io/PHPIntership/hotel-booking](https://waffle.io/PHPIntership/hotel-booking)
