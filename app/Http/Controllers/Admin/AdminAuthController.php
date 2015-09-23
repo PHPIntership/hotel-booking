@@ -6,6 +6,7 @@ use Auth;
 use Illuminate\Http\Request;
 use HotelBooking\Http\Requests;
 use HotelBooking\Http\Controllers\Controller;
+use HotelBooking\Http\Requests\Admin\AdminLoginRequest;
 
 class AdminAuthController extends Controller
 {
@@ -14,7 +15,7 @@ class AdminAuthController extends Controller
       return "View index admin";
     }
 
-    public function indexLogin()
+    public function getLoginAdmin()
     {
       if(Auth::admin()->check())
       {
@@ -23,23 +24,19 @@ class AdminAuthController extends Controller
       return view('admin.login');
     }
 
-    public function adminLogin(Request $request)
+    public function postLoginAdmin(AdminLoginRequest $request)
     {
-      $username = $request['username'];
-      $password = $request['password'];
-      $remember = $request['remember'];
-      Auth::admin()->attempt(['username' => $username, 'password' => $password],$remember);
-      return Auth::admin()->get()->username;
+      if(Auth::admin()->check())
+      {
+            return redirect()->route('admin.login');
+      }
+      Auth::admin()->attempt($request->only('username','remember'),$request->has('remember'));
+      return redirect()->route('admin');
     }
 
-    public function adminLogout()
+    public function getAdminLogout()
     {
       Auth::admin()->logout();
-      return "logout";
-    }
-
-    public function adminRegister()
-    {
-      return "Admin Register-";
+      return redirect()->route('admin.login');
     }
 }
