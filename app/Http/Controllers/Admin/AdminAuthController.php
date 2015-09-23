@@ -30,8 +30,16 @@ class AdminAuthController extends Controller
       {
             return redirect()->route('admin.login');
       }
-      Auth::admin()->attempt($request->only('username','remember'),$request->has('remember'));
-      return redirect()->route('admin');
+      if(Auth::admin()->attempt($request->only('username','password'),$request->has('remember')))
+      {
+          return redirect()->route('admin.index');
+      }
+      else
+      {
+          return redirect()->route('admin.login')
+                            ->withInput($request->only('username'))
+                            ->withErrors(['username'=>'These credentials do not match our records.']);
+      }
     }
 
     public function getAdminLogout()
