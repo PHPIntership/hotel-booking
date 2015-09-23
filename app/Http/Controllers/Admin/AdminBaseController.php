@@ -10,4 +10,5 @@ use HotelBooking\Http\Controllers\Controller;
 
 class AdminBaseController extends Controller
 {
+  
 }
