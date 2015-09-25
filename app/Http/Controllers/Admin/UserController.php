@@ -5,11 +5,11 @@ namespace HotelBooking\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use HotelBooking\Http\Requests;
 use HotelBooking\Http\Controllers\Controller;
-use HotelBooking\Http\Requests\Admin\AdminUserRequest;
+use HotelBooking\Http\Requests\Admin\UserRequest;
 use HotelBooking\AdminUser;
 use Auth;
 
-class AdminUserController extends Controller
+class UserController extends AdminBaseController
 {
       /**
        * Show view edit profile Admin User
@@ -25,7 +25,7 @@ class AdminUserController extends Controller
        * @param  AdminUserRequest $request [description]
        * @return Response
        */
-      public function putEditProfile(AdminUserRequest $request)
+      public function putEditProfile(UserRequest $request)
       {
         $new_password = $request->new_password;
         $old_password = $request->old_password;

@@ -1,11 +1,11 @@
 <?php
 
-namespace HotelBooking\Http\Middleware;
+namespace HotelBooking\Http\Middleware\Admin;
 
 use Closure;
 use Auth;
 
-class AuthenticateAdmin
+class Authenticate
 {
     /**
      * Handle an incoming request.

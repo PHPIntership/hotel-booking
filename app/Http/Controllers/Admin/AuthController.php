@@ -6,9 +6,9 @@ use Auth;
 use Illuminate\Http\Request;
 use HotelBooking\Http\Requests;
 use HotelBooking\Http\Controllers\Controller;
-use HotelBooking\Http\Requests\Admin\AdminLoginRequest;
+use HotelBooking\Http\Requests\Admin\LoginRequest;
 
-class AdminAuthController extends Controller
+class AuthController extends AdminBaseController
 {
     /**
      * [show page lofin for admin]
@@ -28,7 +28,7 @@ class AdminAuthController extends Controller
      * @param  AdminLoginRequest $request
      * @return Response
      */
-    public function postLoginAdmin(AdminLoginRequest $request)
+    public function postLoginAdmin(LoginRequest $request)
     {
       if(Auth::admin()->check())
       {

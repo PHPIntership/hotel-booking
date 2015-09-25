@@ -4,7 +4,7 @@ namespace HotelBooking\Http\Requests\Admin;
 
 use HotelBooking\Http\Requests\Request;
 
-class AdminLoginRequest extends Request
+class UserRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,9 @@ class AdminLoginRequest extends Request
     public function rules()
     {
         return [
-            'username'=>'required|max:255',
-            'password'=>'min:6|max:255|required',
+            'old_password'=>'min:6|max:255|required',
+            'new_password'=>'min:6|max:255|required',
+            'confirm_new_password'=>'min:6|max:255|required|same:new_password'
         ];
     }
 }

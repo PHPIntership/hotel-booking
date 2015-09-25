@@ -4,9 +4,107 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "bf410d5572a9adaec5e3dd4bd6146b26",
-    "content-hash": "a7b45909111e2f516b7ff70b95c5cadc",
+    "hash": "6c50d1c95f424be5e80e77bd80a7d475",
+    "content-hash": "8c4483e2db3798aa9df52facd992fb0d",
     "packages": [
+        {
+            "name": "anahkiasen/former",
+            "version": "4.0.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/formers/former.git",
+                "reference": "d00f6cb25a65d335468473e3a785471892549c72"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/formers/former/zipball/d00f6cb25a65d335468473e3a785471892549c72",
+                "reference": "d00f6cb25a65d335468473e3a785471892549c72",
+                "shasum": ""
+            },
+            "require": {
+                "anahkiasen/html-object": "~1.4",
+                "illuminate/config": "~5.0",
+                "illuminate/container": "~5.0",
+                "illuminate/http": "~5.0",
+                "illuminate/routing": "~5.0",
+                "illuminate/session": "~5.0",
+                "illuminate/translation": "~5.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "illuminate/database": "~5.0",
+                "mockery/mockery": "~0.9.1",
+                "phpunit/phpunit": "~4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Former\\": [
+                        "src/Former",
+                        "tests"
+                    ],
+                    "Laravel\\": "src/Laravel"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Maxime Fabre",
+                    "email": "ehtnam6@gmail.com"
+                }
+            ],
+            "description": "A powerful form builder",
+            "homepage": "http://anahkiasen.github.com/former/",
+            "keywords": [
+                "bootstrap",
+                "form",
+                "foundation",
+                "laravel"
+            ],
+            "time": "2015-09-15 17:50:02"
+        },
+        {
+            "name": "anahkiasen/html-object",
+            "version": "1.4.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Anahkiasen/html-object.git",
+                "reference": "7890eb43636b1cd5ae7c4aab0d27c6890065c9ad"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Anahkiasen/html-object/zipball/7890eb43636b1cd5ae7c4aab0d27c6890065c9ad",
+                "reference": "7890eb43636b1cd5ae7c4aab0d27c6890065c9ad",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "HtmlObject\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Anahkiasen",
+                    "email": "ehtnam6@gmail.com"
+                }
+            ],
+            "description": "A set of classes to create and manipulate HTML objects abstractions",
+            "time": "2015-03-04 17:12:08"
+        },
         {
             "name": "barryvdh/laravel-debugbar",
             "version": "v2.0.6",
@@ -3082,7 +3180,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "anahkiasen/former": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
