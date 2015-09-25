@@ -12,7 +12,6 @@ use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 class AdminUser extends Model implements AuthenticatableContract,
 AuthorizableContract
 {
-    //use Authenticatable;
     use Authenticatable, Authorizable;
     protected $table = 'admin_users';
     protected $fillable = ['id', 'username', 'password'];

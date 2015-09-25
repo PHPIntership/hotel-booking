@@ -10,11 +10,10 @@ use HotelBooking\Http\Requests\Admin\AdminLoginRequest;
 
 class AdminAuthController extends Controller
 {
-
-    public function index(){
-      return "View index admin";
-    }
-
+    /**
+     * [show page lofin for admin]
+     * @return Response
+     */
     public function getLoginAdmin()
     {
       if(Auth::admin()->check())
@@ -24,13 +23,20 @@ class AdminAuthController extends Controller
       return view('admin.login');
     }
 
+    /**
+     * [login for admin]
+     * @param  AdminLoginRequest $request
+     * @return Response
+     */
     public function postLoginAdmin(AdminLoginRequest $request)
     {
       if(Auth::admin()->check())
       {
             return redirect()->route('admin.login');
       }
-      if(Auth::admin()->attempt($request->only('username','password'),$request->has('remember')))
+      if(Auth::admin()->attempt($request
+                      ->only('username','password'),$request
+                      ->has('remember')))
       {
           return redirect()->route('admin.index');
       }
@@ -42,9 +48,14 @@ class AdminAuthController extends Controller
       }
     }
 
+    /**
+     * [logout for admin]
+     * @return Response
+     */
     public function getAdminLogout()
     {
       Auth::admin()->logout();
       return redirect()->route('admin.login');
     }
+
 }
