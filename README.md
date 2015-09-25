@@ -31,9 +31,9 @@ sudo chmod -R 777 storage
 sudo chmod -R 777 bootstrap/cache
 ```
 
-##### Setup the Vhost
+##### Setup Homestead
 
-Using [Homestead](http://laravel.com/docs/5.1/homestead) is recommended. You can also settup the vhost for Apache or Nginx on you local machine
+[http://laravel.com/docs/5.1/homestead](http://laravel.com/docs/5.1/homestead)
 
 ## Installed Packages
 
@@ -45,6 +45,9 @@ Using [Homestead](http://laravel.com/docs/5.1/homestead) is recommended. You can
 
 ## Admin template
 [https://almsaeedstudio.com/AdminLTE](https://almsaeedstudio.com/AdminLTE)
+Use for:
+- System admin template
+- Hotel admin template
 
 ## Editor
 All developers must use [Atom](https://atom.io) editor
