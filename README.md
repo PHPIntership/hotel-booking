@@ -46,6 +46,13 @@ Using [Homestead](http://laravel.com/docs/5.1/homestead) is recommended. You can
 ## Admin template
 [https://almsaeedstudio.com/AdminLTE](https://almsaeedstudio.com/AdminLTE)
 
+## Editor
+All developers must use [Atom](https://atom.io) editor
+
+## Local environment
+- [Homestead](http://laravel.com/docs/5.1/homestead) is required
+- Local domain must be `hotel-booking.me` for all members
+
 ## Coding style
 Follow [PSR-2](http://www.php-fig.org/psr/psr-2/) Coding style
 
