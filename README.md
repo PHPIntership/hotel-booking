@@ -45,6 +45,7 @@ sudo chmod -R 777 bootstrap/cache
 
 ## Admin template
 [https://almsaeedstudio.com/AdminLTE](https://almsaeedstudio.com/AdminLTE)
+
 Use for:
 - System admin template
 - Hotel admin template
