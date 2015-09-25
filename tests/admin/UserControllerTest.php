@@ -4,7 +4,7 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class AdminUserControllerTest extends TestCase
+class UserControllerTest extends TestCase
 {
     use DatabaseTransactions;
 
@@ -20,7 +20,7 @@ class AdminUserControllerTest extends TestCase
     }
 
     /**
-     * test function tetGetEditProfile in AdminUserController
+     * test function tetGetEditProfile in UserController
      * @return void
      */
     public function tetGetEditProfile()
@@ -30,7 +30,7 @@ class AdminUserControllerTest extends TestCase
     }
 
     /**
-     * test function testPutEditProfile in AdminUserController
+     * test function testPutEditProfile in UserController
      * @return void
      */
     public function testPutEditProfile()

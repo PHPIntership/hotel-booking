@@ -4,7 +4,7 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class AdminUserFormTest extends TestCase
+class UserFormTest extends TestCase
 {
   use DatabaseTransactions;
 
@@ -25,7 +25,7 @@ class AdminUserFormTest extends TestCase
   }
 
   /**
-   * test login from paga edit profile
+   * test login from page edit profile
    * @return void
    */
   public function testFormPutEditProfile()

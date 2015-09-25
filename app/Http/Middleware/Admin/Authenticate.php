@@ -17,7 +17,7 @@ class Authenticate
     public function handle($request, Closure $next)
     {
       if (!Auth::admin()->check()) {
-          return redirect()->route('admin.login');
+          return redirect()->guest(route('admin.login'));
       }
       return $next($request);
     }

@@ -4,13 +4,13 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class AdminAuthFormTest extends TestCase
+class AuthFormTest extends TestCase
 {
   /**
    * test display page login admin
    * @return void
    */
-  public function testFormLoginAdmin()
+  public function testFormLogin()
   {
       $this->visit(route('admin.login'))
             ->see('Admin Login');
@@ -20,7 +20,7 @@ class AdminAuthFormTest extends TestCase
    * test login admin
    * @return void
    */
-  public function testFormPostLoginAdmin()
+  public function testFormPostLogin()
   {
       $this->visit(route('admin.login'))
            ->type('admin', 'username')
@@ -35,7 +35,7 @@ class AdminAuthFormTest extends TestCase
    * test logout admin
    * @return void
    */
-  public function testFormAdminLogout()
+  public function testFormLogout()
   {
     $this->visit(route('admin.logout'))
           ->see('Admin Login');

@@ -4,7 +4,7 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class AdminAuthControllerTest extends TestCase
+class AuthControllerTest extends TestCase
 {
   /**
    * [setUp description]
@@ -16,20 +16,20 @@ class AdminAuthControllerTest extends TestCase
   	// }
 
     /**
-     * test function getLoginAdmin in AdminAuthController
+     * test function getLogin in AuthController
      * @return void
      */
-    public function testGetLoginAdmin()
+    public function testGetLogin()
     {
       $response = $this->call('GET',route('admin.login'));
       $this->assertEquals(200, $response->status());
     }
 
     /**
-     * test function testPostLoginAdmin in AdminAuthController
+     * test function testPostLogin in AuthController
      * @return void
      */
-    public function testPostLoginAdmin()
+    public function testPostLogin()
     {
       Session::start();
       $useradmin = [
@@ -43,10 +43,10 @@ class AdminAuthControllerTest extends TestCase
     }
 
     /**
-     * test function testGetLogoutAdmin in AdminAuthController
+     * test function testGetLogout in AuthController
      * @return void
      */
-    public function testGetLogoutAdmin()
+    public function testGetLogout()
     {
       $response = $this->call('GET',route('admin.logout'));
       $this->assertEquals(302, $response->status());
