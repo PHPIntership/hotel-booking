@@ -8,7 +8,9 @@
         "php": ">=5.5.9",
         "laravel/framework": "5.1.*",
         "barryvdh/laravel-debugbar": "^2.0",
-        "kbwebs/multiauth": "~1.0"
+        "kbwebs/multiauth": "~1.0",
+        "illuminate/html": "5.*",
+        "anahkiasen/former": "4.0.*@dev"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

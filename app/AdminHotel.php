@@ -13,4 +13,8 @@ class AdminHotel extends Model
 
     protected $hidden = ['password', 'remember_token'];
 
+    public function getHotel()
+    {
+        return $this->hasOne('HotelBooking\Hotel','id','hotel_id');
+    }
 }
