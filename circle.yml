@@ -5,3 +5,4 @@ machine:
 test:
   override:
     - ./vendor/bin/phpcs --standard=PSR2 app
+    - ./vendor/bin/phpunit
