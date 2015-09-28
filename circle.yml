@@ -1,7 +1,11 @@
 machine:
   php:
     version: 5.5.9
-
+  environment:
+    GITHUB_ACCESS_TOKEN: 18d61e7d8f4feda61c811437d208cde5c5b6d239
+dependencies:
+  pre:
+    - pear install PHP_CodeSniffer
 test:
   override:
     - ./vendor/bin/phpcs --standard=PSR2 app
