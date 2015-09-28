@@ -6,3 +6,8 @@ test:
   override:
     - ./vendor/bin/phpcs --standard=PSR2 app
     - ./vendor/bin/phpunit
+## Customize dependencies 
+dependencies: 
+  pre: 
+    #enable xdebug. LINE 1/2 to uncomment if you want to run a code coverage report. 
+    - sed -i 's/^;//' ~/.phpenv/versions/$(phpenv global)/etc/conf.d/xdebug.ini
