@@ -9,7 +9,5 @@ dependencies:
 
 test:
   override:
-    phpcs --report=checkstyle app \
-        | checkstyle_filter-git diff origin/master \
-        | saddler report --require saddler/reporter/github --reporter Saddler::Reporter::Github::PullRequestReviewComment
-    phpunit
+    - scripts/saddler.sh
+    - phpunit
