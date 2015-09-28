@@ -11,27 +11,31 @@ use HotelBooking\Http\Requests\Admin\LoginRequest;
 class AuthController extends AdminBaseController
 {
 
+    protected $auth;
     public function __construct()
     {
+        $this->auth = Auth::admin();
         $this->middleware('guest', ['except' => 'getLogout']);
     }
+
     /**
-     * [show page lofin for admin]
+     * show page login for admin
      * @return Response
      */
     public function getLogin()
     {
-        return view('admin.login');
+        return view('admin.auth.login');
     }
 
     /**
-     * [login for admin]
+     * login for admin
      * @param  AdminLoginRequest $request
      * @return Response
      */
     public function postLogin(LoginRequest $request)
     {
-        if (Auth::admin()->attempt($request->only('username', 'password'), $request->has('remember'))) {
+        $login=$this->auth->attempt($request->only('username', 'password'), $request->has('remember'));
+        if ($login) {
             return redirect()->intended(route('admin.index'));
         } else {
             return redirect()->route('admin.login')
@@ -41,12 +45,12 @@ class AuthController extends AdminBaseController
     }
 
     /**
-     * [logout for admin]
+     * logout for admin
      * @return Response
      */
     public function getLogout()
     {
-        Auth::admin()->logout();
+        $this->auth->logout();
         return redirect()->route('admin.login');
     }
 }
