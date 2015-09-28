@@ -6,6 +6,13 @@
   <input type="hidden" name="_token" value="{{ csrf_token() }}" />
   <input type="hidden" name="_method" value="put" />
   <div class="row">
+    @if ( session()->has('msg') )
+    <div class="col-sm-offset-3 col-sm-5 alert alert-success">
+        <ul>
+          {{session('msg')}}
+        </ul>
+    </div>
+    @endif
     @if ( $errors->any() )
     <div class="col-sm-offset-3 col-sm-5 alert alert-danger">
         <ul>

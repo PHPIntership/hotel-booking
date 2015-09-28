@@ -28,7 +28,7 @@ class AdminHotelsController extends Controller
     public function store(HotelCreateRequest $request)
     {
         $hotel= HotelService::save($request->all());
-        return $hotel;
+        return redirect(route('admin.hotels.create'))->with('msg', 'Create success');
     }
 
     public function show($id)
@@ -45,7 +45,7 @@ class AdminHotelsController extends Controller
     public function update(HotelEditRequest $request, $id)
     {
         $hotel= HotelService::update($request->all(), $id);
-        return $hotel;
+        return redirect(route('admin.hotels.edit', $id))->with('msg', 'Edit success');
     }
 
     public function destroy($id)
