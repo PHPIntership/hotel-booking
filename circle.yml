@@ -1,17 +1,15 @@
 machine:
   php:
     version: 5.5.9
-  environment:
-    GITHUB_ACCESS_TOKEN: 18d61e7d8f4feda61c811437d208cde5c5b6d239
 dependencies:
   pre:
+    - cd $HOME && php -r \"copy('.env.example', '.env');\"
     - pear install PHP_CodeSniffer
+    - gem install --no-document checkstyle_filter-git saddler saddler-reporter-github
+
 test:
   override:
-    - ./vendor/bin/phpcs --standard=PSR2 app
-    - ./vendor/bin/phpunit
-## Customize dependencies 
-dependencies: 
-  pre: 
-    #enable xdebug. LINE 1/2 to uncomment if you want to run a code coverage report. 
-    - sed -i 's/^;//' ~/.phpenv/versions/$(phpenv global)/etc/conf.d/xdebug.ini
+    phpcs --report=checkstyle app \
+        | checkstyle_filter-git diff origin/master \
+        | saddler report --require saddler/reporter/github --reporter Saddler::Reporter::Github::PullRequestReviewComment
+    phpunit
