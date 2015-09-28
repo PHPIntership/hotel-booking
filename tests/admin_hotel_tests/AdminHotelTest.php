@@ -7,7 +7,7 @@ use HotelBooking\AdminHotel;
 
 class AdminHotelTest extends TestCase
 {
-  use DatabaseTransactions;
+    use DatabaseTransactions;
     /**
      * A basic test example.
      *
@@ -46,10 +46,10 @@ class AdminHotelTest extends TestCase
     public function testDeleteAdminHotel()
     {
         $this->WithoutMiddleware();
-        $response = $this->call('delete', route('adminhotel.destroy',30));
+        $response = $this->call('delete', route('adminhotel.destroy', 30));
         $this->assertEquals(302, $response->status());
 
-        $response = $this->call('delete', route('adminhotel.destroy',1));
+        $response = $this->call('delete', route('adminhotel.destroy', 1));
         $this->assertEquals(404, $response->status());
     }
 }
