@@ -35,11 +35,25 @@ class HotelService
         $hotel -> phone = $request["phone"];
         $hotel -> email = $request["email"];
         $hotel -> website = $request["website"];
+        if (isset($request["image"])) {
+            $hotel -> image = self::imageUpload($request["image"]);
+        }
         $hotel -> description = $request["description"];
 
         $hotel -> save();
 
         return $hotel;
+    }
+
+    private static function imageUpload($file)
+    {
+        $dir = "uploads/";
+        $name = $file->getClientOriginalName();
+        while (file_exists($dir.$name)) {
+            $name = (rand(10, 99))."_".$name;
+        }
+        $file->move($dir, $name);
+        return $name;
     }
 
     public static function cities()

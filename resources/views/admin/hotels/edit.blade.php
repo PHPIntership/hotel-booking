@@ -2,7 +2,7 @@
 
 @section('content')
 <h3 class="col-sm-offset-3 col-sm-7">Edit Hotel</h3>
-<form method="post" action="/admin/hotels/{{$id}}" class="form-horizontal">
+<form method="post" action="/admin/hotels/{{$id}}" class="form-horizontal" enctype="multipart/form-data">
   <input type="hidden" name="_token" value="{{ csrf_token() }}" />
   <input type="hidden" name="_method" value="put" />
   <div class="row">
@@ -60,6 +60,12 @@
     <label class="control-label col-sm-3">Website</label>
     <div class="col-sm-5">
       <input class="form-control" type="text" name="website" value="{{$website}}"/>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-3">Image</label>
+    <div class="col-sm-5">
+      <input class="form-control" type="file" accept="image/*" name="image" />
     </div>
   </div>
   <div class="form-group">
