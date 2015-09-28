@@ -33,7 +33,7 @@ class AdminHotelTest extends TestCase
   	//Test if can get correct  hotel admin edit page.
   	public function testEdit()
   	{
-  		$response=$this->call('GET', route('admin-hotel.edit', 1));	
+  		$response = $this->call('GET', route('admin-hotel.edit', 1));	
   		$this->assertResponseOk();
   		$this->assertViewHas('adminHotel');
   	}
@@ -42,7 +42,7 @@ class AdminHotelTest extends TestCase
   	public function testUpdate()
   	{
   		$this->WithoutMiddleware();
-  		$this->call('PUT', route('admin-hotel.update',1));
+  		$this->call('PUT', route('admin-hotel.update', 1));
   		$this->assertResponseStatus(302);
   	}
 
@@ -56,7 +56,6 @@ class AdminHotelTest extends TestCase
     		 ->type('testAdminHotel@gmail.com', '#email')
     		 ->type('0987666223', '#phone')
     		 ->press('Submit')
-    		 //->assertRedirectedTo(route('admin-hotel.create'));
     		 ->see('You had created an admin hotel account');
 
     }

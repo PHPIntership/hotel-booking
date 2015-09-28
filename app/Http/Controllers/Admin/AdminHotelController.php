@@ -32,8 +32,8 @@ class AdminHotelController extends AdminBaseController
      */
     public function create()
     {
-        $hotels=Hotel::all();
-        return view('admin.create_admin_hotel',compact('hotels'));
+        $hotels = Hotel::all();
+        return view('admin.create_admin_hotel', compact('hotels'));
     }
 
     /**
@@ -47,7 +47,7 @@ class AdminHotelController extends AdminBaseController
         $data = $request->all();
         $data['password'] = bcrypt($data['password']);
         if (AdminHotel::create($data))
-        Session::flash('flash_message','You had created an admin hotel account');
+        Session::flash('flash_message', 'You had created an admin hotel account');
         return redirect()->route('admin-hotel.create');
     }
 
@@ -70,9 +70,9 @@ class AdminHotelController extends AdminBaseController
      */
     public function edit($id)
     {
-        $adminHotel=AdminHotel::find($id);
-        $hotels=Hotel::all();
-        return view('admin.edit_admin_hotel',compact('adminHotel','hotels'));
+        $adminHotel = AdminHotel::find($id);
+        $hotels = Hotel::all();
+        return view('admin.edit_admin_hotel', compact('adminHotel', 'hotels'));
     }
 
     /**
@@ -84,16 +84,16 @@ class AdminHotelController extends AdminBaseController
      */
     public function update(AdminHotelUpdateFormRequest $request, $id)
     {
-        $hotel_id=$request->input('hotel_id');
-        $name=$request->input('name');
-        $phone=$request->input('phone');
-        $adminHotel=AdminHotel::find($id);
-        $adminHotel->hotel_id=$hotel_id;
-        $adminHotel->name=$name;
-        $adminHotel->phone=$phone;
+        $hotel_id = $request->input('hotel_id');
+        $name = $request->input('name');
+        $phone = $request->input('phone');
+        $adminHotel = AdminHotel::find($id);
+        $adminHotel->hotel_id = $hotel_id;
+        $adminHotel->name = $name;
+        $adminHotel->phone = $phone;
         $adminHotel->save();
-        Session::flash('flash_message','Successfully updated hotel admin\'s information');
-        return redirect()->route('admin-hotel.edit',$id);
+        Session::flash('flash_message', 'Successfully updated hotel admin\'s information');
+        return redirect()->route('admin-hotel.edit', $id);
     }
 
     /**
