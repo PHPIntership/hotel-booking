@@ -12,7 +12,6 @@ use HotelBooking\Http\Requests\Admin\AdminHotelUpdateFormRequest;
 use HotelBooking\Http\Controllers\Controller;
 use HotelBooking\Http\Controllers\Admin\AdminBaseController;
 
-
 class AdminHotelController extends AdminBaseController
 {
     /**
@@ -46,8 +45,9 @@ class AdminHotelController extends AdminBaseController
     {
         $data = $request->all();
         $data['password'] = bcrypt($data['password']);
-        if (AdminHotel::create($data))
-        Session::flash('flash_message', 'You had created an admin hotel account');
+        if (AdminHotel::create($data)) {
+            Session::flash('flash_message', 'You had created an admin hotel account');
+        }
         return redirect()->route('admin-hotel.create');
     }
 
