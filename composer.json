@@ -10,7 +10,8 @@
         "barryvdh/laravel-debugbar": "^2.0",
         "kbwebs/multiauth": "~1.0",
         "illuminate/html": "5.*",
-        "anahkiasen/former": "4.0.*@dev"
+        "anahkiasen/former": "4.0.*@dev",
+        "squizlabs/php_codesniffer": "*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

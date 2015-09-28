@@ -15,22 +15,21 @@ class AdminHotelController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-      public function index(){
+    public function index()
+    {
         $adminHotels = AdminHotel::paginate(10);
         //dd($adminhotelName=AdminHotel::find(4)->hotel);
         foreach ($adminHotels as $key => $value) {
-          $hotel=$value->getHotel;
-          if($hotel)
-          {
-              $value->name_hotel=$hotel->name;
-          }
-          else {
-              $value->name_hotel="";
-          }
+            $hotel=$value->getHotel;
+            if ($hotel) {
+                $value->name_hotel=$hotel->name;
+            } else {
+                $value->name_hotel="";
+            }
         }
        //dd(json_encode($adminHotels[1]->hotel->name));
-        return view('admin.hotel_index',compact('adminHotels'));
-      }
+        return view('admin.hotel_index', compact('adminHotels'));
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -94,10 +93,11 @@ class AdminHotelController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-      public function destroy($id){
-
+    public function destroy($id)
+    {
         $adminHotel = AdminHotel::findOrFail($id);
         $adminHotel->delete();
-        return redirect()->route('adminhotel.index')->with(['flash_level'=>'success','flash_message'=>'Delete success!!']);
-      }
+        return redirect()->route('adminhotel.index')
+        ->with(['flash_level'=>'success','flash_message'=>'Delete success!!']);
+    }
 }
