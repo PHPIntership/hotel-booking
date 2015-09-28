@@ -12,5 +12,4 @@ class AdminHotel extends Model
     protected $fillable = ['hotel_id', 'username', 'password', 'name', 'email', 'phone'];
 
     protected $hidden = ['password', 'remember_token'];
-
 }

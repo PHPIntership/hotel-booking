@@ -16,9 +16,9 @@ class Authenticate
      */
     public function handle($request, Closure $next)
     {
-      if (!Auth::admin()->check()) {
-          return redirect()->guest(route('admin.login'));
-      }
-      return $next($request);
+        if (!Auth::admin()->check()) {
+            return redirect()->guest(route('admin.login'));
+        }
+        return $next($request);
     }
 }

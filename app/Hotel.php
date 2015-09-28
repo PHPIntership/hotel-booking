@@ -1,6 +1,6 @@
 <?php
 
-namespace HotelBooking\Model;
+namespace HotelBooking;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -9,6 +9,5 @@ class Hotel extends Model
 
     protected $table = 'hotels';
 
-    protected $fillable = ['name','quality','address','phone','website','image','description'];
-
+    protected $fillable = ['city_id','name','quality','address','phone','email','website','image','description'];
 }

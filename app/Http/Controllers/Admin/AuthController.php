@@ -11,16 +11,17 @@ use HotelBooking\Http\Requests\Admin\LoginRequest;
 class AuthController extends AdminBaseController
 {
 
-    public function __construct() {
-  		$this->middleware('guest', ['except' => 'getLogout']);
-  	}
+    public function __construct()
+    {
+        $this->middleware('guest', ['except' => 'getLogout']);
+    }
     /**
      * [show page lofin for admin]
      * @return Response
      */
     public function getLogin()
     {
-      return view('admin.login');
+        return view('admin.login');
     }
 
     /**
@@ -30,18 +31,13 @@ class AuthController extends AdminBaseController
      */
     public function postLogin(LoginRequest $request)
     {
-      if(Auth::admin()->attempt($request
-                      ->only('username','password'),$request
-                      ->has('remember')))
-      {
-          return redirect()->intended(route('admin.index'));
-      }
-      else
-      {
-          return redirect()->route('admin.login')
-                            ->withInput($request->only('username','remember'))
-                            ->withErrors(['username'=>'These credentials do not match our records.']);
-      }
+        if (Auth::admin()->attempt($request->only('username', 'password'), $request->has('remember'))) {
+            return redirect()->intended(route('admin.index'));
+        } else {
+            return redirect()->route('admin.login')
+                              ->withInput($request->only('username', 'remember'))
+                              ->withErrors(['username'=>'These credentials do not match our records.']);
+        }
     }
 
     /**
@@ -50,8 +46,7 @@ class AuthController extends AdminBaseController
      */
     public function getLogout()
     {
-      Auth::admin()->logout();
-      return redirect()->route('admin.login');
+        Auth::admin()->logout();
+        return redirect()->route('admin.login');
     }
-
 }
