@@ -47,16 +47,8 @@
 			<input type="text" name="phone" class="form-control" id="" placeholder="Phone" value="{{ $adminHotel->phone }}">
 		</div>
 
-		
-
 		<button type="submit" class="btn btn-primary">Submit</button>
 	</form>
 </div>
-@endsection
 
-<!-- {!! Former::open()->route('admin-hotel.update',1)->method('post') !!}
-	{!! csrf_field() !!}
-	{!! Former::text('hotel_id')->value('1')!!}
-	{!! Former::text('phone')->value('1123123123')!!}
-	{!! Former::text('name')->value('aasdadasd')!!}
-	{!! Former::submit('ok')!!} -->
+@endsection

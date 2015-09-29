@@ -2,6 +2,7 @@
 
 namespace HotelBooking\Http\Controllers\Admin;
 
+use DB;
 use Session;
 use HotelBooking\Hotel;
 use HotelBooking\AdminHotel;
@@ -31,7 +32,9 @@ class AdminHotelController extends AdminBaseController
      */
     public function create()
     {
-        $hotels = Hotel::all();
+        $hotels = DB::table('hotels')
+        ->select('id', 'name')
+        ->get();
         return view('admin.create_admin_hotel', compact('hotels'));
     }
 
@@ -70,8 +73,14 @@ class AdminHotelController extends AdminBaseController
      */
     public function edit($id)
     {
-        $adminHotel = AdminHotel::find($id);
-        $hotels = Hotel::all();
+        $params = ['id', 'username', 'hotel_id', 'phone', 'name'];
+        $adminHotel = DB::table('admin_hotels')
+        ->select($params)
+        ->where('id', $id)
+        ->first();
+        $hotels = DB::table('hotels')
+        ->select('id', 'name')
+        ->get();
         return view('admin.edit_admin_hotel', compact('adminHotel', 'hotels'));
     }
 
@@ -87,6 +96,7 @@ class AdminHotelController extends AdminBaseController
         $hotel_id = $request->input('hotel_id');
         $name = $request->input('name');
         $phone = $request->input('phone');
+        $params = ['hotel_id', 'name', 'phone'];
         $adminHotel = AdminHotel::find($id);
         $adminHotel->hotel_id = $hotel_id;
         $adminHotel->name = $name;

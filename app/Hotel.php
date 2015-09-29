@@ -9,5 +9,15 @@ class Hotel extends Model
 
     protected $table = 'hotels';
 
-    protected $fillable = ['city_id','name','quality','address','phone','email','website','image','description'];
+    protected $fillable = [
+    'city_id',
+    'name',
+    'quality',
+    'address',
+    'phone',
+    'email',
+    'website',
+    'image',
+    'description'
+    ];
 }

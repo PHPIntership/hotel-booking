@@ -58,8 +58,6 @@
 		<input type="text" name="phone" class="form-control" id="phone" placeholder="Phone" value="{{ old('phone') }}">
 	</div>
 
-	
-
 	<button type="submit" id="formsubmit" class="btn btn-primary">Submit</button>
 </form>
 </div>
