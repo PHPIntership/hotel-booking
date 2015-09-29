@@ -15,7 +15,7 @@ Admin Hotel
                 <tr>
                     <th>#</th>
                     <th>Hotel</th>
-                    <th>User name</th>
+                    <th>Uaaser name</th>
                     <th>Name</th>
                     <th>Email</th>
                     <th>Phone</th>
@@ -26,7 +26,7 @@ Admin Hotel
           @foreach ($adminHotels  as $key => $adminHotel)
                 <tr>
                   <td>{{ $key+1 }}</td>
-                  <td>{{ $adminHotel->name_hotel }}</td>
+                  <td>{{ $adminHotel->getHotel->name }}</td>
                   <td>{{ $adminHotel->username }}</td>
                   <td>{{ $adminHotel->name }}</td>
                   <td>{{ $adminHotel->email }}</td>

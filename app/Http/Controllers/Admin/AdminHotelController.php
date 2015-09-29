@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use HotelBooking\Http\Requests;
 use HotelBooking\Http\Controllers\Controller;
 use HotelBooking\AdminHotel;
+use DB;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class AdminHotelController extends Controller
 {
@@ -17,17 +19,22 @@ class AdminHotelController extends Controller
 
     public function index()
     {
-        $adminHotels = AdminHotel::paginate(10);
-        //dd($adminhotelName=AdminHotel::find(4)->hotel);
-        foreach ($adminHotels as $key => $value) {
-            $hotel=$value->getHotel;
-            if ($hotel) {
-                $value->name_hotel=$hotel->name;
-            } else {
-                $value->name_hotel="";
+        //$adminHotels = AdminHotel::paginate(10);
+        $column = [
+            'id',
+            'hotel_id',
+            'username',
+            'name',
+            'email',
+            'phone',
+            ];
+        $adminHotels =  AdminHotel::with([
+            'getHotel'=>function ($query) {
+                $query->select('id', 'name');
             }
-        }
-       //dd(json_encode($adminHotels[1]->hotel->name));
+        ])
+        ->select($column)
+        ->paginate(10);
         return view('admin.hotel_index', compact('adminHotels'));
     }
 
@@ -97,7 +104,8 @@ class AdminHotelController extends Controller
     {
         $adminHotel = AdminHotel::findOrFail($id);
         $adminHotel->delete();
-        return redirect()->route('adminhotel.index')
-        ->with(['flash_level'=>'success','flash_message'=>'Delete success!!']);
+        return redirect()
+        ->route('adminhotel.index')
+        ->with(['flash_level'=>'success', 'flash_message'=>'Delete success!!']);
     }
 }

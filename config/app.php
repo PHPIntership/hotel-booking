@@ -138,7 +138,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Illuminate\Html\HtmlServiceProvider::class,
         Former\FormerServiceProvider::class,
-    
+        Barryvdh\Debugbar\ServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -199,6 +199,7 @@ return [
         'Form'      => Illuminate\Html\FormFacade::class,
         'HTML'      => Illuminate\Html\HtmlFacade::class,
         'Former'    => Former\Facades\Former::class,
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
 
     ],
 
