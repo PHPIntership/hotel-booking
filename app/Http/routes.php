@@ -8,10 +8,10 @@
 */
 
 // routes for admin
-require_once __DIR__.'/Routes/admin_routes.php';
+require __DIR__.'/Routes/admin_routes.php';
 
 // routes for hotel
-require_once  __DIR__.'/Routes/hotel_routes.php';
+require  __DIR__.'/Routes/hotel_routes.php';
 
 // routes for frontend
-require_once  __DIR__.'/Routes/frontend_routes.php';
+require  __DIR__.'/Routes/frontend_routes.php';

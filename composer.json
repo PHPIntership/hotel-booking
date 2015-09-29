@@ -9,6 +9,7 @@
         "laravel/framework": "5.1.*",
         "barryvdh/laravel-debugbar": "^2.0",
         "kbwebs/multiauth": "~1.0",
+        "anahkiasen/former": "4.0.*@dev",
         "squizlabs/php_codesniffer": "*"
     },
     "require-dev": {
