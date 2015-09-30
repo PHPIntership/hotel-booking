@@ -11,5 +11,5 @@ test:
   override:
     # - scripts/saddler.sh
     # - phpunit
-    - ./vendor/bin/phpcs --standard=PSR2 app
+    - ./vendor/bin/phpcs --standard=PSR2 app config databases resources test
     - ./vendor/bin/phpunit
