@@ -31,12 +31,12 @@ class AdminHotelTest extends TestCase
     *
     * @return void
     */
-   public function testDeleted()
-   {
-       $this->visit(route('admin-hotel.index'))
+    public function testDeleted()
+    {
+        $this->visit(route('admin-hotel.index'))
             ->press('Delete')
             ->see('Deleted successfully!!!');
-   }
+    }
 
     /**
     * Test status method GET display listing admin hotel
@@ -66,13 +66,13 @@ class AdminHotelTest extends TestCase
     }
 
     /**
-    * Test database have user 
+    * Test database have user
     *
     * @return void
     */
-   public function testDatabase()
-   {
-       $this->seeInDatabase('admin_hotels', ['name'=>'Ba Muoi']);
-       $this->seeInDatabase('admin_hotels', ['phone'=>'1234565']);
-   }
+    public function testDatabase()
+    {
+        $this->seeInDatabase('admin_hotels', ['name'=>'Ba Muoi']);
+        $this->seeInDatabase('admin_hotels', ['phone'=>'1234565']);
+    }
 }
