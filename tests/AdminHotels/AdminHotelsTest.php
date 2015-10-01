@@ -13,7 +13,7 @@ class AdminHotelsTest extends TestCase
      * @return void
      */
 
-    use DatabaseTransactions;
+    //use DatabaseTransactions;
     public function testCreateGET()
     {
         $response = $this->call('GET', route('admin.hotels.create'));

@@ -7,6 +7,12 @@ use HotelBooking\Hotel;
 class HotelService
 {
 
+    /**
+     *
+     *
+     * @param Request $request
+     * @return HotelBooking\Hotel
+     */
     public static function save($request)
     {
         $hotel = new Hotel;
@@ -24,6 +30,13 @@ class HotelService
         return $hotel;
     }
 
+    /**
+     *
+     *
+     * @param Request $request
+     * @param int $id
+     * @return HotelBooking\Hotel
+     */
     public static function update($request, $id)
     {
         $hotel = Hotel::findOrFail($id);
@@ -45,6 +58,12 @@ class HotelService
         return $hotel;
     }
 
+    /**
+     *
+     *
+     * @param file $file
+     * @return string
+     */
     private static function imageUpload($file)
     {
         $dir = "uploads/";
@@ -56,6 +75,11 @@ class HotelService
         return $name;
     }
 
+    /**
+     *
+     *
+     * @return array
+     */
     public static function cities()
     {
         $cities = array(
