@@ -8,13 +8,6 @@ use HotelBooking\AdminHotel;
 class AdminHotelTest extends TestCase
 {
     use DatabaseTransactions;
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
-
-
      /**
      * Test display page index listing admin hotel
      *
@@ -24,18 +17,6 @@ class AdminHotelTest extends TestCase
     {
         $this->visit(route('admin-hotel.index'))
              ->see('Admin Hotel');
-    }
-
-    /**
-    * Test delete is success
-    *
-    * @return void
-    */
-    public function testDeleted()
-    {
-        $this->visit(route('admin-hotel.index'))
-            ->press('Delete')
-            ->see('Deleted successfully!!!');
     }
 
     /**
@@ -51,28 +32,34 @@ class AdminHotelTest extends TestCase
     }
 
     /**
-    * Test status delete a admin hotel with id = 30 and id = 1
-    * In database id=30 is exist and id=1 not exist
+    * Test status delete a admin hotel
     * @return void
     */
-    public function testDeleteAdminHotelStatus()
+    public function testDeleteAdminHotelStatusOk()
     {
+        $faker = Faker\Factory::create();
+        AdminHotel::create([
+            'hotel_id' => rand(1, 9),
+            'username' => $faker->firstName,
+            'password' => bcrypt(str_random(10)),
+            'name' => $faker->name,
+            'email' => $faker->email,
+            'phone' => $faker->phoneNumber
+            ]);
+        $adminHotel = AdminHotel::select('id')->first();
         $this->WithoutMiddleware();
-        $response = $this->call('delete', route('admin-hotel.destroy', 46));
+        $response = $this->call('delete', route('admin-hotel.destroy', $adminHotel->id));
         $this->assertEquals(302, $response->status());
-
-        $response = $this->call('delete', route('admin-hotel.destroy', 1));
-        $this->assertEquals(404, $response->status());
     }
 
     /**
-    * Test database have user
-    *
+    * Test status delete a admin hotel with id = 0 not exits in database
     * @return void
     */
-    public function testDatabase()
+    public function testDeleteAdminHotelStatusFail()
     {
-        $this->seeInDatabase('admin_hotels', ['name'=>'Ba Muoi']);
-        $this->seeInDatabase('admin_hotels', ['phone'=>'1234565']);
+        $this->WithoutMiddleware();
+        $response = $this->call('delete', route('admin-hotel.destroy', 0));
+        $this->assertEquals(404, $response->status());
     }
 }
