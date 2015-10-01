@@ -7,20 +7,20 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 class AuthControllerTest extends TestCase
 {
     /**
-     * test function getLogin in AuthController
+     * test Status getLogin in AuthController
      * @return void
      */
-    public function testGetLogin()
+    public function testGetLoginStatus()
     {
         $response = $this->call('GET', route('admin.login'));
         $this->assertEquals(200, $response->status());
     }
 
     /**
-     * test function testPostLogin in AuthController
+     * test Status postLogin in AuthController
      * @return void
      */
-    public function testPostLogin()
+    public function testPostLoginStatus()
     {
         Session::start();
         $useradmin = [
@@ -34,10 +34,10 @@ class AuthControllerTest extends TestCase
     }
 
     /**
-     * test function testGetLogout in AuthController
+     * test Status getLogout in AuthController
      * @return void
      */
-    public function testGetLogout()
+    public function testGetLogoutStatus()
     {
         $response = $this->call('GET', route('admin.logout'));
         $this->assertEquals(302, $response->status());

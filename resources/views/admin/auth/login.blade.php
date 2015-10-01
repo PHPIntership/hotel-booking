@@ -21,44 +21,30 @@
             <a href="#">Admin Login</a>
           </div><!-- /.login-logo -->
           <div class="login-box-body">
-            <p class="login-box-msg">Sign in to start your session</p>
-    					@if (count($errors) > 0)
-    						<div class="alert alert-danger">
-    							<strong>Whoops!</strong> There were some problems with your input.<br><br>
-    							<ul>
-    								@foreach ($errors->all() as $error)
-    									<li>{{ $error }}</li>
-    								@endforeach
-    							</ul>
-    						</div>
-    					@endif
-              <form action="{{ route('admin.login') }}" method="post">
-                  <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                  <div class="form-group has-feedback">
-                    <input type="username" class="form-control" name="username" value="{{ old('username') }}" placeholder="Username"/>
-                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-                  </div>
-                  <div class="form-group has-feedback">
-                    <input type="password" class="form-control" name="password" placeholder="Password"/>
-                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-                  </div>
-                  <div class="row">
-                    <div class="col-xs-8">
-                      <div class="checkbox icheck">
-                        <label>
-                          <input type="checkbox" name="remember"> Remember Me
-                        </label>
-                      </div>
-                    </div><!-- /.col -->
-                    <div class="col-xs-4">
-                      <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
-                    </div><!-- /.col -->
-                  </div>
-              </form>
+            <p class="login-box-msg">{{trans('messages.sign_start')}}</p>
+            {!!Former::vertical_open(route('admin.login'))
+                      ->method('POST')
+                      ->id('form-edit-profile')!!}
+                      {!!Former::text('username','')
+                                ->placeholder(trans('messages.username'))
+                                ->class('form-control has-feedback')
+
+                                !!}
+                      {!!Former::password('password','')
+                                ->placeholder(trans('messages.password'))
+                                ->class('form-control')!!}
+                      <div class="row">
+                        <div class="col-xs-8">
+                            {!!Former::checkbox('remember','')->text(trans('messages.remember'))!!}
+                        </div>
+                        <div class="col-xs-4">
+                          <button type="submit" class="btn btn-primary btn-block btn-flat">{{trans('messages.sign_in')}}</button>
+                        </div>
+                    </div>
+
+              {!!Former::close()!!}
             </div><!-- /.login-box-body -->
         </div>
-
-
     <!-- jQuery 2.1.4 -->
     <script src="plugins/jQuery/jQuery-2.1.4.min.js"></script>
     <!-- jQuery UI 1.11.4 -->

@@ -145,6 +145,8 @@ return [
         HotelBooking\Providers\AuthServiceProvider::class,
         HotelBooking\Providers\EventServiceProvider::class,
         HotelBooking\Providers\RouteServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
+
 
     ],
 
@@ -195,6 +197,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
         'Former'    => Former\Facades\Former::class,
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
 
     ],
 

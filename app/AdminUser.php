@@ -23,8 +23,8 @@ class AdminUser extends Model implements AuthenticatableContract, AuthorizableCo
      * fillable
      */
     protected $fillable = [
-                            'id',
-                            'username',
-                            'password'
-                          ];
+        'id',
+        'username',
+        'password'
+        ];
 }

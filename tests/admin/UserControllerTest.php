@@ -20,20 +20,20 @@ class UserControllerTest extends TestCase
     }
 
     /**
-     * test function tetGetEditProfile in UserController
+     * test Status GetEditProfile in UserController
      * @return void
      */
-    public function tetGetEditProfile()
+    public function tetGetEditProfileStatus()
     {
           $response = $this->call('GET', route('admin.edit.profile'));
           $this->assertEquals(200, $response->status());
     }
 
     /**
-     * test function testPutEditProfile in UserController
+     * test Status PutEditProfile in UserController
      * @return void
      */
-    public function testPutEditProfile()
+    public function testPutEditProfileStatus()
     {
         $new_profile = [
             'old_password'        =>'123123!',
