@@ -50,8 +50,7 @@ class AdminHotelController extends AdminBaseController
         $data = $request->all();
         if (AdminHotel::create($data)) {
             Session::flash('flash_message', trans('messages.create_success').
-                ' for '.trans('messages.hotel_admin')
-            );
+                ' for '.trans('messages.hotel_admin'));
         }
         return redirect()->route('admin-hotel.create');
     }
@@ -97,8 +96,7 @@ class AdminHotelController extends AdminBaseController
         $adminHotel = AdminHotel::findOrFail($id);
         $adminHotel->update($request->all());
         Session::flash('flash_message', trans('messages.edit_success').
-            ' for '.trans('messages.hotel_admin')
-        );
+            ' for '.trans('messages.hotel_admin'));
         return redirect()->route('admin-hotel.edit', $id);
     }
 
