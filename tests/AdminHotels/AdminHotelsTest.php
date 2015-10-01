@@ -4,31 +4,41 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use HotelBooking\Services\Admin\HotelService;
+use HotelBooking\Hotel;
 
 class AdminHotelsTest extends TestCase
 {
+
+    use DatabaseMigrations;
+    use DatabaseTransactions;
+
     /**
-     * A basic functional test example.
+     *
      *
      * @return void
      */
-
-    //use DatabaseTransactions;
     public function testCreateGET()
     {
         $response = $this->call('GET', route('admin.hotels.create'));
         $this->assertEquals(200, $response->status());
     }
 
+    /**
+     *
+     *
+     * @return void
+     */
     public function testEditGet()
     {
-        $response = $this->call('GET', route('admin.hotels.edit', 1));
-        $this->assertEquals(200, $response->status());
-
-        $response = $this->call('GET', route('admin.hotels.edit', 0));
+        $response = $this->call('GET', route('admin.hotels.edit'));
         $this->assertEquals(404, $response->status());
     }
 
+    /**
+     *
+     *
+     * @return void
+     */
     public function testStorePOST()
     {
         $this->WithoutMiddleware();
@@ -36,6 +46,11 @@ class AdminHotelsTest extends TestCase
         $this->assertEquals(302, $response->status());
     }
 
+    /**
+     *
+     *
+     * @return void
+     */
     public function testUpdatePUT()
     {
         $this->WithoutMiddleware();
