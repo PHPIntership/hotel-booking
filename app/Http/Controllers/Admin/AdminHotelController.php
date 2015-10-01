@@ -2,6 +2,7 @@
 
 namespace HotelBooking\Http\Controllers\Admin;
 
+use Hash;
 use DB;
 use Session;
 use HotelBooking\Hotel;
@@ -33,23 +34,23 @@ class AdminHotelController extends AdminBaseController
     public function create()
     {
         $hotels = DB::table('hotels')
-        ->select('id', 'name')
-        ->get();
-        return view('admin.create_admin_hotel', compact('hotels'));
+            ->lists('name', 'id');
+        return view('admin.admin-hotel.create', compact('hotels'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request\Admin\
+     *          AdminHotelCreateFormRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(AdminHotelCreateFormRequest $request)
     {
+
         $data = $request->all();
-        $data['password'] = bcrypt($data['password']);
         if (AdminHotel::create($data)) {
-            Session::flash('flash_message', 'You had created an admin hotel account');
+            Session::flash('flash_message', trans('messages.create_success'));
         }
         return redirect()->route('admin-hotel.create');
     }
@@ -73,36 +74,28 @@ class AdminHotelController extends AdminBaseController
      */
     public function edit($id)
     {
-        $params = ['id', 'username', 'hotel_id', 'phone', 'name'];
-        $adminHotel = DB::table('admin_hotels')
-        ->select($params)
-        ->where('id', $id)
-        ->first();
+        $columns = ['id', 'username', 'hotel_id', 'phone', 'name'];
+        $adminHotel = AdminHotel::select($columns)
+            ->where('id', $id)
+            ->first();
         $hotels = DB::table('hotels')
-        ->select('id', 'name')
-        ->get();
-        return view('admin.edit_admin_hotel', compact('adminHotel', 'hotels'));
+            ->lists('name', 'id');
+        return view('admin.admin-hotel.edit', compact('adminHotel', 'hotels'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request\Admin\
+     *         AdminHotelUpdateFormRequest  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(AdminHotelUpdateFormRequest $request, $id)
     {
-        $hotel_id = $request->input('hotel_id');
-        $name = $request->input('name');
-        $phone = $request->input('phone');
-        $params = ['hotel_id', 'name', 'phone'];
-        $adminHotel = AdminHotel::find($id);
-        $adminHotel->hotel_id = $hotel_id;
-        $adminHotel->name = $name;
-        $adminHotel->phone = $phone;
-        $adminHotel->save();
-        Session::flash('flash_message', 'Successfully updated hotel admin\'s information');
+        $adminHotel = AdminHotel::findOrFail($id);
+        $adminHotel->update($request->all());
+        Session::flash('flash_message', trans('messages.edit_success'));
         return redirect()->route('admin-hotel.edit', $id);
     }
 

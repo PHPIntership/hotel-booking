@@ -24,8 +24,8 @@ class AdminHotelCreateFormRequest extends Request
     public function rules()
     {
         return [
-            'username'  =>  'required|regex:/^[a-z 0-9,.\'-_]+$/i|min:6|max:20|unique:admin_hotels',
-            'password'  =>  'required|alpha_num',
+            'username'  =>  'required|regex:/^[a-z0-9,.\'-_]+$/i|min:6|max:20|unique:admin_hotels',
+            'password'  =>  'required|alpha_num|min:6|max:20',
             'name'      =>  'required|regex:/^[a-z ,.\'-]+$/i',
             'email'     =>  'required|email|unique:admin_hotels',
             'phone'     =>  'required|regex:/^0[0-9]*$/|min:10|max:15'
