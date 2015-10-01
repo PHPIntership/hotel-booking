@@ -3,6 +3,8 @@
 namespace HotelBooking\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use HotelBooking\AdminUser;
+use Hash;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -13,7 +15,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        AdminUser::updating(function ($adminUser) {
+            if (!empty($adminUser->password) && Hash::needsRehash($adminUser->password)) {
+                $adminUser->password = Hash::make($adminUser->password);
+            }
+        });
     }
 
     /**

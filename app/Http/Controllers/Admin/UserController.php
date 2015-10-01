@@ -21,7 +21,6 @@ class UserController extends AdminBaseController
     {
         $this->auth = Auth::admin();
     }
-
       /**
        * Show view edit profile Admin User
        * @return Response
@@ -43,17 +42,17 @@ class UserController extends AdminBaseController
         if (!Hash::check($old_password, $this->auth->get()->password)) {
             return redirect()->route('admin.edit.profile')
                               ->withErrors([
-                                  'old_password'=>'Old Password invalid'
+                                  'old_password'=>trans('messages.invalid', ['name'=>'old password'])
                                 ]);
         }
         $admin_user = AdminUser::findOrFail($this->auth->get()->id);
         $admin_user->update([
-            'password'=>Hash::make($new_password)
+            'password'  => $new_password
           ]);
         return redirect()->route('admin.edit.profile')
                           ->with([
-                              'flash_level'   =>'success',
-                              'flash_message' =>'Change password success!!'
+                              'flash_level'   =>trans('messages.success'),
+                              'flash_message' =>trans('messages.change_success', ['name'=>'assword'])
                               ]);
     }
 }
