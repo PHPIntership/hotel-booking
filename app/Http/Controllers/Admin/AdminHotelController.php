@@ -17,7 +17,7 @@ use HotelBooking\Http\Controllers\Admin\AdminBaseController;
 class AdminHotelController extends AdminBaseController
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the hotel admins.
      *
      * @return \Illuminate\Http\Response
      */
@@ -27,7 +27,7 @@ class AdminHotelController extends AdminBaseController
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a hotel admin
      *
      * @return \Illuminate\Http\Response
      */
@@ -39,7 +39,7 @@ class AdminHotelController extends AdminBaseController
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created hotel admin in storage.
      *
      * @param  \Illuminate\Http\Request\Admin\
      *          AdminHotelCreateFormRequest  $request
@@ -47,16 +47,17 @@ class AdminHotelController extends AdminBaseController
      */
     public function store(AdminHotelCreateFormRequest $request)
     {
-
         $data = $request->all();
         if (AdminHotel::create($data)) {
-            Session::flash('flash_message', trans('messages.create_success'));
+            Session::flash('flash_message', trans('messages.create_success').
+                ' for '.trans('messages.hotel_admin')
+            );
         }
         return redirect()->route('admin-hotel.create');
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified hotel admin.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -67,7 +68,7 @@ class AdminHotelController extends AdminBaseController
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified hotel admin.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -84,7 +85,7 @@ class AdminHotelController extends AdminBaseController
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified hotel admin in storage.
      *
      * @param  \Illuminate\Http\Request\Admin\
      *         AdminHotelUpdateFormRequest  $request
@@ -95,12 +96,14 @@ class AdminHotelController extends AdminBaseController
     {
         $adminHotel = AdminHotel::findOrFail($id);
         $adminHotel->update($request->all());
-        Session::flash('flash_message', trans('messages.edit_success'));
+        Session::flash('flash_message', trans('messages.edit_success').
+            ' for '.trans('messages.hotel_admin')
+        );
         return redirect()->route('admin-hotel.edit', $id);
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified hotel from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response

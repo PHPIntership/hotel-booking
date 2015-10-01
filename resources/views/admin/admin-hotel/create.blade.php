@@ -15,30 +15,30 @@
                         ->method('POST')
                         ->action(route('admin-hotel.store'))
                     !!}
-                    @include('admin.messages.success')
+                    @include('layouts.admin.partials.flash')
                     {!! Former::select('hotel_id')
-                    ->options($hotels)
-                    ->label(trans('messages.hotel'))
+                        ->options($hotels)
+                        ->label(trans('messages.hotel'))
                     !!}
                     {!! Former::text('username')
-                    ->placeholder('Username')
-                    ->label(trans('messages.username'))
+                        ->placeholder('Username')
+                        ->label(trans('messages.username'))
                     !!}
                     {!! Former::password('password')
-                    ->placeholder('******')
-                    ->label(trans('messages.password'))
+                        ->placeholder('******')
+                        ->label(trans('messages.password'))
                     !!}
                     {!! Former::text('name')
-                    ->placeholder('Real name')
-                    ->label(trans('messages.name'))
+                        ->placeholder('Real name')
+                        ->label(trans('messages.name'))
                     !!}
                     {!! Former::email('email')
-                    ->placeholder('Email@.gmail.com')
-                    ->label(trans('messages.email'))
+                        ->placeholder('Email@.gmail.com')
+                        ->label(trans('messages.email'))
                     !!}
                     {!! Former::text('phone')
-                    ->placeholder('Phone')
-                    ->label(trans('messages.phone'))
+                        ->placeholder('Phone')
+                        ->label(trans('messages.phone'))
                     !!}
                     {!! Former::submit('Create')->class('btn btn-info') !!}
                     {!! Former::close() !!}

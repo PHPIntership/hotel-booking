@@ -4,6 +4,9 @@ namespace HotelBooking\Http\Requests\Admin;
 
 use HotelBooking\Http\Requests\Request;
 
+/**
+ * A Request class for validating the requests from edit hotel admin forms.
+ */
 class AdminHotelUpdateFormRequest extends Request
 {
     /**

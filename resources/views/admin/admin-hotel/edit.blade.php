@@ -15,7 +15,7 @@
                         ->method('PUT')
                         ->action(route('admin-hotel.update', $adminHotel->id))
                     !!}
-                    @include('admin.messages.success')
+                    @include('layouts.admin.partials.flash')
                     {!! Former::select('hotel_id')
                         ->options($hotels, $adminHotel->hotel_id)
                         ->label(trans('messages.hotel'))
