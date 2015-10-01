@@ -6,14 +6,19 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class AuthControllerTest extends TestCase
 {
+    use DatabaseTransactions;
+
+    protected $facAdminUser;
+
+
     /**
      * test Status getLogin in AuthController
      * @return void
      */
     public function testGetLoginStatus()
     {
-        $response = $this->call('GET', route('admin.login'));
-        $this->assertEquals(200, $response->status());
+        $resPonse = $this->call('GET', route('admin.login'));
+        $this->assertEquals(200, $resPonse->status());
     }
 
     /**
@@ -23,14 +28,15 @@ class AuthControllerTest extends TestCase
     public function testPostLoginStatus()
     {
         Session::start();
-        $useradmin = [
-              'username'=>'admin',
-              'password'=>'123123!',
+        $facAdminUser = factory(HotelBooking\AdminUser::class)->create();
+        $adminUser = [
+              'username'=>$facAdminUser->username,
+              'password'=>'123456',
               'remember'=>1,
               '_token'  => csrf_token()
           ];
-        $response = $this->call('POST', route('admin.login'), $useradmin);
-        $this->assertEquals(302, $response->status());
+        $resPonse = $this->call('POST', route('admin.login'), $adminUser);
+        $this->assertEquals(302, $resPonse->status());
     }
 
     /**
@@ -40,14 +46,14 @@ class AuthControllerTest extends TestCase
     public function testPostLoginWithoutUsernameStatus()
     {
         Session::start();
-        $useradmin = [
+        $adminUser = [
               'username'=>'',
-              'password'=>'123123!',
+              'password'=>'123456',
               'remember'=>1,
               '_token'  => csrf_token()
           ];
-        $response = $this->call('POST', route('admin.login'), $useradmin);
-        $this->assertEquals(302, $response->status());
+        $resPonse = $this->call('POST', route('admin.login'), $adminUser);
+        $this->assertEquals(302, $resPonse->status());
     }
 
     /**
@@ -57,14 +63,14 @@ class AuthControllerTest extends TestCase
     public function testPostLoginWithoutPasswordStatus()
     {
         Session::start();
-        $useradmin = [
-              'username'=>'admin',
-              'password'=>'!',
+        $adminUser = [
+              'username'=>'testpass',
+              'password'=>'',
               'remember'=>1,
               '_token'  => csrf_token()
           ];
-        $response = $this->call('POST', route('admin.login'), $useradmin);
-        $this->assertEquals(302, $response->status());
+        $resPonse = $this->call('POST', route('admin.login'), $adminUser);
+        $this->assertEquals(302, $resPonse->status());
     }
 
     /**
@@ -74,14 +80,14 @@ class AuthControllerTest extends TestCase
     public function testPostLoginWithoutUserameAndPasswordStatus()
     {
         Session::start();
-        $useradmin = [
+        $adminUser = [
               'username'=>'',
-              'password'=>'!',
+              'password'=>'',
               'remember'=>1,
               '_token'  => csrf_token()
           ];
-        $response = $this->call('POST', route('admin.login'), $useradmin);
-        $this->assertEquals(302, $response->status());
+        $resPonse = $this->call('POST', route('admin.login'), $adminUser);
+        $this->assertEquals(302, $resPonse->status());
     }
     /**
      * test status get logout

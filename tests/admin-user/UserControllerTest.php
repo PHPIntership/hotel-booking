@@ -16,15 +16,16 @@ class UserControllerTest extends TestCase
     {
         parent::setUp();
         Session::start();
-        Auth::admin()->attempt(['username'=>'admin', 'password'=>'123123!'], 1);
     }
 
     /**
      * test Status GetEditProfile in UserController
      * @return void
      */
-    public function tetGetEditProfileStatus()
+    public function testGetEditProfileStatus()
     {
+        $this->facAdminUser=factory(HotelBooking\AdminUser::class)->create();
+        Auth::admin()->attempt(['username'=>$this->facAdminUser->username, 'password'=>'123456'], 1);
           $response = $this->call('GET', route('admin.edit.profile'));
           $this->assertEquals(200, $response->status());
     }

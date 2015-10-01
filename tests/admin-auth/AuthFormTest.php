@@ -6,6 +6,8 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class AuthFormTest extends TestCase
 {
+    use DatabaseTransactions;
+
   /**
    * test display page login admin
    * @return void
@@ -22,9 +24,10 @@ class AuthFormTest extends TestCase
    */
     public function testFormPostLoginSuccess()
     {
+        $facAdminUser = factory(HotelBooking\AdminUser::class)->create();
         $this->visit(route('admin.login'))
-            ->type('admin', 'username')
-            ->type('123123!', 'password')
+            ->type($facAdminUser->username, 'username')
+            ->type('123456', 'password')
             ->check('remember')
             ->press('Sign In')
             ->see('Dashboard')
@@ -39,7 +42,7 @@ class AuthFormTest extends TestCase
     {
         $this->visit(route('admin.login'))
             ->type('', 'username')
-            ->type('123123!', 'password')
+            ->type('123123', 'password')
             ->check('remember')
             ->press('Sign In')
             ->see(trans('validation.required', ['attribute'=>'username']))
@@ -53,7 +56,7 @@ class AuthFormTest extends TestCase
     public function testFormPostLoginWithoutPassword()
     {
         $this->visit(route('admin.login'))
-            ->type('admin', 'username')
+            ->type('usertest', 'username')
             ->type('', 'password')
             ->check('remember')
             ->press('Sign In')

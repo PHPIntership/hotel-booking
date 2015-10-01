@@ -8,11 +8,6 @@ class UserFormTest extends TestCase
 {
     use DatabaseTransactions;
 
-    public function setUp()
-    {
-        parent::setUp();
-        Auth::admin()->attempt(['username'=>'admin', 'password'=>'123123!'], 1);
-    }
 
   /**
    * test dislay page edit profile
@@ -20,6 +15,8 @@ class UserFormTest extends TestCase
    */
     public function testFormEditProfile()
     {
+        $facAdminUser=factory(HotelBooking\AdminUser::class)->create();
+        Auth::admin()->attempt(['username'=>$facAdminUser->username, 'password'=>'123456'], 1);
         $this->visit(route('admin.edit.profile'))
               ->see('Edit Profile');
     }
@@ -30,8 +27,10 @@ class UserFormTest extends TestCase
    */
     public function testFormPutEditProfile()
     {
+        $facAdminUser=factory(HotelBooking\AdminUser::class)->create();
+        Auth::admin()->attempt(['username'=>$facAdminUser->username, 'password'=>'123456'], 1);
         $this->visit(route('admin.edit.profile'))
-            ->type('123123!', 'old_password')
+            ->type('123456', 'old_password')
             ->type('123123@', 'new_password')
             ->type('123123@', 'confirm_new_password')
             ->press('Accept')
