@@ -64,16 +64,10 @@
             <li class="active">Dashboard</li>
           </ol>
         </section>
-        @if (Session::has('flash_message'))
-          <div class="alert alert-success">
-            <button type="button" class="close"  data-dismiss="alert" aria-hidden="true"></button>
-            <strong>Success!</strong>
-            {{ Session::get('flash_message') }}
-          </div>
-          @endif
+        <div class="content">
         <!-- Main content -->
         @yield('content')
-
+        </div>
         <!--End content-->
       </div>
       @include('admin_partials.footer')
@@ -249,7 +243,7 @@
     <script src="{{asset('bower_components/AdminLTE/plugins/jQuery/jQuery-2.1.4.min.js')}}"></script>
     <!-- jQuery UI 1.11.4 -->
     <!-- <script src="{{asset('https://code.jquery.com/ui/1.11.4/jquery-ui.min.js')}}"></script>
-    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip --> 
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
     <!-- Bootstrap 3.3.5 -->
     <script src="{{asset('bower_components/AdminLTE/bootstrap/js/bootstrap.min.js')}}"></script>
     <!-- Morris.js charts -->

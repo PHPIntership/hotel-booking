@@ -19,7 +19,6 @@ class AdminHotelController extends Controller
 
     public function index()
     {
-        //$adminHotels = AdminHotel::paginate(10);
         $column = [
             'id',
             'hotel_id',
@@ -32,9 +31,8 @@ class AdminHotelController extends Controller
             'getHotel'=>function ($query) {
                 $query->select('id', 'name');
             }
-        ])
-        ->select($column)
-        ->paginate(10);
+        ])->select($column)
+          ->paginate(10);
         return view('admin.hotel_index', compact('adminHotels'));
     }
 
@@ -105,7 +103,7 @@ class AdminHotelController extends Controller
         $adminHotel = AdminHotel::findOrFail($id);
         $adminHotel->delete();
         return redirect()
-        ->route('adminhotel.index')
-        ->with(['flash_level'=>'success', 'flash_message'=>'Delete success!!']);
+            ->route('admin-hotel.index')
+            ->with('flash_message', trans('messages.delete_success'));
     }
 }
