@@ -16,7 +16,6 @@ class AdminHotelController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
     public function index()
     {
         $column = [
@@ -27,11 +26,11 @@ class AdminHotelController extends Controller
             'email',
             'phone',
             ];
-        $adminHotels =  AdminHotel::with([
-            'getHotel'=>function ($query) {
-                $query->select('id', 'name');
-            }
-        ])->select($column)
+        $with['hotel'] =  function ($query) {
+            $query->select('id', 'name');
+        };
+        $adminHotels =  AdminHotel::with($with)
+          ->select($column)
           ->paginate(10);
         return view('admin.hotel_index', compact('adminHotels'));
     }
@@ -104,6 +103,7 @@ class AdminHotelController extends Controller
         $adminHotel->delete();
         return redirect()
             ->route('admin-hotel.index')
-            ->with('flash_message', trans('messages.delete_success'));
+            ->with('flash_message', trans('messages.delete_success').' for '
+            .trans('messages.admin_hotel').' !!!');
     }
 }

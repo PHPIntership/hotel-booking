@@ -34,7 +34,7 @@ Admin Hotel
               @foreach ($adminHotels  as $key => $adminHotel)
                   <tr>
                     <td>{{ $key+1 }}</td>
-                    <td>{{ $adminHotel->getHotel->name }}</td>
+                    <td>{{ $adminHotel->hotel->name }}</td>
                     <td>{{ $adminHotel->username }}</td>
                     <td>{{ $adminHotel->name }}</td>
                     <td>{{ $adminHotel->email }}</td>
@@ -60,16 +60,4 @@ Admin Hotel
 @endsection
 @section('js')
 <script src="{{asset('bower_components/AdminLTE/dist/js/msg.js')}}"></script>
-<script type="text/javascript">
-  $(function () {
-    $('#example1_wrapper').DataTable({
-      "paging": false,
-      "lengthChange": true,
-      "searching": false,
-      "ordering": false,
-      "info": false,
-      "autoWidth": false
-    });
-  });
-  </script>
-  @endsection
+@endsection

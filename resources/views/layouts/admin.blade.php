@@ -42,15 +42,13 @@
   </head>
   <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
-      @include('admin_partials.header')
-
+      @include('partials.header')
       <!-- Left side column. contains the logo and sidebar -->
       <aside class="main-sidebar">
         <!-- sidebar: style can be found in sidebar.less -->
-      @include('admin_partials.sidebar')
+      @include('partials.sidebar')
         <!-- /.sidebar -->
       </aside>
-
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -70,7 +68,7 @@
         </div>
         <!--End content-->
       </div>
-      @include('admin_partials.footer')
+      @include('partials.footer')
 
       <!-- Control Sidebar -->
       <aside class="control-sidebar control-sidebar-dark">
@@ -122,7 +120,6 @@
                 </a>
               </li>
             </ul><!-- /.control-sidebar-menu -->
-
             <h3 class="control-sidebar-heading">Tasks Progress</h3>
             <ul class="control-sidebar-menu">
               <li>
@@ -170,7 +167,6 @@
                 </a>
               </li>
             </ul><!-- /.control-sidebar-menu -->
-
           </div><!-- /.tab-pane -->
           <!-- Stats tab content -->
           <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div><!-- /.tab-pane -->
@@ -187,7 +183,6 @@
                   Some information about this general settings option
                 </p>
               </div><!-- /.form-group -->
-
               <div class="form-group">
                 <label class="control-sidebar-subheading">
                   Allow mail redirect
@@ -197,7 +192,6 @@
                   Other sets of options are available
                 </p>
               </div><!-- /.form-group -->
-
               <div class="form-group">
                 <label class="control-sidebar-subheading">
                   Expose author name in posts
@@ -207,23 +201,19 @@
                   Allow the user to show his name in blog posts
                 </p>
               </div><!-- /.form-group -->
-
               <h3 class="control-sidebar-heading">Chat Settings</h3>
-
               <div class="form-group">
                 <label class="control-sidebar-subheading">
                   Show me as online
                   <input type="checkbox" class="pull-right" checked>
                 </label>
               </div><!-- /.form-group -->
-
               <div class="form-group">
                 <label class="control-sidebar-subheading">
                   Turn off notifications
                   <input type="checkbox" class="pull-right">
                 </label>
               </div><!-- /.form-group -->
-
               <div class="form-group">
                 <label class="control-sidebar-subheading">
                   Delete chat history
@@ -238,7 +228,6 @@
            immediately after the control sidebar -->
       <div class="control-sidebar-bg"></div>
     </div><!-- ./wrapper -->
-
     <!-- jQuery 2.1.4 -->
     <script src="{{asset('bower_components/AdminLTE/plugins/jQuery/jQuery-2.1.4.min.js')}}"></script>
     <!-- jQuery UI 1.11.4 -->
@@ -247,7 +236,6 @@
     <!-- Bootstrap 3.3.5 -->
     <script src="{{asset('bower_components/AdminLTE/bootstrap/js/bootstrap.min.js')}}"></script>
     <!-- Morris.js charts -->
-
     <!-- <script src="{{asset('plugins/morris/morris.min.js')}}"></script> -->
     <!-- Sparkline -->
     <!-- <script src="{{asset('plugins/sparkline/jquery.sparkline.min.js')}}"></script> -->

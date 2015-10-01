@@ -1,6 +1,6 @@
 <?php
 return [
-    'delete_success' => 'Deleted successfully!!!',
+    'delete_success' => 'Deleted successfully',
     'hotel' => 'Hotel',
     'username' => 'User name',
     'name' => 'Name',

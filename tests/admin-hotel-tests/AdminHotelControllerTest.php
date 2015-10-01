@@ -5,7 +5,7 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use HotelBooking\AdminHotel;
 
-class AdminHotelTest extends TestCase
+class AdminHotelControllerTest extends TestCase
 {
     use DatabaseTransactions;
      /**
@@ -16,7 +16,7 @@ class AdminHotelTest extends TestCase
     public function testViewIndex()
     {
         $this->visit(route('admin-hotel.index'))
-             ->see('Admin Hotel');
+             ->see(trans('messages.admin_hotel'));
     }
 
     /**

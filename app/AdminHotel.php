@@ -25,7 +25,7 @@ class AdminHotel extends Model
         'remember_token'
         ];
 
-    public function getHotel()
+    public function hotel()
     {
         return $this->belongsTo('HotelBooking\Hotel', 'hotel_id');
     }
