@@ -59,7 +59,7 @@ class AuthFormTest extends TestCase
             ->type('usertest', 'username')
             ->type('', 'password')
             ->check('remember')
-            ->press('Sign In')
+            ->press(trans('messages.sign_in'))
             ->see(trans('validation.required', ['attribute'=>'password']))
             ->dontsee('Dashboard');
     }
@@ -73,9 +73,24 @@ class AuthFormTest extends TestCase
             ->type('', 'username')
             ->type('', 'password')
             ->check('remember')
-            ->press('Sign In')
+            ->press(trans('messages.sign_in'))
             ->see(trans('validation.required', ['attribute'=>'password']))
             ->see(trans('validation.required', ['attribute'=>'username']))
+            ->dontsee('Dashboard');
+    }
+
+    /**
+     * test post form login password less than six character
+     * @return void
+     */
+    public function testFormPostLoginPassWordLessThanSixCharacter()
+    {
+        $this->visit(route('admin.login'))
+            ->type('usertest', 'username')
+            ->type('123', 'password')
+            ->check('remember')
+            ->press(trans('messages.sign_in'))
+            ->see(trans('validation.min.string', ['attribute'=>'password','min'=>'6']))
             ->dontsee('Dashboard');
     }
 

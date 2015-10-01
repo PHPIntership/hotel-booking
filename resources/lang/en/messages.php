@@ -6,7 +6,12 @@ return [
   'password' =>'Password',
   'sign_start' => 'Sign in to start your session',
   'success' => 'Success',
-
+  'old_password'=>'Old Password',
+  'new_password'=>'New Password',
+  'confirm_new_password'=>'Confirm New Password',
+  'update'=>'Update',
+  'reset'=>'Reset',
+  'edit_profile'=>'Edit Profile',
 
 
 
@@ -15,7 +20,7 @@ return [
 
 
   'change_success' => 'Change :name success!',
-  'invalid' => 'The :name is invalid',
+
 
 
 
