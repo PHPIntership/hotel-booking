@@ -1,8 +1,15 @@
 machine:
   php:
     version: 5.5.9
+dependencies:
+  pre:
+    - cp .env.example .env
+    # - pear install PHP_CodeSniffer
+    # - gem install --no-document checkstyle_filter-git saddler saddler-reporter-github
 
 test:
   override:
-    - ./vendor/bin/phpcs --standard=PSR2 app
+    # - scripts/saddler.sh
+    # - phpunit
+    - ./vendor/bin/phpcs -n --standard=PSR2 app config resources tests
     - ./vendor/bin/phpunit
