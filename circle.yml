@@ -4,10 +4,12 @@ machine:
 dependencies:
   pre:
     - cp .env.example .env
-    - pear install PHP_CodeSniffer
-    - gem install --no-document checkstyle_filter-git saddler saddler-reporter-github
+    # - pear install PHP_CodeSniffer
+    # - gem install --no-document checkstyle_filter-git saddler saddler-reporter-github
 
 test:
   override:
-    - scripts/saddler.sh
-    - phpunit
+    # - scripts/saddler.sh
+    # - phpunit
+    - ./vendor/bin/phpcs -n --standard=PSR2 app config resources tests
+    - ./vendor/bin/phpunit
