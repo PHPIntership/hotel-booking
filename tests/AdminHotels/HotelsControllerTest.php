@@ -3,43 +3,38 @@
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
-use HotelBooking\Services\Admin\HotelService;
-use HotelBooking\Hotel;
 
-class AdminHotelsTest extends TestCase
+class HotelsControllerTest extends TestCase
 {
 
-    use DatabaseMigrations;
-    use DatabaseTransactions;
-
     /**
-     *
+     * Test create action, GET method
      *
      * @return void
      */
-    public function testCreateGET()
+    public function testCreate()
     {
         $response = $this->call('GET', route('admin.hotels.create'));
         $this->assertEquals(200, $response->status());
     }
 
     /**
-     *
+     * Test edit action, GET method
      *
      * @return void
      */
-    public function testEditGet()
+    public function testEdit()
     {
         $response = $this->call('GET', route('admin.hotels.edit'));
         $this->assertEquals(404, $response->status());
     }
 
     /**
-     *
+     * Test store action, POST method
      *
      * @return void
      */
-    public function testStorePOST()
+    public function testStore()
     {
         $this->WithoutMiddleware();
         $response = $this->call('POST', route('admin.hotels.store'));
@@ -47,11 +42,11 @@ class AdminHotelsTest extends TestCase
     }
 
     /**
-     *
+     * Test update action, PUT method
      *
      * @return void
      */
-    public function testUpdatePUT()
+    public function testUpdate()
     {
         $this->WithoutMiddleware();
         $response = $this->call('PUT', route('admin.hotels.update'));

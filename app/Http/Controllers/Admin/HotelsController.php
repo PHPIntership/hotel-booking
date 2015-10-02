@@ -5,16 +5,17 @@ namespace HotelBooking\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Lang;
 use HotelBooking\Hotel;
+use HotelBooking\City;
 use HotelBooking\Services\Admin\HotelService;
 use HotelBooking\Http\Requests\Admin\HotelCreateRequest;
 use HotelBooking\Http\Requests\Admin\HotelEditRequest;
 use HotelBooking\Http\Controllers\Controller;
 
 /**
- * AdminHotelsController
+ * HotelsController
  */
 
-class AdminHotelsController extends Controller
+class HotelsController extends AdminBaseController
 {
 
     public function index()
@@ -22,29 +23,29 @@ class AdminHotelsController extends Controller
     }
 
     /**
-     *
+     * Load view with Hotel creating form
      *
      * @return view
      */
     public function create()
     {
-        $thead = Lang::get('admin/hotels.thead');
-        $cities = HotelService::cities();
-        return view("admin.hotels.create", $cities)
-                  ->with($thead);
+        $cities = [
+          'cities' => City::all()
+        ];
+        return view("admin.hotels.create", $cities);
     }
 
     /**
+     * Create new Hotel from request information and sotre into database
      *
-     *
-     * @param Request $request
+     * @param HotelCreateRequest $request
      * @return redirect
      */
     public function store(HotelCreateRequest $request)
     {
-        HotelService::save($request->all());
-        return redirect(route('hotels.create'))
-            ->with('msg', Lang::get('admin/hotels.create_success'));
+        HotelService::store($request->all());
+        return redirect(route('admin.hotels.create'))
+            ->with('create_success', trans('admin/hotels.create_success'));
     }
 
     public function show($id)
@@ -52,23 +53,22 @@ class AdminHotelsController extends Controller
     }
 
     /**
-     *
+     * Load view with Hotel editting form
      *
      * @param int $id
      * @return view
      */
     public function edit($id)
     {
-        $thead = Lang::get('admin/hotels.thead');
         $hotel = Hotel::findOrFail($id);
-        $cities = HotelService::cities();
-        return view("admin.hotels.edit", $hotel, $cities)
-                ->with($thead);
-
+        $cities = [
+          'cities' => City::all()
+        ];
+        return view("admin.hotels.edit", $hotel, $cities);
     }
 
     /**
-     *
+     * Update Hotel from request information into database
      *
      * @param Request $request
      * @param int $id
@@ -78,7 +78,7 @@ class AdminHotelsController extends Controller
     {
         HotelService::update($request->all(), $id);
         return redirect(route('admin.hotels.edit', $id))
-            ->with('msg', Lang::get('admin/hotels.edit_success'));
+            ->with('edit_success', Lang::get('admin/hotels.edit_success'));
     }
 
     public function destroy($id)

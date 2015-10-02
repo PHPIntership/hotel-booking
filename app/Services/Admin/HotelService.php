@@ -8,12 +8,12 @@ class HotelService
 {
 
     /**
-     *
+     * Create new Hotel from request information and sotre into database
      *
      * @param Request $request
      * @return HotelBooking\Hotel
      */
-    public static function save($request)
+    public static function store($request)
     {
         $hotel = new Hotel;
 
@@ -31,7 +31,7 @@ class HotelService
     }
 
     /**
-     *
+     * Update Hotel from request information into database
      *
      * @param Request $request
      * @param int $id
@@ -59,7 +59,7 @@ class HotelService
     }
 
     /**
-     *
+     * Save upload image from request file into uploads folder
      *
      * @param file $file
      * @return string
@@ -73,22 +73,5 @@ class HotelService
         }
         $file->move($dir, $name);
         return $name;
-    }
-
-    /**
-     *
-     *
-     * @return array
-     */
-    public static function cities()
-    {
-        $cities = array(
-          'cities' => [
-            1 => 'Danang',
-            2 => 'Hanoi',
-            3 => 'HCM city'
-          ]
-        );
-        return $cities;
     }
 }
