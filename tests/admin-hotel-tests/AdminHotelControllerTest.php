@@ -10,9 +10,7 @@ use HotelBooking\AdminHotel;
  */
 class AdminHotelControllerTest extends TestCase
 {
-
     use DatabaseTransactions;
-	
     /**
      * Test if can get correct hotel admin create page status.
      * @return void
@@ -103,7 +101,7 @@ class AdminHotelControllerTest extends TestCase
     }
     /**
      * Test if a hotel admin cant be created when issert a not unique username
-     * @return [type] [description]
+     * @return void
      */
     public function testCreateAdminHotelWithUniqueUsername()
     {
@@ -188,7 +186,7 @@ class AdminHotelControllerTest extends TestCase
     /**
      * Test if a hotel admin cant be created when issert username less
      * than 6 characters
-     * @return [type] [description]
+     * @return void
      */
     public function testCreateAdminHotelWithUsernameLessThan6Characters()
     {
@@ -326,7 +324,7 @@ class AdminHotelControllerTest extends TestCase
     }
     /**
      * Test if a hotel admin is edited
-     * @return [type] [description]
+     * @return void
      */
     public function testAdminHotelIsEdited()
     {
