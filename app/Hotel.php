@@ -4,11 +4,24 @@ namespace HotelBooking;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ *Hotel model
+ */
 class Hotel extends Model
 {
     protected $table = 'hotels';
 
-    protected $fillable = ['city_id','name','quality','address','phone','email','website','image','description'];
+    protected $fillable = [
+        'city_id',
+        'name',
+        'quality',
+        'address',
+        'phone',
+        'email',
+        'website',
+        'image',
+        'description'
+    ];
 
     /**
      * Get the city that locate the hotel.
@@ -17,4 +30,3 @@ class Hotel extends Model
     {
         return $this->belongsTo('App\City', 'city_id');
     }
-}
