@@ -10,7 +10,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class AdminHotel extends Model
 {
-    //
     use SoftDeletes;
     protected $table = 'admin_hotels';
     protected $dates = ['deleted_at'];
@@ -22,11 +21,11 @@ class AdminHotel extends Model
         'email',
         'phone',
         'deleted_at'
-        ];
+    ];
     protected $hidden = [
         'password',
         'remember_token'
-        ];
+    ];
 
     public function hotel()
     {
