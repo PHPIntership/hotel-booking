@@ -36,11 +36,11 @@ class AuthController extends AdminBaseController
     {
         $login=$this->auth->attempt($request->only('username', 'password'), $request->has('remember'));
         if ($login) {
-            return redirect()->intended(route('admin.index'));
+            return redirect()->intended(route('admin.profile.edit'));
         } else {
             return redirect()->route('admin.login')
-                              ->withInput($request->only('username', 'remember'))
-                              ->withErrors(['username'=>'These credentials do not match our records.']);
+                ->withInput($request->only('username', 'remember'))
+                ->withErrors(['username'=>'These credentials do not match our records.']);
         }
     }
 

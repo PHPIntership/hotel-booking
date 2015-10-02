@@ -4,10 +4,13 @@ namespace HotelBooking;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * AdminHotel model
+ */
 class AdminHotel extends Model
 {
     //
-    protected $table='admin_hotels';
+    protected $table = 'admin_hotels';
 
     protected $fillable = [
         'hotel_id',
@@ -16,10 +19,11 @@ class AdminHotel extends Model
         'name',
         'email',
         'phone'
-      ];
+    ];
+
 
     protected $hidden = [
         'password',
         'remember_token'
-      ];
+    ];
 }

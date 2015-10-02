@@ -136,7 +136,6 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-        Former\FormerServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -145,6 +144,8 @@ return [
         HotelBooking\Providers\AuthServiceProvider::class,
         HotelBooking\Providers\EventServiceProvider::class,
         HotelBooking\Providers\RouteServiceProvider::class,
+        Illuminate\Html\HtmlServiceProvider::class,
+        Former\FormerServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
 
 
@@ -196,6 +197,8 @@ return [
         'URL'       => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
+        'Form'      => Illuminate\Html\FormFacade::class,
+        'HTML'      => Illuminate\Html\HtmlFacade::class,
         'Former'    => Former\Facades\Former::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
 

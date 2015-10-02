@@ -17,3 +17,4 @@ $factory->define(HotelBooking\AdminUser::class, function ($faker) {
         'password'=> bcrypt('123456')
     ];
 });
+
