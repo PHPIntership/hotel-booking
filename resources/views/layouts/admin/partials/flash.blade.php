@@ -1,7 +1,11 @@
-@if (Session::has('flash_message'))
-    <div class="alert alert-{{Session::get('flash_level')}}">
+@if (Session::has('flash_success'))
+    <div class="alert alert-success">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-        <strong></strong>
-        {{ Session::get('flash_message') }}
+        <strong>Success!</strong>{{ Session::get('flash_success') }}
+    </div>
+@elseif (Session::has('flash_error'))
+    <div class="alert alert-danger">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <strong>Error!</strong>{{ Session::get('flash_error') }}
     </div>
 @endif

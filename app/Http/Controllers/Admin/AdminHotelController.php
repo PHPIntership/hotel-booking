@@ -44,16 +44,16 @@ class AdminHotelController extends AdminBaseController
     /**
      * Store a newly created hotel admin in storage.
      *
-     * @param  \Illuminate\Http\Request\Admin\
-     *          AdminHotelCreateFormRequest  $request
+     * @param  \Illuminate\Http\Request\Admin\AdminHotelCreateFormRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(AdminHotelCreateFormRequest $request)
     {
         $data = $request->all();
         if (AdminHotel::create($data)) {
-            Session::flash('flash_message', trans('messages.create_success_admin_hotel'));
-            Session::flash('flash_level', 'success');
+            Session::flash('flash_success', trans('messages.create_success_admin_hotel'));
+        } else {
+            Session::flash('flash_error', trans('messages.create_fail_admin_hotel'));
         }
         return redirect()->route('admin-hotel.create');
     }
@@ -89,17 +89,18 @@ class AdminHotelController extends AdminBaseController
     /**
      * Update the specified hotel admin in storage.
      *
-     * @param  \Illuminate\Http\Request\Admin\
-     *         AdminHotelUpdateFormRequest  $request
+     * @param  \Illuminate\Http\Request\Admin\AdminHotelUpdateFormRequest  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(AdminHotelUpdateFormRequest $request, $id)
     {
         $adminHotel = AdminHotel::findOrFail($id);
-        $adminHotel->update($request->all());
-        Session::flash('flash_message', trans('messages.edit_success_admin_hotel'));
-        Session::flash('flash_level', 'success');
+        if ($adminHotel->update($request->all())) {
+            Session::flash('flash_success', trans('messages.edit_success_admin_hotel'));
+        } else {
+            Session::flash('flash_error', trans('messages.edit_fail_admin_hotel'));
+        }
         return redirect()->route('admin-hotel.edit', $id);
     }
 
