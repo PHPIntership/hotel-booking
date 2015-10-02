@@ -1,17 +1,15 @@
 <?php
 
 use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use HotelBooking\AdminHotel;
 
 class AdminHotelControllerTest extends TestCase
 {
     use DatabaseTransactions;
-     /**
-     * Test display page index listing admin hotel
-     *
-     * @return void
+
+    /**
+     * Test display page index listing admin hotel.
      */
     public function testViewIndex()
     {
@@ -20,10 +18,8 @@ class AdminHotelControllerTest extends TestCase
     }
 
     /**
-    * Test status method GET display listing admin hotel
-    *
-    * @return void
-    */
+     * Test status method GET display listing admin hotel.
+     */
     public function testIndexStatus()
     {
         $response = $this->call('GET', '/admin-hotel');
@@ -31,9 +27,8 @@ class AdminHotelControllerTest extends TestCase
     }
 
     /**
-    * Test status delete a admin hotel
-    * @return void
-    */
+     * Test status delete a admin hotel.
+     */
     public function testDeleteAdminHotelStatusOk()
     {
         $faker = Faker\Factory::create();
@@ -43,7 +38,7 @@ class AdminHotelControllerTest extends TestCase
             'password' => bcrypt(str_random(10)),
             'name' => $faker->name,
             'email' => $faker->email,
-            'phone' => $faker->phoneNumber
+            'phone' => $faker->phoneNumber,
             ]);
         $adminHotel = AdminHotel::select('id')->first();
         $this->WithoutMiddleware();
@@ -52,9 +47,8 @@ class AdminHotelControllerTest extends TestCase
     }
 
     /**
-    * Test status delete a admin hotel with id = 0 not exits in database
-    * @return void
-    */
+     * Test status delete a admin hotel with id = 0 not exits in database.
+     */
     public function testDeleteAdminHotelStatusFail()
     {
         $this->WithoutMiddleware();
@@ -64,102 +58,96 @@ class AdminHotelControllerTest extends TestCase
 
     /**
      * Test if can get correct hotel admin create page status.
-     * @return void
      */
-  	public function testCreateStatus()
-  	{
-  	    $response = $this->call('GET', route('admin-hotel.create'));
-  	    $this->assertResponseOk();
-  	}
+    public function testCreateStatus()
+    {
+        $response = $this->call('GET', route('admin-hotel.create'));
+        $this->assertResponseOk();
+    }
 
-  	/**
+    /**
      *Test if can get correct hotel admin store page status.
-     * @return void
      */
-  	public function testStoreStatus()
-  	{
-  	    $this->WithoutMiddleware();
-  	    $this->call('POST', route('admin-hotel.store'));
-  	    $this->assertResponseStatus(302);
-  	}
+    public function testStoreStatus()
+    {
+        $this->WithoutMiddleware();
+        $this->call('POST', route('admin-hotel.store'));
+        $this->assertResponseStatus(302);
+    }
 
-  	/**
+    /**
      *Test if can get correct  hotel admin edit page status.
-     * @return void
      */
-  	public function testEditStatus()
-  	{
+    public function testEditStatus()
+    {
         $faker = Faker\Factory::create();
         AdminHotel::create([
-            'hotel_id'=>rand(0,10),
-            'username'=>$faker->name,
+            'hotel_id' => rand(0, 10),
+            'username' => $faker->name,
             'name' => $faker->name,
             'email' => $faker->email,
             'phone' => $faker->phoneNumber,
             'password' => str_random(10),
         ]);
         $adminHotel = AdminHotel::select('id')->first();
-	      $response = $this->call('GET', route('admin-hotel.edit', $adminHotel->id));
-	      $this->assertResponseOk();
-	      $this->assertViewHas('adminHotel');
-  	}
+        $response = $this->call('GET', route('admin-hotel.edit', $adminHotel->id));
+        $this->assertResponseOk();
+        $this->assertViewHas('adminHotel');
+    }
 
-  	/**
-     *Test if can get correct  hotel admin update page status
-     * @return void
+    /**
+     *Test if can get correct  hotel admin update page status.
      */
-  	public function testUpdateStatus()
-  	{
+    public function testUpdateStatus()
+    {
         $this->WithoutMiddleware();
         $this->call('PUT', route('admin-hotel.update', 1));
         $this->assertResponseStatus(302);
-  	}
+    }
 
-  	/**
-     *Test if a hotel admin is created when issert valid data
-     * @return void
+    /**
+     *Test if a hotel admin is created when issert valid data.
      */
     public function testNewAdminHotelIsCreated()
     {
-    	$this->visit(route('admin-hotel.create'))
-    		->type('hoteladmin892', '#username')
-    		->type('123456', '#password')
-    		->type('Justin Beiber', '#name')
-    		->type('testAdminHotel@gmail.com', '#email')
-    		->type('0987666223', '#phone')
-    		->press('Create')
+        $this->visit(route('admin-hotel.create'))
+            ->type('hoteladmin892', '#username')
+            ->type('123456', '#password')
+            ->type('Justin Beiber', '#name')
+            ->type('testAdminHotel@gmail.com', '#email')
+            ->type('0987666223', '#phone')
+            ->press('Create')
             ->seeIndatabase('admin_hotels', ['email' => 'testAdminHotel@gmail.com'])
             ->seeIndatabase('admin_hotels', ['username' => 'hoteladmin892'])
             ->seeIndatabase('admin_hotels', ['name' => 'Justin Beiber'])
             ->seeIndatabase('admin_hotels', ['phone' => '0987666223'])
-    		->see(trans('messages.create_success_admin_hotel'));
+            ->see(trans('messages.create_success_admin_hotel'));
     }
 
     /**
-     * Test if a hotel admin cant be created when issert null username
-     * @return void
+     * Test if a hotel admin cant be created when issert null username.
      */
     public function testCreateAdminHotelWithoutUsername()
     {
-    	$this->visit(route('admin-hotel.create'))
-    	    ->type('', '#username')
-    		->type('123456', '#password')
-    		->type('Justin Beiber', '#name')
-    		->type('testAdminHotel@gmail.com', '#email')
-    		->type('0987666223', '#phone')
-    		->press('Create')
-    		->see(trans('validation.required', ['attribute' => trans('messages.username')]));
+        $this->visit(route('admin-hotel.create'))
+            ->type('', '#username')
+            ->type('123456', '#password')
+            ->type('Justin Beiber', '#name')
+            ->type('testAdminHotel@gmail.com', '#email')
+            ->type('0987666223', '#phone')
+            ->press('Create')
+            ->see(trans('validation.required', ['attribute' => trans('messages.username')]));
     }
+
     /**
-     * Test if a hotel admin cant be created when issert a not unique username
-     * @return void
+     * Test if a hotel admin cant be created when issert a not unique username.
      */
     public function testCreateAdminHotelWithUniqueUsername()
     {
         $faker = Faker\Factory::create();
         AdminHotel::create([
-            'hotel_id'=>rand(0,10),
-            'username'=>'unique_username',
+            'hotel_id' => rand(0, 10),
+            'username' => 'unique_username',
             'name' => $faker->name,
             'email' => $faker->email,
             'phone' => $faker->phoneNumber,
@@ -172,11 +160,11 @@ class AdminHotelControllerTest extends TestCase
             ->type('testAdminHotel@gmail.com', '#email')
             ->type('0987777666', '#phone')
             ->press('Create')
-            ->see(trans('validation.unique'), ['attribute'=>trans('messages.name')]);
+            ->see(trans('validation.unique'), ['attribute' => trans('messages.name')]);
     }
+
     /**
-     * Test if a hotel admin cant be created when issert null password
-     * @return void
+     * Test if a hotel admin cant be created when issert null password.
      */
     public function testCreateAdminHotelWithoutPassword()
     {
@@ -189,9 +177,9 @@ class AdminHotelControllerTest extends TestCase
             ->press('Create')
             ->see(trans('validation.required', ['attribute' => trans('messages.password')]));
     }
+
     /**
-     * Test if a hotel admin cant be created when issert null name
-     * @return void
+     * Test if a hotel admin cant be created when issert null name.
      */
     public function testCreateAdminHotelWithoutName()
     {
@@ -204,9 +192,9 @@ class AdminHotelControllerTest extends TestCase
             ->press('Create')
             ->see(trans('validation.required', ['attribute' => trans('messages.name')]));
     }
+
     /**
-     * Test if a hotel admin cant be created when issert null email
-     * @return void
+     * Test if a hotel admin cant be created when issert null email.
      */
     public function testCreateAdminHotelWithoutEmail()
     {
@@ -219,9 +207,9 @@ class AdminHotelControllerTest extends TestCase
             ->press('Create')
             ->see(trans('validation.required', ['attribute' => trans('messages.email')]));
     }
+
     /**
-     * Test if a hotel admin cant be created when issert null phone
-     * @return void
+     * Test if a hotel admin cant be created when issert null phone.
      */
     public function testCreateAdminHotelWithoutPhone()
     {
@@ -234,10 +222,10 @@ class AdminHotelControllerTest extends TestCase
             ->press('Create')
             ->see(trans('validation.required', ['attribute' => trans('messages.phone')]));
     }
+
     /**
      * Test if a hotel admin cant be created when issert username less
-     * than 6 characters
-     * @return void
+     * than 6 characters.
      */
     public function testCreateAdminHotelWithUsernameLessThan6Characters()
     {
@@ -248,15 +236,15 @@ class AdminHotelControllerTest extends TestCase
             ->type('testAdminHotel@gmail.com', '#email')
             ->type('0987777666', '#phone')
             ->press('Create')
-            ->see(trans('validation.min.string',[
-                'attribute'=>trans('messages.username'),
-                'min'=>6
+            ->see(trans('validation.min.string', [
+                'attribute' => trans('messages.username'),
+                'min' => 6,
             ]));
     }
+
     /**
      * Test if a hotel admin cant be created when issert username more than
-     * 20 characters
-     * @return void
+     * 20 characters.
      */
     public function testCreateAdminHotelWithUsernameMoreThan20Characters()
     {
@@ -267,16 +255,14 @@ class AdminHotelControllerTest extends TestCase
             ->type('testAdminHotel@gmail.com', '#email')
             ->type('0987777666', '#phone')
             ->press('Create')
-            ->see(trans('validation.max.string',[
-                'attribute'=>trans('messages.username'),
-                'max'=>20
+            ->see(trans('validation.max.string', [
+                'attribute' => trans('messages.username'),
+                'max' => 20,
             ]));
     }
 
-
     /**
-     * Test if a hotel admin cant be created when issert username with wrong regex
-     * @return void
+     * Test if a hotel admin cant be created when issert username with wrong regex.
      */
     public function testCreateAdminHotelWithWrongRegexUsername()
     {
@@ -287,12 +273,12 @@ class AdminHotelControllerTest extends TestCase
             ->type('testAdminHotel@gmail.com', '#email')
             ->type('0987777666', '#phone')
             ->press('Create')
-            ->see(trans('validation.regex', ['attribute'=>trans('messages.username')]));
+            ->see(trans('validation.regex', ['attribute' => trans('messages.username')]));
     }
+
     /**
      * Test if a hotel admin cant be created when issert password less
-     * than 6 characters
-     * @return void
+     * than 6 characters.
      */
     public function testCreateAdminHotelWithWrongRegexPassword()
     {
@@ -303,11 +289,11 @@ class AdminHotelControllerTest extends TestCase
             ->type('testAdminHotel@gmail.com', '#email')
             ->type('0987777666', '#phone')
             ->press('Create')
-            ->see(trans('validation.alpha_num', ['attribute'=>trans('messages.password')]));
+            ->see(trans('validation.alpha_num', ['attribute' => trans('messages.password')]));
     }
+
     /**
-     * Test if a hotel admin cant be created when issert username with wrong regex
-     * @return void
+     * Test if a hotel admin cant be created when issert username with wrong regex.
      */
     public function testCreateAdminHotelWithPasswordLessThan6Characters()
     {
@@ -318,15 +304,15 @@ class AdminHotelControllerTest extends TestCase
             ->type('testAdminHotel@gmail.com', '#email')
             ->type('0987777666', '#phone')
             ->press('Create')
-            ->see(trans('validation.min.string',[
-                 'attribute'=>trans('messages.password'),
-                 'min'=>6
+            ->see(trans('validation.min.string', [
+                 'attribute' => trans('messages.password'),
+                 'min' => 6,
             ]));
     }
+
     /**
      * Test if a hotel admin cant be created when issert password more than
-     * 20 characters
-     * @return void
+     * 20 characters.
      */
     public function testCreateAdminHotelWithPasswordMoreThan20Characters()
     {
@@ -337,14 +323,14 @@ class AdminHotelControllerTest extends TestCase
             ->type('testAdminHotel@gmail.com', '#email')
             ->type('0987777666', '#phone')
             ->press('Create')
-            ->see(trans('validation.max.string',[
-            'attribute'=>trans('messages.password'),
-            'max'=>20
+            ->see(trans('validation.max.string', [
+            'attribute' => trans('messages.password'),
+            'max' => 20,
         ]));
     }
+
     /**
-     * Test if a hotel admin cant be created when issert name with a number
-     * @return void
+     * Test if a hotel admin cant be created when issert name with a number.
      */
     public function testCreateAdminHotelWithNumericName()
     {
@@ -355,12 +341,12 @@ class AdminHotelControllerTest extends TestCase
             ->type('testAdminHotel@gmail.com', '#email')
             ->type('0987777666', '#phone')
             ->press('Create')
-            ->see(trans('validation.regex', ['attribute'=>trans('messages.name')]));
+            ->see(trans('validation.regex', ['attribute' => trans('messages.name')]));
     }
+
     /**
      * Test if a hotel admin cant be created when issert phone with alpha
-     * characters
-     * @return void
+     * characters.
      */
     public function testCreateAdminHotelWithAlphaPhone()
     {
@@ -371,19 +357,19 @@ class AdminHotelControllerTest extends TestCase
             ->type('testAdminHotel@gmail.com', '#email')
             ->type('abcdsdae', '#phone')
             ->press('Create')
-            ->see(trans('validation.regex', ['attribute'=>trans('messages.phone')]));
+            ->see(trans('validation.regex', ['attribute' => trans('messages.phone')]));
     }
+
     /**
-     * Test if a hotel admin is edited
-     * @return void
+     * Test if a hotel admin is edited.
      */
     public function testAdminHotelIsEdited()
     {
         //factory(HotelBooking\AdminHotel::class)->make();
         $faker = Faker\Factory::create();
         AdminHotel::create([
-            'hotel_id'=>5,
-            'username'=>$faker->name,
+            'hotel_id' => 5,
+            'username' => $faker->name,
             'name' => $faker->name,
             'email' => $faker->email,
             'phone' => $faker->phoneNumber,
@@ -395,6 +381,6 @@ class AdminHotelControllerTest extends TestCase
              ->type('0906433992', '#phone')
              ->press('Update')
              ->see(trans('messages.edit_success_admin_hotel'))
-             ->seeInDatabase('admin_hotels', ['name'=>'My Test Name']);
+             ->seeInDatabase('admin_hotels', ['name' => 'My Test Name']);
     }
 }

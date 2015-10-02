@@ -35,7 +35,7 @@ Admin Hotel
                     <td>{{ $adminHotel->phone }}</td>
                     <td>
                       {!! Former::open()->route('admin-hotel.destroy',$adminHotel->id)->method('Delete') !!}
-                      <button onclick="return messenge('{!! trans('messages.table_tittle.delete_confirm') !!}')" class="btn btn-danger">
+                      <button onclick="return messange('{!! trans('messages.delete_confirm') !!}')" class="btn btn-danger">
                           <i class="fa fa-pencil"></i>
                           {!! trans('messages.delete') !!}
                       </button>

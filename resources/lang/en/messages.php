@@ -4,6 +4,7 @@ return [
     'delete_fail_admin_hotel' => 'Can not delete admin hotel',
     'action' => 'Action',
     'delete' => 'Delete',
+    'admin_hotel' => 'Admin hotel',
     'delete_confirm' => 'Do you want to delete?',
     'edit_success_admin_hotel'=>'Updated hotel admin successfully',
     'create_success_admin_hotel'=>'Created hotel admin successfully',
