@@ -4,6 +4,9 @@ namespace HotelBooking\Services\Admin;
 
 use HotelBooking\Hotel;
 
+/**
+ * HotelService
+ */
 class HotelService
 {
 

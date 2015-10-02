@@ -4,6 +4,11 @@ namespace HotelBooking\Http\Requests\Admin;
 
 class HotelEditRequest extends HotelCreateRequest
 {
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
     public function rules()
     {
         $id = $this->route()->getParameter('hotels');

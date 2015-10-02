@@ -9,8 +9,18 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Hotel extends Model
 {
+    /**
+     * The database table used by the model.
+     *
+     * @var string
+     */
     protected $table = 'hotels';
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
     protected $fillable = [
         'city_id',
         'name',
@@ -30,3 +40,4 @@ class Hotel extends Model
     {
         return $this->belongsTo('App\City', 'city_id');
     }
+}
