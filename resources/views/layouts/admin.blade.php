@@ -61,9 +61,10 @@
             <li class="active">Dashboard</li>
           </ol>
         </section>
-
-        <!-- Main content -->
-        @yield('content')
+        <div class="content">
+          <!-- Main content -->
+          @yield('content')
+        </div>
 
         <!--End content-->
       </div><!-- /.content-wrapper -->
