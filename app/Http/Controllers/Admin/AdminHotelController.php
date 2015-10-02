@@ -2,17 +2,25 @@
 
 namespace HotelBooking\Http\Controllers\Admin;
 
+use Hash;
+use DB;
+use Session;
+use HotelBooking\Hotel;
+use HotelBooking\AdminHotel;
 use Illuminate\Http\Request;
 use HotelBooking\Http\Requests;
+use HotelBooking\Http\Requests\Admin\AdminHotelCreateFormRequest;
+use HotelBooking\Http\Requests\Admin\AdminHotelUpdateFormRequest;
 use HotelBooking\Http\Controllers\Controller;
-use HotelBooking\AdminHotel;
-use DB;
-use Illuminate\Database\Eloquent\SoftDeletes;
+use HotelBooking\Http\Controllers\Admin\AdminBaseController;
 
-class AdminHotelController extends Controller
+/**
+ * Controller class for Admin Hotel
+ */
+class AdminHotelController extends AdminBaseController
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the hotel admins.
      *
      * @return \Illuminate\Http\Response
      */
@@ -25,7 +33,7 @@ class AdminHotelController extends Controller
             'name',
             'email',
             'phone',
-            ];
+        ];
         $with['hotel'] =  function ($query) {
             $query->select('id', 'name');
         };
@@ -42,22 +50,30 @@ class AdminHotelController extends Controller
      */
     public function create()
     {
-        //
+        $hotels = DB::table('hotels')
+            ->lists('name', 'id');
+        return view('admin.admin-hotel.create', compact('hotels'));
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created hotel admin in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request\Admin\AdminHotelCreateFormRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AdminHotelCreateFormRequest $request)
     {
-        //
+        $data = $request->all();
+        if (AdminHotel::create($data)) {
+            Session::flash('flash_success', trans('messages.create_success_admin_hotel'));
+        } else {
+            Session::flash('flash_error', trans('messages.create_fail_admin_hotel'));
+        }
+        return redirect()->route('admin-hotel.create');
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified hotel admin.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -68,30 +84,42 @@ class AdminHotelController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified hotel admin.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        //
+        $columns = ['id', 'username', 'hotel_id', 'phone', 'name'];
+        $adminHotel = AdminHotel::select($columns)
+            ->where('id', $id)
+            ->first();
+        $hotels = DB::table('hotels')
+            ->lists('name', 'id');
+        return view('admin.admin-hotel.edit', compact('adminHotel', 'hotels'));
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified hotel admin in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request\Admin\AdminHotelUpdateFormRequest  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(AdminHotelUpdateFormRequest $request, $id)
     {
-        //
+        $adminHotel = AdminHotel::findOrFail($id);
+        if ($adminHotel->update($request->all())) {
+            Session::flash('flash_success', trans('messages.edit_success_admin_hotel'));
+        } else {
+            Session::flash('flash_error', trans('messages.edit_fail_admin_hotel'));
+        }
+        return redirect()->route('admin-hotel.edit', $id);
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified hotel from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -100,10 +128,15 @@ class AdminHotelController extends Controller
     public function destroy($id)
     {
         $adminHotel = AdminHotel::findOrFail($id);
-        $adminHotel->delete();
-        return redirect()
-            ->route('admin-hotel.index')
-            ->with('flash_message', trans('messages.delete_success').' for '
-            .trans('messages.admin_hotel').' !!!');
+        if ($adminHotel) {
+            $adminHotel->delete();
+            return redirect()
+                ->route('admin-hotel.index')
+                ->with('flash_success', trans('messages.delete_success_admin_hotel'));
+        } else {
+            return redirect()
+                ->route('admin-hotel.index')
+                ->with('flash_error', trans('messages.delete_fail_admin_hotel'));
+        }
     }
 }

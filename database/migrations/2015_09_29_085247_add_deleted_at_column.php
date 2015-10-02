@@ -13,16 +13,16 @@ class AddDeletedAtColumn extends Migration
      public function up()
      {
          Schema::table('users', function (Blueprint $table) {
-         $table->softDeletes()->after('remember_token');
+             $table->softDeletes()->after('remember_token');
          });
          Schema::table('admin_hotels', function (Blueprint $table) {
-         $table->softDeletes()->after('remember_token');
+             $table->softDeletes()->after('remember_token');
          });
          Schema::table('admin_users', function (Blueprint $table) {
-         $table->softDeletes()->after('remember_token');
+             $table->softDeletes()->after('remember_token');
          });
          Schema::table('hotels', function (Blueprint $table) {
-         $table->softDeletes()->after('description');
+             $table->softDeletes()->after('description');
          });
      }
 
@@ -35,16 +35,16 @@ class AddDeletedAtColumn extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-        $table->dropColumn('deleted_at');
+            $table->dropColumn('deleted_at');
         });
         Schema::table('admin_hotels', function (Blueprint $table) {
-        $table->dropColumn('deleted_at');
+            $table->dropColumn('deleted_at');
         });
         Schema::table('admin_users', function (Blueprint $table) {
-        $table->dropColumn('deleted_at');
+            $table->dropColumn('deleted_at');
         });
         Schema::table('hotels', function (Blueprint $table) {
-        $table->dropColumn('deleted_at');
+            $table->dropColumn('deleted_at');
         });
     }
 }

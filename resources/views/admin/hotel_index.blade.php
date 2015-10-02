@@ -5,19 +5,13 @@ Admin Hotel
 @section('content')
 
 <div class="row " id="example2">
-  @if (Session::has('flash_message'))
-     <div class="alert alert-success">
-         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-         <strong>Success!</strong>
-         {{ Session::get('flash_message') }}
-     </div>
-@endif
 <div class="col-md-12">
 <div class="box">
     <div class="box-header with-border">
         <h3 class="box-title">{!! trans('messages.admin_hotel') !!}</h3>
     </div>
     <div class="box-body">
+      @include('layouts.admin.partials.flash')
         <table class="table table-bordered table-striped" id="example1_wrapper">
               <thead>
                   <tr>

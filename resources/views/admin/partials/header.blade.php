@@ -8,5 +8,5 @@
     <span class="logo-lg"><b>Admin</b>LTE</span>
   </a>
   <!-- Header Navbar: style can be found in header.less -->
-  @include('partials.navbar')
+  @include('admin.partials.navbar')
 </header>

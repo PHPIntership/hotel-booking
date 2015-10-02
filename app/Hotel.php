@@ -5,6 +5,9 @@ namespace HotelBooking;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+/**
+ *Hotel model
+ */
 class Hotel extends Model
 {
     use SoftDeletes;
@@ -20,5 +23,5 @@ class Hotel extends Model
         'website',
         'image',
         'description'
-        ];
+    ];
 }

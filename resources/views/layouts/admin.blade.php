@@ -42,11 +42,11 @@
   </head>
   <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
-      @include('partials.header')
+      @include('admin.partials.header')
       <!-- Left side column. contains the logo and sidebar -->
       <aside class="main-sidebar">
         <!-- sidebar: style can be found in sidebar.less -->
-      @include('partials.sidebar')
+      @include('admin.partials.sidebar')
         <!-- /.sidebar -->
       </aside>
       <!-- Content Wrapper. Contains page content -->
@@ -63,12 +63,12 @@
           </ol>
         </section>
         <div class="content">
-        <!-- Main content -->
-        @yield('content')
+          <!-- Main content -->
+          @yield('content')
         </div>
         <!--End content-->
       </div>
-      @include('partials.footer')
+      @include('admin.partials.footer')
 
       <!-- Control Sidebar -->
       <aside class="control-sidebar control-sidebar-dark">

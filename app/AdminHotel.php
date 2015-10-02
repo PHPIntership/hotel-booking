@@ -5,6 +5,9 @@ namespace HotelBooking;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+/**
+ * AdminHotel model
+ */
 class AdminHotel extends Model
 {
     //
