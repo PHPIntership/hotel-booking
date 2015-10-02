@@ -5,6 +5,9 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use HotelBooking\AdminHotel;
 
+/**
+ * Tests for admin hotel controller
+ */
 class AdminHotelControllerTest extends TestCase
 {
 
@@ -80,7 +83,7 @@ class AdminHotelControllerTest extends TestCase
             ->seeIndatabase('admin_hotels', ['username' => 'hoteladmin892'])
             ->seeIndatabase('admin_hotels', ['name' => 'Justin Beiber'])
             ->seeIndatabase('admin_hotels', ['phone' => '0987666223'])
-    		->see(trans('messages.create_success'));
+    		->see(trans('messages.create_success_admin_hotel'));
     }
 
     /**
@@ -269,7 +272,7 @@ class AdminHotelControllerTest extends TestCase
             ->see(trans('validation.min.string',[
                  'attribute'=>trans('messages.password'),
                  'min'=>6
-             ]));
+            ]));
     }
     /**
      * Test if a hotel admin cant be created when issert password more than
@@ -279,16 +282,16 @@ class AdminHotelControllerTest extends TestCase
     public function testCreateAdminHotelWithPasswordMoreThan20Characters()
     {
         $this->visit(route('admin-hotel.create'))
-         ->type('hotel admin2', '#username')
-         ->type('abcde2222222222222222222222222', '#password')
-         ->type('BluePrint', '#name')
-         ->type('testAdminHotel@gmail.com', '#email')
-         ->type('0987777666', '#phone')
-         ->press('Create')
-         ->see(trans('validation.max.string',[
+            ->type('hotel admin2', '#username')
+            ->type('abcde2222222222222222222222222', '#password')
+            ->type('BluePrint', '#name')
+            ->type('testAdminHotel@gmail.com', '#email')
+            ->type('0987777666', '#phone')
+            ->press('Create')
+            ->see(trans('validation.max.string',[
             'attribute'=>trans('messages.password'),
             'max'=>20
-         ]));
+        ]));
     }
     /**
      * Test if a hotel admin cant be created when issert name with a number
@@ -342,7 +345,7 @@ class AdminHotelControllerTest extends TestCase
              ->type('My Test Name', '#name')
              ->type('0906433992', '#phone')
              ->press('Update')
-             ->see(trans('messages.edit_success'))
+             ->see(trans('messages.edit_success_admin_hotel'))
              ->seeInDatabase('admin_hotels', ['name'=>'My Test Name']);
     }
 

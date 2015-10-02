@@ -1,8 +1,8 @@
 <?php
 return [
 
-    'edit_success'=>'Updated Successfully',
-    'create_success'=>'Created Successfully',
+    'edit_success_admin_hotel'=>'Updated hotel admin successfully ',
+    'create_success_admin_hotel'=>'Created hotel admin successfully',
     'create_admin_hotel'=>'Create a hotel admin',
     'edit_admin_hotel'=>'Edit a hotel admin',
     'name'=>'Name',

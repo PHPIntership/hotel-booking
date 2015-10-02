@@ -14,6 +14,9 @@ use HotelBooking\Http\Requests\Admin\AdminHotelUpdateFormRequest;
 use HotelBooking\Http\Controllers\Controller;
 use HotelBooking\Http\Controllers\Admin\AdminBaseController;
 
+/**
+ * Controller class for Admin Hotel
+ */
 class AdminHotelController extends AdminBaseController
 {
     /**
@@ -49,8 +52,8 @@ class AdminHotelController extends AdminBaseController
     {
         $data = $request->all();
         if (AdminHotel::create($data)) {
-            Session::flash('flash_message', trans('messages.create_success').
-                ' for '.trans('messages.hotel_admin'));
+            Session::flash('flash_message', trans('messages.create_success_admin_hotel'));
+            Session::flash('flash_level', 'success');
         }
         return redirect()->route('admin-hotel.create');
     }
@@ -95,8 +98,8 @@ class AdminHotelController extends AdminBaseController
     {
         $adminHotel = AdminHotel::findOrFail($id);
         $adminHotel->update($request->all());
-        Session::flash('flash_message', trans('messages.edit_success').
-            ' for '.trans('messages.hotel_admin'));
+        Session::flash('flash_message', trans('messages.edit_success_admin_hotel'));
+        Session::flash('flash_level', 'success');
         return redirect()->route('admin-hotel.edit', $id);
     }
 
