@@ -739,7 +739,6 @@
         },
         {
             "name": "league/flysystem",
-<<<<<<< HEAD
             "version": "1.0.15",
             "source": {
                 "type": "git",
@@ -750,18 +749,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/31525caf9e8772683672fefd8a1ca0c0736020f4",
                 "reference": "31525caf9e8772683672fefd8a1ca0c0736020f4",
-=======
-            "version": "1.0.14",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "202c7775d959f377e2e302d93e7127c47604438a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/202c7775d959f377e2e302d93e7127c47604438a",
-                "reference": "202c7775d959f377e2e302d93e7127c47604438a",
->>>>>>> master
                 "shasum": ""
             },
             "require": {
@@ -832,11 +819,7 @@
                 "sftp",
                 "storage"
             ],
-<<<<<<< HEAD
             "time": "2015-09-30 22:26:59"
-=======
-            "time": "2015-09-22 19:18:28"
->>>>>>> master
         },
         {
             "name": "maximebf/debugbar",
