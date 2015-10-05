@@ -42,7 +42,7 @@ class AdminHotel extends Model
     ];
 
     /**
-     * The attributes that are mass assignable.
+     * The attributes excluded from the model's JSON form.
      *
      * @var array
      */
@@ -52,7 +52,7 @@ class AdminHotel extends Model
     ];
 
     /**
-     *  Get name hotel use hotel_id.
+     *  Get the hotel that the admin hotel manage.
      *
      * @return array
      */

@@ -53,12 +53,12 @@ class AdminHotelControllerTest extends TestCase
     {
         $this->WithoutMiddleware();
         $response = $this->call('delete', route('admin-hotel.destroy', 0));
-        $this->assertEquals(404, $response->status());
+        $this->assertEquals(302, $response->status());
     }
 
     /**
-    * Test if can get correct hotel admin create page status.
-    */
+     * Test if can get correct hotel admin create page status.
+     */
     public function testCreateStatus()
     {
         $response = $this->call('GET', route('admin-hotel.create'));
@@ -66,8 +66,8 @@ class AdminHotelControllerTest extends TestCase
     }
 
     /**
-    *Test if can get correct hotel admin store page status.
-    */
+     *Test if can get correct hotel admin store page status.
+     */
     public function testStoreStatus()
     {
         $this->WithoutMiddleware();
@@ -76,8 +76,8 @@ class AdminHotelControllerTest extends TestCase
     }
 
     /**
-    *Test if can get correct  hotel admin edit page status.
-    */
+     *Test if can get correct  hotel admin edit page status.
+     */
     public function testEditStatus()
     {
         $faker = Faker\Factory::create();
@@ -96,8 +96,8 @@ class AdminHotelControllerTest extends TestCase
     }
 
     /**
-    *Test if can get correct  hotel admin update page status.
-    */
+     *Test if can get correct  hotel admin update page status.
+     */
     public function testUpdateStatus()
     {
         $this->WithoutMiddleware();
@@ -106,8 +106,8 @@ class AdminHotelControllerTest extends TestCase
     }
 
     /**
-    *Test if a hotel admin is created when issert valid data.
-    */
+     *Test if a hotel admin is created when issert valid data.
+     */
     public function testNewAdminHotelIsCreated()
     {
         $this->visit(route('admin-hotel.create'))
@@ -125,8 +125,8 @@ class AdminHotelControllerTest extends TestCase
     }
 
     /**
-    * Test if a hotel admin cant be created when issert null username.
-    */
+     * Test if a hotel admin cant be created when issert null username.
+     */
     public function testCreateAdminHotelWithoutUsername()
     {
         $this->visit(route('admin-hotel.create'))
@@ -139,8 +139,8 @@ class AdminHotelControllerTest extends TestCase
             ->see(trans('validation.required', ['attribute' => trans('messages.username')]));
     }
     /**
-    * Test if a hotel admin cant be created when issert a not unique username.
-    */
+     * Test if a hotel admin cant be created when issert a not unique username.
+     */
     public function testCreateAdminHotelWithUniqueUsername()
     {
         $faker = Faker\Factory::create();
@@ -162,8 +162,8 @@ class AdminHotelControllerTest extends TestCase
             ->see(trans('validation.unique'), ['attribute' => trans('messages.name')]);
     }
     /**
-    * Test if a hotel admin cant be created when issert null password.
-    */
+     * Test if a hotel admin cant be created when issert null password.
+     */
     public function testCreateAdminHotelWithoutPassword()
     {
         $this->visit(route('admin-hotel.create'))
@@ -177,8 +177,8 @@ class AdminHotelControllerTest extends TestCase
     }
 
     /**
-    * Test if a hotel admin cant be created when issert null name.
-    */
+     * Test if a hotel admin cant be created when issert null name.
+     */
     public function testCreateAdminHotelWithoutName()
     {
         $this->visit(route('admin-hotel.create'))
@@ -192,8 +192,8 @@ class AdminHotelControllerTest extends TestCase
     }
 
     /**
-    * Test if a hotel admin cant be created when issert null email.
-    */
+     * Test if a hotel admin cant be created when issert null email.
+     */
     public function testCreateAdminHotelWithoutEmail()
     {
         $this->visit(route('admin-hotel.create'))
@@ -207,8 +207,8 @@ class AdminHotelControllerTest extends TestCase
     }
 
     /**
-    * Test if a hotel admin cant be created when issert null phone.
-    */
+     * Test if a hotel admin cant be created when issert null phone.
+     */
     public function testCreateAdminHotelWithoutPhone()
     {
         $this->visit(route('admin-hotel.create'))
@@ -222,9 +222,9 @@ class AdminHotelControllerTest extends TestCase
     }
 
     /**
-    * Test if a hotel admin cant be created when issert username less
-    * than 6 characters.
-    */
+     * Test if a hotel admin cant be created when issert username less
+     * than 6 characters.
+     */
     public function testCreateAdminHotelWithUsernameLessThan6Characters()
     {
         $this->visit(route('admin-hotel.create'))

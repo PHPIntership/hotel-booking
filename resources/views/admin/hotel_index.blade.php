@@ -35,7 +35,7 @@ Admin Hotel
                     <td>{{ $adminHotel->phone }}</td>
                     <td>
                       {!! Former::open()->route('admin-hotel.destroy',$adminHotel->id)->method('Delete') !!}
-                      <button onclick="return messange('{!! trans('messages.delete_confirm') !!}')" class="btn btn-danger">
+                      <button onclick="return message('{!! trans('messages.delete_confirm') !!}')" class="btn btn-danger">
                           <i class="fa fa-pencil"></i>
                           {!! trans('messages.delete') !!}
                       </button>
@@ -53,5 +53,5 @@ Admin Hotel
 </div>
 @endsection
 @section('js')
-<script src="{{asset('bower_components/AdminLTE/dist/js/msg.js')}}"></script>
+<script src="{{asset('frontend/js/message.js')}}"></script>
 @endsection

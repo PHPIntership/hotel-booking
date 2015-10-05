@@ -3,7 +3,7 @@
  * @param  string msg
  * @return boolean
  */
-function messange(msg) {
+function message(msg) {
     if (window.confirm(msg)) {
         return true;
     }
