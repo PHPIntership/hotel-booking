@@ -2,11 +2,12 @@
 
 namespace HotelBooking\Http\Controllers\Admin;
 
+use DB;
+use Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Lang;
 use HotelBooking\Hotel;
 use HotelBooking\City;
-use HotelBooking\Services\Admin\HotelService;
 use HotelBooking\Http\Requests\Admin\HotelCreateRequest;
 use HotelBooking\Http\Requests\Admin\HotelEditRequest;
 use HotelBooking\Http\Controllers\Controller;
@@ -29,10 +30,9 @@ class HotelsController extends AdminBaseController
      */
     public function create()
     {
-        $cities = [
-          'cities' => City::all()
-        ];
-        return view("admin.hotels.create", $cities);
+        $cities = DB::table('cities')
+            ->lists('name', 'id');
+        return view('admin.hotels.create', compact('cities'));
     }
 
     /**
@@ -43,9 +43,12 @@ class HotelsController extends AdminBaseController
      */
     public function store(HotelCreateRequest $request)
     {
-        HotelService::store($request->all());
-        return redirect(route('admin.hotels.create'))
-            ->with('create_success', trans('admin/hotels.create_success'));
+        if (Hotel::create($request->all())) {
+            Session::flash('flash_success', trans('messages.create_success_hotel'));
+        } else {
+            Session::flash('flash_error', trans('messages.create_fail_hotel'));
+        }
+        return redirect(route('admin.hotels.create'));
     }
 
     public function show($id)
@@ -60,25 +63,51 @@ class HotelsController extends AdminBaseController
      */
     public function edit($id)
     {
-        $hotel = Hotel::findOrFail($id);
-        $cities = [
-          'cities' => City::all()
+        $columns = [
+            'id',
+            'city_id',
+            'name',
+            'quality',
+            'address',
+            'phone',
+            'email',
+            'website',
+            'image',
+            'description'
         ];
-        return view("admin.hotels.edit", $hotel, $cities);
+        $hotel = Hotel::select($columns)
+            ->where('id', $id)
+            ->first();
+        $cities = DB::table('cities')
+            ->lists('name', 'id');
+        return view('admin.hotels.edit', compact('hotel', 'cities'));
     }
 
     /**
      * Update Hotel from request information into database
      *
-     * @param Request $request
+     * @param HotelEditRequest $request
      * @param int $id
      * @return redirect
      */
     public function update(HotelEditRequest $request, $id)
     {
-        HotelService::update($request->all(), $id);
-        return redirect(route('admin.hotels.edit', $id))
-            ->with('edit_success', Lang::get('admin/hotels.edit_success'));
+        $updateInfo = $request->all();
+        $hotel = Hotel::select('id', 'image')
+            ->where('id', $id)
+            ->first();
+        $oldImage = hotel->image;
+        if ($request->hasFile('image')) {
+            $updateInfo['image'] = $this->imageUpload($request->file('image'));
+        }
+        if ($hotel->update($updateInfo)) {
+            $this->imageRemove($oldImage);
+            Session::flash('flash_success', trans('messages.edit_success_hotel'));
+        } else {
+            $this->imageRemove($updateInfo['image']);
+            Session::flash('flash_error', trans('messages.edit_fail_hotel'));
+        };
+        return redirect(route('admin.hotels.edit', $id));
     }
 
     public function destroy($id)

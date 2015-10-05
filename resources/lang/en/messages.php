@@ -1,6 +1,19 @@
 <?php
 return [
-
+    'create_hotel' => 'Create new Hotel',
+    'edit_hotel' => 'Edit Hotel',
+    'create_success_hotel' => 'Hotel Create success',
+    'edit_success_hotel' => 'Hotel Edit success',
+    'edit_fail_hotel'=>'Can not update hotel infomation ',
+    'create_fail_hotel'=>'Can not create hotel',
+    'city' => 'City',
+    'quality' => 'Quality',
+    'address' => 'Address',
+    'website' => 'Website',
+    'image' => 'Image',
+    'description' => 'Description',
+    'create_submit' => 'Submit',
+    'edit_submit' => 'Update',
     'edit_success_admin_hotel'=>'Updated hotel admin successfully',
     'create_success_admin_hotel'=>'Created hotel admin successfully',
     'edit_fail_admin_hotel'=>'Can not update hotel admin infomation ',
@@ -14,5 +27,4 @@ return [
     'email'=>'Email',
     'hotel'=>'Hotel',
     'hotel_admin'=>'Hotel admin'
-
 ];
