@@ -25,5 +25,6 @@ return [
     'phone'=>'Phone',
     'email'=>'Email',
     'hotel'=>'Hotel',
-    'hotel_admin'=>'Hotel admin'
+    'hotel_admin'=>'Hotel admin',
+    'update_success'=>'Update success!',
 ];

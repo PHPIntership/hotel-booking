@@ -10,9 +10,9 @@
             </div>
             {!!Former::vertical_open(route('admin.profile.edit'))
                 ->method('PUT')
-
-          ->id('form-edit-profile')!!}
+                ->id('form-edit-profile')!!}
             <div class="box-body">
+                @include('layouts.admin.partials.flash')
               <div class="form-group col-md-8 col-md-offset-2">
                 {!!Former::password('old_password')
                           ->label(trans('messages.old_password'))

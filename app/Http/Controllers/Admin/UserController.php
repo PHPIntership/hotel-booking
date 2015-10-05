@@ -9,6 +9,7 @@ use HotelBooking\Http\Requests\Admin\UserRequest;
 use HotelBooking\AdminUser;
 use Auth;
 use Hash;
+use Session;
 
 class UserController extends AdminBaseController
 {
@@ -27,7 +28,7 @@ class UserController extends AdminBaseController
        */
     public function getEditProfile()
     {
-        return view('admin.edit_profile');
+        return view('admin.user.edit');
     }
 
       /**
@@ -46,13 +47,11 @@ class UserController extends AdminBaseController
                 ]);
         }
         $admin_user = AdminUser::findOrFail($this->auth->get()->id);
+        $new_password = Hash::make($new_password);
         $admin_user->update([
             'password'  => $new_password
           ]);
-        return redirect()->route('admin.profile.edit')
-            ->with([
-                'flash_level'   =>trans('messages.success'),
-                'flash_message' =>trans('messages.change_success', ['name'=>'assword'])
-            ]);
+        Session::flash('flash_success', trans('messages.update_success'));
+        return redirect()->route('admin.profile.edit');
     }
 }
