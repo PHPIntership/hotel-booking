@@ -1,7 +1,7 @@
 <?php
 return [
-    'delete_success_admin_hotel' => 'Deleted successfully admin hotel!!!',
-    'delete_fail_admin_hotel' => 'Can not delete admin hotel',
+    'delete_success_admin_hotel' => 'Deleted successfully admin hotel.',
+    'delete_fail_admin_hotel' => 'Can not delete admin hotel.',
     'action' => 'Action',
     'delete' => 'Delete',
     'admin_hotel' => 'Admin hotel',

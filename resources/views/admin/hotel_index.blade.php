@@ -53,5 +53,5 @@ Admin Hotel
 </div>
 @endsection
 @section('js')
-<script src="{{asset('frontend/js/message.js')}}"></script>
+<script src="{{asset('assets/js/message.js')}}"></script>
 @endsection
