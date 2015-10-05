@@ -48,7 +48,7 @@ class AuthController extends AdminBaseController
         } else {
             return redirect()->route('admin.login')
                 ->withInput($request->only('username', 'remember'))
-                ->withErrors(['username' => 'These credentials do not match our records.']);
+                ->withErrors(['username' => trans('messages.login_fail')]);
         }
     }
 

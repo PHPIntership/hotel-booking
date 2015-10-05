@@ -27,4 +27,5 @@ return [
     'hotel'=>'Hotel',
     'hotel_admin'=>'Hotel admin',
     'update_success'=>'Update success!',
+    'login_fail'=>'These credentials do not match our records',
 ];
