@@ -96,7 +96,7 @@ class HotelsController extends AdminBaseController
         $hotel = Hotel::select('id', 'image')
             ->where('id', $id)
             ->first();
-        $oldImage = hotel->image;
+        $oldImage = $hotel->image;
         if ($request->hasFile('image')) {
             $updateInfo['image'] = $this->imageUpload($request->file('image'));
         }
