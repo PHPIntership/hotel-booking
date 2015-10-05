@@ -80,7 +80,11 @@ class HotelsController extends AdminBaseController
             ->first();
         $cities = DB::table('cities')
             ->lists('name', 'id');
-        return view('admin.hotels.edit', compact('hotel', 'cities'));
+        if ($hotel) {
+            return view('admin.hotels.edit', compact('hotel', 'cities'));
+        } else {
+            return view('admin.errors.503');
+        }
     }
 
     /**
@@ -92,21 +96,23 @@ class HotelsController extends AdminBaseController
      */
     public function update(HotelEditRequest $request, $id)
     {
-        $updateInfo = $request->all();
         $hotel = Hotel::select('id', 'image')
             ->where('id', $id)
             ->first();
-        $oldImage = $hotel->image;
-        if ($request->hasFile('image')) {
-            $updateInfo['image'] = $this->imageUpload($request->file('image'));
+        if ($hotel) {
+            $oldImage = $hotel->image;
+            $updateInfo = $request->all();
+            if ($request->hasFile('image')) {
+                $updateInfo['image'] = $this->imageUpload($request->file('image'));
+            }
+            if ($hotel->update($updateInfo)) {
+                $this->imageRemove($oldImage);
+                Session::flash('flash_success', trans('messages.edit_success_hotel'));
+            } else {
+                $this->imageRemove($updateInfo['image']);
+                Session::flash('flash_error', trans('messages.edit_fail_hotel'));
+            };
         }
-        if ($hotel->update($updateInfo)) {
-            $this->imageRemove($oldImage);
-            Session::flash('flash_success', trans('messages.edit_success_hotel'));
-        } else {
-            $this->imageRemove($updateInfo['image']);
-            Session::flash('flash_error', trans('messages.edit_fail_hotel'));
-        };
         return redirect(route('admin.hotels.edit', $id));
     }
 
