@@ -9,7 +9,6 @@ use HotelBooking\Http\Requests\Request;
  */
 class AdminHotelUpdateFormRequest extends Request
 {
-
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -42,6 +41,8 @@ class AdminHotelUpdateFormRequest extends Request
     {
         return [
             'phone.regex' => 'Phone number must be start as 0',
+            'name' => 'required|regex:/^[a-z \']+$/i',
+            'phone' => 'required|regex:/^0[0-9]*$/|min:10|max:15',
         ];
     }
 }

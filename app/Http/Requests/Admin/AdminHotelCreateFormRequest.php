@@ -9,7 +9,6 @@ use HotelBooking\Http\Requests\Request;
  */
 class AdminHotelCreateFormRequest extends Request
 {
-
     /**
      * Determine if the user is authorized to make this request.
      *
