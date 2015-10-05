@@ -38,7 +38,6 @@ class AdminHotel extends Model
         'name',
         'email',
         'phone',
-        'deleted_at',
     ];
 
     /**

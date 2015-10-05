@@ -1,5 +1,5 @@
 /**
- * Create messange with string msg
+ * Create message with string msg
  * @param  string msg
  * @return boolean
  */
