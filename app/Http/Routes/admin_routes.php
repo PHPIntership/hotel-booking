@@ -9,5 +9,5 @@ Route::group(['middleware' => ['auth.admin']], function () {
     Route::GET('admin', ['as'=>'admin.index', 'uses'=>'Admin\AdminBaseController@index']);
     Route::GET('admin/profile/edit', ['as'=>'admin.profile.edit', 'uses'=>'Admin\UserController@getEditProfile']);
     Route::PUT('admin/profile/edit', ['as'=>'admin.profile.edit', 'uses'=>'Admin\UserController@putEditProfile']);
-    Route::resource('admin-hotel', 'Admin\AdminHotelController');
 });
+Route::resource('admin-hotel', 'Admin\AdminHotelController');
