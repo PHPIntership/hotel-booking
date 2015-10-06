@@ -3,18 +3,28 @@
 namespace HotelBooking;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- *Hotel model
+ *Hotel model.
  */
 class Hotel extends Model
 {
+    use SoftDeletes;
+
     /**
      * The database table used by the model.
      *
      * @var string
      */
     protected $table = 'hotels';
+
+    /**
+     * Define attributes deleted_at of the data.
+     *
+     * @var string
+     */
+    protected $dates = ['deleted_at'];
 
     /**
      * The attributes that are mass assignable.
@@ -30,7 +40,7 @@ class Hotel extends Model
         'email',
         'website',
         'image',
-        'description'
+        'description',
     ];
 
     /**

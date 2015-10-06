@@ -8,6 +8,7 @@ use HotelBooking\AdminHotel;
 
 class AppServiceProvider extends ServiceProvider
 {
+    
     /**
      * Bootstrap any application services.
      *
