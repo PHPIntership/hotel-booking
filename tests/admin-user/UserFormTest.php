@@ -8,7 +8,6 @@ class UserFormTest extends TestCase
 {
     use DatabaseTransactions;
 
-
   /**
    * test dislay page edit profile
    * @return void
@@ -21,7 +20,7 @@ class UserFormTest extends TestCase
             'password'=>'123456'
             ], 1);
         $this->visit(route('admin.profile.edit'))
-              ->see(trans('messages.edit_profile'));
+            ->see(trans('messages.edit_profile'));
     }
 
   /**

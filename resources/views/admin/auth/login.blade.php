@@ -20,7 +20,7 @@
 <body class="login-page">
     <div class="login-box">
         <div class="login-logo">
-            <a href="#">Admin Login2</a>
+            <a href="#">{{trans('messages.admin_login')}}</a>
         </div>
         <!-- /.login-logo -->
         <div class="login-box-body">

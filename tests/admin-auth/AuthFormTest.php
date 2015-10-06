@@ -15,7 +15,7 @@ class AuthFormTest extends TestCase
     public function testFormLogin()
     {
         $this->visit(route('admin.login'))
-              ->see('Admin Login');
+            ->see(trans('messages.admin_login'));
     }
 
   /**
@@ -29,8 +29,7 @@ class AuthFormTest extends TestCase
             ->type($facAdminUser->username, 'username')
             ->type('123456', 'password')
             ->check('remember')
-            ->press('Sign In')
-            ->see('Dashboard')
+            ->press(trans('messages.sign_in'))
             ->dontsee('has-error');
     }
 
@@ -44,9 +43,8 @@ class AuthFormTest extends TestCase
             ->type('', 'username')
             ->type('123123', 'password')
             ->check('remember')
-            ->press('Sign In')
-            ->see(trans('validation.required', ['attribute'=>'username']))
-            ->dontsee('Dashboard');
+            ->press(trans('messages.sign_in'))
+            ->see(trans('validation.required', ['attribute'=>'username']));
     }
 
     /**
@@ -60,8 +58,7 @@ class AuthFormTest extends TestCase
             ->type('', 'password')
             ->check('remember')
             ->press(trans('messages.sign_in'))
-            ->see(trans('validation.required', ['attribute'=>'password']))
-            ->dontsee('Dashboard');
+            ->see(trans('validation.required', ['attribute'=>'password']));
     }
     /**
      * test post form login without username and password
@@ -75,8 +72,7 @@ class AuthFormTest extends TestCase
             ->check('remember')
             ->press(trans('messages.sign_in'))
             ->see(trans('validation.required', ['attribute'=>'password']))
-            ->see(trans('validation.required', ['attribute'=>'username']))
-            ->dontsee('Dashboard');
+            ->see(trans('validation.required', ['attribute'=>'username']));
     }
 
     /**
@@ -90,8 +86,10 @@ class AuthFormTest extends TestCase
             ->type('123', 'password')
             ->check('remember')
             ->press(trans('messages.sign_in'))
-            ->see(trans('validation.min.string', ['attribute'=>'password','min'=>'6']))
-            ->dontsee('Dashboard');
+            ->see(trans('validation.min.string', [
+                'attribute'=>'password',
+                'min'=>'6'
+                ]));
     }
 
   /**
@@ -101,6 +99,6 @@ class AuthFormTest extends TestCase
     public function testFormLogout()
     {
         $this->visit(route('admin.logout'))
-            ->see('Admin Login');
+            ->see(trans('messages.admin_login'));
     }
 }

@@ -10,15 +10,14 @@ class AuthControllerTest extends TestCase
 
     protected $facAdminUser;
 
-
     /**
      * test Status getLogin in AuthController
      * @return void
      */
     public function testGetLoginStatus()
     {
-        $resPonse = $this->call('GET', route('admin.login'));
-        $this->assertEquals(200, $resPonse->status());
+        $response = $this->call('GET', route('admin.login'));
+        $this->assertEquals(200, $response->status());
     }
 
     /**
@@ -30,13 +29,13 @@ class AuthControllerTest extends TestCase
         Session::start();
         $facAdminUser = factory(HotelBooking\AdminUser::class)->create();
         $adminUser = [
-              'username'=>$facAdminUser->username,
-              'password'=>'123456',
-              'remember'=>1,
-              '_token'  => csrf_token()
-          ];
-        $resPonse = $this->call('POST', route('admin.login'), $adminUser);
-        $this->assertEquals(302, $resPonse->status());
+            'username'=>$facAdminUser->username,
+            'password'=>'123456',
+            'remember'=>1,
+            '_token'  => csrf_token()
+            ];
+        $response = $this->call('POST', route('admin.login'), $adminUser);
+        $this->assertEquals(302, $response->status());
     }
 
     /**
@@ -47,13 +46,13 @@ class AuthControllerTest extends TestCase
     {
         Session::start();
         $adminUser = [
-              'username'=>'',
-              'password'=>'123456',
-              'remember'=>1,
-              '_token'  => csrf_token()
-          ];
-        $resPonse = $this->call('POST', route('admin.login'), $adminUser);
-        $this->assertEquals(302, $resPonse->status());
+            'username'=>'',
+            'password'=>'123456',
+            'remember'=>1,
+            '_token'  => csrf_token()
+            ];
+        $response = $this->call('POST', route('admin.login'), $adminUser);
+        $this->assertEquals(302, $response->status());
     }
 
     /**
@@ -64,13 +63,13 @@ class AuthControllerTest extends TestCase
     {
         Session::start();
         $adminUser = [
-              'username'=>'testpass',
-              'password'=>'',
-              'remember'=>1,
-              '_token'  => csrf_token()
-          ];
-        $resPonse = $this->call('POST', route('admin.login'), $adminUser);
-        $this->assertEquals(302, $resPonse->status());
+            'username'=>'testpass',
+            'password'=>'',
+            'remember'=>1,
+            '_token'  => csrf_token()
+            ];
+        $response = $this->call('POST', route('admin.login'), $adminUser);
+        $this->assertEquals(302, $response->status());
     }
 
     /**
@@ -81,13 +80,13 @@ class AuthControllerTest extends TestCase
     {
         Session::start();
         $adminUser = [
-              'username'=>'',
-              'password'=>'',
-              'remember'=>1,
-              '_token'  => csrf_token()
-          ];
-        $resPonse = $this->call('POST', route('admin.login'), $adminUser);
-        $this->assertEquals(302, $resPonse->status());
+            'username'=>'',
+            'password'=>'',
+            'remember'=>1,
+            '_token'  => csrf_token()
+            ];
+        $response = $this->call('POST', route('admin.login'), $adminUser);
+        $this->assertEquals(302, $response->status());
     }
     /**
      * test status get logout
