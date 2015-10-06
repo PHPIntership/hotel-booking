@@ -27,15 +27,22 @@ class AdminHotelUpdateFormRequest extends Request
     public function rules()
     {
         return [
-            'name'      =>  'required|regex:/^[a-z \']+$/i',
-            'phone'     =>  'required|regex:/^0[0-9]*$/|min:10|max:15'
+            'name' => 'required|regex:/^[a-z \']+$/i',
+            'phone' => 'required|regex:/^0[0-9]*$/|min:10|max:15',
         ];
     }
+
+    /**
+     * Error message validation.
+     *
+     * @return string
+     */
     public function messages()
     {
         return [
-            'phone.regex' =>  'Phone number must be start as 0'
-
+            'phone.regex' => 'Phone number must be start as 0',
+            'name' => 'required|regex:/^[a-z \']+$/i',
+            'phone' => 'required|regex:/^0[0-9]*$/|min:10|max:15',
         ];
     }
 }

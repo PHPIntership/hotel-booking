@@ -2,20 +2,17 @@
 
 namespace HotelBooking\Http\Controllers\Admin;
 
-use Hash;
 use DB;
 use Session;
 use HotelBooking\Hotel;
 use HotelBooking\AdminHotel;
-use Illuminate\Http\Request;
-use HotelBooking\Http\Requests;
 use HotelBooking\Http\Requests\Admin\AdminHotelCreateFormRequest;
 use HotelBooking\Http\Requests\Admin\AdminHotelUpdateFormRequest;
 use HotelBooking\Http\Controllers\Controller;
-use HotelBooking\Http\Controllers\Admin\AdminBaseController;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 /**
- * Controller class for Admin Hotel
+ * Controller class for Admin Hotel.
  */
 class AdminHotelController extends AdminBaseController
 {
@@ -26,11 +23,26 @@ class AdminHotelController extends AdminBaseController
      */
     public function index()
     {
-        
+        $column = [
+            'id',
+            'hotel_id',
+            'username',
+            'name',
+            'email',
+            'phone',
+        ];
+        $with['hotel'] = function ($query) {
+            $query->select('id', 'name');
+        };
+        $adminHotels = AdminHotel::with($with)
+          ->select($column)
+          ->paginate(10);
+
+        return view('admin.hotel_index', compact('adminHotels'));
     }
 
     /**
-     * Show the form for creating a hotel admin
+     * Show the form for creating a new hotel admin.
      *
      * @return \Illuminate\Http\Response
      */
@@ -38,13 +50,15 @@ class AdminHotelController extends AdminBaseController
     {
         $hotels = DB::table('hotels')
             ->lists('name', 'id');
+
         return view('admin.admin-hotel.create', compact('hotels'));
     }
 
     /**
      * Store a newly created hotel admin in storage.
      *
-     * @param  \Illuminate\Http\Request\Admin\AdminHotelCreateFormRequest  $request
+     * @param \Illuminate\Http\Request\Admin\AdminHotelCreateFormRequest $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(AdminHotelCreateFormRequest $request)
@@ -55,14 +69,14 @@ class AdminHotelController extends AdminBaseController
         } else {
             Session::flash('flash_error', trans('messages.create_fail_admin_hotel'));
         }
+
         return redirect()->route('admin-hotel.create');
     }
 
     /**
      * Display the specified hotel admin.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param int $id
      */
     public function show($id)
     {
@@ -72,8 +86,7 @@ class AdminHotelController extends AdminBaseController
     /**
      * Show the form for editing the specified hotel admin.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param int $id
      */
     public function edit($id)
     {
@@ -83,15 +96,15 @@ class AdminHotelController extends AdminBaseController
             ->first();
         $hotels = DB::table('hotels')
             ->lists('name', 'id');
+
         return view('admin.admin-hotel.edit', compact('adminHotel', 'hotels'));
     }
 
     /**
      * Update the specified hotel admin in storage.
      *
-     * @param  \Illuminate\Http\Request\Admin\AdminHotelUpdateFormRequest  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param \Illuminate\Http\Request\Admin\AdminHotelUpdateFormRequest $request
+     * @param int                                                        $id
      */
     public function update(AdminHotelUpdateFormRequest $request, $id)
     {
@@ -101,17 +114,28 @@ class AdminHotelController extends AdminBaseController
         } else {
             Session::flash('flash_error', trans('messages.edit_fail_admin_hotel'));
         }
+
         return redirect()->route('admin-hotel.edit', $id);
     }
 
     /**
      * Remove the specified hotel from storage.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param int $id
      */
     public function destroy($id)
     {
-        //
+        try {
+            $adminHotel = AdminHotel::findOrFail($id);
+            $adminHotel->delete();
+
+            return redirect()
+                ->route('admin-hotel.index')
+                ->with('flash_success', trans('messages.delete_success_admin_hotel'));
+        } catch (ModelNotFoundException $ex) {
+            return redirect()
+                ->route('admin-hotel.index')
+                ->with('flash_error', trans('messages.delete_fail_admin_hotel'));
+        }
     }
 }
