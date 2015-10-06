@@ -20,13 +20,22 @@
 <body class="login-page">
     <div class="login-box">
         <div class="login-logo">
-            <a href="#">Admin Login</a>
+            <a href="#">Admin Login2</a>
         </div>
         <!-- /.login-logo -->
         <div class="login-box-body">
             <p class="login-box-msg">{{trans('messages.sign_start')}}</p>
-            {!!Former::vertical_open(route('admin.login')) ->method('POST') ->id('form-edit-profile')!!} {!!Former::text('username','') ->placeholder(trans('messages.username')) ->class('form-control has-feedback') !!} {!!Former::password('password','') ->placeholder(trans('messages.password'))
-            ->class('form-control')!!}
+            {!!Former::vertical_open(route('admin.login'))
+            ->method('POST')
+            ->id('form-edit-profile')!!}
+            {!!Former::text('username','')
+            ->placeholder(trans('messages.username'))
+            ->class('form-control has-feedback')
+            !!}
+            {!!Former::password('password','')
+            ->placeholder(trans('messages.password'))
+            ->class('form-control')
+            !!}
             <div class="row">
                 <div class="col-xs-8">
                     {!!Former::checkbox('remember','')->text(trans('messages.remember'))!!}

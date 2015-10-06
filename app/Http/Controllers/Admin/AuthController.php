@@ -60,7 +60,6 @@ class AuthController extends AdminBaseController
     public function getLogout()
     {
         $this->auth->logout();
-
         return redirect()->route('admin.login');
     }
 }
