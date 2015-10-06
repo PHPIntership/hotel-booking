@@ -9,4 +9,5 @@ use HotelBooking\Http\Controllers\Controller;
  */
 class HotelBaseController extends Controller
 {
+
 }
