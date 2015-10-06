@@ -23,7 +23,7 @@ Route::group(['middleware' => ['auth.admin']], function () {
     Route::get('admin/profile/edit', [
         'as'    => 'admin.profile.edit',
         'uses'  => 'Admin\UserController@getEditProfile', ]);
-    Route::get('admin/profile/edit', [
+    Route::put('admin/profile/edit', [
         'as'    => 'admin.profile.edit',
         'uses'  => 'Admin\UserController@putEditProfile',
         ]);
