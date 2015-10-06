@@ -1,5 +1,7 @@
 @extends('layouts.admin')
-
+@section('title')
+{{trans('messages.edit_profile')}}
+@endsection
 @section('content')
 <section class="content">
 <div class="row">
