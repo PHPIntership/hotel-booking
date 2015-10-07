@@ -13,16 +13,16 @@ class AdminUser extends Model implements AuthenticatableContract, AuthorizableCo
     use Authenticatable, Authorizable;
 
     /**
-     * table name.
+     * Table name.
      */
     protected $table = 'admin_users';
 
     /**
-     * fillable.
+     * Fillable.
      */
     protected $fillable = [
         'id',
         'username',
         'password',
-        ];
+    ];
 }

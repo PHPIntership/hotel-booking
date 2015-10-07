@@ -24,9 +24,9 @@ class UserRequest extends Request
     public function rules()
     {
         return [
-            'old_password'=>'min:6|max:255|required',
-            'new_password'=>'min:6|max:255|required',
-            'confirm_new_password'=>'min:6|max:255|required|same:new_password'
+            'old_password' => 'min:6|max:255|required',
+            'new_password' => 'min:6|max:255|required',
+            'confirm_new_password' => 'min:6|max:255|required|same:new_password',
         ];
     }
 }
