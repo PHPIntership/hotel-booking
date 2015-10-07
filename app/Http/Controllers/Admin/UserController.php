@@ -7,6 +7,7 @@ use HotelBooking\AdminUser;
 use Auth;
 use Hash;
 use Session;
+
 /**
  * Admin UserController
  */
