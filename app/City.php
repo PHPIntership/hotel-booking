@@ -11,10 +11,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class City extends Model
 {
     /**
-     * define that the table can use soft delete
+     * Define that the table can use soft delete
      */
     use SoftDeletes;
-    
+
     /**
      * The database table used by the model.
      *
