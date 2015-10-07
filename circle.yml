@@ -12,4 +12,5 @@ test:
     # - scripts/saddler.sh
     # - phpunit
     - ./vendor/bin/phpcs -n --standard=PSR2 app resources
+    - ./vendor/bin/phpmd app text phpmd.xml
     - ./vendor/bin/phpunit
