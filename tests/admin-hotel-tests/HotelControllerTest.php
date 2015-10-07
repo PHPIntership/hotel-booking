@@ -9,7 +9,7 @@ use HotelBooking\City;
 /**
  * Test class for HotelsController
  */
-class HotelsControllerTest extends TestCase
+class HotelControllerTest extends TestCase
 {
     use DatabaseTransactions;
     /**
@@ -18,7 +18,7 @@ class HotelsControllerTest extends TestCase
      */
     public function testIndexStatus()
     {
-        $this->call('GET', route('admin.hotels.index'));
+        $this->call('GET', route('admin.hotel.index'));
         $this->assertResponseOk();
     }
 
@@ -27,7 +27,7 @@ class HotelsControllerTest extends TestCase
      */
     public function testViewIndex()
     {
-        $this->visit(route('admin.hotels.index'))
+        $this->visit(route('admin.hotel.index'))
             ->see(trans('messages.hotel_management'));
     }
 
@@ -37,9 +37,9 @@ class HotelsControllerTest extends TestCase
     public function testDeleteStatus()
     {
         $this->WithoutMiddleware();
-        $this->seed('HotelSeedForTest');
+        $this->seed('HotelTableSeeder');
         $hotel = Hotel::select('id')->first();
-        $response = $this->call('delete', route('admin.hotels.destroy', $hotel->id));
+        $response = $this->call('delete', route('admin.hotel.destroy', $hotel->id));
         $this->assertEquals(302, $response->status());
     }
 
@@ -49,9 +49,9 @@ class HotelsControllerTest extends TestCase
     public function testAHotelIsDeleted()
     {
         $this->WithoutMiddleware();
-        $this->seed('HotelSeedForTest');
+        $this->seed('HotelTableSeeder');
         $hotel = Hotel::select('id')->first();
-        $response = $this->call('delete', route('admin.hotels.destroy', $hotel->id));
+        $response = $this->call('delete', route('admin.hotel.destroy', $hotel->id));
         $this->notSeeInDatabase('hotels', [
             'id'=>$hotel->id,
             'deleted_at'=>'NULL'
@@ -64,7 +64,7 @@ class HotelsControllerTest extends TestCase
     public function testDeleteHotelFail()
     {
         $this->WithoutMiddleware();
-        $response = $this->call('delete', route('admin.hotels.destroy', 0));
+        $response = $this->call('delete', route('admin.hotel.destroy', 0));
         $this->assertEquals(302, $response->status());
     }
 }

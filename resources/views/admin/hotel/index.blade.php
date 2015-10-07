@@ -33,20 +33,14 @@ Hotel management
                             <td>{{$hotel->address}}</td>
                             <td><img src="{!! asset('uploads/hotels/'.$hotel->image)  !!}" style="width:50px;height:50px;"></td>
                             <td>
-                                {!! Former::open()
-                                    ->method('GET')
-                                    ->action(route('admin.hotels.edit', $hotel->id))
-                                    ->style('display:inline')
-                                !!}
-                                {!! Former::submit(trans('messages.edit'))->class('btn btn-info') !!}
-                                {!! Former::close() !!}
+                                <a class="btn btn-info" name="button" href='{{ route('admin.hotel.edit', $hotel->id)}}'>{{trans('messages.edit')}}</a>
 
                                 {!! Former::open()
                                     ->method('DELETE')
-                                    ->action(route('admin.hotels.destroy', $hotel->id))
+                                    ->action(route('admin.hotel.destroy', $hotel->id))
                                     ->style('display:inline')
                                 !!}
-                                <button class="btn btn-danger" onclick="return message('Do you want to delete?')">{{ trans('messages.delete') }}</button>
+                                <button class="btn btn-danger" onclick="return message('{{trans('messages.delete_confirm')}}')">{{ trans('messages.delete') }}</button>
                                 {!! Former::close() !!}
                             </td>
                         </tr>

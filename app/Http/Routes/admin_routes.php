@@ -30,4 +30,4 @@ Route::group(['middleware' => ['auth.admin']], function () {
 });
 Route::resource('admin-hotel', 'Admin\AdminHotelController');
 
-Route::resource('admin/hotels', 'Admin\HotelsController');
+Route::resource('admin/hotel', 'Admin\HotelController');

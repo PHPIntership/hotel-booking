@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 /**
  * Hotels Controller.
  */
-class HotelsController extends AdminBaseController
+class HotelController extends AdminBaseController
 {
     /**
      * Display a listing of the hotel.
@@ -41,11 +41,11 @@ class HotelsController extends AdminBaseController
             $hotel->delete();
             Session::flash('flash_success', trans('messages.delete_success_hotel'));
 
-            return redirect()->route('admin.hotels.index');
+            return redirect()->route('admin.hotel.index');
         } catch (ModelNotFoundException $e) {
             Session::flash('flash_error', trans('messages.delete_fail_hotel'));
 
-            return redirect()->route('admin.hotels.index');
+            return redirect()->route('admin.hotel.index');
         }
     }
 }
