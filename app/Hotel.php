@@ -42,4 +42,12 @@ class Hotel extends Model
         'image',
         'description',
     ];
+
+    /**
+     * Get the city that the hotel locate.
+     */
+    public function city()
+    {
+        return $this->belongsTo('HotelBooking\City');
+    }
 }

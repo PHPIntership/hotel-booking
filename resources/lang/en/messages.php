@@ -1,5 +1,6 @@
 <?php
 return [
+
     'sign_in' => 'Sign In',
     'remember' => 'Remember Me',
     'sign_start' => 'Sign in to start your session',
@@ -11,6 +12,18 @@ return [
     'reset'=>'Reset',
     'edit_profile'=>'Edit Profile',
     'change_success' => 'Change :name success!',
+
+
+    'delete_success_hotel' => 'Delete hotel successfully',
+    'delete_fail_hotel' => 'Can not delete hotel',
+    'city' => 'City',
+    'quality' => 'Quality',
+    'address' => 'Address',
+    'image' => 'Image',
+    'edit' => 'Edit',
+    'hotel_management' => 'Hotel management',
+
+
     'delete_success_admin_hotel' => 'Deleted successfully admin hotel.',
     'delete_fail_admin_hotel' => 'Can not delete admin hotel.',
     'action' => 'Action',
