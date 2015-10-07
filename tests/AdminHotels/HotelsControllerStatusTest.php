@@ -5,9 +5,10 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use HotelBooking\Hotel;
 
-class HotelsControllerTest extends TestCase
+class HotelsControllerStatusTest extends TestCase
 {
     use DatabaseTransactions;
+    
     /**
      * Test create action, GET method
      *

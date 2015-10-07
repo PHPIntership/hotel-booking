@@ -18,12 +18,16 @@ class AdminBaseController extends Controller
     /**
      * Save upload image from request file into uploads folder
      *
-     * @param file $file
+     * @param string $path
+     * @param UploadedFile $file
      * @return string
      */
-    public function imageUpload($file)
+    public function imageUpload($path, $file)
     {
-        $dir = "uploads/";
+        $dir = config("uploads.$path");
+        if (!is_dir($dir)) {
+            mkdir($dir);
+        }
         $name = $file->getClientOriginalName();
         while (file_exists($dir.$name)) {
             $name = (rand(10, 99))."_".$name;
@@ -35,12 +39,13 @@ class AdminBaseController extends Controller
     /**
      * Remove image from uploads folder
      *
+     * @param string $path
      * @param string $filename
      * @return boolean
      */
-    public function imageRemove($filename)
+    public function imageRemove($path, $filename)
     {
-        $dir = "uploads/";
+        $dir = config("uploads.$path");
         if (file_exists($dir.$filename)) {
             unlink($dir.$filename);
             return true;

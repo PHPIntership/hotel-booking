@@ -100,16 +100,18 @@ class HotelsController extends AdminBaseController
             ->where('id', $id)
             ->first();
         if ($hotel) {
-            $oldImage = $hotel->image;
             $updateInfo = $request->all();
             if ($request->hasFile('image')) {
-                $updateInfo['image'] = $this->imageUpload($request->file('image'));
+                $updateInfo['image'] = $this->imageUpload('hotel', $request->file('image'));
+                $oldImage = $hotel->image;
             }
             if ($hotel->update($updateInfo)) {
-                $this->imageRemove($oldImage);
+                if (isset($oldImage)) {
+                    $this->imageRemove('hotel', $oldImage);
+                }
                 Session::flash('flash_success', trans('messages.edit_success_hotel'));
             } else {
-                $this->imageRemove($updateInfo['image']);
+                $this->imageRemove('hotel', $updateInfo['image']);
                 Session::flash('flash_error', trans('messages.edit_fail_hotel'));
             };
         }
