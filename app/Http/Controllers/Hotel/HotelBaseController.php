@@ -5,9 +5,8 @@ namespace HotelBooking\Http\Controllers\Hotel;
 use HotelBooking\Http\Controllers\Controller;
 
 /**
- * HotelBaseController
+ * HotelBaseController.
  */
 class HotelBaseController extends Controller
 {
-
 }

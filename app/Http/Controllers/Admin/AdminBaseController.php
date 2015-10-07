@@ -5,13 +5,12 @@ namespace HotelBooking\Http\Controllers\Admin;
 use HotelBooking\Http\Controllers\Controller;
 
 /**
- * AdminBaseController
+ * AdminBaseController.
  */
-
 class AdminBaseController extends Controller
 {
     public function index()
     {
-        return "Index";
+        return 'Index';
     }
 }

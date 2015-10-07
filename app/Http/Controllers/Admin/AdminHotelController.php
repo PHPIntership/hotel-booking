@@ -74,16 +74,6 @@ class AdminHotelController extends AdminBaseController
     }
 
     /**
-     * Display the specified hotel admin.
-     *
-     * @param int $id
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified hotel admin.
      *
      * @param int $id
