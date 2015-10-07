@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'driver' => 'eloquent',
+    //'driver' => 'eloquent',
 
     /*
     |--------------------------------------------------------------------------
@@ -28,7 +28,7 @@ return [
     |
     */
 
-    'model' => HotelBooking\User::class,
+    //'model' => HotelBooking\User::class,
 
     /*
     |--------------------------------------------------------------------------
@@ -41,7 +41,7 @@ return [
     |
     */
 
-    'table' => 'users',
+    //'table' => 'users',
 
     /*
     |--------------------------------------------------------------------------
@@ -57,7 +57,12 @@ return [
     | they have less time to be guessed. You may change this as needed.
     |
     */
-
+    'multi-auth' => [
+        'admin' => [
+            'driver' => 'eloquent',
+            'model'  => HotelBooking\AdminUser::class
+        ]
+    ],
     'password' => [
         'email' => 'emails.password',
         'table' => 'password_resets',

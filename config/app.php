@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'url' => 'http://hotel-booking.me',
+    'url' => 'http://hotel-booking.me/',
 
     /*
     |--------------------------------------------------------------------------
@@ -114,7 +114,7 @@ return [
          * Laravel Framework Service Providers...
          */
         Illuminate\Foundation\Providers\ArtisanServiceProvider::class,
-        Illuminate\Auth\AuthServiceProvider::class,
+        Kbwebs\MultiAuth\AuthServiceProvider::class,
         Illuminate\Broadcasting\BroadcastServiceProvider::class,
         Illuminate\Bus\BusServiceProvider::class,
         Illuminate\Cache\CacheServiceProvider::class,
@@ -136,9 +136,6 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-        Illuminate\Html\HtmlServiceProvider::class,
-        Former\FormerServiceProvider::class,
-        Barryvdh\Debugbar\ServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -147,6 +144,10 @@ return [
         HotelBooking\Providers\AuthServiceProvider::class,
         HotelBooking\Providers\EventServiceProvider::class,
         HotelBooking\Providers\RouteServiceProvider::class,
+        Illuminate\Html\HtmlServiceProvider::class,
+        Former\FormerServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
+
 
     ],
 
