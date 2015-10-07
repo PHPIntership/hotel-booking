@@ -41,18 +41,18 @@ class UserController extends AdminBaseController
      */
     public function putEditProfile(UserRequest $request)
     {
-        $new_password = $request->new_password;
-        $old_password = $request->old_password;
-        if (!Hash::check($old_password, $this->auth->get()->password)) {
+        $newPassword = $request->new_password;
+        $oldPassword = $request->old_password;
+        if (!Hash::check($oldPassword, $this->auth->get()->password)) {
             return redirect()->route('admin.profile.edit')
                 ->withErrors([
                     'old_password' => trans('validation.invalid', ['name' => 'old password']),
                 ]);
         }
-        $admin_user = AdminUser::findOrFail($this->auth->get()->id);
-        $new_password = Hash::make($new_password);
-        $admin_user->update([
-            'password' => $new_password,
+        $adminUser = AdminUser::findOrFail($this->auth->get()->id);
+        $newPassword = Hash::make($newPassword);
+        $adminUser->update([
+            'password' => $newPassword,
           ]);
         Session::flash('flash_success', trans('messages.update_success'));
 

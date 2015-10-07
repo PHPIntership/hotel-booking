@@ -5,6 +5,7 @@
         "This file is @generated automatically"
     ],
     "hash": "ee58ad2da18af1e5589c6dddc1a021a2",
+    "content-hash": "caf59946bdb9d98db458f39d019ac839",
     "packages": [
         {
             "name": "anahkiasen/former",
