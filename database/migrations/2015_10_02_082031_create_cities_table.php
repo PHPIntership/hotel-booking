@@ -3,6 +3,9 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+/**
+ * Migration class for cities table
+ */
 class CreateCitiesTable extends Migration
 {
     /**
