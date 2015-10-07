@@ -38,7 +38,7 @@ class AdminHotelController extends AdminBaseController
           ->select($column)
           ->paginate(10);
 
-        return view('admin.hotel_index', compact('adminHotels'));
+        return view('admin.admin-hotel.index', compact('adminHotels'));
     }
 
     /**
