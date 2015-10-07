@@ -9,6 +9,9 @@ use HotelBooking\Http\Controllers\Controller;
 use Session;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
+/**
+ * Hotels Controller
+ */
 class HotelsController extends AdminBaseController
 {
     /**
