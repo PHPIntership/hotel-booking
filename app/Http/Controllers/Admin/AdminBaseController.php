@@ -19,6 +19,7 @@ class AdminBaseController extends Controller
      *
      * @param string $path
      * @param UploadedFile $file
+     *
      * @return string
      */
     public function imageUpload($path, $file)
@@ -40,6 +41,7 @@ class AdminBaseController extends Controller
      *
      * @param string $path
      * @param string $filename
+     *
      * @return boolean
      */
     public function imageRemove($path, $filename)

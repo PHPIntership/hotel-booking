@@ -10,8 +10,6 @@ Route::get('admin', ['as'=>'admin.index','uses'=>'Admin\AdminBaseController@inde
  */
 Route::resource('admin/hotels', 'Admin\HotelsController');
 
-/**
-*/
 Route::post('admin/login', [
     'as' => 'admin.login',
     'uses' => 'Admin\AuthController@postLogin',

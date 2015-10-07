@@ -39,6 +39,7 @@ class HotelsController extends AdminBaseController
      * Create new Hotel from request information and sotre into database
      *
      * @param HotelCreateRequest $request
+     *
      * @return redirect
      */
     public function store(HotelCreateRequest $request)
@@ -53,12 +54,14 @@ class HotelsController extends AdminBaseController
 
     public function show($id)
     {
+        return $id;
     }
 
     /**
      * Load view with Hotel editting form
      *
      * @param int $id
+     *
      * @return view
      */
     public function edit($id)
@@ -92,6 +95,7 @@ class HotelsController extends AdminBaseController
      *
      * @param HotelEditRequest $request
      * @param int $id
+     *
      * @return redirect
      */
     public function update(HotelEditRequest $request, $id)
@@ -120,5 +124,6 @@ class HotelsController extends AdminBaseController
 
     public function destroy($id)
     {
+        return $id;
     }
 }
