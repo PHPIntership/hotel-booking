@@ -15,7 +15,7 @@ class AuthController extends AdminBaseController
     protected $auth;
 
     /**
-     * constructor.
+     * Constructor.
      */
     public function __construct()
     {
@@ -24,7 +24,7 @@ class AuthController extends AdminBaseController
     }
 
     /**
-     * show page login for admin.
+     * Show page login for admin.
      *
      * @return Response
      */
@@ -34,7 +34,7 @@ class AuthController extends AdminBaseController
     }
 
     /**
-     * login for admin.
+     * Login for admin.
      *
      * @param AdminLoginRequest $request
      *
@@ -53,13 +53,14 @@ class AuthController extends AdminBaseController
     }
 
     /**
-     * logout for admin.
+     * Logout for admin.
      *
      * @return Response
      */
     public function getLogout()
     {
         $this->auth->logout();
+
         return redirect()->route('admin.login');
     }
 }

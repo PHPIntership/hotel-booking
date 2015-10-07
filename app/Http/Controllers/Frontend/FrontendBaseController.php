@@ -1,12 +1,12 @@
 <?php
+
 namespace HotelBooking\Http\Controllers\Frontend;
 
 use HotelBooking\Http\Controllers\Controller;
 
 /**
- * FrontendBaseController
+ * FrontendBaseController.
  */
 class FrontendBaseController extends Controller
 {
-
 }
