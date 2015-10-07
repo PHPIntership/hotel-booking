@@ -4,6 +4,9 @@ use Illuminate\Database\Seeder;
 use HotelBooking\Hotel;
 use HotelBooking\City;
 
+/**
+ * Seeder class for seeding hotels table
+ */
 class HotelTableSeeder extends Seeder
 {
     /**
