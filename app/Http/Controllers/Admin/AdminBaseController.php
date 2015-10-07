@@ -10,8 +10,7 @@ use HotelBooking\Http\Controllers\Controller;
 
 class AdminBaseController extends Controller
 {
-    public function index()
-    {
+    public function index(){
         return "Index";
     }
 }
