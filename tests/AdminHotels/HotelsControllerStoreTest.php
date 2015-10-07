@@ -4,6 +4,7 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use HotelBooking\Hotel;
+use HotelBooking\City;
 
 class HotelsControllerStoreTest extends TestCase
 {
@@ -14,6 +15,11 @@ class HotelsControllerStoreTest extends TestCase
      */
     public function testNewHotelIsCreated()
     {
+        $faker = Faker\Factory::create();
+        $request = [
+            'name' => $faker->name,
+        ];
+        City::create($request);
         $this->visit(route('admin.hotels.create'))
             ->type('Caraven', '#name')
             ->type('1', '#quality')

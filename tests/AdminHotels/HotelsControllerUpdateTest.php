@@ -4,6 +4,7 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use HotelBooking\Hotel;
+use HotelBooking\City;
 
 class HotelsControllerUpdateTest extends TestCase
 {
@@ -17,9 +18,10 @@ class HotelsControllerUpdateTest extends TestCase
     private function createFakerHotel()
     {
         $faker = Faker\Factory::create();
+        $city = City::create(['name' => $faker->name]);
         $request = [
             'name' => $faker->name,
-            'city_id' => 1,
+            'city_id' => $city->id,
             'quality' => 3,
             'address' => $faker->address,
             'email' => $faker->email,
@@ -59,9 +61,11 @@ class HotelsControllerUpdateTest extends TestCase
      */
     public function testNewHotelIsEditedWithoutChange()
     {
+        $faker = Faker\Factory::create();
+        $city = City::create(['name' => $faker->name]);
         $request = [
             'name' => 'Caraven',
-            'city_id' => 1,
+            'city_id' => $city->id,
             'quality' => 1,
             'address' => '123 Ly Thuong Kiet',
             'email' => 'testHotel@gmail.com',
