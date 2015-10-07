@@ -13,7 +13,11 @@
     <rule rel="PSR2"></rule>
 
     <!-- Add PEAR.Commenting.FunctionComment standard -->
-    <rule ref="PEAR.Commenting.FunctionComment"></rule>
+    <!-- <rule ref="PEAR.Commenting.FunctionComment">
+        <properties>
+           <property name="missingReturn" value="false"/>
+        </properties>
+    </rule> -->
 
     <!-- Add  Generic.Commenting.DocComment standard-->
     <rule ref="Generic.Commenting.DocComment"></rule>

@@ -7,10 +7,13 @@ use HotelBooking\AdminUser;
 use Auth;
 use Hash;
 use Session;
-
+/**
+ * Admin UserController
+ */
 class UserController extends AdminBaseController
 {
     /**
+     * Authenticator
      * @var authenticate
      */
     protected $auth;
@@ -30,7 +33,7 @@ class UserController extends AdminBaseController
     }
 
     /**
-     * update Profile Admin User.
+     * Update Profile Admin User.
      *
      * @param AdminUserRequest $request [description]
      *
