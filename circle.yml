@@ -9,7 +9,11 @@ dependencies:
 
 test:
   override:
+    # phpcs report github
     - scripts/saddler.sh
-    # - ./vendor/bin/phpcs -n --standard=PSR2 app resources
+    # phpcs circleci status
+    - phpcs -n --standard=PSR2 app
+    # phpmd
     - ./vendor/bin/phpmd app text phpmd.xml
+    # phpunit
     - ./vendor/bin/phpunit
