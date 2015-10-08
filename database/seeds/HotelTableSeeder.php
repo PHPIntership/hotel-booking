@@ -15,9 +15,18 @@ class HotelTableSeeder extends Seeder
     public function run()
     {
         $faker = Faker\Factory::create();
+        $cities = array();
+
+        for ($i = 1; $i < 10; ++$i) {
+            $city = City::create([
+                'name' => $faker->city,
+            ]);
+            $cities[] = $city;
+        }
+
         for ($i = 0; $i < 10; ++$i) {
             Hotel::create([
-                'city_id' => rand(1, 9),
+                'city_id' => $cities[rand(0, 8)]->id,
                 'name' => $faker->name,
                 'quality' => rand(1, 5),
                 'address' => $faker->address,
@@ -26,13 +35,6 @@ class HotelTableSeeder extends Seeder
                 'website' => $faker->domainName,
                 'image' => $faker->text(20),
                 'description' => $faker->text,
-            ]);
-        }
-
-        for ($i = 1; $i < 10; ++$i) {
-            City::create([
-                'id' => $i,
-                'name' => $faker->city,
             ]);
         }
     }

@@ -1,6 +1,19 @@
 <?php
 return [
-
+    'create_hotel' => 'Create new Hotel',
+    'edit_hotel' => 'Edit Hotel',
+    'create_success_hotel' => 'Hotel Create success',
+    'edit_success_hotel' => 'Hotel Edit success',
+    'edit_fail_hotel'=>'Can not update hotel infomation ',
+    'create_fail_hotel'=>'Can not create hotel',
+    'city' => 'City',
+    'quality' => 'Quality',
+    'address' => 'Address',
+    'website' => 'Website',
+    'image' => 'Image',
+    'description' => 'Description',
+    'create_submit' => 'Submit',
+    'edit_submit' => 'Update',
     'sign_in' => 'Sign In',
     'remember' => 'Remember Me',
     'sign_start' => 'Sign in to start your session',
@@ -12,18 +25,10 @@ return [
     'reset'=>'Reset',
     'edit_profile'=>'Edit Profile',
     'change_success' => 'Change :name success!',
-
-
     'delete_success_hotel' => 'Delete hotel successfully',
     'delete_fail_hotel' => 'Can not delete hotel',
-    'city' => 'City',
-    'quality' => 'Quality',
-    'address' => 'Address',
-    'image' => 'Image',
     'edit' => 'Edit',
     'hotel_management' => 'Hotel management',
-
-
     'delete_success_admin_hotel' => 'Deleted successfully admin hotel.',
     'delete_fail_admin_hotel' => 'Can not delete admin hotel.',
     'action' => 'Action',
