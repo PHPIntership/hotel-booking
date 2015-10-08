@@ -34,12 +34,10 @@ Admin Hotel
                     <td>{{ $adminHotel->email }}</td>
                     <td>{{ $adminHotel->phone }}</td>
                     <td>
-                        {!! Former::open()->route('admin-hotel.edit',$adminHotel->id)->method('GET')->style('display: inline') !!}
-                        <button type="submit"class="btn btn-info">
+                        <a href="{!! route('admin-hotel.edit',$adminHotel->id) !!}" class="btn btn-info">
                             <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                             {!! trans('messages.edit') !!}
-                        </button>
-                        {!! Former::close() !!}
+                        </a>
                         {!! Former::open()->route('admin-hotel.destroy',$adminHotel->id)->method('Delete')->style('display: inline') !!}
                         <button onclick="return message('{!! trans('messages.delete_confirm') !!}')" class="btn btn-danger">
                             <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
