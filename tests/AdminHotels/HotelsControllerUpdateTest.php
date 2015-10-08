@@ -37,7 +37,7 @@ class HotelsControllerUpdateTest extends TestCase
     public function testNewHotelIsEdited()
     {
         $hotel = $this->createFakerHotel();
-        $this->visit(route('admin.hotels.edit', $hotel->id))
+        $this->visit(route('admin.hotel.edit', $hotel->id))
             ->type('Caraven', '#name')
             ->type('1', '#quality')
             ->type('123 Ly Thuong Kiet', '#address')
@@ -73,7 +73,7 @@ class HotelsControllerUpdateTest extends TestCase
             'description' => 'Super star Caraven Hotel',
         ];
         $hotel = Hotel::create($request);
-        $this->visit(route('admin.hotels.edit', $hotel->id))
+        $this->visit(route('admin.hotel.edit', $hotel->id))
             ->press(trans('messages.edit_submit'))
             ->see(trans('messages.edit_success_hotel'));
     }
@@ -84,7 +84,7 @@ class HotelsControllerUpdateTest extends TestCase
     public function testEditHotelWithoutName()
     {
         $hotel = $this->createFakerHotel();
-        $this->visit(route('admin.hotels.edit', $hotel->id))
+        $this->visit(route('admin.hotel.edit', $hotel->id))
             ->type('', '#name')
             ->press(trans('messages.edit_submit'))
             ->see(trans('validation.required', ['attribute' => 'name']));
@@ -96,7 +96,7 @@ class HotelsControllerUpdateTest extends TestCase
     public function testEditHotelWithoutQuality()
     {
         $hotel = $this->createFakerHotel();
-        $this->visit(route('admin.hotels.edit', $hotel->id))
+        $this->visit(route('admin.hotel.edit', $hotel->id))
             ->type('', '#quality')
             ->press(trans('messages.edit_submit'))
             ->see(trans('validation.required', ['attribute' => 'quality']));
@@ -108,7 +108,7 @@ class HotelsControllerUpdateTest extends TestCase
     public function testEditHotelWithoutAddress()
     {
         $hotel = $this->createFakerHotel();
-        $this->visit(route('admin.hotels.edit', $hotel->id))
+        $this->visit(route('admin.hotel.edit', $hotel->id))
             ->type('', '#address')
             ->press(trans('messages.edit_submit'))
             ->see(trans('validation.required', ['attribute' => 'address']));
@@ -120,7 +120,7 @@ class HotelsControllerUpdateTest extends TestCase
     public function testEditHotelWithoutEmail()
     {
         $hotel = $this->createFakerHotel();
-        $this->visit(route('admin.hotels.edit', $hotel->id))
+        $this->visit(route('admin.hotel.edit', $hotel->id))
             ->type('', '#email')
             ->press(trans('messages.edit_submit'))
             ->see(trans('validation.required', ['attribute' => 'email']));
@@ -132,7 +132,7 @@ class HotelsControllerUpdateTest extends TestCase
     public function testEditHotelWithoutPhone()
     {
         $hotel = $this->createFakerHotel();
-        $this->visit(route('admin.hotels.edit', $hotel->id))
+        $this->visit(route('admin.hotel.edit', $hotel->id))
             ->type('', '#phone')
             ->press(trans('messages.edit_submit'))
             ->see(trans('validation.required', ['attribute' => 'phone']));
@@ -144,7 +144,7 @@ class HotelsControllerUpdateTest extends TestCase
     public function testEditHotelWithoutDescription()
     {
         $hotel = $this->createFakerHotel();
-        $this->visit(route('admin.hotels.edit', $hotel->id))
+        $this->visit(route('admin.hotel.edit', $hotel->id))
             ->type('', '#description')
             ->press(trans('messages.edit_submit'))
             ->see(trans('validation.required', ['attribute' => 'description']));
@@ -157,7 +157,7 @@ class HotelsControllerUpdateTest extends TestCase
     public function testEditHotelWithNameLessThan6Characters()
     {
         $hotel = $this->createFakerHotel();
-        $this->visit(route('admin.hotels.edit', $hotel->id))
+        $this->visit(route('admin.hotel.edit', $hotel->id))
             ->type('Cara', '#name')
             ->press(trans('messages.edit_submit'))
             ->see(trans('validation.min.string', [
@@ -173,7 +173,7 @@ class HotelsControllerUpdateTest extends TestCase
     public function testEditHotelWithNameMoreThan30Characters()
     {
         $hotel = $this->createFakerHotel();
-        $this->visit(route('admin.hotels.edit', $hotel->id))
+        $this->visit(route('admin.hotel.edit', $hotel->id))
             ->type('Caravencccccccccccccccccccccccc', '#name')
             ->press(trans('messages.edit_submit'))
             ->see(trans('validation.max.string', [
@@ -188,7 +188,7 @@ class HotelsControllerUpdateTest extends TestCase
     public function testEditHotelWithWrongRegexName()
     {
         $hotel = $this->createFakerHotel();
-        $this->visit(route('admin.hotels.edit', $hotel->id))
+        $this->visit(route('admin.hotel.edit', $hotel->id))
             ->type('caraven', '#name')
             ->press(trans('messages.edit_submit'))
             ->see(trans('validation.regex', ['attribute' => 'name']));
@@ -201,7 +201,7 @@ class HotelsControllerUpdateTest extends TestCase
     public function testEditHotelWithQualityLessThan0()
     {
         $hotel = $this->createFakerHotel();
-        $this->visit(route('admin.hotels.edit', $hotel->id))
+        $this->visit(route('admin.hotel.edit', $hotel->id))
             ->type('-1', '#quality')
             ->press(trans('messages.edit_submit'))
             ->see(trans('validation.min.numeric', [
@@ -217,7 +217,7 @@ class HotelsControllerUpdateTest extends TestCase
     public function testEditHotelWithQualityGreaterThan10()
     {
         $hotel = $this->createFakerHotel();
-        $this->visit(route('admin.hotels.edit', $hotel->id))
+        $this->visit(route('admin.hotel.edit', $hotel->id))
             ->type('11', '#quality')
             ->press(trans('messages.edit_submit'))
             ->see(trans('validation.max.numeric', [
@@ -232,7 +232,7 @@ class HotelsControllerUpdateTest extends TestCase
     public function testEditHotelWithNonIntegerQuality()
     {
         $hotel = $this->createFakerHotel();
-        $this->visit(route('admin.hotels.edit', $hotel->id))
+        $this->visit(route('admin.hotel.edit', $hotel->id))
             ->type('a', '#quality')
             ->press(trans('messages.edit_submit'))
             ->see(trans('validation.integer', ['attribute' => 'quality']));
@@ -245,7 +245,7 @@ class HotelsControllerUpdateTest extends TestCase
     public function testEditHotelWithAddressLessThan6Characters()
     {
         $hotel = $this->createFakerHotel();
-        $this->visit(route('admin.hotels.edit', $hotel->id))
+        $this->visit(route('admin.hotel.edit', $hotel->id))
             ->type('123LT', '#address')
             ->press(trans('messages.edit_submit'))
             ->see(trans('validation.min.string', [
@@ -261,7 +261,7 @@ class HotelsControllerUpdateTest extends TestCase
     public function testEditHotelWithAddressMoreThan50Characters()
     {
         $hotel = $this->createFakerHotel();
-        $this->visit(route('admin.hotels.edit', $hotel->id))
+        $this->visit(route('admin.hotel.edit', $hotel->id))
             ->type('123 Ly Thuong Kiet llllllllllllllllllllllllllllllll', '#address')
             ->press(trans('messages.edit_submit'))
             ->see(trans('validation.max.string', [
@@ -276,7 +276,7 @@ class HotelsControllerUpdateTest extends TestCase
     public function testEditHotelWithWrongRegexAddress()
     {
         $hotel = $this->createFakerHotel();
-        $this->visit(route('admin.hotels.edit', $hotel->id))
+        $this->visit(route('admin.hotel.edit', $hotel->id))
             ->type('123(A) Ly Thuong Kiet', '#address')
             ->press(trans('messages.edit_submit'))
             ->see(trans('validation.regex', ['attribute' => 'address']));
@@ -289,7 +289,7 @@ class HotelsControllerUpdateTest extends TestCase
     {
         $email = $this->createFakerHotel()->email;
         $hotel = $this->createFakerHotel();
-        $this->visit(route('admin.hotels.edit', $hotel->id))
+        $this->visit(route('admin.hotel.edit', $hotel->id))
             ->type($email, '#email')
             ->press(trans('messages.edit_submit'))
             ->see(trans('validation.unique', ['attribute' => 'email']));
@@ -302,7 +302,7 @@ class HotelsControllerUpdateTest extends TestCase
     public function testEditHotelWithEamailLessThan10Characters()
     {
         $hotel = $this->createFakerHotel();
-        $this->visit(route('admin.hotels.edit', $hotel->id))
+        $this->visit(route('admin.hotel.edit', $hotel->id))
             ->type('ts@gm.com', '#email')
             ->press(trans('messages.edit_submit'))
             ->see(trans('validation.min.string', [
@@ -318,7 +318,7 @@ class HotelsControllerUpdateTest extends TestCase
     public function testEditHotelWithEmailMoreThan30Characters()
     {
         $hotel = $this->createFakerHotel();
-        $this->visit(route('admin.hotels.edit', $hotel->id))
+        $this->visit(route('admin.hotel.edit', $hotel->id))
             ->type('testHoteltttttttttttt@gmail.com', '#email')
             ->press(trans('messages.edit_submit'))
             ->see(trans('validation.max.string', [
@@ -333,7 +333,7 @@ class HotelsControllerUpdateTest extends TestCase
     public function testEditHotelWithInvalidEmail()
     {
         $hotel = $this->createFakerHotel();
-        $this->visit(route('admin.hotels.edit', $hotel->id))
+        $this->visit(route('admin.hotel.edit', $hotel->id))
             ->type('testHotelgmail.com', '#email')
             ->press(trans('messages.edit_submit'))
             ->see(trans('validation.email', ['attribute' => 'email']));
@@ -346,7 +346,7 @@ class HotelsControllerUpdateTest extends TestCase
     public function testEditHotelWithPhoneLessThan10Characters()
     {
         $hotel = $this->createFakerHotel();
-        $this->visit(route('admin.hotels.edit', $hotel->id))
+        $this->visit(route('admin.hotel.edit', $hotel->id))
             ->type('098766622', '#phone')
             ->press(trans('messages.edit_submit'))
             ->see(trans('validation.min.string', [
@@ -362,7 +362,7 @@ class HotelsControllerUpdateTest extends TestCase
     public function testEditHotelWithPhoneMoreThan12Characters()
     {
         $hotel = $this->createFakerHotel();
-        $this->visit(route('admin.hotels.edit', $hotel->id))
+        $this->visit(route('admin.hotel.edit', $hotel->id))
             ->type('0987666223345', '#phone')
             ->press(trans('messages.edit_submit'))
             ->see(trans('validation.max.string', [
@@ -377,7 +377,7 @@ class HotelsControllerUpdateTest extends TestCase
     public function testEditHotelWithWrongRegexPhone()
     {
         $hotel = $this->createFakerHotel();
-        $this->visit(route('admin.hotels.edit', $hotel->id))
+        $this->visit(route('admin.hotel.edit', $hotel->id))
             ->type('1987666223', '#phone')
             ->press(trans('messages.edit_submit'))
             ->see(trans('validation.regex', ['attribute' => 'phone']));
@@ -390,7 +390,7 @@ class HotelsControllerUpdateTest extends TestCase
     public function testEditHotelWithDescriptionLessThan10Characters()
     {
         $hotel = $this->createFakerHotel();
-        $this->visit(route('admin.hotels.edit', $hotel->id))
+        $this->visit(route('admin.hotel.edit', $hotel->id))
             ->type('Superstar', '#description')
             ->press(trans('messages.edit_submit'))
             ->see(trans('validation.min.string', [
@@ -408,7 +408,7 @@ class HotelsControllerUpdateTest extends TestCase
         $description = 'Super star Caraven Hotelssssssssssssssssssssssssss';
         $description = $description.$description.$description.$description.'s';
         $hotel = $this->createFakerHotel();
-        $this->visit(route('admin.hotels.edit', $hotel->id))
+        $this->visit(route('admin.hotel.edit', $hotel->id))
             ->type($description, '#description')
             ->press(trans('messages.edit_submit'))
             ->see(trans('validation.max.string', [
@@ -423,7 +423,7 @@ class HotelsControllerUpdateTest extends TestCase
     public function testEditHotelWithWrongRegexDescription()
     {
         $hotel = $this->createFakerHotel();
-        $this->visit(route('admin.hotels.edit', $hotel->id))
+        $this->visit(route('admin.hotel.edit', $hotel->id))
             ->type('Super() star Caraven Hotel', '#description')
             ->press(trans('messages.edit_submit'))
             ->see(trans('validation.regex', ['attribute' => 'description']));
@@ -435,7 +435,7 @@ class HotelsControllerUpdateTest extends TestCase
     public function testEditHotelWithWrongRegexWebsite()
     {
         $hotel = $this->createFakerHotel();
-        $this->visit(route('admin.hotels.edit', $hotel->id))
+        $this->visit(route('admin.hotel.edit', $hotel->id))
             ->type('caravencom', '#website')
             ->press(trans('messages.edit_submit'))
             ->see(trans('validation.regex', ['attribute' => 'website']));

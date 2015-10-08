@@ -8,7 +8,7 @@ Route::get('admin', ['as'=>'admin.index','uses'=>'Admin\AdminBaseController@inde
 /**
  * Routes for hotels manager pages
  */
-Route::resource('admin/hotels', 'Admin\HotelsController');
+Route::resource('admin/hotel', 'Admin\HotelController');
 
 Route::post('admin/login', [
     'as' => 'admin.login',

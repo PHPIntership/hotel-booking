@@ -5,10 +5,10 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use HotelBooking\Hotel;
 
-class HotelsControllerStatusTest extends TestCase
+class HotelControllerStatusTest extends TestCase
 {
     use DatabaseTransactions;
-    
+
     /**
      * Test create action, GET method
      *
@@ -16,7 +16,7 @@ class HotelsControllerStatusTest extends TestCase
      */
     public function testCreateStatus()
     {
-        $response = $this->call('GET', route('admin.hotels.create'));
+        $response = $this->call('GET', route('admin.hotel.create'));
         $this->assertEquals(200, $response->status());
     }
 
@@ -38,7 +38,7 @@ class HotelsControllerStatusTest extends TestCase
             'description' => $faker->text,
         ];
         $hotel = Hotel::create($request);
-        $response = $this->call('GET', route('admin.hotels.edit', $hotel->id));
+        $response = $this->call('GET', route('admin.hotel.edit', $hotel->id));
         $this->assertEquals(200, $response->status());
     }
 
@@ -50,7 +50,7 @@ class HotelsControllerStatusTest extends TestCase
     public function testStoreStatus()
     {
         $this->WithoutMiddleware();
-        $response = $this->call('POST', route('admin.hotels.store'));
+        $response = $this->call('POST', route('admin.hotel.store'));
         $this->assertEquals(302, $response->status());
     }
 
@@ -62,7 +62,7 @@ class HotelsControllerStatusTest extends TestCase
     public function testUpdateStatus()
     {
         $this->WithoutMiddleware();
-        $response = $this->call('PUT', route('admin.hotels.update'));
+        $response = $this->call('PUT', route('admin.hotel.update'));
         $this->assertEquals(302, $response->status());
     }
 }

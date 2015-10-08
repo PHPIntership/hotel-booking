@@ -11,7 +11,7 @@ class HotelEditRequest extends HotelCreateRequest
      */
     public function rules()
     {
-        $id = $this->route()->getParameter('hotels');
+        $id = $this->route()->getParameter('hotel');
         $rulesParent = parent::rules();
         $rules= [
           'email' => "required|unique:hotels,email,$id|min:10|max:30|email",

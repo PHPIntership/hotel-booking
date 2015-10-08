@@ -20,7 +20,7 @@ class HotelsControllerStoreTest extends TestCase
             'name' => $faker->name,
         ];
         City::create($request);
-        $this->visit(route('admin.hotels.create'))
+        $this->visit(route('admin.hotel.create'))
             ->type('Caraven', '#name')
             ->type('1', '#quality')
             ->type('123 Ly Thuong Kiet', '#address')
@@ -42,7 +42,7 @@ class HotelsControllerStoreTest extends TestCase
      */
     public function testCreateHotelWithoutName()
     {
-        $this->visit(route('admin.hotels.create'))
+        $this->visit(route('admin.hotel.create'))
             ->type('', '#name')
             ->type('1', '#quality')
             ->type('123 Ly Thuong Kiet', '#address')
@@ -58,7 +58,7 @@ class HotelsControllerStoreTest extends TestCase
      */
     public function testCreateHotelWithoutQuality()
     {
-        $this->visit(route('admin.hotels.create'))
+        $this->visit(route('admin.hotel.create'))
             ->type('Caraven', '#name')
             ->type('', '#quality')
             ->type('123 Ly Thuong Kiet', '#address')
@@ -74,7 +74,7 @@ class HotelsControllerStoreTest extends TestCase
      */
     public function testCreateHotelWithoutAddress()
     {
-        $this->visit(route('admin.hotels.create'))
+        $this->visit(route('admin.hotel.create'))
             ->type('Caraven', '#name')
             ->type('1', '#quality')
             ->type('', '#address')
@@ -90,7 +90,7 @@ class HotelsControllerStoreTest extends TestCase
      */
     public function testCreateHotelWithoutEmail()
     {
-        $this->visit(route('admin.hotels.create'))
+        $this->visit(route('admin.hotel.create'))
             ->type('Caraven', '#name')
             ->type('1', '#quality')
             ->type('123 Ly Thuong Kiet', '#address')
@@ -106,7 +106,7 @@ class HotelsControllerStoreTest extends TestCase
      */
     public function testCreateHotelWithoutPhone()
     {
-        $this->visit(route('admin.hotels.create'))
+        $this->visit(route('admin.hotel.create'))
             ->type('Caraven', '#name')
             ->type('1', '#quality')
             ->type('123 Ly Thuong Kiet', '#address')
@@ -122,7 +122,7 @@ class HotelsControllerStoreTest extends TestCase
      */
     public function testCreateHotelWithoutDescription()
     {
-        $this->visit(route('admin.hotels.create'))
+        $this->visit(route('admin.hotel.create'))
             ->type('Caraven', '#name')
             ->type('1', '#quality')
             ->type('123 Ly Thuong Kiet', '#address')
@@ -139,7 +139,7 @@ class HotelsControllerStoreTest extends TestCase
      */
     public function testCreateHotelWithNameLessThan6Characters()
     {
-        $this->visit(route('admin.hotels.create'))
+        $this->visit(route('admin.hotel.create'))
             ->type('Cara', '#name')
             ->type('1', '#quality')
             ->type('123 Ly Thuong Kiet', '#address')
@@ -159,7 +159,7 @@ class HotelsControllerStoreTest extends TestCase
      */
     public function testCreateHotelWithNameMoreThan30Characters()
     {
-        $this->visit(route('admin.hotels.create'))
+        $this->visit(route('admin.hotel.create'))
             ->type('Caravencccccccccccccccccccccccc', '#name')
             ->type('1', '#quality')
             ->type('123 Ly Thuong Kiet', '#address')
@@ -178,7 +178,7 @@ class HotelsControllerStoreTest extends TestCase
      */
     public function testCreateHotelWithWrongRegexName()
     {
-        $this->visit(route('admin.hotels.create'))
+        $this->visit(route('admin.hotel.create'))
             ->type('caraven', '#name')
             ->type('1', '#quality')
             ->type('123 Ly Thuong Kiet', '#address')
@@ -195,7 +195,7 @@ class HotelsControllerStoreTest extends TestCase
      */
     public function testCreateHotelWithQualityLessThan0()
     {
-        $this->visit(route('admin.hotels.create'))
+        $this->visit(route('admin.hotel.create'))
             ->type('Caraven', '#name')
             ->type('-1', '#quality')
             ->type('123 Ly Thuong Kiet', '#address')
@@ -215,7 +215,7 @@ class HotelsControllerStoreTest extends TestCase
      */
     public function testCreateHotelWithQualityGreaterThan10()
     {
-        $this->visit(route('admin.hotels.create'))
+        $this->visit(route('admin.hotel.create'))
             ->type('Caraven', '#name')
             ->type('11', '#quality')
             ->type('123 Ly Thuong Kiet', '#address')
@@ -234,7 +234,7 @@ class HotelsControllerStoreTest extends TestCase
      */
     public function testCreateHotelWithNonIntegerQuality()
     {
-        $this->visit(route('admin.hotels.create'))
+        $this->visit(route('admin.hotel.create'))
             ->type('Caraven', '#name')
             ->type('a', '#quality')
             ->type('123 Ly Thuong Kiet', '#address')
@@ -251,7 +251,7 @@ class HotelsControllerStoreTest extends TestCase
      */
     public function testCreateHotelWithAddressLessThan6Characters()
     {
-        $this->visit(route('admin.hotels.create'))
+        $this->visit(route('admin.hotel.create'))
             ->type('Caraven', '#name')
             ->type('1', '#quality')
             ->type('123LT', '#address')
@@ -271,7 +271,7 @@ class HotelsControllerStoreTest extends TestCase
      */
     public function testCreateHotelWithAddressMoreThan50Characters()
     {
-        $this->visit(route('admin.hotels.create'))
+        $this->visit(route('admin.hotel.create'))
             ->type('Caraven', '#name')
             ->type('1', '#quality')
             ->type('123 Ly Thuong Kiet llllllllllllllllllllllllllllllll', '#address')
@@ -290,7 +290,7 @@ class HotelsControllerStoreTest extends TestCase
      */
     public function testCreateHotelWithWrongRegexAddress()
     {
-        $this->visit(route('admin.hotels.create'))
+        $this->visit(route('admin.hotel.create'))
             ->type('Caraven', '#name')
             ->type('1', '#quality')
             ->type('123(A) Ly Thuong Kiet', '#address')
@@ -317,7 +317,7 @@ class HotelsControllerStoreTest extends TestCase
             'description' => $faker->text,
         ];
         $email = Hotel::create($request)->email;
-        $this->visit(route('admin.hotels.create'))
+        $this->visit(route('admin.hotel.create'))
             ->type('Caraven', '#name')
             ->type('1', '#quality')
             ->type('123 Ly Thuong Kiet', '#address')
@@ -334,7 +334,7 @@ class HotelsControllerStoreTest extends TestCase
      */
     public function testCreateHotelWithEamailLessThan10Characters()
     {
-        $this->visit(route('admin.hotels.create'))
+        $this->visit(route('admin.hotel.create'))
             ->type('Caraven', '#name')
             ->type('1', '#quality')
             ->type('123 Ly Thuong Kiet', '#address')
@@ -354,7 +354,7 @@ class HotelsControllerStoreTest extends TestCase
      */
     public function testCreateHotelWithEmailMoreThan30Characters()
     {
-        $this->visit(route('admin.hotels.create'))
+        $this->visit(route('admin.hotel.create'))
             ->type('Caraven', '#name')
             ->type('1', '#quality')
             ->type('123 Ly Thuong Kiet', '#address')
@@ -373,7 +373,7 @@ class HotelsControllerStoreTest extends TestCase
      */
     public function testCreateHotelWithInvalidEmail()
     {
-        $this->visit(route('admin.hotels.create'))
+        $this->visit(route('admin.hotel.create'))
             ->type('Caraven', '#name')
             ->type('1', '#quality')
             ->type('123 Ly Thuong Kiet', '#address')
@@ -390,7 +390,7 @@ class HotelsControllerStoreTest extends TestCase
      */
     public function testCreateHotelWithPhoneLessThan10Characters()
     {
-        $this->visit(route('admin.hotels.create'))
+        $this->visit(route('admin.hotel.create'))
             ->type('Caraven', '#name')
             ->type('1', '#quality')
             ->type('123 Ly Thuong Kiet', '#address')
@@ -410,7 +410,7 @@ class HotelsControllerStoreTest extends TestCase
      */
     public function testCreateHotelWithPhoneMoreThan12Characters()
     {
-        $this->visit(route('admin.hotels.create'))
+        $this->visit(route('admin.hotel.create'))
             ->type('Caraven', '#name')
             ->type('1', '#quality')
             ->type('123 Ly Thuong Kiet', '#address')
@@ -429,7 +429,7 @@ class HotelsControllerStoreTest extends TestCase
      */
     public function testCreateHotelWithWrongRegexPhone()
     {
-        $this->visit(route('admin.hotels.create'))
+        $this->visit(route('admin.hotel.create'))
             ->type('Caraven', '#name')
             ->type('1', '#quality')
             ->type('123 Ly Thuong Kiet', '#address')
@@ -446,7 +446,7 @@ class HotelsControllerStoreTest extends TestCase
      */
     public function testCreateHotelWithDescriptionLessThan10Characters()
     {
-        $this->visit(route('admin.hotels.create'))
+        $this->visit(route('admin.hotel.create'))
             ->type('Caraven', '#name')
             ->type('1', '#quality')
             ->type('123 Ly Thuong Kiet', '#address')
@@ -468,7 +468,7 @@ class HotelsControllerStoreTest extends TestCase
     {
         $description = 'Super star Caraven Hotelssssssssssssssssssssssssss';
         $description = $description.$description.$description.$description.'s';
-        $this->visit(route('admin.hotels.create'))
+        $this->visit(route('admin.hotel.create'))
             ->type('Caravencccccccccccccccccccccccc', '#name')
             ->type('1', '#quality')
             ->type('123 Ly Thuong Kiet', '#address')
@@ -487,7 +487,7 @@ class HotelsControllerStoreTest extends TestCase
      */
     public function testCreateHotelWithWrongRegexDescription()
     {
-        $this->visit(route('admin.hotels.create'))
+        $this->visit(route('admin.hotel.create'))
             ->type('Caraven', '#name')
             ->type('1', '#quality')
             ->type('123 Ly Thuong Kiet', '#address')

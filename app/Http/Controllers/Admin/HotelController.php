@@ -13,10 +13,10 @@ use HotelBooking\Http\Requests\Admin\HotelEditRequest;
 use HotelBooking\Http\Controllers\Controller;
 
 /**
- * HotelsController
+ * HotelController
  */
 
-class HotelsController extends AdminBaseController
+class HotelController extends AdminBaseController
 {
 
     public function index()
@@ -32,7 +32,7 @@ class HotelsController extends AdminBaseController
     {
         $cities = DB::table('cities')
             ->lists('name', 'id');
-        return view('admin.hotels.create', compact('cities'));
+        return view('admin.hotel.create', compact('cities'));
     }
 
     /**
@@ -49,7 +49,7 @@ class HotelsController extends AdminBaseController
         } else {
             Session::flash('flash_error', trans('messages.create_fail_hotel'));
         }
-        return redirect(route('admin.hotels.create'));
+        return redirect(route('admin.hotel.create'));
     }
 
     public function show($id)
@@ -84,7 +84,7 @@ class HotelsController extends AdminBaseController
         $cities = DB::table('cities')
             ->lists('name', 'id');
         if ($hotel) {
-            return view('admin.hotels.edit', compact('hotel', 'cities'));
+            return view('admin.hotel.edit', compact('hotel', 'cities'));
         } else {
             return view('admin.errors.503');
         }
@@ -119,7 +119,7 @@ class HotelsController extends AdminBaseController
                 Session::flash('flash_error', trans('messages.edit_fail_hotel'));
             };
         }
-        return redirect(route('admin.hotels.edit', $id));
+        return redirect(route('admin.hotel.edit', $id));
     }
 
     public function destroy($id)
