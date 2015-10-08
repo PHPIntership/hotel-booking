@@ -3,12 +3,18 @@
 namespace HotelBooking;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- *City model
+ *City model.
  */
 class City extends Model
 {
+    /**
+     * Define that the table can use soft delete
+     */
+    use SoftDeletes;
+
     /**
      * The database table used by the model.
      *

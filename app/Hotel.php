@@ -48,6 +48,6 @@ class Hotel extends Model
      */
     public function city()
     {
-        return $this->belongsTo('App\City', 'city_id');
+        return $this->belongsTo('HotelBooking\City', 'city_id');
     }
 }
