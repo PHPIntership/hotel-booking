@@ -12,15 +12,12 @@ class CreateRoomTypeTable extends Migration
      */
     public function up()
     {
-        Schema::create('room_type', function (Blueprint $table) {
+        Schema::create('room_types', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('hotel_id')->unsigned()->index();
             $table->string('name');
             $table->string('quality');
-            $table->integer('quantity');
-            $table->float('price');
             $table->string('image')->nullable();
-            $table->text('description');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -32,6 +29,6 @@ class CreateRoomTypeTable extends Migration
      */
     public function down()
     {
-        Schema::drop('room_type');
+        Schema::drop('room_types');
     }
 }
