@@ -11,6 +11,7 @@ use HotelBooking\City;
 use HotelBooking\Http\Requests\Admin\HotelCreateRequest;
 use HotelBooking\Http\Requests\Admin\HotelEditRequest;
 use HotelBooking\Http\Controllers\Controller;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 /**
  * HotelController
@@ -29,7 +30,7 @@ class HotelController extends AdminBaseController
         $hotels = Hotel::select($columns)
             ->with('city')
             ->paginate(20);
-
+        //return $hotels;
         return view('admin.hotel.index', compact('hotels'));
     }
 
