@@ -12,7 +12,7 @@ class CreateHotelRoomTypesTable extends Migration
     {
         Schema::create('hotel_room_types', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('roomtype_id')->unsigned()->index();
+            $table->integer('room_type_id')->unsigned()->index();
             $table->integer('hotel_id')->unsigned()->index();
             $table->string('name');
             $table->string('quality');

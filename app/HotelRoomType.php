@@ -29,7 +29,7 @@ class HotelRoomType extends Model
      * @var array
      */
     protected $fillable = [
-        'roomtype_id',
+        'room_type_id',
         'hotel_id',
         'name',
         'quality',
