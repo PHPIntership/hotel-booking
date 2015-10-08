@@ -44,10 +44,10 @@ class Hotel extends Model
     ];
 
     /**
-     * Get the city that the hotel locate.
+     * Get the city that locate the hotel.
      */
     public function city()
     {
-        return $this->belongsTo('HotelBooking\City');
+        return $this->belongsTo('HotelBooking\City', 'city_id');
     }
 }

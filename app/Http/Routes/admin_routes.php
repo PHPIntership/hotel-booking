@@ -1,8 +1,15 @@
 <?php
 
 /**
- * Routes for admin pages.
+ * Routes for admin pages
  */
+Route::get('admin', ['as'=>'admin.index','uses'=>'Admin\AdminBaseController@index']);
+
+/**
+ * Routes for hotels manager pages
+ */
+Route::resource('admin/hotel', 'Admin\HotelController');
+
 Route::post('admin/login', [
     'as' => 'admin.login',
     'uses' => 'Admin\AuthController@postLogin',
@@ -28,6 +35,7 @@ Route::group(['middleware' => ['auth.admin']], function () {
         'uses' => 'Admin\UserController@putEditProfile',
         ]);
 });
+
 Route::resource('admin-hotel', 'Admin\AdminHotelController');
 
 Route::resource('admin/hotel', 'Admin\HotelController');
