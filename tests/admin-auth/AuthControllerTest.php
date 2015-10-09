@@ -11,7 +11,7 @@ class AuthControllerTest extends TestCase
     protected $facAdminUser;
 
     /**
-     * test Status getLogin in AuthController
+     * Test the status getLogin in AuthController
      * @return void
      */
     public function testGetLoginStatus()

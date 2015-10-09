@@ -6,7 +6,7 @@ use HotelBooking\AdminHotel;
 /**
  * Tests for AuthController of hotel admin.
  */
-class AuthControllerTest extends TestCase
+class HotelAuthControllerTest extends TestCase
 {
     /*
      * Use DatabaseTransactions for tests
