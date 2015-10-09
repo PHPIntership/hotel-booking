@@ -30,6 +30,7 @@ class Kernel extends HttpKernel
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'guest' => \HotelBooking\Http\Middleware\RedirectIfAuthenticated::class,
         'auth.admin' => \HotelBooking\Http\Middleware\Admin\Authenticate::class,
+        'admin.guest'=> \HotelBooking\Http\Middleware\Admin\RedirectIfAuthenticated::class,
         'auth.hotel' => \HotelBooking\Http\Middleware\Hotel\Authenticate::class,
         'hotel.guest' => \HotelBooking\Http\Middleware\Hotel\RedirectIfAuthenticated::class,
     ];
