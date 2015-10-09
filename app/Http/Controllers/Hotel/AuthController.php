@@ -2,7 +2,6 @@
 
 namespace HotelBooking\Http\Controllers\Hotel;
 
-use Illuminate\Http\Request;
 use HotelBooking\Http\Controllers\Controller;
 use HotelBooking\Http\Requests\Hotel\LoginRequest;
 use Auth;
@@ -25,7 +24,7 @@ class AuthController extends HotelBaseController
     public function __construct()
     {
         $this->auth = Auth::hotel();
-        $this->middleware('auth.hotel.redirect', ['except' => 'getLogout']);
+        $this->middleware('hotel.guest', ['except' => 'getLogout']);
     }
 
     /**

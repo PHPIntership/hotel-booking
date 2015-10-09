@@ -43,7 +43,7 @@ class RedirectIfAuthenticated
             if (Route::has('hotel.index')) {
                 return redirect(route('hotel.index'));
             } else {
-                return 'this hotel admin already log in';
+                return 'This account already login';
             }
         }
 
