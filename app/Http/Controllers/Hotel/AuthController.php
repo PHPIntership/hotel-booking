@@ -15,7 +15,7 @@ use Route;
 class AuthController extends HotelBaseController
 {
     /**
-     * authenticate object.
+     * Authenticate object.
      */
     protected $auth;
 
