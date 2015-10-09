@@ -61,7 +61,11 @@ return [
         'admin' => [
             'driver' => 'eloquent',
             'model'  => HotelBooking\AdminUser::class
-        ]
+        ],
+        'hotel' => [
+            'driver' => 'eloquent',
+            'model' => HotelBooking\AdminHotel::class
+        ],
     ],
     'password' => [
         'email' => 'emails.password',
