@@ -13,6 +13,9 @@ use Session;
  */
 class HotelController extends HotelBaseController
 {
+    /**
+     * Path for upload hotel image
+     */
     const PATH = 'hotel';
     /**
      * Constructor to implement auth middleware.
