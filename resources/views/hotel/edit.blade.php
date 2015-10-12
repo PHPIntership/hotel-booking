@@ -14,7 +14,7 @@
                 <div class="col-md-6">
                     @include('layouts.hotel.partials.flash')
                     {!! Former::vertical_open_for_files()
-                        ->action(route('hotel.edit'))
+                        ->action(route('hotel.profile'))
                         ->method('post')
                     !!}
                     {!! Former::text('website')

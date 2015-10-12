@@ -16,7 +16,7 @@ class HotelController extends HotelBaseController
     /**
      * Path for upload hotel image
      */
-    const PATH = 'hotel';
+    const UPLOAD_PATH = 'hotel';
     /**
      * Constructor to implement auth middleware.
      */
@@ -33,9 +33,10 @@ class HotelController extends HotelBaseController
      */
     public function edit()
     {
-        $hotelID = Auth::hotel()->get()->hotel_id;
-        $hotel = Hotel::select('website', 'phone', 'description', 'image')
-            ->where('id', $hotelID)->first();
+        $hotelId = Auth::hotel()->get()->hotel_id;
+        $columns = ['website', 'phone', 'description', 'image'];
+        $hotel = Hotel::select($columns)
+            ->where('id', $hotelId)->first();
 
         return view('hotel.edit', compact('hotel'));
     }
@@ -49,23 +50,23 @@ class HotelController extends HotelBaseController
      */
     public function update(EditFormRequest $request)
     {
-        $hotelID = Auth::hotel()->get()->hotel_id;
-        $hotel = Hotel::select('id', 'image')->where('id', $hotelID)->first();
+        $hotelId = Auth::hotel()->get()->hotel_id;
+        $hotel = Hotel::select('id', 'image')->where('id', $hotelId)->first();
         $updateColumns = $request->all();
         if ($request->hasFile('image')) {
             $oldImage = $hotel->image;
-            $this->imageRemove(self::PATH, $oldImage);
-            $imageName = $this->imageUpload(self::PATH, $request->file('image'));
+            $this->imageRemove(self::UPLOAD_PATH, $oldImage);
+            $imageName = $this->imageUpload(self::UPLOAD_PATH, $request->file('image'));
             $updateColumns['image'] = $imageName;
         }
         if ($hotel->update($updateColumns)) {
             Session::flash('flash_success', trans('messages.edit_success_hotel'));
 
-            return redirect()->route('hotel.edit');
+            return redirect()->route('hotel.profile');
         } else {
             Session::flash('flash_error', trans('messages.edit_fail_hotel'));
 
-            return redirect()->route('hotel.edit');
+            return redirect()->route('hotel.profile');
         }
     }
 }

@@ -12,8 +12,8 @@ class HotelBaseController extends Controller
     /**
      * Save upload image from request file into uploads folder.
      *
-     * @param string       $path
-     * @param UploadedFile $file
+     * @param string $path
+     * @param file $file
      *
      * @return string
      */
