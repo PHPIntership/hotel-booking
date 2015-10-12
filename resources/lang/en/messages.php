@@ -53,4 +53,15 @@ return [
     'update_success'=>'Update success!',
     'login_fail'=>'These credentials do not match our records',
     'admin_login'=>'Admin Login',
+    'create_hotel_room_type' => 'Create a hotel room type',
+    'please_select' =>'Please select',
+    'quantity' => 'quantity',
+    'price' => 'price',
+    'description' => 'description',
+    'edit_hotel_room_type' => 'Edit hotel room type',
+    'create_fail_hotel_room_type' => 'Can not create hotel room type',
+    'create_success_hotel_room_type' => 'Create success hotel room type successfully',
+    'edit_fail_hotel_room_type' => 'Can not edit hotel room type',
+    'edit_success_hotel_room_type' => 'Update info hotel room type successfully'
+
 ];
