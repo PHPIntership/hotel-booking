@@ -4,6 +4,9 @@ namespace HotelBooking\Http\Requests\Admin;
 
 use HotelBooking\Http\Requests\Request;
 
+/**
+ * Room Type Update Form Request
+ */
 class RoomTypeUpdateFormRequest extends Request
 {
     /**

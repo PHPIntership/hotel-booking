@@ -4,6 +4,9 @@ namespace HotelBooking\Http\Requests\Admin;
 
 use HotelBooking\Http\Requests\Request;
 
+/**
+ * Room Type Store Form Request.
+ */
 class RoomTypeStoreFormRequest extends Request
 {
     /**

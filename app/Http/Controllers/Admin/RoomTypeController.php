@@ -8,6 +8,9 @@ use HotelBooking\Http\Requests\Admin\RoomTypeUpdateFormRequest;
 use HotelBooking\RoomType;
 use Session;
 
+/**
+ * Room Type Controller.
+ */
 class RoomTypeController extends AdminBaseController
 {
     const UPLOAD_PATH = 'roomtype';

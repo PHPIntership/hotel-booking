@@ -33,7 +33,7 @@ Admin Hotel
                     <td>{{ $adminHotel->name }}</td>
                     <td>{{ $adminHotel->email }}</td>
                     <td>{{ $adminHotel->phone }}</td>
-                    <td>
+                    <td class="text-center">
                         <a href="{!! route('admin-hotel.edit',$adminHotel->id) !!}" class="btn btn-info">
                             <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                             {!! trans('messages.edit') !!}
