@@ -1,5 +1,16 @@
 <?php
 return [
+    'create_room' => 'Create new Room',
+    'edit_room' => 'Edit Room',
+    'create_success_room' => 'Room Create success',
+    'edit_success_room' => 'Room Edit success',
+    'edit_fail_room' => 'Can not update room infomation ',
+    'create_fail_room' => 'Can not create room',
+    'hotel_room_type' => 'Hotel Room Type',
+    'status' => 'Status',
+    'status_0' => 'Free',
+    'status_1' => 'Used',
+    'status_2' => 'Other',
     'create_hotel' => 'Create new Hotel',
     'edit_hotel' => 'Edit Hotel',
     'create_success_hotel' => 'Hotel Create success',
