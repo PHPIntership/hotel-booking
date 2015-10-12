@@ -9,11 +9,10 @@ use Illuminate\Support\Facades\DB;
 /**
  * Test class for HotelController.
  */
-class HotelControllerTest extends TestCase
+class HotelControllerTests extends TestCase
 {
     use DatabaseTransactions;
 
-    const UPLOAD_PATH = 'asdasd';
     /**
      * Overide setUp function. Truncate and seed the database before tests.
      */
@@ -186,15 +185,4 @@ class HotelControllerTest extends TestCase
             ->press(trans('messages.update'))
             ->see(trans('messages.edit_success_hotel'));
     }
-
-    // public function testWrongImageFormat()
-    // {
-    //     $this->actingAs();
-    //     $this->visit(route('hotel.edit'))
-    //         ->actach(__DIR__.'composer.json', '#image')
-    //         ->press(trans('messages.update'))
-    //         ->see(trans('validation.image', [
-    //             'attribute' => 'image'
-    //         ]));
-    // }
 }
