@@ -20,7 +20,7 @@ class AuthController extends AdminBaseController
     public function __construct()
     {
         $this->auth = Auth::admin();
-        $this->middleware('guest', ['except' => 'getLogout']);
+        $this->middleware('admin.guest', ['except' => 'getLogout']);
     }
 
     /**
