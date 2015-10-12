@@ -3,6 +3,7 @@
 namespace HotelBooking\Http\Controllers\Hotel;
 
 use DB;
+use Auth;
 use Session;
 use Illuminate\Http\Request;
 use HotelBooking\Room;
@@ -37,6 +38,7 @@ class RoomController extends HotelBaseController
     public function create()
     {
         $hotelRoomTypes = DB::table('hotel_room_types')
+            ->where('hotel_id', $this->auth->get()->hotel_id)
             ->lists('name', 'id');
         return view('hotel.room.create', compact('hotelRoomTypes'));
     }
@@ -81,9 +83,10 @@ class RoomController extends HotelBaseController
         $room = Room::select($columns)
             ->where('id', $id)
             ->first();
-        $hotelRoomTypes = DB::table('hotel_room_types')
-            ->lists('name', 'id');
-        if ($room) {
+        if($room && $room->hotelRoomType->hotel_id == $this->auth->get()->hotel_id) {
+            $hotelRoomTypes = DB::table('hotel_room_types')
+                ->where('hotel_id', $this->auth->get()->hotel_id)
+                ->lists('name', 'id');
             return view('hotel.room.edit', compact('room', 'hotelRoomTypes'));
         } else {
             return view('hotel.errors.503');
@@ -100,10 +103,10 @@ class RoomController extends HotelBaseController
      */
     public function update(RoomFormRequest $request, $id)
     {
-        $room = Room::select('id')
+        $room = Room::select('id','hotel_room_type_id')
             ->where('id', $id)
             ->first();
-        if ($room) {
+        if ($room && $room->hotelRoomType->hotel_id == $this->auth->get()->hotel_id) {
             if ($room->update($request->all())) {
                 Session::flash('flash_success', trans('messages.edit_success_room'));
             } else {
