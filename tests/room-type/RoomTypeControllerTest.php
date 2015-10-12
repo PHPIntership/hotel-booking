@@ -1,11 +1,12 @@
 <?php
 
 use Illuminate\Foundation\Testing\WithoutMiddleware;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 use HotelBooking\RoomType;
 
 class RoomTypeControllerTest extends TestCase
 {
-    //use WithoutMiddleware;
+    use DatabaseTransactions;
 
     /**
      * create room type.

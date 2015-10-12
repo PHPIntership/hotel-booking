@@ -70,12 +70,6 @@ class RoomTypeController extends AdminBaseController
      */
     public function edit($id)
     {
-        $columns = [
-            'id',
-            'name',
-            'quality',
-            'image',
-        ];
         try {
             $roomType = RoomType::findOrFail($id);
 

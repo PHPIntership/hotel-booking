@@ -18,3 +18,9 @@ $factory->define(HotelBooking\AdminUser::class, function ($faker) {
     ];
 });
 
+// $factory->define(HotelBooking\RoomType::class, function ($faker) {
+//     return [
+//         'name' => $faker->name,
+//         'quality'=> $faker->quality
+//     ];
+// });

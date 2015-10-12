@@ -40,12 +40,13 @@ class RoomTypeFormEditTest extends TestCase
     {
         $faker = Faker\Factory::create();
         $roomType = $this->createRoomType();
+        $name = $faker->name;
         $this->visit(route('admin.room-type.edit', $roomType->id))
-            ->type($faker->name, 'name')
+            ->type($name, 'name')
             ->type('bad', 'quality')
             ->press(trans('messages.update'))
             ->see(trans('messages.update_success'))
-            ->seeIndatabase('room_types', ['name' => $faker->name])
+            ->seeIndatabase('room_types', ['name' => $name])
             ->dontsee('has-error');
     }
 
