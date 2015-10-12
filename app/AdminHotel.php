@@ -4,12 +4,23 @@ namespace HotelBooking;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Auth\Authenticatable;
+use Illuminate\Foundation\Auth\Access\Authorizable;
+use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
+use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 
 /**
  * AdminHotel model.
  */
-class AdminHotel extends Model
+class AdminHotel extends Model implements AuthenticatableContract, AuthorizableContract
 {
+    /**
+     * Determine the class is authenticate
+     */
+    use Authenticatable, Authorizable;
+    /**
+     * Determine the class is using soft delete.
+     */
     use SoftDeletes;
 
     /**

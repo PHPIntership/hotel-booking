@@ -16,6 +16,15 @@ use HotelBooking\Http\Requests\Hotel\RoomFormRequest;
  */
 class RoomController extends HotelBaseController
 {
+    /**
+     * Controller constructor.
+     */
+    public function __construct()
+    {
+        $this->auth = Auth::hotel();
+        $this->middleware('auth.hotel');
+    }
+
     public function index()
     {
     }

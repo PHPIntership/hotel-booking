@@ -11,6 +11,7 @@ return [
     'status_0' => 'Free',
     'status_1' => 'Used',
     'status_2' => 'Other',
+    'hotel_admin_login' => 'Hotel Admin Login',
     'create_hotel' => 'Create new Hotel',
     'edit_hotel' => 'Edit Hotel',
     'create_success_hotel' => 'Hotel Create success',
