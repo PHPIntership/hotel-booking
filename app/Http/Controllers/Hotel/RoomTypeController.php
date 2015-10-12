@@ -97,10 +97,10 @@ class RoomTypeController extends HotelBaseController
             ->where('id', $id)
             ->where('hotel_id', Auth::hotel()->get()->hotel_id)
             ->first();
-        $romType = DB::table('room_types')
+        $roomType = DB::table('room_types')
             ->lists('name', 'id');
         if ($hotelRoomType) {
-            return view('hotel.room-type.edit', compact('hotelRoomType', 'room_types'));
+            return view('hotel.room-type.edit', compact('hotelRoomType', 'roomType'));
         } else {
             return view('hotel.errors.503');
         }
@@ -148,15 +148,4 @@ class RoomTypeController extends HotelBaseController
         return redirect(route('hotel.room-type.edit', $id));
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param int $id
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }
