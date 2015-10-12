@@ -23,3 +23,19 @@ Route::get('hotel/logout', [
     'as' => 'hotel.logout',
     'uses' => 'Hotel\AuthController@getLogout'
 ]);
+
+/**
+ * Route for hotel admin get to edit hotel page
+ */
+Route::get('hotel/edit', [
+    'as' => 'hotel.edit',
+    'uses' => 'Hotel\HotelController@edit'
+]);
+
+/**
+ * Route for posting hotel data to update
+ */
+Route::post('hotel/edit', [
+    'as' => 'hotel.edit',
+    'uses' => 'Hotel\HotelController@update'
+]);
