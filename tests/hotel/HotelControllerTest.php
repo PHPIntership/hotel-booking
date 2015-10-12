@@ -48,7 +48,7 @@ class HotelControllerTests extends TestCase
     public function testEditStatus()
     {
         $this->actingAs();
-        $this->call('GET', route('hotel.edit'));
+        $this->call('GET', route('hotel.profile'));
         $this->assertResponseOk();
     }
 
@@ -59,7 +59,7 @@ class HotelControllerTests extends TestCase
     {
         $this->WithoutMiddleware();
         $this->actingAs();
-        $response = $this->call('POST', route('hotel.edit'));
+        $response = $this->call('POST', route('hotel.profile'));
         $this->assertEquals(302, $response->status());
     }
 
@@ -69,7 +69,7 @@ class HotelControllerTests extends TestCase
     public function testNullFields()
     {
         $this->actingAs();
-        $this->visit(route('hotel.edit'))
+        $this->visit(route('hotel.profile'))
             ->type('', '#website')
             ->type('', '#phone')
             ->type('', '#description')
@@ -88,7 +88,7 @@ class HotelControllerTests extends TestCase
     public function testWrongWebsiteFormat()
     {
         $this->actingAs();
-        $this->visit(route('hotel.edit'))
+        $this->visit(route('hotel.profile'))
             ->type('notaurl', '#website')
             ->press(trans('messages.update'))
             ->see(trans('validation.url', [
@@ -102,7 +102,7 @@ class HotelControllerTests extends TestCase
     public function testPhoneFieldNotANumber()
     {
         $this->actingAs();
-        $this->visit(route('hotel.edit'))
+        $this->visit(route('hotel.profile'))
             ->type('notanumber', '#phone')
             ->press(trans('messages.update'))
             ->see(trans('validation.regex', [
@@ -116,7 +116,7 @@ class HotelControllerTests extends TestCase
     public function testPhoneFieldLessThan10characters()
     {
         $this->actingAs();
-        $this->visit(route('hotel.edit'))
+        $this->visit(route('hotel.profile'))
             ->type('090911111', '#phone')
             ->press(trans('messages.update'))
             ->see(trans('validation.min.string', [
@@ -131,7 +131,7 @@ class HotelControllerTests extends TestCase
     public function testPhoneFieldMoreThan12Characters()
     {
         $this->actingAs();
-        $this->visit(route('hotel.edit'))
+        $this->visit(route('hotel.profile'))
             ->type('0988876567788', '#phone')
             ->press(trans('messages.update'))
             ->see(trans('validation.max.string', [
@@ -146,7 +146,7 @@ class HotelControllerTests extends TestCase
     public function testDescriptionFieldLessThan10Characters()
     {
         $this->actingAs();
-        $this->visit(route('hotel.edit'))
+        $this->visit(route('hotel.profile'))
             ->type('short', '#description')
             ->press(trans('messages.update'))
             ->see(trans('validation.min.string', [
@@ -163,7 +163,7 @@ class HotelControllerTests extends TestCase
         $faker = Faker\Factory::create();
         $longDes = $faker->text(600);
         $this->actingAs();
-        $this->visit(route('hotel.edit'))
+        $this->visit(route('hotel.profile'))
             ->type($longDes, '#description')
             ->press(trans('messages.update'))
             ->see(trans('validation.max.string', [
@@ -178,7 +178,7 @@ class HotelControllerTests extends TestCase
     public function testAHotelIsUpdated()
     {
         $this->actingAs();
-        $this->visit(route('hotel.edit'))
+        $this->visit(route('hotel.profile'))
             ->type('website.com', '#website')
             ->type('0906777888', '#phone')
             ->type('Hotel description', '#description')
