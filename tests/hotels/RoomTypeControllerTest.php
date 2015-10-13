@@ -9,7 +9,7 @@ use HotelBooking\HotelRoomType;
 /**
  * Test for hotel room type controller tests.
  */
-class RoomTypeControllerTest extends TestCase
+class RoomTypeControllerTests extends TestCase
 {
     use DatabaseTransactions;
     /**
@@ -25,8 +25,8 @@ class RoomTypeControllerTest extends TestCase
             DB::table('hotel_room_types')->truncate();
             DB::table('hotels')->truncate();
             $this->seed('AdminHotelTableSeeder');
-            $this->seed('HotelTableSeeder');
             $this->seed('HotelRoomTypeSeeder');
+            $this->seed('HotelTableSeeder');
             $seed = true;
         }
     }
@@ -35,11 +35,14 @@ class RoomTypeControllerTest extends TestCase
      */
     public function actingAs($hotelAdmin = null)
     {
-        $hotelAdmin = AdminHotel::select('id', 'username', 'password')->first();
-        $login = Auth::hotel()->attempt([
-            'username' => $hotelAdmin->username,
-            'password' => '123123',
-        ]);
+        $columns = [
+                'id',
+                'hotel_id',
+                'username',
+                'password',
+        ];
+        $hotelAdmin = AdminHotel::select($columns)->first();
+        Auth::hotel()->login($hotelAdmin);
     }
     /**
      * Test if can get correct hotel room type create page status.

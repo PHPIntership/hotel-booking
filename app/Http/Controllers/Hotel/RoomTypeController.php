@@ -9,6 +9,7 @@ use HotelBooking\HotelRoomType;
 use HotelBooking\Http\Requests\Hotel\RoomTypeStoreFormRequest;
 use HotelBooking\Http\Requests\Hotel\RoomTypeUpdateFormRequest;
 use Auth;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 /**
  * Hotel Room Type Controller.
@@ -92,16 +93,23 @@ class RoomTypeController extends HotelBaseController
      */
     public function edit($id)
     {
-        $columns = ['id', 'name', 'quality', 'quantity', 'price', 'image', 'description'];
-        $hotelRoomType = HotelRoomType::select($columns)
-            ->where('id', $id)
-            ->where('hotel_id', Auth::hotel()->get()->hotel_id)
-            ->first();
-        $roomType = DB::table('room_types')
-            ->lists('name', 'id');
-        if ($hotelRoomType) {
+        $columns = [
+            'id',
+            'name',
+            'quality',
+            'quantity',
+            'price',
+            'image',
+            'description',
+        ];
+        try {
+            $hotelRoomType = HotelRoomType::where('hotel_id', Auth::hotel()->get()->hotel_id)
+                ->findOrFail($id, $columns);
+            $roomType = DB::table('room_types')
+                ->lists('name', 'id');
+
             return view('hotel.room-type.edit', compact('hotelRoomType', 'roomType'));
-        } else {
+        } catch (ModelNotFoundException $ex) {
             return view('hotel.errors.503');
         }
     }
@@ -116,7 +124,7 @@ class RoomTypeController extends HotelBaseController
      */
     public function update(RoomTypeUpdateFormRequest $request, $id)
     {
-        $comlumn = [
+        $columns = [
             'id',
             'name',
             'quality',
@@ -124,11 +132,9 @@ class RoomTypeController extends HotelBaseController
             'description',
             'image',
         ];
-        $hotelRoomType = HotelRoomType::select($comlumn)
-            ->where('id', $id)
-            ->where('hotel_id', Auth::hotel()->get()->hotel_id)
-            ->first();
-        if ($hotelRoomType) {
+        try {
+            $hotelRoomType = HotelRoomType::where('hotel_id', Auth::hotel()->get()->hotel_id)
+                ->findOrFail($id, $columns);
             $updateInfo = $request->all();
             if ($request->hasFile('image')) {
                 $updateInfo['image'] = $this->imageUpload('hotel_room_type', $request->file('image'));
@@ -143,8 +149,11 @@ class RoomTypeController extends HotelBaseController
                 $this->imageRemove('hotel_room_type', $updateInfo['image']);
                 Session::flash('flash_error', trans('messages.edit_fail_hotel_room_type'));
             };
-        }
+            return redirect(route('hotel.room-type.edit', $id));
+        } catch (ModelNotFoundException $ex) {
+            Session::flash('flash_error', trans('messages.edit_fail_hotel_room_type'));
 
-        return redirect(route('hotel.room-type.edit', $id));
+            return redirect(route('hotel.room-type.edit', $id));
+        }
     }
 }
