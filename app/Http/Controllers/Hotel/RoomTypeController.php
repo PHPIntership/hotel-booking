@@ -103,7 +103,7 @@ class RoomTypeController extends HotelBaseController
 
             return view('hotel.room-type.edit', compact('hotelRoomType', 'roomType'));
         } catch (ModelNotFoundException $ex) {
-            return view('hotel.errors.503');
+            return view('hotel.errors.404');
         }
     }
 
