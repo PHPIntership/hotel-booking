@@ -33,11 +33,11 @@ Route::group(['middleware' => ['auth.admin']], function () {
         Route::group(['prefix' => 'admin'], function () {
             Route::get('profile', [
                 'as' => 'admin.profile.edit',
-                'uses' => 'Admin\UserController@getEditProfile'
+                'uses' => 'Admin\AdminUserController@getEditProfile'
            ]);
             Route::put('profile', [
                 'as' => 'admin.profile.edit',
-                'uses' => 'Admin\UserController@putEditProfile',
+                'uses' => 'Admin\AdminUserController@putEditProfile',
              ]);
         });
 });
