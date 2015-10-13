@@ -13,7 +13,7 @@ use Session;
  */
 class RoomTypeController extends AdminBaseController
 {
-    const UPLOAD_PATH = 'roomtype';
+    const UPLOAD_KEY = 'roomtype';
     /**
      * Display a listing of the Room Type.
      *
@@ -53,7 +53,7 @@ class RoomTypeController extends AdminBaseController
     {
         $roomType = $request->only('name', 'quality');
         if ($request->hasFile('image')) {
-            $roomType['image'] = $this->imageUpload($this::UPLOAD_PATH, $request->file('image'));
+            $roomType['image'] = $this->imageUpload($this::UPLOAD_KEY, $request->file('image'));
         }
         if (RoomType::create($roomType)) {
             Session::flash('flash_success', trans('messages.create_success'));
@@ -99,7 +99,7 @@ class RoomTypeController extends AdminBaseController
             $roomType = RoomType::findOrFail($id);
             $oldImage = $roomType['image'];
             if ($request->hasFile('image')) {
-                $updateInfo['image'] = $this->imageUpload($this::UPLOAD_PATH, $request->file('image'));
+                $updateInfo['image'] = $this->imageUpload($this::UPLOAD_KEY, $request->file('image'));
                 $this->imageRemove('roomtype', $oldImage);
             }
             if ($roomType->update($updateInfo)) {

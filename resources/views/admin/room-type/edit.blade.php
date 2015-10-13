@@ -24,7 +24,7 @@
                         ->label(trans('messages.name'))
                         ->value($roomType->name)
                     !!}
-                    {!! Former::number('quality')
+                    {!! Former::text('quality')
                         ->placeholder(trans('messages.quality'))
                         ->label(trans('messages.quality'))
                         ->value($roomType->quality)
