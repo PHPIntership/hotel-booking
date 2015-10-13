@@ -87,7 +87,7 @@ class RoomController extends HotelBaseController
                 ->lists('name', 'id');
             return view('hotel.room.edit', compact('room', 'hotelRoomTypes'));
         } else {
-            return view('hotel.errors.503');
+            return view('hotel.errors.404');
         }
     }
 
