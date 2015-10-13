@@ -10,32 +10,38 @@ Route::get('admin', ['as'=>'admin.index','uses'=>'Admin\AdminBaseController@inde
  */
 Route::resource('admin/hotel', 'Admin\HotelController');
 
-Route::post('admin/login', [
-    'as' => 'admin.login',
-    'uses' => 'Admin\AuthController@postLogin',
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('login', [
+        'as' => 'admin.login',
+        'uses' => 'Admin\AuthController@getLogin'
+     ]);
+    Route::post('login', [
+        'as' => 'admin.login',
+        'uses' => 'Admin\AuthController@postLogin',
     ]);
-Route::get('admin/login', [
-    'as' => 'admin.login',
-    'uses' => 'Admin\AuthController@getLogin',
-]);
-Route::get('admin/logout', [
-    'as' => 'admin.logout',
-    'uses' => 'Admin\AuthController@getLogout',
-]);
+    Route::get('logout', [
+        'as' => 'admin.logout',
+        'uses' => 'Admin\AuthController@getLogout',
+    ]);
+});
+
 Route::group(['middleware' => ['auth.admin']], function () {
     Route::get('admin', [
         'as' => 'admin.index',
         'uses' => 'Admin\AdminBaseController@index',
         ]);
-    Route::get('admin/profile/edit', [
-        'as' => 'admin.profile.edit',
-        'uses' => 'Admin\UserController@getEditProfile', ]);
-    Route::put('admin/profile/edit', [
-        'as' => 'admin.profile.edit',
-        'uses' => 'Admin\UserController@putEditProfile',
-        ]);
+        Route::group(['prefix' => 'admin'], function () {
+            Route::get('profile', [
+                'as' => 'admin.profile.edit',
+                'uses' => 'Admin\UserController@getEditProfile'
+           ]);
+            Route::put('profile', [
+                'as' => 'admin.profile.edit',
+                'uses' => 'Admin\UserController@putEditProfile',
+             ]);
+        });
 });
 
 Route::resource('admin-hotel', 'Admin\AdminHotelController');
 
-Route::resource('admin/hotel', 'Admin\HotelController');
+Route::resource('admin/room-type', 'Admin\RoomTypeController');

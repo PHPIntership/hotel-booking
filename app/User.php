@@ -9,14 +9,25 @@ use Illuminate\Foundation\Auth\Access\Authorizable;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
+/**
+ * User model
+ */
 class User extends Model implements
     AuthenticatableContract,
     AuthorizableContract,
     CanResetPasswordContract
 {
+    /**
+     * Determine the class is using authentication
+     */
     use Authenticatable, Authorizable, CanResetPassword;
 
+    /**
+     * Determine the class is using soft delete
+     */
+    use SoftDeletes;
     /**
      * The database table used by the model.
      *
@@ -30,9 +41,13 @@ class User extends Model implements
      * @var array
      */
     protected $fillable = [
-        'name',
-        'email',
+        'username',
         'password',
+        'name',
+        'address',
+        'email',
+        'phone',
+        'image',
     ];
 
     /**
