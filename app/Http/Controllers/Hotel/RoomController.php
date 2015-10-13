@@ -80,10 +80,8 @@ class RoomController extends HotelBaseController
             'name',
             'status'
         ];
-        $room = Room::select($columns)
-            ->where('id', $id)
-            ->first();
-        if($room && $room->hotelRoomType->hotel_id == $this->auth->get()->hotel_id) {
+        $room = Room::find($id, $columns);
+        if ($room && $room->hotelRoomType->hotel_id == $this->auth->get()->hotel_id) {
             $hotelRoomTypes = DB::table('hotel_room_types')
                 ->where('hotel_id', $this->auth->get()->hotel_id)
                 ->lists('name', 'id');
@@ -103,9 +101,7 @@ class RoomController extends HotelBaseController
      */
     public function update(RoomFormRequest $request, $id)
     {
-        $room = Room::select('id','hotel_room_type_id')
-            ->where('id', $id)
-            ->first();
+        $room = Room::find($id, ['id','hotel_room_type_id']);
         if ($room && $room->hotelRoomType->hotel_id == $this->auth->get()->hotel_id) {
             if ($room->update($request->all())) {
                 Session::flash('flash_success', trans('messages.edit_success_room'));
