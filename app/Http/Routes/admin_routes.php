@@ -34,7 +34,7 @@ Route::group(['middleware' => ['auth.admin']], function () {
             Route::get('profile', [
                 'as' => 'admin.profile.edit',
                 'uses' => 'Admin\UserController@getEditProfile'
-           ]);
+            ]);
             Route::put('profile', [
                 'as' => 'admin.profile.edit',
                 'uses' => 'Admin\UserController@putEditProfile',
