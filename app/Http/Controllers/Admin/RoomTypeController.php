@@ -37,8 +37,8 @@ class RoomTypeController extends AdminBaseController
     public function index()
     {
         $roomTypes = RoomType::select($this->columns)->paginate(20);
-        foreach ($roomTypes as $key => $value) {
-            $value->image = $value->image != '' ? config('uploads.'.$this::UPLOAD_KEY).$value->image : '';
+        foreach ($roomTypes as $roomType) {
+            $roomType->image = $roomType->image != '' ? config('uploads.'.$this::UPLOAD_KEY).$roomType->image : '';
         }
 
         return view('admin.room-type.index', compact('roomTypes'));

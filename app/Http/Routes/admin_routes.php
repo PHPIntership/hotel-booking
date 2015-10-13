@@ -1,11 +1,11 @@
 <?php
 
 /**
- * Routes for admin pages
+ * Routes for admin pages.
  */
-Route::get('admin', ['as'=>'admin.index','uses'=>'Admin\AdminBaseController@index']);
+Route::get('admin', ['as' => 'admin.index', 'uses' => 'Admin\AdminBaseController@index']);
 
-/**
+/*
  * Routes for hotels manager pages
  */
 Route::resource('admin/hotel', 'Admin\HotelController');
@@ -13,7 +13,7 @@ Route::resource('admin/hotel', 'Admin\HotelController');
 Route::group(['prefix' => 'admin'], function () {
     Route::get('login', [
         'as' => 'admin.login',
-        'uses' => 'Admin\AuthController@getLogin'
+        'uses' => 'Admin\AuthController@getLogin',
      ]);
     Route::post('login', [
         'as' => 'admin.login',
@@ -33,12 +33,12 @@ Route::group(['middleware' => ['auth.admin']], function () {
         Route::group(['prefix' => 'admin'], function () {
             Route::get('profile', [
                 'as' => 'admin.profile.edit',
-                'uses' => 'Admin\UserController@getEditProfile'
-           ]);
+                'uses' => 'Admin\UserController@getEditProfile',
+            ]);
             Route::put('profile', [
                 'as' => 'admin.profile.edit',
                 'uses' => 'Admin\UserController@putEditProfile',
-             ]);
+            ]);
         });
 });
 
