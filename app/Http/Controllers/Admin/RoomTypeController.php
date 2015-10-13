@@ -14,12 +14,12 @@ use Session;
 class RoomTypeController extends AdminBaseController
 {
     /**
-     * key config uploads.
+     * Key config uploads.
      */
     const UPLOAD_KEY = 'roomtype';
 
     /**
-     * columns select.
+     * Columns select.
      *
      * @var array
      */
