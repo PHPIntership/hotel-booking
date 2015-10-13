@@ -7,10 +7,10 @@
     <exclude-pattern>*/Providers/*</exclude-pattern>
 
     <!-- Add PSR1 standard -->
-    <rule rel="PSR1"></rule>
+    <rule ref="PSR1"></rule>
 
     <!-- Add PSR2 standard -->
-    <rule rel="PSR2"></rule>
+    <rule ref="PSR2"></rule>
 
     <!-- Add PEAR.Commenting.FunctionComment standard -->
     <!-- <rule ref="PEAR.Commenting.FunctionComment">
