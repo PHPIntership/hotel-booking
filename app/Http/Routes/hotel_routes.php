@@ -38,3 +38,7 @@ Route::group(['prefix' => 'hotel'], function () {
         'uses' => 'Hotel\HotelController@update',
     ]);
 });
+/**
+ *
+ */
+Route::resource('hotel/room-type', 'Hotel\RoomTypeController');

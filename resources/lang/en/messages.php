@@ -63,4 +63,9 @@ return [
     'create_room_type'=>'Create room type',
     'edit_room_type'=>'Edit room type',
     'create'=>'Create',
+    'quantity' => 'Quantity',
+    'price' => 'Price',
+    'hotel_room_type' => 'Hotel room type',
+    'delete_fail_hotel_room_type' => 'Can not delete hotel room type',
+    'delete_success_hotel_room_type' => 'Delete hotel room type successfully'
 ];

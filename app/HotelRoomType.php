@@ -38,4 +38,11 @@ class HotelRoomType extends Model
         'image',
         'description',
     ];
+    /**
+     *
+     */
+     public function roomType()
+     {
+         return $this->belongsTo('HotelBooking\RoomType', 'room_type_id');
+     }
 }
