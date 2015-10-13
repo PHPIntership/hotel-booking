@@ -11,7 +11,7 @@ use Session;
 /**
  * Admin UserController
  */
-class UserController extends AdminBaseController
+class AdminUserController extends AdminBaseController
 {
     /**
      * Authenticator
