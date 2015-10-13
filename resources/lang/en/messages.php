@@ -50,7 +50,10 @@ return [
     'email'=>'Email',
     'hotel'=>'Hotel',
     'hotel_admin'=>'Hotel admin',
-    'update_success'=>'Update success!',
+    'update_success'=>'Update success',
+    'update_fail'=>'Can not update',
+    'delete_success'=>'Delete success',
+    'delete_fail'=>'Can not delete',
     'login_fail'=>'These credentials do not match our records',
     'admin_login'=>'Admin Login',
     'create_hotel_room_type' => 'Create a hotel room type',
@@ -62,6 +65,12 @@ return [
     'create_fail_hotel_room_type' => 'Can not create hotel room type',
     'create_success_hotel_room_type' => 'Create success hotel room type successfully',
     'edit_fail_hotel_room_type' => 'Can not edit hotel room type',
-    'edit_success_hotel_room_type' => 'Update info hotel room type successfully'
-
+    'edit_success_hotel_room_type' => 'Update info hotel room type successfully',
+    'create_success'=>'Create success',
+    'create_fail'=>'Can not create',
+    'data_not_found' =>'Data not found',
+    'room_type'=>'Room type',
+    'create_room_type'=>'Create room type',
+    'edit_room_type'=>'Edit room type',
+    'create'=>'Create',
 ];

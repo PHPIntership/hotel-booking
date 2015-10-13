@@ -11,7 +11,7 @@ use HotelBooking\Http\Requests\Hotel\RoomTypeUpdateFormRequest;
 use Auth;
 
 /**
- * Hotel Room Type Controller
+ * Hotel Room Type Controller.
  */
 class RoomTypeController extends HotelBaseController
 {
@@ -147,5 +147,4 @@ class RoomTypeController extends HotelBaseController
 
         return redirect(route('hotel.room-type.edit', $id));
     }
-
 }

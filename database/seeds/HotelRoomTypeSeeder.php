@@ -5,7 +5,7 @@ use HotelBooking\RoomType;
 use HotelBooking\HotelRoomType;
 
 /**
- * Seeder class for hotel_room_types table
+ * Seeder class for hotel_room_types table.
  */
 class HotelRoomTypeSeeder extends Seeder
 {
