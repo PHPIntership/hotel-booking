@@ -111,7 +111,7 @@ class RoomControllerTest extends TestCase
     public function testUpdateStatus()
     {
         $this->WithoutMiddleware();
-        $response = $this->call('PUT', route('admin.hotel.update'));
+        $response = $this->call('PUT', route('hotel.room.update'));
         $this->assertEquals(302, $response->status());
     }
 
