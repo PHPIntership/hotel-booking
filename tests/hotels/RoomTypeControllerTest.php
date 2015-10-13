@@ -141,8 +141,7 @@ class RoomTypeControllerTests extends TestCase
     public function testEditHotelRoomTypeOk()
     {
         $this->actingAs();
-        $hotelRoomType = HotelRoomType::select('id')
-            ->where('hotel_id', Auth::hotel()->get()->hotel_id)
+        $hotelRoomType = HotelRoomType::where('hotel_id', Auth::hotel()->get()->hotel_id)
             ->first();
         $this->visit(route('hotel.room-type.edit', $hotelRoomType->id))
         ->type('Justin Beiber', '#name')
