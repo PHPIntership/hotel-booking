@@ -17,18 +17,6 @@ class RoomTypeController extends AdminBaseController
      * Key config uploads.
      */
     const UPLOAD_KEY = 'roomtype';
-
-    /**
-     * Columns select.
-     *
-     * @var array
-     */
-    protected $columns = [
-        'id',
-        'name',
-        'quality',
-        'image',
-    ];
     /**
      * Display a listing of the Room Type.
      *
@@ -36,7 +24,13 @@ class RoomTypeController extends AdminBaseController
      */
     public function index()
     {
-        $roomTypes = RoomType::select($this->columns)->paginate(20);
+        $columns = [
+            'id',
+            'name',
+            'quality',
+            'image',
+        ];
+        $roomTypes = RoomType::select($columns)->paginate(20);
         foreach ($roomTypes as $roomType) {
             $roomType->image = $roomType->image != '' ? config('uploads.'.$this::UPLOAD_KEY).$roomType->image : '';
         }
@@ -85,8 +79,14 @@ class RoomTypeController extends AdminBaseController
      */
     public function edit($id)
     {
+        $columns = [
+            'id',
+            'name',
+            'quality',
+            'image',
+        ];
         try {
-            $roomType = RoomType::findOrFail($id, $this->columns);
+            $roomType = RoomType::findOrFail($id, $columns);
             $roomType->image = $roomType->image != '' ? config('uploads.'.$this::UPLOAD_KEY).$roomType->image : '';
 
             return view('admin.room-type.edit', compact('roomType'));
@@ -107,9 +107,15 @@ class RoomTypeController extends AdminBaseController
      */
     public function update(RoomTypeUpdateFormRequest $request, $id)
     {
+        $columns = [
+            'id',
+            'name',
+            'quality',
+            'image',
+        ];
         $updateInfo = $request->only('name', 'quality');
         try {
-            $roomType = RoomType::findOrFail($id, $this->columns);
+            $roomType = RoomType::findOrFail($id, $columns);
             $oldImage = $roomType['image'];
             if ($request->hasFile('image')) {
                 $updateInfo['image'] = $this->imageUpload($this::UPLOAD_KEY, $request->file('image'));

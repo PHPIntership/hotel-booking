@@ -3,7 +3,10 @@
 /**
  * Routes for admin pages.
  */
-Route::get('admin', ['as' => 'admin.index', 'uses' => 'Admin\AdminBaseController@index']);
+Route::get('admin', [
+    'as' => 'admin.index',
+    'uses' => 'Admin\AdminBaseController@index',
+    ]);
 
 /*
  * Routes for hotels manager pages
