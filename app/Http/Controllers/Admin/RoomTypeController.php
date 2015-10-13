@@ -13,7 +13,22 @@ use Session;
  */
 class RoomTypeController extends AdminBaseController
 {
+    /**
+     * key config uploads.
+     */
     const UPLOAD_KEY = 'roomtype';
+
+    /**
+     * columns select.
+     *
+     * @var array
+     */
+    protected $columns = [
+        'id',
+        'name',
+        'quality',
+        'image',
+    ];
     /**
      * Display a listing of the Room Type.
      *
@@ -21,13 +36,10 @@ class RoomTypeController extends AdminBaseController
      */
     public function index()
     {
-        $columns = [
-            'id',
-            'name',
-            'quality',
-            'image',
-        ];
-        $roomTypes = RoomType::select($columns)->paginate(20);
+        $roomTypes = RoomType::select($this->columns)->paginate(20);
+        foreach ($roomTypes as $key => $value) {
+            $value->image = $value->image != '' ? config('uploads.'.$this::UPLOAD_KEY).$value->image : '';
+        }
 
         return view('admin.room-type.index', compact('roomTypes'));
     }
@@ -74,7 +86,8 @@ class RoomTypeController extends AdminBaseController
     public function edit($id)
     {
         try {
-            $roomType = RoomType::findOrFail($id);
+            $roomType = RoomType::findOrFail($id, $this->columns);
+            $roomType->image = $roomType->image != '' ? config('uploads.'.$this::UPLOAD_KEY).$roomType->image : '';
 
             return view('admin.room-type.edit', compact('roomType'));
         } catch (ModelNotFoundException $e) {
@@ -96,11 +109,11 @@ class RoomTypeController extends AdminBaseController
     {
         $updateInfo = $request->only('name', 'quality');
         try {
-            $roomType = RoomType::findOrFail($id);
+            $roomType = RoomType::findOrFail($id, $this->columns);
             $oldImage = $roomType['image'];
             if ($request->hasFile('image')) {
                 $updateInfo['image'] = $this->imageUpload($this::UPLOAD_KEY, $request->file('image'));
-                $this->imageRemove('roomtype', $oldImage);
+                $this->imageRemove($this::UPLOAD_KEY, $oldImage);
             }
             if ($roomType->update($updateInfo)) {
                 Session::flash('flash_success', trans('messages.update_success'));
@@ -126,7 +139,7 @@ class RoomTypeController extends AdminBaseController
     public function destroy($id)
     {
         try {
-            $roomType = RoomType::findOrFail($id);
+            $roomType = RoomType::findOrFail($id, ['id']);
             $roomType->delete();
             Session::flash('flash_success', trans('messages.delete_success'));
         } catch (ModelNotFoundException $e) {

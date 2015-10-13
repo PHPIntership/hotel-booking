@@ -161,4 +161,25 @@ class RoomTypeFormTest extends TestCase
             ->see(trans('validation.required', ['attribute' => 'quality']))
             ->see('has-error');
     }
+
+    /**
+     * test Display a listing of the Room Type.
+     * @return void
+     */
+    public function testDisplayIndexRoomType(){
+        $this->visit(route('admin.room-type.index'))
+            ->see(trans('messages.room_type'));
+            //trans('messages.delete')
+    }
+
+    /**
+     * test Delete Room Type
+     * @return void
+     */
+    public function testDeleteRoomTye(){
+        $roomType = $this->createRoomType();
+        $this->visit(route('admin.room-type.index'))
+            ->press(trans('messages.delete'))
+            ->see(trans('messages.delete_success'));
+    }
 }
