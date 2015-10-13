@@ -1,5 +1,9 @@
 @extends('layouts.hotel')
 
+@section('title')
+{{ trans('messages.edit_hotel_room_type') }}
+@endsection
+
 @section('content')
 
 <div class="row">

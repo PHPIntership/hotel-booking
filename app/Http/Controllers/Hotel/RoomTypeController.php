@@ -6,9 +6,11 @@ use DB;
 use Session;
 use HotelBooking\Hotel;
 use HotelBooking\HotelRoomType;
+use HotelBooking\RoomType;
 use HotelBooking\Http\Requests\Hotel\RoomTypeStoreFormRequest;
 use HotelBooking\Http\Requests\Hotel\RoomTypeUpdateFormRequest;
 use Auth;
+use HotelBooking\Http\Controllers\Controller;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 /**
@@ -23,15 +25,6 @@ class RoomTypeController extends HotelBaseController
     {
         $this->auth = Auth::hotel();
         $this->middleware('auth.hotel');
-    }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
     }
 
     /**
@@ -149,6 +142,7 @@ class RoomTypeController extends HotelBaseController
                 $this->imageRemove('hotel_room_type', $updateInfo['image']);
                 Session::flash('flash_error', trans('messages.edit_fail_hotel_room_type'));
             };
+
             return redirect(route('hotel.room-type.edit', $id));
         } catch (ModelNotFoundException $ex) {
             Session::flash('flash_error', trans('messages.edit_fail_hotel_room_type'));
