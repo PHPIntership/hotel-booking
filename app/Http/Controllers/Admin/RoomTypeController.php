@@ -15,11 +15,6 @@ class RoomTypeController extends AdminBaseController
 {
 
     /**
-    * Key config uploads.
-    */
-    //const UPLOAD_KEY = 'roomtype';
-
-    /**
      * Display a listing of the Room Type.
      *
      * @return \Illuminate\Http\Response
