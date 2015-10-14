@@ -30,7 +30,7 @@ class AdminUserController extends AdminBaseController
      */
     public function getEditProfile()
     {
-        return view('admin.user.edit');
+        return view('admin.admin-user.edit');
     }
 
     /**
