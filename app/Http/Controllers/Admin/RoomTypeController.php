@@ -13,10 +13,7 @@ use Session;
  */
 class RoomTypeController extends AdminBaseController
 {
-    /**
-     * Key config uploads.
-     */
-    const UPLOAD_KEY = 'roomtype';
+
     /**
      * Display a listing of the Room Type.
      *
@@ -31,10 +28,6 @@ class RoomTypeController extends AdminBaseController
             'image',
         ];
         $roomTypes = RoomType::select($columns)->paginate(20);
-        foreach ($roomTypes as $roomType) {
-            $roomType->image = $roomType->image != '' ? config('uploads.'.$this::UPLOAD_KEY).$roomType->image : '';
-        }
-
         return view('admin.room-type.index', compact('roomTypes'));
     }
 
@@ -87,8 +80,6 @@ class RoomTypeController extends AdminBaseController
         ];
         try {
             $roomType = RoomType::findOrFail($id, $columns);
-            $roomType->image = $roomType->image != '' ? config('uploads.'.$this::UPLOAD_KEY).$roomType->image : '';
-
             return view('admin.room-type.edit', compact('roomType'));
         } catch (ModelNotFoundException $e) {
             Session::flash('flash_error', trans('messages.data_not_found'));

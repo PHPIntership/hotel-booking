@@ -13,7 +13,7 @@
                 <!-- form start -->
             <div class="box-body">
                 <div class="col-sm-6">
-                    <img src="{{asset($roomType->image)}}" alt="RoomType image" style="width:100%;height:100%" class="img-thumbnail room-type-image">
+                    <img src="{{$roomType->image_link}}" alt="RoomType image" style="width:100%;height:100%" class="img-thumbnail room-type-image">
                 </div>
                 <div class="col-sm-6">
                     {!! Former::vertical_open_for_files()

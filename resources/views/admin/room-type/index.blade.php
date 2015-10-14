@@ -26,7 +26,7 @@
                     <td>{{ $key+1 }}</td>
                     <td>{{ $roomType->name }}</td>
                     <td>{{ $roomType->quality }}</td>
-                    <td><img src="{{asset($roomType->image)}}" alt="RoomType image" style="width:200px;height:auto" class="img-thumbnail room-type-image"></td>
+                    <td><img src="{{$roomType->image_link}}" alt="RoomType image" style="width:200px;height:auto" class="img-thumbnail room-type-image"></td>
                     <td>
                         <a href="{!! route('admin.room-type.edit',$roomType->id) !!}" class="btn btn-info">
                             <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
