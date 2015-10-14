@@ -49,7 +49,7 @@ class RoomType extends Model
     public function getImageLinkAttribute()
     {
         if (!empty($this->image)) {
-            return asset(config('uploads.'.$this::UPLOAD_KEY).$this->image);
+            return asset(config('uploads.'.self::UPLOAD_KEY).$this->image);
         }
 
         return '';

@@ -52,7 +52,7 @@ class RoomTypeController extends AdminBaseController
     {
         $roomType = $request->only('name', 'quality');
         if ($request->hasFile('image')) {
-            $roomType['image'] = $this->imageUpload($this::UPLOAD_KEY, $request->file('image'));
+            $roomType['image'] = $this->imageUpload(self::UPLOAD_KEY, $request->file('image'));
         }
         if (RoomType::create($roomType)) {
             Session::flash('flash_success', trans('messages.create_success'));
@@ -109,7 +109,7 @@ class RoomTypeController extends AdminBaseController
             $roomType = RoomType::findOrFail($id, $columns);
             $oldImage = $roomType['image'];
             if ($request->hasFile('image')) {
-                $updateInfo['image'] = $this->imageUpload($this::UPLOAD_KEY, $request->file('image'));
+                $updateInfo['image'] = $this->imageUpload(self::UPLOAD_KEY, $request->file('image'));
                 $this->imageRemove($this::UPLOAD_KEY, $oldImage);
             }
             if ($roomType->update($updateInfo)) {
