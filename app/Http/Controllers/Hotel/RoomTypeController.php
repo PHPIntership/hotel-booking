@@ -26,6 +26,7 @@ class RoomTypeController extends HotelBaseController
         $this->auth = Auth::hotel();
         $this->middleware('auth.hotel');
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -50,6 +51,7 @@ class RoomTypeController extends HotelBaseController
           ->select($column)
           ->where('hotel_id', Auth::hotel()->get()->hotel_id)
           ->paginate(10);
+
         return view('hotel.room-type.index', compact('hotelRoomTypes'));
     }
 
@@ -82,11 +84,8 @@ class RoomTypeController extends HotelBaseController
         if ($request->hasFile('image')) {
             $data['image'] = $this->imageUpload('hotel_room_type', $request->file('image'));
         }
-        if (HotelRoomType::create($data)) {
-            Session::flash('flash_success', trans('messages.create_success_hotel_room_type'));
-        } else {
-            Session::flash('flash_error', trans('messages.create_fail_hotel_room_type'));
-        };
+        HotelRoomType::create($data);
+        Session::flash('flash_success', trans('messages.create_success_hotel_room_type'));
 
         return redirect()->route('hotel.room-type.create');
     }
@@ -129,7 +128,7 @@ class RoomTypeController extends HotelBaseController
 
             return view('hotel.room-type.edit', compact('hotelRoomType', 'roomType'));
         } catch (ModelNotFoundException $ex) {
-            return view('hotel.errors.503');
+            return view('hotel.errors.404');
         }
     }
 
@@ -157,17 +156,11 @@ class RoomTypeController extends HotelBaseController
             $updateInfo = $request->all();
             if ($request->hasFile('image')) {
                 $updateInfo['image'] = $this->imageUpload('hotel_room_type', $request->file('image'));
-                $oldImage = $hotelRoomType->image;
+                $this->imageRemove('hotel_room_type', $hotelRoomType->image);
             }
-            if ($hotelRoomType->update($updateInfo)) {
-                if (isset($oldImage)) {
-                    $this->imageRemove('hotel_room_type', $oldImage);
-                }
-                Session::flash('flash_success', trans('messages.edit_success_hotel_room_type'));
-            } else {
-                $this->imageRemove('hotel_room_type', $updateInfo['image']);
-                Session::flash('flash_error', trans('messages.edit_fail_hotel_room_type'));
-            };
+            $hotelRoomType->update($updateInfo);
+            Session::flash('flash_success', trans('messages.edit_success_hotel_room_type'));
+
             return redirect(route('hotel.room-type.edit', $id));
         } catch (ModelNotFoundException $ex) {
             Session::flash('flash_error', trans('messages.edit_fail_hotel_room_type'));
@@ -175,8 +168,9 @@ class RoomTypeController extends HotelBaseController
             return redirect(route('hotel.room-type.edit', $id));
         }
     }
+
     /**
-     * Remove the specified hotel from storage.
+     * Remove the specified hotel room type from storage.
      *
      * @param int $id
      */

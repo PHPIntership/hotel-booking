@@ -35,7 +35,7 @@ Hotel Room Type
                             <td>{{$hotelRoomType->price}}</td>
                             <td>{{$hotelRoomType->description}}</td>
                             <td>
-                                <img src="{!! asset('uploads/room-type/'.$hotelRoomType->image)  !!}" style="width:50px;height:50px;">
+                                <img src="{!! asset('uploads/hotel-room-type/'.$hotelRoomType->image)  !!}" style="width:50px;height:50px;">
                             </td>
                             <td>
                                 <a href="{!! route('hotel.room-type.edit',$hotelRoomType->id) !!}" class="btn btn-info">

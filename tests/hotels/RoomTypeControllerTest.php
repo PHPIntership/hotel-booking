@@ -84,7 +84,7 @@ class RoomTypeControllerTests extends TestCase
             ->type('12', '#price')
             ->type('afh afa aua cyaa qja aj', '#description')
             ->press('Create')
-            ->see('The name field is required.');
+            ->see(trans('validation.required', ['attribute' => trans('messages.name')]));
     }
     /**
      * Test create hotel room type fail with unique.
@@ -100,8 +100,11 @@ class RoomTypeControllerTests extends TestCase
             ->type('12', '#price')
             ->type('afh afa aua cyaa qja aj', '#description')
             ->press('Create')
-            ->see('The name must be at least 6 characters.')
-            ->see('The quantity must be an integer.');
+            ->see(trans('validation.min.string', [
+                'attribute' => trans('messages.name'),
+                'min' => 6,
+            ]))
+            ->see(trans('validation.integer', ['attribute' => trans('messages.quantity')]));
     }
     /**
      * Test create hotel room type fail with name more than 30 charaters.
@@ -117,7 +120,10 @@ class RoomTypeControllerTests extends TestCase
             ->type('12', '#price')
             ->type('afh afa aua cyaa qja aj', '#description')
             ->press('Create')
-            ->see('The name may not be greater than 30 characters.');
+            ->see(trans('validation.max.string', [
+            'attribute' => trans('messages.name'),
+            'max' => 30,
+            ]));
     }
     /**
      * Test create hotel room type fail with out description.
@@ -133,7 +139,7 @@ class RoomTypeControllerTests extends TestCase
             ->type('12', '#price')
             ->type('', '#description')
             ->press('Create')
-            ->see('The description field is required.');
+            ->see(trans('validation.required', ['attribute' => trans('messages.description')]));
     }
     /**
      * Test edit hotel room type success.
@@ -153,5 +159,45 @@ class RoomTypeControllerTests extends TestCase
         ->press(trans('messages.update'))
         ->see(trans('messages.edit_success_hotel_room_type'))
         ->seeInDatabase('hotel_room_types', ['name' => 'Justin Beiber']);
+    }
+    /**
+     * Test display page index listing hotel room type.
+     */
+    public function testViewIndex()
+    {
+        $this->actingAs();
+        $this->visit(route('admin-hotel.index'))
+             ->see(trans('messages.admin_hotel'));
+    }
+    /**
+     * Test status method GET display listing hotel room type.
+     */
+    public function testIndexStatus()
+    {
+        $this->actingAs();
+        $response = $this->call('GET', 'hotel/room-type');
+        $this->assertEquals(200, $response->status());
+    }
+    /**
+     * Test status delete a hotel room type with id = 0 not exits in database.
+     */
+    public function testDeleteAdminHotelStatusFail()
+    {
+        $this->actingAs();
+        $this->WithoutMiddleware();
+        $response = $this->call('delete', route('hotel.room-type.destroy', 0));
+        $this->assertEquals(302, $response->status());
+    }
+    /**
+     * Test status delete a hotel room type.
+     */
+    public function testDeleteAdminHotelStatusOk()
+    {
+        $this->actingAs();
+        $hotelRoomType = HotelRoomType::where('hotel_id', Auth::hotel()->get()->hotel_id)
+            ->select('id')->first();
+        $this->WithoutMiddleware();
+        $response = $this->call('delete', route('hotel.room-type.destroy', $hotelRoomType->id));
+        $this->assertEquals(302, $response->status());
     }
 }
