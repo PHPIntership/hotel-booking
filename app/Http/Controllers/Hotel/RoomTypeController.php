@@ -169,6 +169,7 @@ class RoomTypeController extends HotelBaseController
         }
     }
 
+
     /**
      * Remove the specified hotel room type from storage.
      *
