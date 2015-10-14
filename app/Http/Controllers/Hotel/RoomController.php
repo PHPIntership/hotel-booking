@@ -42,8 +42,8 @@ class RoomController extends HotelBaseController
             'name',
             'status'
         ];
-        $with['hotelRoomType'] = function($query) {
-                $query->select('id','name');
+        $with['hotelRoomType'] = function ($query) {
+            $query->select('id', 'name');
         };
         $rooms = Room::with($with)
             ->select($columns)
