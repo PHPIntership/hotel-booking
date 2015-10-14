@@ -1,5 +1,7 @@
 <?php
 
+Route::resource('hotel/room', 'Hotel\RoomController');
+
 /*
  * Route for getting hotel admin log in form
  */
