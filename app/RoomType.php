@@ -12,10 +12,10 @@ class RoomType extends Model
 {
     use SoftDeletes;
 
-     /**
-      * Key config uploads.
-      */
-     const UPLOAD_KEY = 'roomtype';
+    /**
+    * Key config uploads.
+    */
+    const UPLOAD_KEY = 'roomtype';
 
     /**
      * The database table used by the model.
