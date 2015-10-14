@@ -26,8 +26,30 @@ class RoomController extends HotelBaseController
         $this->middleware('auth.hotel');
     }
 
+    /**
+     * Load view with table of Room list
+     *
+     * @return view
+     */
     public function index()
     {
+        $hotelRoomTypes = HotelRoomType::select('id')
+            ->where('hotel_id', $this->auth->get()->hotel_id)
+            ->get();
+        $columns = [
+            'id',
+            'hotel_room_type_id',
+            'name',
+            'status'
+        ];
+        $with['hotelRoomType'] = function($query) {
+                $query->select('id','name');
+        };
+        $rooms = Room::with($with)
+            ->select($columns)
+            ->whereIn('hotel_room_type_id', $hotelRoomTypes)
+            ->paginate(20);
+        return view('hotel.room.index', compact('rooms'));
     }
 
     /**
@@ -112,8 +134,22 @@ class RoomController extends HotelBaseController
         return redirect(route('hotel.room.edit', $id));
     }
 
+    /**
+     * Remove the specified room from storage.
+     *
+     * @param int $id
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function destroy($id)
     {
-        return $id;
+        $room = Room::find($id, ['id','hotel_room_type_id']);
+        if ($room && $room->hotelRoomType->hotel_id == $this->auth->get()->hotel_id) {
+            $room->delete();
+            Session::flash('flash_success', trans('messages.delete_success_room'));
+        } else {
+            Session::flash('flash_error', trans('messages.delete_fail_room'));
+        }
+        return redirect()->route('hotel.room.index');
     }
 }
