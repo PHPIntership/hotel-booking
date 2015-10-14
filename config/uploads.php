@@ -30,7 +30,17 @@ return [
     | Storage path for upload Roomtype images and documents
     |
     */
-    'roomtype' => 'uploads/roomtype/',
+    'room_type' => 'uploads/room-type/',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Hotel room type Upload Folder
+    |--------------------------------------------------------------------------
+    |
+    | Storage path for upload Roomtype images and documents
+    |
+    */
+    'hotel_room_type' => 'uploads/hotel-room-type/',
 
     /*
     |--------------------------------------------------------------------------
