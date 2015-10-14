@@ -6,7 +6,7 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 use HotelBooking\Hotel;
 use HotelBooking\City;
 
-class HotelsControllerUpdateTest extends TestCase
+class HotelControllerUpdateTest extends TestCase
 {
     use DatabaseTransactions;
 
