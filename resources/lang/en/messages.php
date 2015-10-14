@@ -1,5 +1,6 @@
 <?php
 return [
+    'login_success' => 'You have logged in successfully',
     'hotel_admin_login' => 'Hotel Admin Login',
     'create_hotel' => 'Create new Hotel',
     'edit_hotel' => 'Edit Hotel',
