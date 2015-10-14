@@ -11,7 +11,7 @@ use Session;
 /**
  * Admin UserController
  */
-class UserController extends AdminBaseController
+class AdminUserController extends AdminBaseController
 {
     /**
      * Authenticator
@@ -30,7 +30,7 @@ class UserController extends AdminBaseController
      */
     public function getEditProfile()
     {
-        return view('admin.user.edit');
+        return view('admin.admin-user.edit');
     }
 
     /**
