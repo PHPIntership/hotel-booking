@@ -56,11 +56,8 @@ class RoomTypeController extends HotelBaseController
         if ($request->hasFile('image')) {
             $data['image'] = $this->imageUpload('hotel_room_type', $request->file('image'));
         }
-        if (HotelRoomType::create($data)) {
-            Session::flash('flash_success', trans('messages.create_success_hotel_room_type'));
-        } else {
-            Session::flash('flash_error', trans('messages.create_fail_hotel_room_type'));
-        };
+        HotelRoomType::create($data);
+        Session::flash('flash_success', trans('messages.create_success_hotel_room_type'));
 
         return redirect()->route('hotel.room-type.create');
     }
@@ -131,17 +128,10 @@ class RoomTypeController extends HotelBaseController
             $updateInfo = $request->all();
             if ($request->hasFile('image')) {
                 $updateInfo['image'] = $this->imageUpload('hotel_room_type', $request->file('image'));
-                $oldImage = $hotelRoomType->image;
+                $this->imageRemove('hotel_room_type', $hotelRoomType->image);
             }
-            if ($hotelRoomType->update($updateInfo)) {
-                if (isset($oldImage)) {
-                    $this->imageRemove('hotel_room_type', $oldImage);
-                }
-                Session::flash('flash_success', trans('messages.edit_success_hotel_room_type'));
-            } else {
-                $this->imageRemove('hotel_room_type', $updateInfo['image']);
-                Session::flash('flash_error', trans('messages.edit_fail_hotel_room_type'));
-            };
+            $hotelRoomType->update($updateInfo);
+            Session::flash('flash_success', trans('messages.edit_success_hotel_room_type'));
 
             return redirect(route('hotel.room-type.edit', $id));
         } catch (ModelNotFoundException $ex) {

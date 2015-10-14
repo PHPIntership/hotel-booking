@@ -29,7 +29,7 @@ class RoomTypeStoreFormRequest extends Request
         return [
             'room_type_id' => 'required',
             'name' => 'required|min:6|max:30|regex:/^[A-Z][a-zA-Z\. ]*$/',
-            'quantity' => 'required|integer|min:0|max:10',
+            'quantity' => 'required|integer|min:0|max:100',
             'quality' => 'required|min:10|max:50|regex:/^[a-zA-Z0-9 ]*$/',
             'price' => 'required|numeric|min:0',
             'description' => 'required|min:10|max:200|regex:/^[a-zA-Z0-9\-\.\, ]*$/',
