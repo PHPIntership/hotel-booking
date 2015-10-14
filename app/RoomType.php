@@ -42,6 +42,10 @@ class RoomType extends Model
         'image',
     ];
 
+    /**
+     * Get base image link of room type
+     * @return string
+     */
     public function getImageLinkAttribute()
     {
         if (!empty($this->image)) {
