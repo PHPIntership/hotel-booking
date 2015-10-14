@@ -17,8 +17,8 @@ class RoomTypeController extends AdminBaseController
     /**
     * Key config uploads.
     */
-    const UPLOAD_KEY = 'roomtype';
-    
+    //const UPLOAD_KEY = 'roomtype';
+
     /**
      * Display a listing of the Room Type.
      *
@@ -57,7 +57,7 @@ class RoomTypeController extends AdminBaseController
     {
         $roomType = $request->only('name', 'quality');
         if ($request->hasFile('image')) {
-            $roomType['image'] = $this->imageUpload(self::UPLOAD_KEY, $request->file('image'));
+            $roomType['image'] = $this->imageUpload(RoomType::UPLOAD_KEY, $request->file('image'));
         }
         if (RoomType::create($roomType)) {
             Session::flash('flash_success', trans('messages.create_success'));
@@ -114,8 +114,8 @@ class RoomTypeController extends AdminBaseController
             $roomType = RoomType::findOrFail($id, $columns);
             $oldImage = $roomType['image'];
             if ($request->hasFile('image')) {
-                $updateInfo['image'] = $this->imageUpload(self::UPLOAD_KEY, $request->file('image'));
-                $this->imageRemove($this::UPLOAD_KEY, $oldImage);
+                $updateInfo['image'] = $this->imageUpload(RoomType::UPLOAD_KEY, $request->file('image'));
+                $this->imageRemove(RoomType::UPLOAD_KEY, $oldImage);
             }
             if ($roomType->update($updateInfo)) {
                 Session::flash('flash_success', trans('messages.update_success'));
