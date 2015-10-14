@@ -8,4 +8,9 @@
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
         <strong>Error! </strong>{{ Session::get('flash_error') }}
     </div>
+@elseif (Session::has('flash_info'))
+    <div class="alert alert-info">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <strong>Info! </strong>{{ Session::get('flash_info') }}
+    </div>
 @endif
