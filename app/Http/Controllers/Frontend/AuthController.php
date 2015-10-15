@@ -42,7 +42,7 @@ class AuthController extends FrontendBaseController
             return response()->json([
                 'status' => 'success',
                 'message' => '',
-                'url' => $redirectUrl? $redirectUrl:route('user.index')
+                'url' => $redirectUrl ? $redirectUrl : route('user.index')
             ]);
         } else {
             return response()->json([
