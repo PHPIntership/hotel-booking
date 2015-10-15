@@ -90,4 +90,6 @@ return [
     'create_room_type'=>'Create room type',
     'edit_room_type'=>'Edit room type',
     'create'=>'Create',
+    'user'=>'User',
+    'edit_user'=>'Eidt User',
 ];
