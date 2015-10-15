@@ -5,20 +5,22 @@
  */
 
 
- /**
-  * Route group for user login and logout
-  */
-Route::group(['prefix' => 'user'], function () {
-    Route::post('login', [
-        'as' => 'user.login',
-        'uses' => 'Frontend\AuthController@postLogin'
-    ]);
+/**
+* Route for user login
+*/
+Route::post('login', [
+    'as' => 'user.login',
+    'uses' => 'Frontend\AuthController@postLogin'
+]);
 
-    Route::get('logout', [
-        'as' => 'user.logout',
-        'uses' => 'Frontend\AuthController@getLogout'
-    ]);
-});
+/**
+ * Route for user logout
+ */
+Route::get('logout', [
+    'as' => 'user.logout',
+    'uses' => 'Frontend\AuthController@getLogout'
+]);
+
 
 /**
  * Temp route for testing homepage. Need replace later
