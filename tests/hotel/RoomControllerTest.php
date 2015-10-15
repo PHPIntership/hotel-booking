@@ -68,6 +68,18 @@ class RoomControllerTest extends TestCase
     }
 
     /**
+     * Test index action, GET method
+     *
+     * @return void
+     */
+    public function testIndexStatus()
+    {
+        $this->actingAs();
+        $response = $this->call('GET', route('hotel.room.index'));
+        $this->assertEquals(200, $response->status());
+    }
+
+    /**
      * Test create action, GET method
      *
      * @return void
@@ -291,5 +303,28 @@ class RoomControllerTest extends TestCase
             ->type('a105', '#name')
             ->press(trans('messages.edit_submit'))
             ->see(trans('validation.regex', ['attribute' => 'name']));
+    }
+
+    /**
+     * Test the status receive when delete a room
+     */
+    public function testDeleteStatus()
+    {
+        $this->WithoutMiddleware();
+        $response = $this->call('delete', route('hotel.room.destroy'));
+        $this->assertEquals(302, $response->status());
+    }
+
+    /**
+     * Test if a room is soft deleted in the database
+     */
+    public function testARoomIsDeleted()
+    {
+        $room = $this->createFakerRoom();
+        $response = $this->call('delete', route('hotel.room.destroy', $room->id));
+        $this->notSeeInDatabase('rooms', [
+            'id'=>$room->id,
+            'deleted_at'=>'NULL'
+        ]);
     }
 }

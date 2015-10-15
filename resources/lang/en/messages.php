@@ -1,9 +1,12 @@
 <?php
 return [
+    'room_management' => 'Room management',
     'create_room' => 'Create new Room',
     'edit_room' => 'Edit Room',
     'create_success_room' => 'Room Create success',
     'edit_success_room' => 'Room Edit success',
+    'delete_success_room' => 'Delete Room success',
+    'delete_fail_room' => 'Can not delete Room',
     'edit_fail_room' => 'Can not update room infomation ',
     'create_fail_room' => 'Can not create room',
     'hotel_room_type' => 'Hotel Room Type',
