@@ -40,11 +40,15 @@ class AuthController extends FrontendBaseController
             $redirectUrl = $request->input('pathname');
             return response()->json([
                 'status' => 'success',
+                'message' => '',
                 'url' => $redirectUrl
             ]);
         } else {
-            Session::flash('flash_error', trans('messages.login_fail'));
-            return view('layouts.frontend.partials.flash');
+            return response()->json([
+                'status' => 'failed',
+                'message' => trans('messages.login_fail'),
+                'url' => ''
+            ]);
         }
     }
 

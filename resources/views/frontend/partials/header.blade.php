@@ -41,11 +41,22 @@
                                                 pathname: pathname
                                             },
                                             success: function(response) {
-                                                if(typeof response =='object')
-                                                {
+                                                // if(typeof response =='object')
+                                                // {
+                                                //     window.location.href = response['url'];
+                                                // } else {
+                                                //     $('#error').html(response);
+                                                // }
+                                                if (response['status'] === 'success') {
                                                     window.location.href = response['url'];
                                                 } else {
-                                                    $('#error').html(response);
+                                                    var alertContent =
+                                                    '<div class="alert alert-danger alert-dismissable">' +
+                                                    '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>' +
+                                                    '<h4><i class="icon fa fa-ban"></i> Alert!</h4>' +
+                                                    response['message'] +
+                                                    '</div>';
+                                                    $('#error').html(alertContent);
                                                 }
                                             },
                                             error: function(response) {

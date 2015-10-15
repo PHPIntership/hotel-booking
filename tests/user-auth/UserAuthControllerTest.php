@@ -80,6 +80,8 @@ class UserAuthControllerTest extends TestCase
             'pathname' => route('user.index')
         ];
         $this->post(route('user.login'), $formParams)
-            ->assertSessionHas('flash_error', trans('messages.login_fail'));
+            ->seeJson([
+                'status' => 'failed'
+            ]);
     }
 }
