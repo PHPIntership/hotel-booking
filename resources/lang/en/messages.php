@@ -2,6 +2,8 @@
 
 return [
     'room_management' => 'Room management',
+    'logged_in' => 'Already Login! Please log out to log in again',
+    'login_success' => 'You have logged in successfully',
     'create_room' => 'Create new Room',
     'edit_room' => 'Edit Room',
     'create_success_room' => 'Room Create success',
