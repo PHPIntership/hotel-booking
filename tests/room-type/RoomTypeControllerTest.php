@@ -73,4 +73,24 @@ class RoomTypeControllerTest extends TestCase
         $response = $this->call('PUT', route('admin.hotel.update', $roomType->id), $request);
         $this->assertEquals(302, $response->status());
     }
+
+    /**
+     * test status Display a listing action.
+     */
+    public function testIndexStatus()
+    {
+        $response = $this->call('GET', route('admin.room-type.index'));
+        $this->assertEquals(200, $response->status());
+    }
+
+    /**
+     * test status delete room type action.
+     */
+    public function testDeleteStatus()
+    {
+        $this->WithoutMiddleware();
+        $roomType = $this->createRoomType();
+        $response = $this->call('DELETE', route('admin.room-type.destroy', $roomType->id));
+        $this->assertEquals(302, $response->status());
+    }
 }

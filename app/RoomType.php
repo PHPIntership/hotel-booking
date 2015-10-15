@@ -6,11 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * RoomType model
+ * RoomType model.
  */
 class RoomType extends Model
 {
     use SoftDeletes;
+
+    /**
+    * Key config uploads.
+    */
+    const UPLOAD_KEY = 'roomtype';
 
     /**
      * The database table used by the model.
@@ -34,6 +39,19 @@ class RoomType extends Model
     protected $fillable = [
         'name',
         'quality',
-        'image'
+        'image',
     ];
+
+    /**
+     * Get base image link of room type
+     * @return string
+     */
+    public function getImageLinkAttribute()
+    {
+        if (!empty($this->image)) {
+            return asset(config('uploads.'.self::UPLOAD_KEY).$this->image);
+        }
+
+        return '';
+    }
 }

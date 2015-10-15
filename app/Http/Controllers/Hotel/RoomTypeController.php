@@ -28,6 +28,34 @@ class RoomTypeController extends HotelBaseController
     }
 
     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $column = [
+            'id',
+            'room_type_id',
+            'name',
+            'quality',
+            'quantity',
+            'price',
+            'description',
+            'image',
+        ];
+        $with['roomType'] = function ($query) {
+            $query->select('id', 'name');
+        };
+        $hotelRoomTypes = HotelRoomType::with($with)
+          ->select($column)
+          ->where('hotel_id', Auth::hotel()->get()->hotel_id)
+          ->paginate(10);
+
+        return view('hotel.room-type.index', compact('hotelRoomTypes'));
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -138,6 +166,29 @@ class RoomTypeController extends HotelBaseController
             Session::flash('flash_error', trans('messages.edit_fail_hotel_room_type'));
 
             return redirect(route('hotel.room-type.edit', $id));
+        }
+    }
+
+
+    /**
+     * Remove the specified hotel room type from storage.
+     *
+     * @param int $id
+     */
+    public function destroy($id)
+    {
+        try {
+            $hotelRoomType = HotelRoomType::where('hotel_id', Auth::hotel()->get()->hotel_id)
+                ->findOrFail($id);
+            $hotelRoomType->delete();
+
+            return redirect()
+                ->route('hotel.room-type.index')
+                ->with('flash_success', trans('messages.delete_success_hotel_room_type'));
+        } catch (ModelNotFoundException $ex) {
+            return redirect()
+                ->route('hotel.room-type.index')
+                ->with('flash_error', trans('messages.delete_fail_hotel_room_type'));
         }
     }
 }
