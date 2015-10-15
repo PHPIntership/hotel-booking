@@ -1,5 +1,7 @@
 <?php
 
+Route::resource('hotel/room', 'Hotel\RoomController');
+
 /*
  * Route for getting hotel admin log in form
  */
@@ -38,3 +40,8 @@ Route::group(['prefix' => 'hotel'], function () {
         'uses' => 'Hotel\HotelController@update',
     ]);
 });
+
+/*
+ *Route for hotel room type
+ */
+Route::resource('hotel/room-type', 'Hotel\RoomTypeController');
