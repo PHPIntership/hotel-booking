@@ -160,4 +160,44 @@ class RoomTypeControllerTests extends TestCase
         ->see(trans('messages.edit_success_hotel_room_type'))
         ->seeInDatabase('hotel_room_types', ['name' => 'Justin Beiber']);
     }
+    /**
+     * Test display page index listing hotel room type.
+     */
+    public function testViewIndex()
+    {
+        $this->actingAs();
+        $this->visit(route('admin-hotel.index'))
+             ->see(trans('messages.admin_hotel'));
+    }
+    /**
+     * Test status method GET display listing hotel room type.
+     */
+    public function testIndexStatus()
+    {
+        $this->actingAs();
+        $response = $this->call('GET', 'hotel/room-type');
+        $this->assertEquals(200, $response->status());
+    }
+    /**
+     * Test status delete a hotel room type with id = 0 not exits in database.
+     */
+    public function testDeleteAdminHotelStatusFail()
+    {
+        $this->actingAs();
+        $this->WithoutMiddleware();
+        $response = $this->call('delete', route('hotel.room-type.destroy', 0));
+        $this->assertEquals(302, $response->status());
+    }
+    /**
+     * Test status delete a hotel room type.
+     */
+    public function testDeleteAdminHotelStatusOk()
+    {
+        $this->actingAs();
+        $hotelRoomType = HotelRoomType::where('hotel_id', Auth::hotel()->get()->hotel_id)
+            ->select('id')->first();
+        $this->WithoutMiddleware();
+        $response = $this->call('delete', route('hotel.room-type.destroy', $hotelRoomType->id));
+        $this->assertEquals(302, $response->status());
+    }
 }

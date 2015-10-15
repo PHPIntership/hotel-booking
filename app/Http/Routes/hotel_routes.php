@@ -40,6 +40,7 @@ Route::group(['prefix' => 'hotel'], function () {
         'uses' => 'Hotel\HotelController@update',
     ]);
 });
+
 /*
  *Route for hotel room type
  */

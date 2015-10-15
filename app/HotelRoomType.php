@@ -10,6 +10,10 @@ class HotelRoomType extends Model
     use SoftDeletes;
 
     /**
+     * Key congig uploads.
+     */
+    const UPLOAD_KEY = 'hotel_room_type';
+    /**
      * The database table used by the model.
      *
      * @var string
@@ -38,4 +42,24 @@ class HotelRoomType extends Model
         'image',
         'description',
     ];
+
+    /**
+     * Get base link of hotel room type.
+     */
+    public function getImageLinkAttribute()
+    {
+        if (!empty($this->image)) {
+            return asset(config('uploads.'.self::UPLOAD_KEY).$this->image);
+        }
+
+        return '';
+    }
+
+    /**
+     * Get the room type that the hotel manage.
+     */
+    public function roomType()
+    {
+        return $this->belongsTo('HotelBooking\RoomType', 'room_type_id');
+    }
 }
