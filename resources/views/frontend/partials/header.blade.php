@@ -37,8 +37,7 @@
                                             data: {
                                                 username: $('#username').val(),
                                                 password: $('#password').val(),
-                                                _token: $('input[name=_token]').val(),
-                                                pathname: pathname
+                                                _token: $('input[name=_token]').val()
                                             },
                                             success: function(response) {
                                                 // if(typeof response =='object')
