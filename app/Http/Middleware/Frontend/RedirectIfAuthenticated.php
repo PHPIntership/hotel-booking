@@ -36,8 +36,11 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next)
     {
         if ($this->auth->check()) {
-            Session::flash('flash_info', trans('messages.logged_in'));
-            return view('layouts.frontend.partials.flash');
+            return response()->json([
+                'status' => 'logged',
+                'message' => trans('messages.logged_in'),
+                'url' => ''
+            ]);
         }
 
         return $next($request);
