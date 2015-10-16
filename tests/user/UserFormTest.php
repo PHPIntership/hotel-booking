@@ -60,7 +60,6 @@ class UserFormTest extends TestCase
             ->type($name, 'name')
             ->type("0".rand(100000000, 99999999999), 'phone')
             ->type($faker->address, 'address')
-            ->attach($faker->image($dir = '/tmp', $width = 200, $height = 200), 'image')
             ->press(trans('messages.update'))
             ->see(trans('messages.update_success'))
             ->seeIndatabase('users', ['name' => $name])
