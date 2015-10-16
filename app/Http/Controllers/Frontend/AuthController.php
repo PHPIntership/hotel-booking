@@ -9,6 +9,7 @@ use HotelBooking\Http\Requests\Frontend\LoginRequest;
 use Session;
 use Route;
 use Response;
+use URL;
 
 /**
  * Auth Controller for frontend users
@@ -37,11 +38,11 @@ class AuthController extends FrontendBaseController
         $data = $request->only('username', 'password');
         $login = $this->auth->attempt($data);
         if ($login) {
-            $redirectUrl = $request->input('pathname');
+            $redirectUrl = URL::previous();
             return response()->json([
                 'status' => 'success',
                 'message' => '',
-                'url' => $redirectUrl
+                'url' => $redirectUrl ? $redirectUrl : route('user.index')
             ]);
         } else {
             return response()->json([

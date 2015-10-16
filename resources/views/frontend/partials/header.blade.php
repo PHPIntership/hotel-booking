@@ -37,8 +37,7 @@
                                             data: {
                                                 username: $('#username').val(),
                                                 password: $('#password').val(),
-                                                _token: $('input[name=_token]').val(),
-                                                pathname: pathname
+                                                _token: $('input[name=_token]').val()
                                             },
                                             success: function(response) {
                                                 // if(typeof response =='object')
@@ -49,11 +48,19 @@
                                                 // }
                                                 if (response['status'] === 'success') {
                                                     window.location.href = response['url'];
-                                                } else {
+                                                } else if (response['status'] === 'failed') {
                                                     var alertContent =
                                                     '<div class="alert alert-danger alert-dismissable">' +
                                                     '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>' +
                                                     '<h4><i class="icon fa fa-ban"></i> Alert!</h4>' +
+                                                    response['message'] +
+                                                    '</div>';
+                                                    $('#error').html(alertContent);
+                                                } else if (response['status'] === 'logged') {
+                                                    var alertContent =
+                                                    '<div class="alert alert-info alert-dismissable">' +
+                                                    '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>' +
+                                                    '<h4><i class="icon fa fa-ban"></i> Info!</h4>' +
                                                     response['message'] +
                                                     '</div>';
                                                     $('#error').html(alertContent);
