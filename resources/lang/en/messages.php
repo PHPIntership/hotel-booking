@@ -113,5 +113,12 @@ return [
     'cancel_order_confirm' => 'Do you want cancel order ?',
     'delete_order_confirm' => 'Do you want delete order ?',
     'yes' => 'Yes',
-    'no' => 'No'
+    'no' => 'No',
+    'create_success'=>'Create success',
+    'create_fail'=>'Can not create',
+    'create_room_type'=>'Create room type',
+    'edit_room_type'=>'Edit room type',
+    'create'=>'Create',
+    'user'=>'User',
+    'edit_user'=>'Eidt User',
 ];
