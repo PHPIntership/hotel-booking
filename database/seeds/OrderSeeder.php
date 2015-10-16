@@ -14,7 +14,7 @@ class OrderSeeder extends Seeder
     {
         $faker = Faker\Factory::create();
         $orders = array();
-        for ($i = 1; $i < 200; ++$i) {
+        for ($i = 1; $i < 100; ++$i) {
             Order::create([
                 'user_id' => $i%9+1,
                 'hotel_room_type_id' => $i%9+1,
