@@ -19,6 +19,7 @@ class User extends Model implements
     AuthorizableContract,
     CanResetPasswordContract
 {
+
     /**
      * Determine the class is using authentication
      */
@@ -28,6 +29,10 @@ class User extends Model implements
      * Determine the class is using soft delete
      */
     use SoftDeletes;
+    /**
+    * Key config uploads.
+    */
+    const UPLOAD_KEY = 'user';
     /**
      * The database table used by the model.
      *
@@ -59,4 +64,16 @@ class User extends Model implements
         'password',
         'remember_token',
     ];
+
+    /**
+    * Get base image link of user
+    * @return string
+    */
+    public function getImageLinkAttribute()
+    {
+        if (!empty($this->image)) {
+            return asset(config('uploads.'.self::UPLOAD_KEY).$this->image);
+        }
+        return '';
+    }
 }
