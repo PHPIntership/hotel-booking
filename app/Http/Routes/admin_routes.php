@@ -48,3 +48,4 @@ Route::group(['middleware' => ['auth.admin']], function () {
 Route::resource('admin-hotel', 'Admin\AdminHotelController');
 
 Route::resource('admin/room-type', 'Admin\RoomTypeController');
+Route::resource('admin/user', 'Admin\UserController');
