@@ -31,3 +31,19 @@ Route::get('/', [
         return view('layouts.frontend');
     }
 ]);
+
+/**
+ * Route for getting register form
+ */
+Route::get('/register', [
+    'as' => 'user.register',
+    'uses' => 'Frontend\AuthController@getRegister'
+]);
+
+/**
+ * Route for posting register form data
+ */
+Route::post('/register', [
+    'as' => 'user.register',
+    'uses' => 'Frontend\AuthController@postRegister'
+]);
