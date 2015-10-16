@@ -2,17 +2,15 @@
 
 namespace HotelBooking\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
-use HotelBooking\Http\Requests;
-use HotelBooking\Http\Controllers\Controller;
-use HotelBooking\User;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use HotelBooking\Http\Requests\Admin\UserUpdateFormRequest;
+use HotelBooking\User;
 use Session;
 
 class UserController extends AdminBaseController
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the User.
      *
      * @return \Illuminate\Http\Response
      */
@@ -28,23 +26,15 @@ class UserController extends AdminBaseController
             'image',
         ];
         $users = User::select($columns)->paginate(20);
+
         return view('admin.user.index', compact('users'));
-    }
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified User.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -60,6 +50,7 @@ class UserController extends AdminBaseController
         ];
         try {
             $user = User::findorFail($id, $columns);
+
             return view('admin.user.edit', compact('user'));
         } catch (ModelNotFoundException $e) {
             Session::flash('flash_error', trans('messages.data_not_found'));
@@ -69,13 +60,14 @@ class UserController extends AdminBaseController
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified resource in User.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param HotelBooking\Http\Requests\Admin\UserUpdateFormRequest $request
+     * @param int                                                    $id
+     *
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserUpdateFormRequest $request, $id)
     {
         $columns = [
             'id',
@@ -84,15 +76,19 @@ class UserController extends AdminBaseController
             'image',
         ];
         $updateInfo = $request->only('name', 'phone', 'address');
+        //dd($request);
         try {
             $user = User::findorFail($id, $columns);
             $oldImage = $user['image'];
             if ($request->hasFile('image')) {
                 $updateInfo['image'] = $this->imageUpload(User::UPLOAD_KEY, $request->file('image'));
-                $this->imageRemove(User::UPLOAD_KEY, $oldImage);
+                if ($oldImage != '') {
+                    $this->imageRemove(User::UPLOAD_KEY, $oldImage);
+                }
             }
             $user->update($updateInfo);
             Session::flash('flash_success', trans('messages.update_success'));
+
             return view('admin.user.edit', compact('user'));
         } catch (ModelNotFoundException $e) {
             Session::flash('flash_error', trans('messages.data_not_found'));
@@ -102,9 +98,10 @@ class UserController extends AdminBaseController
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified resource from User.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -116,6 +113,7 @@ class UserController extends AdminBaseController
         } catch (ModelNotFoundException $e) {
             Session::flash('flash_error', trans('messages.data_not_found'));
         }
+
         return redirect(route('admin.user.index'));
     }
 }

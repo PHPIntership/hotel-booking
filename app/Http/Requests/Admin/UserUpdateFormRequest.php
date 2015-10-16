@@ -4,10 +4,7 @@ namespace HotelBooking\Http\Requests\Admin;
 
 use HotelBooking\Http\Requests\Request;
 
-/**
- * Room Type Store Form Request.
- */
-class RoomTypeUpdateFormRequest extends Request
+class UserUpdateFormRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,8 +24,9 @@ class RoomTypeUpdateFormRequest extends Request
     public function rules()
     {
         return [
-            'name' => 'required',
-            'quality' => 'required',
+            'name' => 'required|min:6',
+            'phone' => 'required|min:10|max:12|regex:/^0[0-9]*$/',
+            'address' => 'required|min:6',
             'image' => 'image',
         ];
     }
