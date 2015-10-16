@@ -76,7 +76,6 @@ class UserController extends AdminBaseController
             'image',
         ];
         $updateInfo = $request->only('name', 'phone', 'address');
-        //dd($request);
         try {
             $user = User::findorFail($id, $columns);
             $oldImage = $user['image'];
