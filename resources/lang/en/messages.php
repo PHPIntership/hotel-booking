@@ -112,4 +112,6 @@ return [
     'decline_order_confirm' => 'Do you want decline order ?',
     'cancel_order_confirm' => 'Do you want cancel order ?',
     'delete_order_confirm' => 'Do you want delete order ?',
+    'yes' => 'Yes',
+    'no' => 'No'
 ];

@@ -2,6 +2,9 @@
 @section('title')
 Booking Manage
 @endsection
+@section('css')
+<link rel="stylesheet" href="{{asset('assets/css/sweetalert.css')}}">
+@endsection
 @section('content')
 
 <div class="row " id="example2">
@@ -44,18 +47,18 @@ Booking Manage
                             <td>
                                 @if ($order->status == 0)
                                     {!! Former::open(route('hotel.booking-manage.accept',$order->id))->method('post')->style('display: inline') !!}
-                                        {!! Former::submit(trans('messages.accept'))->class("btn btn-sm btn-info")->onclick("return message('".trans('messages.accept_order_confirm')."')") !!}
+                                        {!! Former::button(trans('messages.accept'))->class("btn btn-sm btn-info accept-order")!!}
                                     {!! Former::close() !!}
                                     {!! Former::open(route('hotel.booking-manage.decline',$order->id))->method('post')->style('display: inline') !!}
-                                        {!! Former::submit(trans('messages.decline'))->class("btn btn-sm btn-warning")->onclick("return message('".trans('messages.decline_order_confirm')."')") !!}
+                                        {!! Former::button(trans('messages.decline'))->class("btn btn-sm btn-warning decline-order") !!}
                                     {!! Former::close() !!}
                                 @elseif ($order->status == 1)
                                     {!! Former::open(route('hotel.booking-manage.cancel',$order->id))->method('post')->style('display: inline') !!}
-                                        {!! Former::submit(trans('messages.cancel'))->class("btn btn-sm btn-warning")->onclick("return message('".trans('messages.cancel_order_confirm')."')") !!}
+                                        {!! Former::button(trans('messages.cancel'))->class("btn btn-sm btn-warning cancel-order")!!}
                                     {!! Former::close() !!}
                                 @elseif ($order->status == 3)
                                     {!! Former::open(route('hotel.booking-manage.destroy',$order->id))->method('delete')->style('display: inline') !!}
-                                        {!! Former::submit(trans('messages.delete'))->class("btn btn-sm btn-danger")->onclick("return message('".trans('messages.delete_order_confirm')."')") !!}
+                                        {!! Former::button(trans('messages.delete'))->class("btn btn-sm btn-danger delete-order") !!}
                                     {!! Former::close() !!}
                                 @endif
                             </td>
@@ -71,5 +74,20 @@ Booking Manage
 </div>
 @endsection
 @section('js')
-<script src="{{asset('assets/js/message.js')}}"></script>
+<script>
+$('.delete-order').on('click', function () {
+    var confirm = confirmMessage('{{trans('messages.delete')}}','{{trans('messages.delete_order_confirm')}}','{{trans('messages.yes')}}','{{trans('messages.no')}}',$(this));
+});
+$('.accept-order').on('click', function () {
+    var confirm = confirmMessage('{{trans('messages.accept')}}','{{trans('messages.accept_order_confirm')}}','{{trans('messages.yes')}}','{{trans('messages.no')}}',$(this));
+});
+$('.decline-order').on('click', function () {
+    var confirm = confirmMessage('{{trans('messages.decline')}}','{{trans('messages.decline_order_confirm')}}','{{trans('messages.yes')}}','{{trans('messages.no')}}',$(this));
+});
+$('.cancel-order').on('click', function () {
+    var confirm = confirmMessage('{{trans('messages.cancel')}}','{{trans('messages.cancel_order_confirm')}}','{{trans('messages.yes')}}','{{trans('messages.no')}}',$(this));
+});
+</script>
+<script src="{{asset('assets/js/alert.js')}}"></script>
+<script src="{{asset('assets/js/sweetalert.min.js')}}"></script>
 @endsection

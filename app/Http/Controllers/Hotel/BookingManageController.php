@@ -44,7 +44,7 @@ class BookingManageController extends Controller
             'danger',
         ];
         $with['user'] = function ($query) {
-            $query->select('id', 'name');
+            $query->select('id', 'name', 'phone');
         };
         $with['hotelRoomType'] = function ($query) {
             $query->select('id', 'name');
