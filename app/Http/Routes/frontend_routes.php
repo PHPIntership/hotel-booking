@@ -3,6 +3,7 @@
 /*
  * Routes for frontend pages
  */
+<<<<<<< Updated upstream
 
 
 /**
@@ -31,3 +32,21 @@ Route::get('/', [
         return view('layouts.frontend');
     }
 ]);
+
+/**
+ * Route group for order pages.
+ */
+Route::group(['prefix' => 'order'], function () {
+    Route::get('history', [
+        'as' => 'order.history',
+        'uses' => 'Frontend\OrderController@history',
+    ]);
+    Route::get('', [
+        'as' => 'order.create',
+        'uses' => 'Frontend\OrderController@create',
+    ]);
+    Route::post('store', [
+        'as' => 'order.store',
+        'uses' => 'Frontend\OrderController@store',
+    ]);
+});
