@@ -7,7 +7,7 @@ use HotelBooking\Http\Requests\Request;
 /**
  * Room Type Store Form Request.
  */
-class RoomTypeUpdateFormRequest extends Request
+class RoomTypeStoreFormRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
