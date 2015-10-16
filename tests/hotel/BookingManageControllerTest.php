@@ -54,7 +54,7 @@ class BookingManageControllerTest extends TestCase
              ->see(trans('messages.booking_manage'));
     }
     /**
-     * Test status method GET display listing hotel room type.
+     * Test status method GET display listing hotel booking manage.
      */
     public function testIndexStatus()
     {
