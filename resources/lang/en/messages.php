@@ -1,6 +1,8 @@
 <?php
 
 return [
+    'logged_in' => 'Already Login! Please log out to log in again',
+    'login_success' => 'You have logged in successfully',
     'room_management' => 'Room management',
     'create_room' => 'Create new Room',
     'edit_room' => 'Edit Room',

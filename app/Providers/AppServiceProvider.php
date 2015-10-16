@@ -5,6 +5,7 @@ namespace HotelBooking\Providers;
 use Illuminate\Support\ServiceProvider;
 use HotelBooking\AdminUser;
 use HotelBooking\AdminHotel;
+use HotelBooking\User;
 use Hash;
 
 class AppServiceProvider extends ServiceProvider
@@ -16,6 +17,13 @@ class AppServiceProvider extends ServiceProvider
     {
         AdminHotel::creating(function ($adminHotel) {
             $adminHotel->password = Hash::make($adminHotel->password);
+        });
+
+        /**
+         * Hashing password before creating an user.
+         */
+        User::creating(function ($user) {
+            $user->password = Hash::make($user->password);
         });
     }
 
