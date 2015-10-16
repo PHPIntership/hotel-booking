@@ -18,9 +18,11 @@
 
         {!! Former::text('username')
             ->label(trans('messages.username'))
+            ->id('username1')
         !!}
         {!! Former::password('password')
             ->label(trans('messages.password'))
+            ->id('password1')
         !!}
 
         {!! Former::password('retype_password')
@@ -46,34 +48,16 @@
         {!! Former::close() !!}
     </div>
 </div>
-<script type="text/javascript">
-/**
- * Check the file is an image before display preview
- */
-$(document).ready(function(){
-    window.location.hash = '#content';
-});
-$("#image").change(function () {
-       var fileExtension = ['jpeg', 'jpg', 'png', 'gif', 'bmp'];
-       if ($.inArray($(this).val().split('.').pop().toLowerCase(), fileExtension) == -1) {
-           alert("Only formats are allowed : "+fileExtension.join(', '));
-       } else {
-           readURL(this);
-       }
-   });
-/**
- * Preview the image
- */
-function readURL(input) {
-    if (input.files && input.files[0] ) {
-        var reader = new FileReader();
-        reader.onload = function (e) {
-            $('.userpic')
-                .attr('src', e.target.result);
-        };
+@endsection
 
-        reader.readAsDataURL(input.files[0]);
-    }
-}
+@section('js')
+<script src="{{ asset('assets/js/preview_image.js') }}"></script>
+<script type="text/javascript">
+    /**
+     * Focus to content div
+     */
+    $(document).ready(function() {
+     window.location.hash = '#content';
+    });
 </script>
 @endsection

@@ -84,12 +84,12 @@ class AuthController extends FrontendBaseController
      */
     public function postRegister(RegisterRequest $request)
     {
-        $columns = $request->all();
+        $data = $request->all();
         if ($request->hasFile('image')) {
             $imageName = $this->imageUpload(self::UPLOAD_KEY, $request->file('image'));
-            $columns['image'] = $imageName;
+            $data['image'] = $imageName;
         }
-        $user = User::create($columns);
+        $user = User::create($data);
         if ($user) {
             Session::flash('flash_success', trans('messages.register_success'));
         } else {
