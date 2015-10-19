@@ -14,11 +14,18 @@ class RoomServiceProvider extends ServiceProvider
     public function boot()
     {
         /**
+         * Set Room status before creating Room.
+         */
+        Room::creating(function ($room) {
+            $room->status = 0;
+        });
+
+        /**
          * Update HotelRoomType quantity after creating Room.
          */
         Room::created(function ($room) {
             $hotelRoomType = HotelRoomType::find($room->hotel_room_type_id, ['id','quantity']);
-            if ($room->status <2 && $hotelRoomType) {
+            if ($hotelRoomType) {
                 $hotelRoomType->quantity += 1;
                 $hotelRoomType->save();
             }
@@ -31,9 +38,9 @@ class RoomServiceProvider extends ServiceProvider
             $oldRoom = Room::find($room->id, ['id', 'status']);
             $hotelRoomType = HotelRoomType::find($room->hotel_room_type_id, ['id','quantity']);
             if ($oldRoom && $room->status != null && $hotelRoomType) {
-                if ($room->status < 2 && $oldRoom->status >= 2) {
+                if ($oldRoom->status >= 2 && $room->status < 2) {
                     $hotelRoomType->quantity += 1;
-                } else if ($room->status >= 2 && $oldRoom->status < 2) {
+                } else if ($oldRoom->status < 2 && $oldRoom->status >= 2) {
                     $hotelRoomType->quantity -= 1;
                 }
                 $hotelRoomType->save();
