@@ -5,7 +5,7 @@
             <div class="col-md-6" id="loginbar">
                 <span class="label label-warning">
                     <a id="login_button" href="#loginmodal" data-toggle="modal">Log in |</a>
-                    <a href="#">Register</a>
+                    <a href="{{ route('user.register') }}">Register</a>
                 </span>
                 <div class="modal fade" id="loginmodal">
                     <div class="modal-dialog">

@@ -1,9 +1,13 @@
 <?php
 
 return [
+    'retype_password' => 'Retype your password',
+    'register_success' => 'You have registered an account',
+    'register_fail' => 'Can not register account',
+    'register' => 'Register',
+    'room_management' => 'Room management',
     'logged_in' => 'Already Login! Please log out to log in again',
     'login_success' => 'You have logged in successfully',
-    'room_management' => 'Room management',
     'create_room' => 'Create new Room',
     'edit_room' => 'Edit Room',
     'create_success_room' => 'Room Create success',
