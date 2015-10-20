@@ -49,7 +49,7 @@ class CheckInServiceProvider extends ServiceProvider
         CheckIn::updated(function ($checkIn) {
             if ($checkIn->leave_date) {
                 $room = Room::find($checkIn->room_id, ['id']);
-                if($room) {
+                if ($room) {
                     $room->status = 0;
                     $room->save();
                 }

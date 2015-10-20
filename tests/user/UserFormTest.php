@@ -11,6 +11,7 @@ class UserFormTest extends TestCase
 
     /**
      * Create User
+     *
      * @return HotelBooking\User
      */
     public function createUser()
@@ -29,19 +30,23 @@ class UserFormTest extends TestCase
     }
 
     /**
-     * test Index User
+     * Test Index User
+     *
      * @return void
      */
-    function testIndexUser(){
+    function testIndexUser()
+    {
         $this->visit(route('admin.user.index'))
             ->see(trans('messages.user'));
     }
 
     /**
-     * test Edit user
+     * Test Edit user
+     *
      * @return void
      */
-    function testEditUser(){
+    function testEditUser()
+    {
         $user = $this->createUser();
         $this->visit(route('admin.user.edit', $user->id))
             ->see(trans('messages.edit_user'))
@@ -49,10 +54,12 @@ class UserFormTest extends TestCase
     }
 
     /**
-     * test Put Update User
+     * Test Put Update User
+     *
      * @return void
      */
-    function testPutUpdateUser(){
+    function testPutUpdateUser()
+    {
         $faker = Faker\Factory::create();
         $user = $this->createUser();
         $name = $faker->name;
@@ -67,10 +74,12 @@ class UserFormTest extends TestCase
     }
 
     /**
-     * test Delete User
+     * Test Delete User
+     *
      * @return void
      */
-    function testDeleteUser(){
+    function testDeleteUser()
+    {
         $user = $this->createUser();
         $this->visit(route('admin.user.index'))
         ->press(trans('messages.delete'))
