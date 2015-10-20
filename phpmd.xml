@@ -12,8 +12,6 @@
 
     <rule ref="rulesets/design.xml"/>
 
-    <rule ref="rulesets/codesize.xml"/>
-
     <rule ref="rulesets/controversial.xml"/>
 
     <rule ref="rulesets/unusedcode.xml"/>
