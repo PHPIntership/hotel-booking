@@ -37,6 +37,26 @@ class Order extends Model
         'price',
         'comment',
         'quantity',
-        'status'
+        'status',
     ];
+
+    /**
+     *  Get the user that the booking manage.
+     *
+     * @return array
+     */
+    public function user()
+    {
+        return $this->belongsTo('HotelBooking\User', 'user_id');
+    }
+
+    /**
+     *  Get the hotel room type that the booking manage.
+     *
+     * @return array
+     */
+    public function hotelRoomType()
+    {
+        return $this->belongsTo('HotelBooking\HotelRoomType', 'hotel_room_type_id');
+    }
 }
