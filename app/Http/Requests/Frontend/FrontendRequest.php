@@ -2,12 +2,9 @@
 
 namespace HotelBooking\Http\Requests\Frontend;
 
-use HotelBooking\Http\Requests\Frontend\FrontendRequest;
+use HotelBooking\Http\Requests\Request;
 
-/**
- * FormRequest for user login form
- */
-class LoginRequest extends FrontendRequest
+class FrontendRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -16,7 +13,7 @@ class LoginRequest extends FrontendRequest
      */
     public function authorize()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -27,8 +24,7 @@ class LoginRequest extends FrontendRequest
     public function rules()
     {
         return [
-            'username' => 'required|regex:/^[a-z0-9,.\'-_]+$/i|min:6|max:20|',
-            'password' => 'required|alpha_num|min:6|max:20'
+            //
         ];
     }
 }

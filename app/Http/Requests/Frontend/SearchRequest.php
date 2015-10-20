@@ -4,10 +4,7 @@ namespace HotelBooking\Http\Requests\Frontend;
 
 use HotelBooking\Http\Requests\Frontend\FrontendRequest;
 
-/**
- * FormRequest for user login form
- */
-class LoginRequest extends FrontendRequest
+class SearchRequest extends FrontendRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,9 +23,13 @@ class LoginRequest extends FrontendRequest
      */
     public function rules()
     {
+        $yesterday = date('Y-m-d', strtotime('-1 days'));
+        $now = date('Y-m-d', strtotime('now'));
         return [
-            'username' => 'required|regex:/^[a-z0-9,.\'-_]+$/i|min:6|max:20|',
-            'password' => 'required|alpha_num|min:6|max:20'
+            'city' => 'required',
+            'roomtype' => 'required',
+            'coming_date' => 'required|after:'.$yesterday,
+            'leave_date' => 'required|after:'.$now
         ];
     }
 }

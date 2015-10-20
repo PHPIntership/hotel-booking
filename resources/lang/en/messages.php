@@ -1,6 +1,9 @@
 <?php
 
 return [
+    'result_search' => 'Result Search',
+    'search' => 'Search',
+    'book'=> 'Book',
     'retype_password' => 'Retype your password',
     'register_success' => 'You have registered an account',
     'register_fail' => 'Can not register account',
@@ -81,7 +84,6 @@ return [
     'please_select' =>'Please select',
     'quantity' => 'quantity',
     'price' => 'price',
-    'description' => 'description',
     'edit_hotel_room_type' => 'Edit hotel room type',
     'create_fail_hotel_room_type' => 'Can not create hotel room type',
     'create_success_hotel_room_type' => 'Create success hotel room type successfully',

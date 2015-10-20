@@ -2,12 +2,12 @@
 
 namespace HotelBooking\Http\Requests\Frontend;
 
-use HotelBooking\Http\Requests\Request;
+use HotelBooking\Http\Requests\Frontend\FrontendRequest;
 
 /**
  * Request class for user register form
  */
-class RegisterRequest extends Request
+class RegisterRequest extends FrontendRequest
 {
     /**
      * Determine if the user is authorized to make this request.

@@ -47,3 +47,19 @@ Route::post('/register', [
     'as' => 'user.register',
     'uses' => 'Frontend\AuthController@postRegister'
 ]);
+
+/**
+ * Route for user search
+ */
+Route::get('/search', [
+    'as' => 'user.search',
+    'uses' => 'Frontend\UserController@getSearch'
+]);
+
+/**
+ * Route for posting search data
+ */
+ Route::get('/search-result', [
+     'as' => 'user.searchresult',
+     'uses' => 'Frontend\UserController@search'
+ ]);
