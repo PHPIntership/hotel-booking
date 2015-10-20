@@ -2,9 +2,9 @@
 
 namespace HotelBooking\Http\Requests\Frontend;
 
-use HotelBooking\Http\Requests\Frontend\FrontendRequest;
+use HotelBooking\Http\Requests\Request;
 
-class SearchRequest extends FrontendRequest
+class SearchRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
