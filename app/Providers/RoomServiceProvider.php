@@ -32,30 +32,28 @@ class RoomServiceProvider extends ServiceProvider
         });
 
         /**
-         * Update HotelRoomType quantity before updating Room.
+         * Update HotelRoomType quantity after updating Room.
          */
-        Room::updating(function ($room) {
-            $oldRoom = Room::find($room->id, ['id', 'status']);
+        Room::updated(function ($room) {
             $hotelRoomType = HotelRoomType::find($room->hotel_room_type_id, ['id','quantity']);
-            if ($oldRoom && $room->status != null && $hotelRoomType) {
-                if ($oldRoom->status >= 2 && $room->status < 2) {
-                    $hotelRoomType->quantity += 1;
-                } else if ($oldRoom->status < 2 && $oldRoom->status >= 2) {
-                    $hotelRoomType->quantity -= 1;
-                }
-                $hotelRoomType->save();
+            if ($hotelRoomType) {
+                $quantity = Room::where('hotel_room_type_id', $room->hotel_room_type_id)
+                    ->whereIn('status', [0, 1])
+                    ->count('id');
+                $hotelRoomType->update(['quantity' => $quantity]);
             }
         });
 
         /**
-         * Update HotelRoomType quantity before deleting Room.
+         * Update HotelRoomType quantity after deleting Room.
          */
-        Room::deleting(function ($room) {
-            $currentRoom = Room::find($room->id,['status']);
+        Room::deleted(function ($room) {
             $hotelRoomType = HotelRoomType::find($room->hotel_room_type_id, ['id','quantity']);
-            if ($currentRoom && $currentRoom->status <2 && $hotelRoomType) {
-                $hotelRoomType->quantity -= 1;
-                $hotelRoomType->save();
+            if ($hotelRoomType) {
+                $quantity = Room::where('hotel_room_type_id', $room->hotel_room_type_id)
+                    ->whereIn('status', [0, 1])
+                    ->count('id');
+                $hotelRoomType->update(['quantity' => $quantity]);
             }
         });
     }
