@@ -12,6 +12,7 @@ use HotelBooking\Http\Requests\Admin\HotelCreateRequest;
 use HotelBooking\Http\Requests\Admin\HotelEditRequest;
 use HotelBooking\Http\Controllers\Controller;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Auth;
 
 /**
  * HotelController
@@ -19,6 +20,12 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class HotelController extends AdminBaseController
 {
+
+    public function __construct()
+    {
+        $this->auth = Auth::admin();
+        $this->middleware('auth.admin');
+    }
     /**
      * Display a listing of the hotel.
      *

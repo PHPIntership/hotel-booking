@@ -3,21 +3,44 @@
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use HotelBooking\AdminUser;
 
 class AdminUserControllerTest extends TestCase
 {
     use DatabaseTransactions;
 
     /**
-     * setup Session and Auth
-     * @return void
+     * Overide setUp function. Truncate and seed the database before tests.
      */
     public function setUp()
     {
         parent::setUp();
         Session::start();
+        static $seed = false;
+        if (!$seed) {
+            DB::table('admin_users')->truncate();
+            $facAdminUser = factory(HotelBooking\AdminUser::class)->create();
+            $adminUser = [
+                'username'=>$facAdminUser->username,
+                'password'=>'123456',
+                'remember'=>1,
+                '_token'  => csrf_token()
+                ];
+        }
+        $this->actingAs();
     }
 
+    /**
+     * Override actingAs function for setting the current authenticated hotel admin.
+     */
+    public function actingAs($admin = null)
+    {
+        $admin = AdminUser::select('id', 'username', 'password')->first();
+        $login = Auth::admin()->attempt([
+            'username' => $admin->username,
+            'password' => '123456',
+        ]);
+    }
     /**
      * test Status GetEditProfile in UserController
      * @return void

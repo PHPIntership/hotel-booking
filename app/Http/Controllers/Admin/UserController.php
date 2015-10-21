@@ -9,6 +9,11 @@ use Session;
 
 class UserController extends AdminBaseController
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth.admin');
+    }
     /**
      * Display a listing of the User.
      *
