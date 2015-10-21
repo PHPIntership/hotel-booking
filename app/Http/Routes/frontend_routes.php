@@ -63,3 +63,14 @@ Route::get('/search', [
      'as' => 'user.searchresult',
      'uses' => 'Frontend\UserController@search'
  ]);
+/**
+ * Route for profile user
+ */
+Route::get('profile', [
+    'as' => 'user.profile',
+    'uses' => 'Frontend\ProfileController@getProfile'
+]);
+Route::put('profile', [
+    'as' => 'user.profile',
+    'uses' => 'Frontend\ProfileController@putProfile'
+]);
