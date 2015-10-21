@@ -35,7 +35,7 @@ class UserController extends FrontendBaseController
     }
 
     /**
-     * Posting the search data.
+     * Getting the search data.
      *
      * @param SearchRequest $request
      *
