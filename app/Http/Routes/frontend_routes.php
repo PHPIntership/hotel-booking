@@ -3,7 +3,7 @@
 /*
  * Routes for frontend pages
  */
-<<<<<<< Updated upstream
+
 
 
 /**
@@ -34,6 +34,7 @@ Route::get('/', [
 ]);
 
 /**
+ *
  * Route group for order pages.
  */
 Route::group(['prefix' => 'order'], function () {
@@ -50,3 +51,18 @@ Route::group(['prefix' => 'order'], function () {
         'uses' => 'Frontend\OrderController@store',
     ]);
 });
+
+ * Route for getting register form
+ */
+Route::get('/register', [
+    'as' => 'user.register',
+    'uses' => 'Frontend\AuthController@getRegister'
+]);
+
+/**
+ * Route for posting register form data
+ */
+Route::post('/register', [
+    'as' => 'user.register',
+    'uses' => 'Frontend\AuthController@postRegister'
+]);

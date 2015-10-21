@@ -9,7 +9,8 @@ class AuthFormTest extends TestCase
     use DatabaseTransactions;
 
   /**
-   * test display page login admin
+   * Test display page login admin
+   *
    * @return void
    */
     public function testFormLogin()
@@ -19,7 +20,8 @@ class AuthFormTest extends TestCase
     }
 
   /**
-   * test login admin
+   * Test login admin
+   *
    * @return void
    */
     public function testFormPostLoginSuccess()
@@ -34,7 +36,8 @@ class AuthFormTest extends TestCase
     }
 
     /**
-     * test post form login without username
+     * Test post form login without username
+     *
      * @return void
      */
     public function testFormPostLoginWithoutUsername()
@@ -48,7 +51,8 @@ class AuthFormTest extends TestCase
     }
 
     /**
-     * test post form login without password
+     * Test post form login without password
+     *
      * @return void
      */
     public function testFormPostLoginWithoutPassword()
@@ -61,7 +65,8 @@ class AuthFormTest extends TestCase
             ->see(trans('validation.required', ['attribute'=>'password']));
     }
     /**
-     * test post form login without username and password
+     * Test post form login without username and password
+     *
      * @return void
      */
     public function testFormPostLoginWithoutUsernameAndPassword()
@@ -76,7 +81,8 @@ class AuthFormTest extends TestCase
     }
 
     /**
-     * test post form login password less than six character
+     * Test post form login password less than six character
+     *
      * @return void
      */
     public function testFormPostLoginPassWordLessThanSixCharacter()
@@ -93,7 +99,8 @@ class AuthFormTest extends TestCase
     }
 
   /**
-   * test logout admin
+   * Test logout admin
+   *
    * @return void
    */
     public function testFormLogout()

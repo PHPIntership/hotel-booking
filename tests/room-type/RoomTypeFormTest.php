@@ -8,7 +8,7 @@ class RoomTypeFormTest extends TestCase
     use DatabaseTransactions;
 
     /**
-     * create room type.
+     * Create room type.
      *
      * @return HotelBooking\RoomType
      */
@@ -24,7 +24,7 @@ class RoomTypeFormTest extends TestCase
     }
 
     /**
-     * test form create room type.
+     * Test form create room type.
      */
     public function testFormEditRoomType()
     {
@@ -34,7 +34,7 @@ class RoomTypeFormTest extends TestCase
     }
 
     /**
-     * test form edit when post room type.
+     * Test form edit when post room type.
      */
     public function testFormPutEditRoomType()
     {
@@ -51,7 +51,7 @@ class RoomTypeFormTest extends TestCase
     }
 
     /**
-     * test form create when post room type without name and quality.
+     * Test form create when post room type without name and quality.
      */
     public function testFormPutEditRoomTypeWithoutNameAndQuality()
     {
@@ -67,7 +67,7 @@ class RoomTypeFormTest extends TestCase
     }
 
     /**
-     * test form create when post room type without name and quality.
+     * Test form create when post room type without name and quality.
      */
     public function testFormPutEditRoomTypeWithoutName()
     {
@@ -82,7 +82,7 @@ class RoomTypeFormTest extends TestCase
     }
 
     /**
-     * test form create when post room type without name and quality.
+     * Test form create when post room type without name and quality.
      */
     public function testFormPutEditRoomTypeWithoutQuality()
     {
@@ -96,7 +96,7 @@ class RoomTypeFormTest extends TestCase
             ->see('has-error');
     }
     /**
-     * test form create room type.
+     * Test form create room type.
      */
     public function testFormCreateRoomType()
     {
@@ -105,7 +105,7 @@ class RoomTypeFormTest extends TestCase
     }
 
     /**
-     * test form create when post room type.
+     * Test form create when post room type.
      */
     public function testFormCreatePostRoomType()
     {
@@ -120,7 +120,7 @@ class RoomTypeFormTest extends TestCase
     }
 
     /**
-     * test form create post room type without name and quality.
+     * Test form create post room type without name and quality.
      */
     public function testFormCreatePostRoomTypeWithoutNameAndQuality()
     {
@@ -135,7 +135,7 @@ class RoomTypeFormTest extends TestCase
     }
 
     /**
-     * test form create post room type without name.
+     * Test form create post room type without name.
      */
     public function testFormCreatePostRoomTypeWithoutName()
     {
@@ -149,7 +149,7 @@ class RoomTypeFormTest extends TestCase
     }
 
     /**
-     * test form create post room type without quality.
+     * Test form create post room type without quality.
      */
     public function testFormCreatePostRoomTypeWithoutQuality()
     {
@@ -163,20 +163,24 @@ class RoomTypeFormTest extends TestCase
     }
 
     /**
-     * test Display a listing of the Room Type.
+     * Test Display a listing of the Room Type.
+     *
      * @return void
      */
-    public function testDisplayIndexRoomType(){
+    public function testDisplayIndexRoomType()
+    {
         $this->visit(route('admin.room-type.index'))
             ->see(trans('messages.room_type'));
             //trans('messages.delete')
     }
 
     /**
-     * test Delete Room Type
+     * Test Delete Room Type
+     *
      * @return void
      */
-    public function testDeleteRoomTye(){
+    public function testDeleteRoomTye()
+    {
         $roomType = $this->createRoomType();
         $this->visit(route('admin.room-type.index'))
             ->press(trans('messages.delete'))

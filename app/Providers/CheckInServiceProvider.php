@@ -31,15 +31,14 @@ class CheckInServiceProvider extends ServiceProvider
          */
         CheckIn::updating(function ($checkIn) {
             if ($checkIn->leave_date) {
+                $oldCheckIn = CheckIn::find($checkIn->id, ['coming_date']);
                 $room = Room::find($checkIn->room_id, ['id', 'hotel_room_type_id']);
-                if ($room) {
-                    $hotelRoomType = HotelRoomType::find($room->hotel_room_type_id, ['id','price']);
-                    if ($hotelRoomType) {
-                        $comingDate = new Carbon($checkIn->coming_date);
-                        $leaveDate = new Carbon($checkIn->leave_date);
-                        $days= $comingDate->diff($leaveDate)->days;
-                        $checkIn->price = $hotelRoomType->price * $days;
-                    }
+                $hotelRoomType = HotelRoomType::find($room->hotel_room_type_id, ['id','price']);
+                if ($room && $hotelRoomType && $oldCheckIn) {
+                    $comingDate = new Carbon($oldCheckIn->coming_date);
+                    $leaveDate = new Carbon($checkIn->leave_date);
+                    $days= $comingDate->diff($leaveDate)->days;
+                    $checkIn->price = $hotelRoomType->price * $days;
                 }
             }
         });
@@ -50,7 +49,7 @@ class CheckInServiceProvider extends ServiceProvider
         CheckIn::updated(function ($checkIn) {
             if ($checkIn->leave_date) {
                 $room = Room::find($checkIn->room_id, ['id']);
-                if($room) {
+                if ($room) {
                     $room->status = 0;
                     $room->save();
                 }
