@@ -59,7 +59,7 @@ class OrderServiceProviderTest extends TestCase
     {
         $hotelRoomType = $this->seedHotelRoomType();
         $order = $this->seedOrder($hotelRoomType);
-        $this->assertEquals($order->status, 0);
+        $this->assertEquals($order->status, Order::WAITING_STATUS);
         $this->assertEquals($order->price, 60);
     }
 

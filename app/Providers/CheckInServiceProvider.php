@@ -21,7 +21,7 @@ class CheckInServiceProvider extends ServiceProvider
         CheckIn::created(function ($checkIn) {
             $room = Room::find($checkIn->room_id, ['id','status']);
             if ($room) {
-                $room->status = 1;
+                $room->status = Room::USED_STATUS;
                 $room->save();
             }
         });
@@ -50,7 +50,7 @@ class CheckInServiceProvider extends ServiceProvider
             if ($checkIn->leave_date) {
                 $room = Room::find($checkIn->room_id, ['id']);
                 if ($room) {
-                    $room->status = 0;
+                    $room->status = Room::FREE_STATUS;
                     $room->save();
                 }
             }

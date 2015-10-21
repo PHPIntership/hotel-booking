@@ -9,7 +9,7 @@ class RoomServiceProviderTest extends TestCase
     use DatabaseTransactions;
 
     /**
-     * Test that the Room status = 0 on creating
+     * Test that the Room status is Free on creating
      *
      * @return void
      */
@@ -18,14 +18,14 @@ class RoomServiceProviderTest extends TestCase
         $data = [
             'hotel_room_type_id' => 1,
             'name' => 'A105',
-            'status' => 1,
+            'status' => Room::OTHER_STATUS,
         ];
         $room = Room::create($data);
-        $this->assertEquals($room->status, 0);
+        $this->assertEquals($room->status, Room::FREE_STATUS);
     }
 
     /**
-     * Test that the Room status = 0 on creating without status
+     * Test that the Room status is Free on creating without status
      *
      * @return void
      */
@@ -36,7 +36,7 @@ class RoomServiceProviderTest extends TestCase
             'name' => 'A105',
         ];
         $room = Room::create($data);
-        $this->assertEquals($room->status, 0);
+        $this->assertEquals($room->status, Room::FREE_STATUS);
     }
 
     /**
@@ -70,7 +70,6 @@ class RoomServiceProviderTest extends TestCase
         $data = [
             'hotel_room_type_id' => $hotelRoomType->id,
             'name' => 'A105',
-            'status' => 0,
         ];
         return Room::create($data);
     }
@@ -90,94 +89,94 @@ class RoomServiceProviderTest extends TestCase
 
     /**
      * Test that the HotelRoomType quantity decreased 1
-     * after updating Room status from Free(0) to Other(2)
+     * after updating Room status from Free to Other
      *
      * @return void
      */
-    public function testUpdatedRoom0To2()
+    public function testUpdatedRoomFreeToOther()
     {
         $hotelRoomType = $this->seedHotelRoomType();
         $room = $this->seedRoom($hotelRoomType);
-        $room->update(['status' => 2]);
+        $room->update(['status' => Room::OTHER_STATUS]);
         $quantity = HotelRoomType::find($hotelRoomType->id, ['quantity'])->quantity;
         $this->assertEquals($quantity, 0);
     }
 
     /**
      * Test that the HotelRoomType quantity increased 1
-     * after updating Room status from Other(2) to Free(0)
+     * after updating Room status from Other to Free
      *
      * @return void
      */
-    public function testUpdatedRoom2To0()
+    public function testUpdatedRoomOtherToFree()
     {
         $hotelRoomType = $this->seedHotelRoomType();
         $room = $this->seedRoom($hotelRoomType);
-        $room->update(['status' => 2]);
-        $room->update(['status' => 0]);
+        $room->update(['status' => Room::OTHER_STATUS]);
+        $room->update(['status' => Room::FREE_STATUS]);
         $quantity = HotelRoomType::find($hotelRoomType->id, ['quantity'])->quantity;
         $this->assertEquals($quantity, 1);
     }
 
     /**
      * Test that the HotelRoomType quantity nochange
-     * after updating Room status from Free(0) to Used(1)
+     * after updating Room status from Free to Used
      *
      * @return void
      */
-    public function testUpdatedRoom0To1()
+    public function testUpdatedRoomFreeToUsed()
     {
         $hotelRoomType = $this->seedHotelRoomType();
         $room = $this->seedRoom($hotelRoomType);
-        $room->update(['status' => 1]);
+        $room->update(['status' => Room::USED_STATUS]);
         $quantity = HotelRoomType::find($hotelRoomType->id, ['quantity'])->quantity;
         $this->assertEquals($quantity, 1);
     }
 
     /**
      * Test that the HotelRoomType quantity nochange
-     * after updating Room status from Used(1) to Free(0)
+     * after updating Room status from Used to Free
      *
      * @return void
      */
-    public function testUpdatedRoom1To0()
+    public function testUpdatedRoomUsedToFree()
     {
         $hotelRoomType = $this->seedHotelRoomType();
         $room = $this->seedRoom($hotelRoomType);
-        $room->update(['status' => 1]);
-        $room->update(['status' => 0]);
+        $room->update(['status' => Room::USED_STATUS]);
+        $room->update(['status' => Room::FREE_STATUS]);
         $quantity = HotelRoomType::find($hotelRoomType->id, ['quantity'])->quantity;
         $this->assertEquals($quantity, 1);
     }
 
     /**
      * Test that the HotelRoomType quantity decreased 1
-     * after updating Room status from Used(1) to Other(2)
+     * after updating Room status from Used to Other
      *
      * @return void
      */
-    public function testUpdatedRoom1To2()
+    public function testUpdatedRoomUsedToOther()
     {
         $hotelRoomType = $this->seedHotelRoomType();
         $room = $this->seedRoom($hotelRoomType);
-        $room->update(['status' => 1]);
-        $room->update(['status' => 2]);
+        $room->update(['status' => Room::USED_STATUS]);
+        $room->update(['status' => Room::OTHER_STATUS]);
         $quantity = HotelRoomType::find($hotelRoomType->id, ['quantity'])->quantity;
         $this->assertEquals($quantity, 0);
     }
 
     /**
      * Test that the HotelRoomType quantity increased 1
-     * after updating Room status from Other(2) to Used(1)
+     * after updating Room status from Other to Used
      *
      * @return void
      */
-    public function testUpdatedRoom2To1()
+    public function testUpdatedRoomOtherToUsed()
     {
         $hotelRoomType = $this->seedHotelRoomType();
         $room = $this->seedRoom($hotelRoomType);
-        $room->update(['status' => 2]);
-        $room->update(['status' => 1]);
+        $room->update(['status' => Room::OTHER_STATUS]);
+        $room->update(['status' => Room::USED_STATUS]);
         $quantity = HotelRoomType::find($hotelRoomType->id, ['quantity'])->quantity;
         $this->assertEquals($quantity, 1);
     }
@@ -207,7 +206,7 @@ class RoomServiceProviderTest extends TestCase
     {
         $hotelRoomType = $this->seedHotelRoomType();
         $room = $this->seedRoom($hotelRoomType);
-        $room->update(['status' => 1]);
+        $room->update(['status' => Room::USED_STATUS]);
         $room->delete();
         $quantity = HotelRoomType::find($hotelRoomType->id, ['quantity'])->quantity;
         $this->assertEquals($quantity, 0);
@@ -223,7 +222,7 @@ class RoomServiceProviderTest extends TestCase
     {
         $hotelRoomType = $this->seedHotelRoomType();
         $room = $this->seedRoom($hotelRoomType);
-        $room->update(['status' => 2]);
+        $room->update(['status' => Room::OTHER_STATUS]);
         $room->delete();
         $quantity = HotelRoomType::find($hotelRoomType->id, ['quantity'])->quantity;
         $this->assertEquals($quantity, 0);
