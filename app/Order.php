@@ -39,4 +39,11 @@ class Order extends Model
         'quantity',
         'status'
     ];
+    /**
+     * Get the room type that the hotel manage.
+     */
+    public function hotelRoomType()
+    {
+        return $this->belongsTo('HotelBooking\HotelRoomType', 'hotel_room_type_id');
+    }
 }
