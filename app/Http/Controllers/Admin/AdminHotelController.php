@@ -16,7 +16,6 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
  */
 class AdminHotelController extends AdminBaseController
 {
-
     /**
      * Display a listing of the hotel admins.
      *

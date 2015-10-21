@@ -12,7 +12,6 @@ use HotelBooking\Http\Requests\Admin\HotelCreateRequest;
 use HotelBooking\Http\Requests\Admin\HotelEditRequest;
 use HotelBooking\Http\Controllers\Controller;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-use Auth;
 
 /**
  * HotelController
@@ -20,7 +19,6 @@ use Auth;
 
 class HotelController extends AdminBaseController
 {
-
     /**
      * Display a listing of the hotel.
      *

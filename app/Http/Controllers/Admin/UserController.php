@@ -9,7 +9,6 @@ use Session;
 
 class UserController extends AdminBaseController
 {
-
     /**
      * Display a listing of the User.
      *
