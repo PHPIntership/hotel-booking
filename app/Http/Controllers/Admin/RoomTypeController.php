@@ -14,10 +14,6 @@ use Session;
 class RoomTypeController extends AdminBaseController
 {
 
-    public function __construct()
-    {
-        $this->middleware('auth.admin');
-    }
     /**
      * Display a listing of the Room Type.
      *

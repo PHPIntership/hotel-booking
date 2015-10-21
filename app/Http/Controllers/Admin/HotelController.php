@@ -21,11 +21,6 @@ use Auth;
 class HotelController extends AdminBaseController
 {
 
-    public function __construct()
-    {
-        $this->auth = Auth::admin();
-        $this->middleware('auth.admin');
-    }
     /**
      * Display a listing of the hotel.
      *

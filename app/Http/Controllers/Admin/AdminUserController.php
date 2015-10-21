@@ -22,7 +22,6 @@ class AdminUserController extends AdminBaseController
     public function __construct()
     {
         $this->auth = Auth::admin();
-        $this->middleware('auth.admin');
     }
     /**
      * Show view edit profile Admin User.

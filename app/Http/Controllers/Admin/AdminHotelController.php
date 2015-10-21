@@ -17,10 +17,6 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 class AdminHotelController extends AdminBaseController
 {
 
-    public function __construct()
-    {
-        $this->middleware('auth.admin');
-    }
     /**
      * Display a listing of the hotel admins.
      *
