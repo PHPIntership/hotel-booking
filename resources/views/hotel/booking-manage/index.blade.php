@@ -41,7 +41,7 @@ Booking Manage
                             <td>{{ $order->leave_date }}</td>
                             <td>
                                 <label style="font-size:13px" class="label label-{{$label[$order->status]}}">
-                                {{ trans('messages.status_order_'.$order->status) }}
+                                 {{ $order->status_name }}
                                 </label>
                             </td>
                             <td>

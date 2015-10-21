@@ -70,10 +70,10 @@ class BookingManageControllerTest extends TestCase
     {
         $this->actingAs();
         $this->visit(route('hotel.booking-manage.index'))
-            ->see(trans('messages.status_order_0'))
+            ->see(trans('messages.waiting'))
             ->press('Accept')
             ->see(trans('messages.accept_success_booking_manage'))
-            ->see(trans('messages.status_order_1'));
+            ->see(trans('messages.accepted'));
     }
     /**
      * Test desline order. status order: waiting to status disable
@@ -83,9 +83,9 @@ class BookingManageControllerTest extends TestCase
     {
         $this->actingAs();
         $this->visit(route('hotel.booking-manage.index'))
-            ->see(trans('messages.status_order_0'))
+            ->see(trans('messages.waiting'))
             ->press('Decline')
             ->see(trans('messages.decline_success_booking_manage'))
-            ->see(trans('messages.status_order_3'));
+            ->see(trans('messages.disabled'));
     }
 }

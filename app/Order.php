@@ -10,6 +10,26 @@ class Order extends Model
     use SoftDeletes;
 
     /**
+     * Default status waiting for order.
+     */
+    const WAITING_STATUS = 0;
+
+    /**
+     * Default status accepted for order.
+     */
+    const ACCEPTED_STATUS = 1;
+
+    /**
+     * Default status checkin for order.
+     */
+    const CHECKED_IN_STATUS = 2;
+
+    /**
+     * Default status disabled for order.
+     */
+    const DISABLED_STATUS = 3;
+
+    /**
      * The database table used by the model.
      *
      * @var string
@@ -58,5 +78,26 @@ class Order extends Model
     public function hotelRoomType()
     {
         return $this->belongsTo('HotelBooking\HotelRoomType', 'hotel_room_type_id');
+    }
+    /**
+     * Get status name for admin hotel manage booking.
+     * @return string
+     */
+    public function getStatusNameAttribute()
+    {
+        switch ($this->status) {
+            case self::WAITING_STATUS:
+                return trans('messages.waiting');
+                break;
+            case self::ACCEPTED_STATUS:
+                return trans('messages.accepted');
+                break;
+            case self::CHECKED_IN_STATUS:
+                return trans('messages.checked_in');
+                break;
+            default:
+                return trans('messages.disabled');
+                break;
+        }
     }
 }

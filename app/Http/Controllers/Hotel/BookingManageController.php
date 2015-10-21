@@ -66,7 +66,7 @@ class BookingManageController extends Controller
     {
         try {
             $order = Order::findOrFail($id, ['id', 'status']);
-            $order->status = 1;
+            $order->status = Order::ACCEPTED_STATUS;
             $order->save();
 
             return redirect()
@@ -88,7 +88,7 @@ class BookingManageController extends Controller
     {
         try {
             $order = Order::findOrFail($id, ['id', 'status']);
-            $order->status = 3;
+            $order->status = Order::DISABLED_STATUS;
             $order->save();
 
             return redirect()
@@ -110,7 +110,7 @@ class BookingManageController extends Controller
     {
         try {
             $order = Order::findOrFail($id, ['id', 'status']);
-            $order->status = 3;
+            $order->status = Order::DISABLED_STATUS;
             $order->save();
 
             return redirect()
