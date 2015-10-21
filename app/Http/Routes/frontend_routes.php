@@ -66,3 +66,14 @@ Route::post('/register', [
     'as' => 'user.register',
     'uses' => 'Frontend\AuthController@postRegister'
 ]);
+/**
+ * Route for profile user
+ */
+Route::get('profile', [
+    'as' => 'user.profile',
+    'uses' => 'Frontend\ProfileController@getProfile'
+]);
+Route::put('profile', [
+    'as' => 'user.profile',
+    'uses' => 'Frontend\ProfileController@putProfile'
+]);

@@ -41,7 +41,6 @@ class CheckInServiceProviderTest extends TestCase
         $data = [
             'hotel_room_type_id' => $hotelRoomType->id,
             'name' => 'A105',
-            'status' => 0,
         ];
         return Room::create($data);
     }
@@ -67,7 +66,7 @@ class CheckInServiceProviderTest extends TestCase
     }
 
     /**
-     * Test that the Room status change into 1 after creating CheckIn
+     * Test that the Room status change into Used after creating CheckIn
      *
      * @return void
      */
@@ -77,7 +76,7 @@ class CheckInServiceProviderTest extends TestCase
         $room = $this->seedRoom($hotelRoomType);
         $checkIn = $this->seedCheckIn($room);
         $roomStatus = Room::find($room->id, ['status'])->status;
-        $this->assertEquals($roomStatus, 1);
+        $this->assertEquals($roomStatus, Room::USED_STATUS);
     }
 
     /**
@@ -95,7 +94,7 @@ class CheckInServiceProviderTest extends TestCase
     }
 
     /**
-     * Test that the Room status change into 0 after updating CheckIn
+     * Test that the Room status change into Free after updating CheckIn
      *
      * @return void
      */
@@ -106,6 +105,6 @@ class CheckInServiceProviderTest extends TestCase
         $checkIn = $this->seedCheckIn($room);
         $checkIn->update(['leave_date' => Carbon::now()->addDay(3)->toDateString()]);
         $room = Room::find($checkIn->room_id, ['status']);
-        $this->assertEquals($room->status, 0);
+        $this->assertEquals($room->status, Room::FREE_STATUS);
     }
 }

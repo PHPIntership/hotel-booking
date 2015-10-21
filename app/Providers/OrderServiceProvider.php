@@ -18,7 +18,7 @@ class OrderServiceProvider extends ServiceProvider
          * Set status and price before creating Order.
          */
         Order::creating(function ($order) {
-            $order->status = 0;
+            $order->status = Order::WAITING_STATUS;
             $hotelRoomType = HotelRoomType::find($order->hotel_room_type_id, ['id','price']);
             if ($hotelRoomType) {
                 $comingDate = new Carbon($order->coming_date);
