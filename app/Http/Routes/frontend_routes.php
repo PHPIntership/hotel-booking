@@ -59,10 +59,11 @@ Route::get('/search', [
 /**
  * Route for posting search data
  */
- Route::get('/search-result', [
-     'as' => 'user.searchresult',
-     'uses' => 'Frontend\UserController@search'
- ]);
+Route::get('/search-result', [
+ 'as' => 'user.searchresult',
+ 'uses' => 'Frontend\UserController@search'
+]);
+
 /**
  * Route for profile user
  */
