@@ -47,7 +47,12 @@ class ProfileController extends FrontendBaseController
             $query->with($with0)
                 ->select('id', 'name', 'hotel_id');
         };
-
+        $label = [
+            'info',
+            'success',
+            'warning',
+            'danger',
+        ];
         $orders = Order::with($with)
             ->select($array)
             ->where('user_id', Auth::user()->get()->id)
@@ -63,7 +68,7 @@ class ProfileController extends FrontendBaseController
         try {
             $user = User::findOrFail($id, $columns);
 
-            return view('frontend.profile.profile', compact('user', 'orders'));
+            return view('frontend.profile.profile', compact('user', 'orders', 'label'));
         } catch (ModelNotFoundException $ex) {
             return view('frontend.errors.404');
         }
@@ -110,16 +115,18 @@ class ProfileController extends FrontendBaseController
     * Cancel order if admin hotel want cancel from storage.
     *
     * @param $id
+    * @return \Illuminate\Http\Response
     */
     public function postCancel($id)
     {
         try {
             $order = Order::findOrFail($id, ['id', 'status']);
-            $order->status = 3;
+            $order->status = Order::DISABLED_STATUS;
             $order->save();
+
             return redirect()
                 ->route('user.profile')
-                ->with(['flash_success'=> trans('messages.cancel_success_order'), 'tab'=>2]);
+                ->with(['flash_success' => trans('messages.cancel_success_order'), 'tab' => 2]);
         } catch (ModelNotFoundException $ex) {
             return redirect()
                 ->route('user.profile')

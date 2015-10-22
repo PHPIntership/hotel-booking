@@ -50,7 +50,7 @@
                                 ->label(trans('messages.image'))
                                 ->onchange("readURL(this);")
                             !!}
-                            {!! Former::submit('Update')->class('btn btn-info update') !!}
+                            {!! Former::submit(trans('messages.update'))->class('btn btn-info update') !!}
                             {!! Former::close() !!}
                         </div>
                     </div>
@@ -85,12 +85,16 @@
                                     <td>{{ $order->leave_date }}</td>
                                     <td>{{ $order->quantity }}</td>
                                     <td>{{ $order->price }}</td>
-                                    <td>{{ $order->status }}</td>
+                                    <td>
+                                        <label style="font-size:13px" class="label label-{{$label[$order->status]}}">
+                                            {{ $order->status_name }}
+                                        </label>
+                                    </td>
                                     <td>{{ $order->comment }}</td>
                                     <td>
-                                        @if ($order->status == 0)
+                                        @if ($order->status_name == trans('messages.waiting'))
                                         {!! Former::open(route('user.order.cancel',$order->id))->method('post') !!}
-                                        {!! Former::submit(trans('messages.cancel'))->class("btn btn-sm btn-warning cancel_order")!!}
+                                        {!! Former::button(trans('messages.cancel'))->class("btn btn-sm btn-warning cancel_order")!!}
                                         {!! Former::close() !!}
                                         @endif
                                     </td>

@@ -21,9 +21,20 @@ class UserProfileTest extends TestCase
          parent::setUp();
          static $seed = false;
          if (!$seed) {
-             DB::table('users')->truncate();
-             $this->seed('UserTableSeeder');
-             $seed = true;
+            DB::table('users')->truncate();
+            DB::table('orders')->truncate();
+            DB::table('admin_hotels')->truncate();
+            DB::table('room_types')->truncate();
+            DB::table('hotel_room_types')->truncate();
+            DB::table('hotels')->truncate();
+            DB::table('users')->truncate();
+            DB::table('orders')->truncate();
+            $this->seed('AdminHotelTableSeeder');
+            $this->seed('HotelRoomTypeSeeder');
+            $this->seed('HotelTableSeeder');
+            $this->seed('UserTableSeeder');
+            $this->seed('OrderSeeder');
+            $seed = true;
          }
      }
      /**
@@ -134,6 +145,6 @@ class UserProfileTest extends TestCase
         $this->visit(route('user.profile'))
             ->click(trans('messages.order_history'))
             ->press(trans('messages.cancel'))
-            ->see('Success');
+            ->see(trans('messages.cancel_success_order'));
     }
 }
