@@ -141,6 +141,9 @@ return [
          * Application Service Providers...
          */
         HotelBooking\Providers\AppServiceProvider::class,
+        HotelBooking\Providers\RoomServiceProvider::class,
+        HotelBooking\Providers\OrderServiceProvider::class,
+        HotelBooking\Providers\CheckInServiceProvider::class,
         HotelBooking\Providers\AuthServiceProvider::class,
         HotelBooking\Providers\EventServiceProvider::class,
         HotelBooking\Providers\RouteServiceProvider::class,

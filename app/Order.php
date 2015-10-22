@@ -10,23 +10,13 @@ class Order extends Model
     use SoftDeletes;
 
     /**
-     * Default status waiting for order.
+     * Constants of Order status.
+     *
+     * @var int
      */
     const WAITING_STATUS = 0;
-
-    /**
-     * Default status accepted for order.
-     */
     const ACCEPTED_STATUS = 1;
-
-    /**
-     * Default status checkin for order.
-     */
     const CHECKED_IN_STATUS = 2;
-
-    /**
-     * Default status disabled for order.
-     */
     const DISABLED_STATUS = 3;
 
     /**
