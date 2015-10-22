@@ -167,7 +167,7 @@ class RoomTypeControllerTests extends TestCase
     {
         $this->actingAs();
         $this->visit(route('hotel.room-type.index'))
-             ->see(trans('messages.hotel.room-type'));
+             ->see(trans('messages.hotel_room_type'));
     }
 
     /**
