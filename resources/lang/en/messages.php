@@ -128,5 +128,8 @@ return [
     'update_success_profile' => 'Updateed profile successfully',
     'update_fail_profile' => 'Can not update profile',
     'profile' => 'Profile',
-    'profile_infomation' => 'Profile Infomation'
+    'profile_infomation' => 'Profile Infomation',
+    'order_id' => 'Order id',
+    'coming_date' => 'Coming_date',
+    'leave_date' => 'Leave date',
 ];

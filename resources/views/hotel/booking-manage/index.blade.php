@@ -1,6 +1,6 @@
 @extends('layouts.hotel')
 @section('title')
-Booking Manage
+{{trans('messages.booking_manage')}}
 @endsection
 @section('css')
 <link rel="stylesheet" href="{{asset('assets/css/sweetalert.css')}}">
@@ -19,14 +19,14 @@ Booking Manage
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>order id</th>
-                            <th>User</th>
-                            <th>Room type</th>
-                            <th>quantity</th>
-                            <th>coming date</th>
-                            <th>leave date</th>
-                            <th>Status</th>
-                            <th>Action</th>
+                            <th>{{trans('messages.order_id')}}</th>
+                            <th>{{trans('messages.user')}}</th>
+                            <th>{{trans('messages.room_type')}}</th>
+                            <th>{{trans('messages.quantity')}}</th>
+                            <th>{{trans('messages.coming_date')}}</th>
+                            <th>{{ trans('messages.leave_date') }}</th>
+                            <th>{{ trans('messages.status') }}</th>
+                            <th>{{ trans('messages.action')}}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -45,18 +45,18 @@ Booking Manage
                                 </label>
                             </td>
                             <td>
-                                @if ($order->status == 0)
+                                @if ($order->status_name == trans('messages.waiting'))
                                     {!! Former::open(route('hotel.booking-manage.accept',$order->id))->method('post')->style('display: inline') !!}
                                         {!! Former::button(trans('messages.accept'))->class("btn btn-sm btn-info accept-order")!!}
                                     {!! Former::close() !!}
                                     {!! Former::open(route('hotel.booking-manage.decline',$order->id))->method('post')->style('display: inline') !!}
                                         {!! Former::button(trans('messages.decline'))->class("btn btn-sm btn-warning decline-order") !!}
                                     {!! Former::close() !!}
-                                @elseif ($order->status == 1)
+                                @elseif ($order->status_name == trans('messages.accepted'))
                                     {!! Former::open(route('hotel.booking-manage.cancel',$order->id))->method('post')->style('display: inline') !!}
                                         {!! Former::button(trans('messages.cancel'))->class("btn btn-sm btn-warning cancel-order")!!}
                                     {!! Former::close() !!}
-                                @elseif ($order->status == 3)
+                                @elseif ($order->status_name == trans('messages.disabled'))
                                     {!! Former::open(route('hotel.booking-manage.destroy',$order->id))->method('delete')->style('display: inline') !!}
                                         {!! Former::button(trans('messages.delete'))->class("btn btn-sm btn-danger delete-order") !!}
                                     {!! Former::close() !!}
