@@ -14,11 +14,7 @@ class DatabaseSeeder extends Seeder
     {
         Model::unguard();
 
-        $this->call(AdminHotelTableSeeder::class);
-        $this->call(HotelRoomTypeSeeder::class);
         $this->call(HotelTableSeeder::class);
-        $this->call(OrderSeeder::class);
-        $this->call(UserTableSeeder::class);
 
         Model::reguard();
     }
