@@ -166,8 +166,8 @@ class RoomTypeControllerTests extends TestCase
     public function testViewIndex()
     {
         $this->actingAs();
-        $this->visit(route('admin-hotel.index'))
-             ->see(trans('messages.admin_hotel'));
+        $this->visit(route('hotel.room-type.index'))
+             ->see(trans('messages.hotel.room-type'));
     }
 
     /**
