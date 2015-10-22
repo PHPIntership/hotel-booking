@@ -71,6 +71,7 @@ class Order extends Model
     }
     /**
      * Get status name for admin hotel manage booking.
+     *
      * @return string
      */
     public function getStatusNameAttribute()
