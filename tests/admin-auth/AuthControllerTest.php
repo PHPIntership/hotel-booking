@@ -12,6 +12,7 @@ class AuthControllerTest extends TestCase
 
     /**
      * Test the status getLogin in AuthController
+     *
      * @return void
      */
     public function testGetLoginStatus()
@@ -21,7 +22,8 @@ class AuthControllerTest extends TestCase
     }
 
     /**
-     * test sataus post login
+     * Test sataus post login
+     *
      * @return void
      */
     public function testPostLoginStatus()
@@ -39,7 +41,8 @@ class AuthControllerTest extends TestCase
     }
 
     /**
-     * test sataus post login without username
+     * Test sataus post login without username
+     *
      * @return void
      */
     public function testPostLoginWithoutUsernameStatus()
@@ -56,7 +59,8 @@ class AuthControllerTest extends TestCase
     }
 
     /**
-     * test sataus post login without password
+     * Test sataus post login without password
+     *
      * @return void
      */
     public function testPostLoginWithoutPasswordStatus()
@@ -73,7 +77,8 @@ class AuthControllerTest extends TestCase
     }
 
     /**
-     * test sataus post login without username and password
+     * Test sataus post login without username and password
+     *
      * @return void
      */
     public function testPostLoginWithoutUserameAndPasswordStatus()
@@ -89,7 +94,8 @@ class AuthControllerTest extends TestCase
         $this->assertEquals(302, $response->status());
     }
     /**
-     * test status get logout
+     * Test status get logout
+     *
      * @return void
      */
     public function testGetLogoutStatus()

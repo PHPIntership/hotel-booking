@@ -29,7 +29,8 @@ class UserControllerTest extends TestCase
     }
 
     /**
-     * test Index User status.
+     * Test Index User status.
+     *
      * @return void
      */
     public function testIndexUserStatus()
@@ -40,7 +41,8 @@ class UserControllerTest extends TestCase
     }
 
     /**
-     * test Edit User status.
+     * Test Edit User status.
+     *
      * @return void
      */
     public function testEditUserStatus()
@@ -52,8 +54,9 @@ class UserControllerTest extends TestCase
     }
 
     /**
-     * test Put Update User status.
-     ** @return void
+     * Test Put Update User status.
+     *
+     * @return void
      */
     public function testPutUpdateUserStatus()
     {
@@ -69,7 +72,8 @@ class UserControllerTest extends TestCase
     }
 
     /**
-     * test Delete User Update status
+     * Test Delete User Update status
+     *
      * @return void
      */
     public function testDeleteUserStatus()
