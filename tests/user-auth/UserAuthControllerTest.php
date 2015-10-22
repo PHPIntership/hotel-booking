@@ -229,8 +229,4 @@ class UserAuthControllerTest extends TestCase
                 'email' => 'email@gmail.com'
             ]);
     }
-
-
-
-
 }

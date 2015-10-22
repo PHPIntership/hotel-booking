@@ -13,6 +13,15 @@ class Room extends Model
     use SoftDeletes;
 
     /**
+     * Constants of Room status.
+     *
+     * @var int
+     */
+    const FREE_STATUS = 0;
+    const USED_STATUS = 1;
+    const OTHER_STATUS = 2;
+
+    /**
      * The database table used by the model.
      *
      * @var string
