@@ -98,4 +98,15 @@ return [
     'create'=>'Create',
     'user'=>'User',
     'edit_user'=>'Eidt User',
+    'update_success_profile' => 'Updateed profile successfully',
+    'update_fail_profile' => 'Can not update profile',
+    'profile' => 'Profile',
+    'profile_infomation' => 'Profile Infomation',
+    'cancel_success_order' => 'Cancel your order successfully',
+    'cancel_fail_order' => 'Can not cancel your order',
+    'order_history' => 'Order history',
+    'coming_date' => 'Coming date',
+    'leave_date' => 'Leave date',
+    'comment' => 'Comment',
+    'cancel' => 'Cancel'
 ];

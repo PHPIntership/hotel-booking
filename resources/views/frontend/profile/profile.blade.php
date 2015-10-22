@@ -15,10 +15,10 @@
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs" role="tablist" id="navtab">
                     <li role="presentation" class="active">
-                        <a href="#profle" aria-controls="home" role="tab" data-toggle="tab">Profile</a>
+                        <a href="#profle" aria-controls="home" role="tab" data-toggle="tab">{{ trans('messages.profile') }}</a>
                     </li>
                     <li role="presentation">
-                        <a href="#orderhistory" aria-controls="tab" role="tab" data-toggle="tab">Order history</a>
+                        <a href="#orderhistory" aria-controls="tab" role="tab" data-toggle="tab">{{ trans('messages.order_history') }}</a>
                     </li>
                 </ul>
                 <!-- Tab panes -->
@@ -33,7 +33,6 @@
                                 ->method('PUT')
                                 ->action(route('user.profile'))
                             !!}
-                            @include('layouts.hotel.partials.flash')
                             {!! Former::text('name')
                                 ->label(trans('messages.name'))
                                 ->value($user->name)
@@ -51,25 +50,29 @@
                                 ->label(trans('messages.image'))
                                 ->onchange("readURL(this);")
                             !!}
-                            {!! Former::submit('Update')->class('btn btn-info') !!}
+                            {!! Former::submit('Update')->class('btn btn-info update') !!}
                             {!! Former::close() !!}
                         </div>
                     </div>
                     <div role="tabpanel" class="tab-pane table-responsive" id="orderhistory">
-                        @include('layouts.hotel.partials.flash')
+                        <div class="col-md-8 col-md-offset-2 registerform">
+                        <div class="form-group formtitle">
+                            <span class="label label-register">{{ trans('messages.order_history') }}</span>
+                        </div>
+                    </div>
                         <table class="table table-striped">
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Hotel</th>
-                                    <th>Room type</th>
-                                    <th>Coming day</th>
-                                    <th>Leave day</th>
-                                    <th>Quantity</th>
-                                    <th>Price</th>
-                                    <th>Status</th>
-                                    <th>Comments</th>
-                                    <th>Action</th>
+                                    <th>{{ trans('messages.hotel') }}</th>
+                                    <th>{{ trans('messages.room_type') }}</th>
+                                    <th>{{ trans('messages.coming_date') }}</th>
+                                    <th>{{ trans('messages.leave_date') }}</th>
+                                    <th>{{ trans('messages.quantity') }}</th>
+                                    <th>{{ trans('messages.price') }}</th>
+                                    <th>{{ trans('messages.status') }}</th>
+                                    <th>{{ trans('messages.comment') }}</th>
+                                    <th>{{ trans('messages.action') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -87,7 +90,7 @@
                                     <td>
                                         @if ($order->status == 0)
                                         {!! Former::open(route('user.order.cancel',$order->id))->method('post') !!}
-                                        {!! Former::button(trans('messages.cancel'))->class("btn btn-sm btn-warning cancel_order")!!}
+                                        {!! Former::submit(trans('messages.cancel'))->class("btn btn-sm btn-warning cancel_order")!!}
                                         {!! Former::close() !!}
                                         @endif
                                     </td>
@@ -108,12 +111,17 @@
 @endsection
 @section('js')
 <script>
+window.location.hash = '#content';
 @if (Session::has('tab'))
 $(function(){
     $("#navtab a:last").tab('show');
 });
 @endif
-
+@if (Session::has('flash_success'))
+$(document).ready(function (){
+    successMessage('Success', '{{Session::get('flash_success')}}');
+})
+@endif
 $('.cancel_order').on('click', function () {
     var confirm = confirmMessage('{{trans('messages.cancel')}}','{{trans('messages.cancel_order_confirm')}}','{{trans('messages.yes')}}','{{trans('messages.no')}}',$(this));
 });

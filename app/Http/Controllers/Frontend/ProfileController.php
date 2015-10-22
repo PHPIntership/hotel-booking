@@ -105,6 +105,7 @@ class ProfileController extends FrontendBaseController
             return redirect(route('user.profile'));
         }
     }
+
     /*
     * Cancel order if admin hotel want cancel from storage.
     *
