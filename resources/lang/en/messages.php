@@ -144,5 +144,9 @@ return [
     'order_login_request' => 'Please login and continue order',
     'order_success' => 'Order success. Price: :price',
     'order_fail' => 'Order fail. Just available :available_quantity Room(s)'
+    'cancel_success_order' => 'Cancel your order successfully',
+    'cancel_fail_order' => 'Can not cancel your order',
+    'order_history' => 'Order history',
+    'cancel' => 'Cancel',
     'order_id' => 'Order id',
 ];

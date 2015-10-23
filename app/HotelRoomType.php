@@ -68,6 +68,7 @@ class HotelRoomType extends Model
         return $this->belongsTo('HotelBooking\RoomType', 'room_type_id');
     }
 
+
     /**
      * Get the hotel of current hotel room type.
      */

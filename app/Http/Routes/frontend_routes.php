@@ -98,3 +98,7 @@ Route::put('profile', [
     'as' => 'user.profile',
     'uses' => 'Frontend\ProfileController@putProfile',
 ]);
+Route::post('{id}/cancel', [
+    'as' => 'user.order.cancel',
+    'uses' => 'Frontend\ProfileController@postCancel'
+]);
