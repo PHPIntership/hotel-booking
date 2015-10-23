@@ -43,11 +43,7 @@ class AuthController extends HotelBaseController
         $data = $request->only('username', 'password');
         $login = $this->auth->attempt($data, $request->has('remember'));
         if ($login) {
-            if (Route::has('hotel.index')) {
-                return redirect()->route('hotel.index');
-            } else {
-                return 'Login success';
-            }
+            return redirect()->route('hotel.profile');
         } else {
             Session::flash('flash_error', trans('messages.login_fail'));
 

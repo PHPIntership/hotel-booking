@@ -137,4 +137,12 @@ return [
     'order_id' => 'Order id',
     'coming_date' => 'Coming_date',
     'leave_date' => 'Leave date',
+    'hotel_booking' => 'Hotel Booking',
+    'index' => 'index',
+    'log_out' => 'Log out',
+    'asian_tech' => 'ASIAN TECH',
+    'home' => 'Home',
+    'menu' => 'MENU',
+    'room' => 'Room',
+    'list' => 'List'
 ];
