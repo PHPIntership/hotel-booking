@@ -3,7 +3,10 @@
 return [
     'result_search' => 'Result Search',
     'search' => 'Search',
+    'empty_result' => 'None of result was found',
     'book'=> 'Book',
+    'sorry' => 'Sorry',
+    'load_more' => 'Load more',
     'retype_password' => 'Retype your password',
     'register_success' => 'You have registered an account',
     'register_fail' => 'Can not register account',

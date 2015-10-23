@@ -1,3 +1,4 @@
+@foreach($results as $result)
 <tr>
     <td>
         <h3>{{$result->hotel->name.' ('.$result->hotel->quality}} <span class="glyphicon glyphicon-star" aria-hidden="true">)</span></h3>
@@ -11,10 +12,11 @@
     </td>
     <td>
         <h4>{{$result->name}}</h4>
-        <p>{{$result->quality}}</p>
-        <p>Avaiable: <span class="label label-danger" style="font-size:15px;">{{ $result->avaiable_quantity }}</span></p>
+        <p>{{$result->description}}</p>
+        <p>Avaiable: <span class="label label-danger" style="font-size:15px;">{{ $result->quantity - $result->ordered }}</span></p>
     </td>
     <td>
-        <a href="#" class="btn btn-info btn-lg">{{trans('messages.book')}}</a>
+        <a href="#" class="btn btn-success btn-lg">{{trans('messages.book')}}</a>
     </td>
 </tr>
+@endforeach

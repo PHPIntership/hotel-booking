@@ -8,8 +8,8 @@ use HotelBooking\Http\City;
 use HotelBooking\HotelRoomType;
 use HotelBooking\RoomType;
 use HotelBooking\Hotel;
-use HotelBooking\Order;
 use DB;
+use Session;
 
 /**
  * Controller for user.
@@ -48,126 +48,95 @@ class UserController extends FrontendBaseController
         $roomType = $request->input('roomtype');
         $comingDate = date('Y-m-d', strtotime($request->input('coming_date')));
         $leaveDate = date('Y-m-d', strtotime($request->input('leave_date')));
-        $page = $request->input('page');
 
-        // Retrieve search result
-        $results = $this->getResult($city, $roomType);
+        $keys = [
+            'city' => $city,
+            'room_type' => $roomType,
+            'coming_date' => $comingDate,
+            'leave_date' => $leaveDate,
+            'offset' => 0,
+        ];
 
-        // Get the id list from the result for checking orders.
-        $hotelRoomTypeids = [];
-        foreach ($results as $key => $result) {
-            $hotelRoomTypeids[$key] = $result->id;
-        }
+        $results = $this->getResult($keys);
 
-        // Get the orders of the hotels that in the result list
-         $orders = $this->getOrdersOfHotels($hotelRoomTypeids, $comingDate, $leaveDate);
-
-        // Set avaiable quantity of room type of each hotel for showing.
-        $this->setAvaiableQuantity($results, $orders);
-
-        // Paginating the search result
-        $paginateResult = $this->paginate($results, $page);
-
-        $totalPages = $results->count() / self::NUMBER_OF_RESULT;
+        Session::put('coming_date', $comingDate);
+        Session::put('leave_date', $leaveDate);
+        Session::put('number_of_result', self::NUMBER_OF_RESULT);
 
         // return view
         $cities = DB::table('cities')->lists('name', 'id');
         $roomTypes = DB::table('room_types')->lists('name', 'id');
 
-        return view('frontend.search', compact('cities', 'roomTypes', 'paginateResult', 'totalPages'));
+        return view('frontend.search', compact('cities', 'roomTypes', 'results'));
     }
 
     /**
-     * Get orders of hotels.
-     *
-     * @param [array]  $hotelRoomTypeids [array of hotel room type id]
-     * @param [string] $comingDate       [the coming date]
-     * @param [string] $leaveDate        [the leaving date]
-     *
-     * @return [array] [the array content orders that conflick the given time]
+     * Get the search result
+     * @param  [array] $keys [search keys]
+     * @return [array]
      */
-    public function getOrdersOfHotels($hotelRoomTypeids, $comingDate, $leaveDate)
+    public function getResult($keys)
     {
-        $orders = Order::select('hotel_room_type_id', 'quantity')
-            ->where('status', '<', 3)
-            ->whereIn('hotel_room_type_id', $hotelRoomTypeids)
-            ->where(function ($query) use ($comingDate, $leaveDate) {
-                $query->whereBetween('leave_date', [$comingDate, $leaveDate])
-                    ->OrWhereBetween('coming_date', [$comingDate, $leaveDate])
-                    ->OrWhere(function ($query) use ($comingDate, $leaveDate) {
-                        $query->where('coming_date', '<=', $comingDate)
-                            ->where('leave_date', '>=', $leaveDate);
-                    });
-            })->get();
+        $city = $keys['city'];
+        $roomType = $keys['room_type'];
+        $comingDate = $keys['coming_date'];
+        $leaveDate = $keys['leave_date'];
+        $offset = $keys['offset'];
 
-        return $orders;
-    }
+        // SQL query the number of rooms belong to hotel room type that were ordered
+        $ordered = DB::table('orders')
+        ->select(DB::raw('sum(orders.quantity)'))
+        ->whereRaw('orders.hotel_room_type_id = hotel_room_types.id')
+        ->where(function ($query) use ($comingDate, $leaveDate) {
+            $query->whereRaw("orders.leave_date between '".$comingDate."' and '".$leaveDate."'")
+                ->OrWhereRaw("orders.coming_date between '".$comingDate."' and '".$leaveDate."'")
+                ->OrWhere(function ($query) use ($comingDate, $leaveDate) {
+                    $query->whereRaw("orders.coming_date <= '".$comingDate."'")
+                        ->whereRaw("orders.leave_date >= '".$leaveDate."'");
+                });
+        })->toSql();
 
-    /**
-     * Retrieve search result base on city and roomtype.
-     *
-     * @param [int] $city     [city id]
-     * @param [int] $roomType [roomtype id]
-     *
-     * @return [collection] [description]
-     */
-    public function getResult($city, $roomType)
-    {
-        // Get the id list of hotels that locate in the city which the user is searching
         $hotelsId = Hotel::where('city_id', $city)
             ->lists('id');
 
         // Get the hotel room type result that the user is looking for.
-
         $with['hotel'] = function ($query) {
             $hotelColunms = ['id', 'name', 'quality', 'address', 'email', 'phone', 'image'];
             $query->select($hotelColunms);
         };
-        $roomTypeColumns = ['id', 'name', 'hotel_id', 'quality', 'quantity', 'price', 'image', 'description'];
+        $roomTypeColumns = ['id', 'hotel_id', 'quality', 'quantity', 'price', 'image', 'description'];
+        $roomTypeColumnsRaw = implode(',', $roomTypeColumns);
         $results = HotelRoomType::with($with)
-            ->select($roomTypeColumns)
+            ->select(DB::raw($roomTypeColumnsRaw.', ('.$ordered.') AS ordered'))
             ->where('room_type_id', $roomType)
             ->whereIn('hotel_id', $hotelsId)
+            ->havingRaw('quantity > COALESCE(ordered, 0 )')
+            ->skip($offset)
+            ->take(self::NUMBER_OF_RESULT)
             ->get();
 
         return $results;
     }
 
     /**
-     * Paginate the results for displaying.
-     *
-     * @param [collection] $results
-     * @param [int]        $page    [the current result page]
-     *
-     * @return [array] [the array of results have been paginated]
+     * Load more result
+     * @param  SearchRequest $request
+     * @return [view]
      */
-    public function paginate($results, $page)
+    public function loadMore(SearchRequest $request)
     {
-        $startIndex = $page * self::NUMBER_OF_RESULT;
-        $paginateResult = [];
-        foreach ($results as $key => $result) {
-            if ($startIndex <= $key && $key < ($startIndex + self::NUMBER_OF_RESULT)) {
-                array_push($paginateResult, $result);
-            }
-        }
+        $keys = [];
+        $keys['city'] = $request->input('city');
+        $keys['room_type'] = $request->input('roomtype');
+        $keys['coming_date'] = date('Y-m-d', strtotime($request->input('coming_date')));
+        $keys['leave_date'] = date('Y-m-d', strtotime($request->input('leave_date')));
+        $keys['offset'] = $request->input('offset');
+        $results = $this->getResult($keys);
 
-        return $paginateResult;
-    }
-
-    /**
-     * Set the real avaiable quantity of hotel roomtype.
-     * @param [collection] $results
-     * @param [array] $orders
-     */
-    public function setAvaiableQuantity($results, $orders)
-    {
-        foreach ($results as $result) {
-            $result->avaiable_quantity = $result->quantity;
-            foreach ($orders as $order) {
-                if ($result->id == $order->hotel_room_type_id) {
-                    $result->avaiable_quantity -= $order->quantity;
-                }
-            }
+        if ($results->count() > 0) {
+            return view('layouts.frontend.partials.search_result', compact('results'));
+        } else {
+            return '';
         }
     }
 }
