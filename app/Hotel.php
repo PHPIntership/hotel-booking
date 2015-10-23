@@ -12,6 +12,7 @@ class Hotel extends Model
 {
     use SoftDeletes;
 
+    const UPLOAD_KEY = 'hotel';
     /**
      * The database table used by the model.
      *
@@ -49,5 +50,14 @@ class Hotel extends Model
     public function city()
     {
         return $this->belongsTo('HotelBooking\City', 'city_id');
+    }
+
+    public function getImageLinkAttribute()
+    {
+        if (!empty($this->image)) {
+            return asset(config('uploads.'.self::UPLOAD_KEY).$this->image);
+        }
+
+        return '';
     }
 }
