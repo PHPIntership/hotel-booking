@@ -13,22 +13,24 @@ use HotelBooking\User;
 class UserProfileTest extends TestCase
 {
     use DatabaseTransactions;
+
      /**
       *Overide setUp function. Truncate and seed the database before tests.
       */
-     public function setUp()
-     {
-         parent::setUp();
-         static $seed = false;
-         if (!$seed) {
-             DB::table('users')->truncate();
-             $this->seed('UserTableSeeder');
-             $seed = true;
-         }
-     }
-     /**
-      * Override actingAs function for setting the current authenticated user.
-      */
+    public function setUp()
+    {
+        parent::setUp();
+        static $seed = false;
+        if (!$seed) {
+            DB::table('users')->truncate();
+            $this->seed('UserTableSeeder');
+            $seed = true;
+        }
+    }
+    
+    /**
+     * Override actingAs function for setting the current authenticated user.
+     */
     public function actingAs($user = null)
     {
         $columns = [

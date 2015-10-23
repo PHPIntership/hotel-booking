@@ -57,7 +57,7 @@ class HotelRoomType extends Model
     }
 
     /**
-     * Get the room type that the hotel manage.
+     * Get the room type of current hotel room type.
      */
     public function roomType()
     {
@@ -65,9 +65,17 @@ class HotelRoomType extends Model
     }
 
     /**
-     * Get free rooms quantity of hotel room type.
+     * Get the hotel of current hotel room type.
      */
-    public function getQuantityOfFreesAttribute($fromDate=false, $toDate=false)
+    public function hotel()
+    {
+        return $this->belongsTo('HotelBooking\Hotel', 'hotel_id');
+    }
+
+    /**
+     * Get available rooms quantity of hotel room type.
+     */
+    public function getAvailableRoomQuantityAttribute($fromDate = false, $toDate = false)
     {
         if (!$fromDate) {
             $fromDate = Carbon::now()->toDateString();
@@ -77,15 +85,19 @@ class HotelRoomType extends Model
         }
         $quantityOfUsed = Order::where('status', '<', 3)
             ->where('hotel_room_type_id', $this->id)
-            ->where(function($query) use ($fromDate, $toDate){
+            ->where(function ($query) use ($fromDate, $toDate) {
                 $query->whereBetween('coming_date', [$fromDate,$toDate])
                 ->orWhereBetween('leave_date', [$fromDate,$toDate])
-                ->orWhere(function($query) use ($fromDate, $toDate){
+                ->orWhere(function ($query) use ($fromDate, $toDate) {
                     $query->where('coming_date', '<', $fromDate)
                         ->where('leave_date', '>', $toDate);
                 });
             })
             ->sum('quantity');
-        return $this->quantity - $quantityOfUsed;
+        $availableQuantity = $this->quantity - $quantityOfUsed;
+        if ($availableQuantity < 0) {
+            $availableQuantity = 0;
+        }
+        return $availableQuantity;
     }
 }

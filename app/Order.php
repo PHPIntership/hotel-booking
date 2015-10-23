@@ -49,4 +49,23 @@ class Order extends Model
         'quantity',
         'status'
     ];
+
+    /**
+     * Get the hotel room type that the order's.
+     */
+    public function hotelRoomType()
+    {
+        return $this->belongsTo('HotelBooking\HotelRoomType', 'hotel_room_type_id');
+    }
+
+    /**
+     * Get free rooms quantity of current order.
+     */
+    public function getAvailableRoomQuantityAttribute()
+    {
+        return $this->hotelRoomType->getAvailableRoomQuantityAttribute(
+            $this->coming_date,
+            $this->leave_date
+        );
+    }
 }

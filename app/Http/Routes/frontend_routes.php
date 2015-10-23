@@ -34,17 +34,16 @@ Route::get('/', [
 ]);
 
 /**
- *
  * Route group for order pages.
  */
 Route::group(['prefix' => 'order'], function () {
-    Route::get('history', [
-        'as' => 'order.history',
-        'uses' => 'Frontend\OrderController@history',
-    ]);
     Route::get('', [
-        'as' => 'order.create',
-        'uses' => 'Frontend\OrderController@create',
+        'as' => 'order.index',
+        'uses' => 'Frontend\OrderController@index',
+    ]);
+    Route::get('{hotelRoomTypeId}', [
+        'as' => 'order.load',
+        'uses' => 'Frontend\OrderController@load',
     ]);
     Route::post('store', [
         'as' => 'order.store',
@@ -52,6 +51,7 @@ Route::group(['prefix' => 'order'], function () {
     ]);
 });
 
+/**
  * Route for getting register form
  */
 Route::get('/register', [
