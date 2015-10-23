@@ -52,8 +52,6 @@ class Order extends Model
 
     /**
      *  Get the user that the booking manage.
-     *
-     * @return array
      */
     public function user()
     {
@@ -61,14 +59,24 @@ class Order extends Model
     }
 
     /**
-     *  Get the hotel room type that the booking manage.
-     *
-     * @return array
+     * Get the hotel room type that the order's.
      */
     public function hotelRoomType()
     {
         return $this->belongsTo('HotelBooking\HotelRoomType', 'hotel_room_type_id');
     }
+
+    /**
+     * Get free rooms quantity of current order.
+     */
+    public function getAvailableRoomQuantityAttribute()
+    {
+        return $this->hotelRoomType->getAvailableRoomQuantityAttribute(
+            $this->coming_date,
+            $this->leave_date
+        );
+    }
+
     /**
      * Get status name for admin hotel manage booking.
      *
