@@ -69,6 +69,7 @@ class Order extends Model
     {
         return $this->belongsTo('HotelBooking\HotelRoomType', 'hotel_room_type_id');
     }
+
     /**
      * Get status name for admin hotel manage booking.
      *
