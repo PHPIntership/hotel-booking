@@ -52,7 +52,6 @@ class Order extends Model
 
     /**
      *  Get the user that the booking manage.
-     *
      */
     public function user()
     {
@@ -77,7 +76,7 @@ class Order extends Model
             $this->leave_date
         );
     }
-    
+
     /**
      * Get status name for admin hotel manage booking.
      *

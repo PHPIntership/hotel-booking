@@ -47,7 +47,6 @@ Route::group(['prefix' => 'order'], function () {
 });
 
 /**
- *
  * Route for getting register form
  */
 Route::get('/register', [
