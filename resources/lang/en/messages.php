@@ -151,4 +151,12 @@ return [
     'order_id' => 'Order id',
     'order_confirm' => 'Order Confirm',
     'order_comfirm_message' => 'Are you sure to continue order?',
+    'hotel_booking' => 'Hotel Booking',
+    'index' => 'index',
+    'log_out' => 'Log out',
+    'asian_tech' => 'ASIAN TECH',
+    'home' => 'Home',
+    'menu' => 'MENU',
+    'room' => 'Room',
+    'list' => 'List'
 ];

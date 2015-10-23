@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Foundation\Testing\DatabaseTransactions;
-use HotelBooking\AdminHotel;
 
 /**
  * Tests for AuthController of hotel admin.
@@ -120,19 +119,5 @@ class HotelAuthControllerTest extends TestCase
                 'attribute' => 'password',
                 'max' => 20,
             ]));
-    }
-
-    /**
-     * Test if can log in with correct username and password.
-     */
-    public function testPassLogin()
-    {
-        $this->seed('AdminHotelTableSeeder');
-        $adminHotel = AdminHotel::select('username')->first();
-        $this->visit(route('hotel.login'))
-            ->type($adminHotel->username, '#username')
-            ->type('123123', '#password')
-            ->press(trans('messages.sign_in'))
-            ->dontSee(trans('messages.login_fail'));
     }
 }

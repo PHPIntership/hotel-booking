@@ -11,7 +11,7 @@ class AdminBaseController extends Controller
 {
     public function index()
     {
-        return 'Index';
+        return redirect(route('admin.user.index'));
     }
 
     /**
