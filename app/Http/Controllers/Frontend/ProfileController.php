@@ -40,23 +40,23 @@ class ProfileController extends FrontendBaseController
             'status',
             'comment',
         ];
-        $with0['hotel'] = function ($query) {
+        $withHotel['hotel'] = function ($query) {
             $query->select('id', 'name');
         };
-        $with['hotelRoomType'] = function ($query) use ($with0) {
-            $query->with($with0)
+        $with['hotelRoomType'] = function ($query) use ($withHotel) {
+            $query->with($withHotel)
                 ->select('id', 'name', 'hotel_id');
         };
+        $orders = Order::with($with)
+            ->select($array)
+            ->where('user_id', Auth::user()->get()->id)
+            ->paginate(10);
         $label = [
             'info',
             'success',
             'warning',
             'danger',
         ];
-        $orders = Order::with($with)
-            ->select($array)
-            ->where('user_id', Auth::user()->get()->id)
-            ->paginate(10);
         $columns = [
             'id',
             'name',

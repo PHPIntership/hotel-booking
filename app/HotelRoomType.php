@@ -5,6 +5,9 @@ namespace HotelBooking;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+/**
+ * Hotel Roomtype model
+ */
 class HotelRoomType extends Model
 {
     use SoftDeletes;
@@ -62,11 +65,22 @@ class HotelRoomType extends Model
     {
         return $this->belongsTo('HotelBooking\RoomType', 'room_type_id');
     }
+
+
     /**
-     * Get the room type that the hotel manage.
+     * Get the hotel that the roomtype belong
      */
     public function hotel()
     {
         return $this->belongsTo('HotelBooking\Hotel', 'hotel_id');
+    }
+
+    /**
+     * Set the avaiable_quantity attribute value
+     * @param [int] $value
+     */
+    public function setAvaiableQuantityAttribute($value)
+    {
+        $this->attributes['avaiable_quantity'] = $value;
     }
 }

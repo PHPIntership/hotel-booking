@@ -5,6 +5,7 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use HotelBooking\Hotel;
 use HotelBooking\City;
+use HotelBooking\AdminUser;
 
 /**
  * Test class for HotelsController
@@ -13,6 +14,37 @@ class HotelControllerTest extends TestCase
 {
     use DatabaseTransactions;
 
+    /**
+     * Overide setUp function. Truncate and seed the database before tests.
+     */
+    public function setUp()
+    {
+        parent::setUp();
+        static $seed = false;
+        if (!$seed) {
+            DB::table('admin_users')->truncate();
+            $facAdminUser = factory(HotelBooking\AdminUser::class)->create();
+            $adminUser = [
+                'username'=>$facAdminUser->username,
+                'password'=>'123456',
+                'remember'=>1,
+                '_token'  => csrf_token()
+                ];
+        }
+        $this->actingAs();
+    }
+
+    /**
+     * Override actingAs function for setting the current authenticated hotel admin.
+     */
+    public function actingAs($admin = null)
+    {
+        $admin = AdminUser::select('id', 'username', 'password')->first();
+        $login = Auth::admin()->attempt([
+            'username' => $admin->username,
+            'password' => '123456',
+        ]);
+    }
     /**
      * Test create action, GET method
      *
@@ -69,7 +101,7 @@ class HotelControllerTest extends TestCase
         $response = $this->call('PUT', route('admin.hotel.update'));
         $this->assertEquals(302, $response->status());
     }
-    
+
     /**
      * Test the status receive when access index page
      * @return void
