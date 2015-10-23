@@ -76,7 +76,8 @@ class Order extends Model
             $this->coming_date,
             $this->leave_date
         );
-
+    }
+    
     /**
      * Get status name for admin hotel manage booking.
      *
