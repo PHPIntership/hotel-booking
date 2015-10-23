@@ -9,7 +9,7 @@ class RoomTypeControllerTest extends TestCase
     use DatabaseTransactions;
 
     /**
-     * create room type.
+     * Create room type.
      *
      * @return HotelBooking\RoomType
      */
@@ -25,7 +25,7 @@ class RoomTypeControllerTest extends TestCase
     }
 
     /**
-     * test status create action.
+     * Test status create action.
      */
     public function testCreateStatus()
     {
@@ -34,7 +34,7 @@ class RoomTypeControllerTest extends TestCase
     }
 
     /**
-     * test status store action.
+     * Test status store action.
      */
     public function testStoreStatus()
     {
@@ -49,7 +49,7 @@ class RoomTypeControllerTest extends TestCase
     }
 
     /**
-     * test status edit action.
+     * Test status edit action.
      */
     public function testEditStatus()
     {
@@ -59,7 +59,7 @@ class RoomTypeControllerTest extends TestCase
     }
 
     /**
-     * test status update action.
+     * Test status update action.
      */
     public function testUpdateStatus()
     {
@@ -75,7 +75,7 @@ class RoomTypeControllerTest extends TestCase
     }
 
     /**
-     * test status Display a listing action.
+     * Test status Display a listing action.
      */
     public function testIndexStatus()
     {
@@ -84,7 +84,7 @@ class RoomTypeControllerTest extends TestCase
     }
 
     /**
-     * test status delete room type action.
+     * Test status delete room type action.
      */
     public function testDeleteStatus()
     {
