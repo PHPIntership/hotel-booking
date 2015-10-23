@@ -47,6 +47,48 @@ class Order extends Model
         'price',
         'comment',
         'quantity',
-        'status'
+        'status',
     ];
+
+    /**
+     *  Get the user that the booking manage.
+     *
+     * @return array
+     */
+    public function user()
+    {
+        return $this->belongsTo('HotelBooking\User', 'user_id');
+    }
+
+    /**
+     *  Get the hotel room type that the booking manage.
+     *
+     * @return array
+     */
+    public function hotelRoomType()
+    {
+        return $this->belongsTo('HotelBooking\HotelRoomType', 'hotel_room_type_id');
+    }
+    /**
+     * Get status name for admin hotel manage booking.
+     *
+     * @return string
+     */
+    public function getStatusNameAttribute()
+    {
+        switch ($this->status) {
+            case self::WAITING_STATUS:
+                return trans('messages.waiting');
+                break;
+            case self::ACCEPTED_STATUS:
+                return trans('messages.accepted');
+                break;
+            case self::CHECKED_IN_STATUS:
+                return trans('messages.checked_in');
+                break;
+            default:
+                return trans('messages.disabled');
+                break;
+        }
+    }
 }

@@ -6,7 +6,7 @@ function successMessage(title, message) {
     swal(title, message, "success");
 }
 
-function confirmMessage(title, text, confirm, cancel) {
+function confirmMessage(title, text, confirm, cancel, buttonDOM) {
     swal({
             title: title,
             text: text,
@@ -18,6 +18,11 @@ function confirmMessage(title, text, confirm, cancel) {
             closeOnConfirm: true
         },
         function(isConfirm) {
-            return true;
+            if (isConfirm) {
+                var form = buttonDOM.parent('form');
+                form.submit();
+            } else {
+                return false;
+            }
         });
 }
