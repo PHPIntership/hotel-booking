@@ -25,9 +25,7 @@ Route::get('logout', [
  */
 Route::get('/', [
     'as' => 'user.index',
-    'uses' => function () {
-        return view('layouts.frontend');
-    },
+    'uses' => 'Frontend\UserController@getSearch',
 ]);
 
 /*
