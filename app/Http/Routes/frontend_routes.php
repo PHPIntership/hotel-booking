@@ -28,7 +28,25 @@ Route::get('/', [
     'uses' => 'Frontend\UserController@getSearch',
 ]);
 
-/*
+/**
+ * Route group for order pages.
+ */
+Route::group(['prefix' => 'order'], function () {
+    Route::get('', [
+        'as' => 'order.index',
+        'uses' => 'Frontend\OrderController@index',
+    ]);
+    Route::get('{hotelRoomTypeId}', [
+        'as' => 'order.load',
+        'uses' => 'Frontend\OrderController@load',
+    ]);
+    Route::post('store', [
+        'as' => 'order.store',
+        'uses' => 'Frontend\OrderController@store',
+    ]);
+});
+
+/**
  * Route for getting register form
  */
 Route::get('/register', [

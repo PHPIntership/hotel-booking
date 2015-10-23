@@ -13,8 +13,9 @@ use HotelBooking\User;
 class UserProfileTest extends TestCase
 {
     use DatabaseTransactions;
+
      /**
-      *Overide setUp function. Truncate and seed the database before tests.
+      * Overide setUp function. Truncate and seed the database before tests.
       */
      public function setUp()
      {

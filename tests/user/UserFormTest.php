@@ -67,7 +67,7 @@ class UserFormTest extends TestCase
      *
      * @return void
      */
-    function testIndexUser()
+    public function testIndexUser()
     {
         $this->visit(route('admin.user.index'))
             ->see(trans('messages.user'));
@@ -78,7 +78,7 @@ class UserFormTest extends TestCase
      *
      * @return void
      */
-    function testEditUser()
+    public function testEditUser()
     {
         $user = $this->createUser();
         $this->visit(route('admin.user.edit', $user->id))
@@ -91,7 +91,7 @@ class UserFormTest extends TestCase
      *
      * @return void
      */
-    function testPutUpdateUser()
+    public function testPutUpdateUser()
     {
         $faker = Faker\Factory::create();
         $user = $this->createUser();
@@ -111,7 +111,7 @@ class UserFormTest extends TestCase
      *
      * @return void
      */
-    function testDeleteUser()
+    public function testDeleteUser()
     {
         $user = $this->createUser();
         $this->visit(route('admin.user.index'))
