@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Carbon\Carbon;
 
+/**
+ * Hotel Roomtype model
+ */
 class HotelRoomType extends Model
 {
     use SoftDeletes;
@@ -14,6 +17,7 @@ class HotelRoomType extends Model
      * Key congig uploads.
      */
     const UPLOAD_KEY = 'hotel_room_type';
+
     /**
      * The database table used by the model.
      *
@@ -45,7 +49,7 @@ class HotelRoomType extends Model
     ];
 
     /**
-     * Get base link of hotel room type.
+     * Get base link of hotel room type image.
      */
     public function getImageLinkAttribute()
     {
@@ -74,6 +78,9 @@ class HotelRoomType extends Model
 
     /**
      * Get available rooms quantity of hotel room type.
+     *
+     * @param date $fromDate
+     * @param date $toDate
      */
     public function getAvailableRoomQuantityAttribute($fromDate = false, $toDate = false)
     {
@@ -99,5 +106,15 @@ class HotelRoomType extends Model
             $availableQuantity = 0;
         }
         return $availableQuantity;
+    }
+
+    /**
+     * Set the avaiable_quantity attribute value
+     *
+     * @param [int] $value
+     */
+    public function setAvaiableQuantityAttribute($value)
+    {
+        $this->attributes['avaiable_quantity'] = $value;
     }
 }

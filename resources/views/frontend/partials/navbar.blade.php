@@ -17,10 +17,10 @@
             <div class="mynav_wrapper">
                 <div class="collapse navbar-collapse navbar-ex1-collapse mynav">
                     <ul class="nav navbar-nav">
-                        <li class="active_item"><a href="#">Home</a></li>
-                        <li><a href="#">search</a></li>
+                        <li class="active_item"><a href="{{route('user.search')}}">Home</a></li>
+                        <li><a href="{{route('user.search')}}">search</a></li>
                         <li><a href="#">hotel</a></li>
-                        <li><a href="#">profile</a></li>
+                        <li><a href="{{route('user.profile')}}">profile</a></li>
                         <li><a href="#">gallery</a></li>
                         <li><a href="#">contact</a></li>
 
