@@ -1,5 +1,9 @@
 @extends('layouts.frontend')
-
+@section('css')
+<link rel="stylesheet" href="{{ asset('assets/css/sweetalert.css') }}">
+<script src="{{ asset('assets/js/alert.js') }}"></script>
+<script src="{{ asset('assets/js/sweetalert.min.js') }}"></script>
+@endsection
 @section('content')
 <div id="order-wrap" class="col-sm-12">
 <div id="order-info" class="col-sm-5">
@@ -46,8 +50,9 @@
       ->disabled('')
   !!}
   @if(Auth::user()->check())
-      {!! Former::submit(trans('messages.order_submit'))
-          ->class('btn btn-info pull-right') !!}
+      {!! Former::button(trans('messages.order_submit'))
+          ->class('btn btn-info pull-right')
+          ->id('submit-order')!!}
   @else
       {!! Former::label(trans('messages.order_login_request'))
           ->class('alert-danger pull-right')
@@ -84,6 +89,14 @@
         $('#leave_date').on("change", orderPrice);
         $('#leave_date').on("changeDate", orderPrice);
         $('#quantity').on("change", orderPrice);
+        $('#submit-order').on("click", function(){
+            confirmMessage(
+                '{{trans('messages.order_confirm')}}',
+                '{{trans('messages.order_comfirm_message')}}',
+                '{{trans('messages.yes')}}',
+                '{{trans('messages.no')}}',
+                $(this));
+        });
     });
 </script>
 @endsection
