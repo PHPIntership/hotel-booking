@@ -85,8 +85,9 @@ return [
     'admin_login'=>'Admin Login',
     'create_hotel_room_type' => 'Create a hotel room type',
     'please_select' =>'Please select',
-    'quantity' => 'quantity',
-    'price' => 'price',
+    'quantity' => 'Quantity',
+    'price' => 'Price',
+    'description' => 'Description',
     'edit_hotel_room_type' => 'Edit hotel room type',
     'create_fail_hotel_room_type' => 'Can not create hotel room type',
     'create_success_hotel_room_type' => 'Create success hotel room type successfully',
@@ -106,5 +107,15 @@ return [
     'update_success_profile' => 'Updateed profile successfully',
     'update_fail_profile' => 'Can not update profile',
     'profile' => 'Profile',
-    'profile_infomation' => 'Profile Infomation'
+    'profile_infomation' => 'Profile Infomation',
+    'room_name' => 'Room name',
+    'coming_date' => 'Coming date',
+    'leave_date' => 'Leave Date',
+    'check_in' => 'Check in',
+    'check_out' => 'Check out',
+    'price_order' => 'Price order',
+    'total' =>'Toltal',
+    'edit_check_in_question' => 'Do you want update check in ?',
+    'edit_check_out_price_question' => 'Do you want update price check out ?',
+    'no_select_leave_date' => 'You have not selected date, do you want slect date now ?'
 ];
