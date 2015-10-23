@@ -11,6 +11,9 @@ class AdminUserControllerTest extends TestCase
 
     /**
      * Overide setUp function. Truncate and seed the database before tests.
+     * Setup Session and Auth
+     *
+     * @return void
      */
     public function setUp()
     {
@@ -42,7 +45,9 @@ class AdminUserControllerTest extends TestCase
         ]);
     }
     /**
-     * test Status GetEditProfile in UserController
+
+     * Test Status GetEditProfile in UserController
+     *
      * @return void
      */
     public function testGetEditProfileStatus()
@@ -57,7 +62,8 @@ class AdminUserControllerTest extends TestCase
     }
 
     /**
-     * test Status PutEditProfile in UserController
+     * Test Status PutEditProfile in UserController
+     *
      * @return void
      */
     public function testPutEditProfileStatus()

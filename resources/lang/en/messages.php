@@ -98,4 +98,8 @@ return [
     'create'=>'Create',
     'user'=>'User',
     'edit_user'=>'Eidt User',
+    'update_success_profile' => 'Updateed profile successfully',
+    'update_fail_profile' => 'Can not update profile',
+    'profile' => 'Profile',
+    'profile_infomation' => 'Profile Infomation'
 ];

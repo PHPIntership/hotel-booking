@@ -10,6 +10,16 @@ class Order extends Model
     use SoftDeletes;
 
     /**
+     * Constants of Order status.
+     *
+     * @var int
+     */
+    const WAITING_STATUS = 0;
+    const ACCEPTED_STATUS = 1;
+    const CHECKED_IN_STATUS = 2;
+    const DISABLED_STATUS = 3;
+
+    /**
      * The database table used by the model.
      *
      * @var string

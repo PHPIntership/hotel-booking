@@ -15,6 +15,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        /**
+         * Hashing password before creating an Hotel admin user.
+         */
         AdminHotel::creating(function ($adminHotel) {
             $adminHotel->password = Hash::make($adminHotel->password);
         });
