@@ -16,7 +16,7 @@
         <p>Avaiable: <span class="label label-danger" style="font-size:15px;">{{ $result->quantity - $result->ordered }}</span></p>
     </td>
     <td>
-        <a href="#" class="btn btn-success btn-lg">{{trans('messages.book')}}</a>
+        <a href="{{route('order.load', $result->id)}}" class="btn btn-success btn-lg">{{trans('messages.book')}}</a>
     </td>
 </tr>
 @endforeach

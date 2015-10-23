@@ -149,4 +149,6 @@ return [
     'order_history' => 'Order history',
     'cancel' => 'Cancel',
     'order_id' => 'Order id',
+    'order_confirm' => 'Order Confirm',
+    'order_comfirm_message' => 'Are you sure to continue order?',
 ];
