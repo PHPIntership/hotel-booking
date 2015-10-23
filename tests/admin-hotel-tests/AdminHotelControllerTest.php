@@ -3,11 +3,43 @@
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use HotelBooking\AdminHotel;
+use HotelBooking\AdminUser;
 
 class AdminHotelControllerTest extends TestCase
 {
     use DatabaseTransactions;
 
+    /**
+     * Overide setUp function. Truncate and seed the database before tests.
+     */
+    public function setUp()
+    {
+        parent::setUp();
+        static $seed = false;
+        if (!$seed) {
+            DB::table('admin_users')->truncate();
+            $facAdminUser = factory(HotelBooking\AdminUser::class)->create();
+            $adminUser = [
+                'username'=>$facAdminUser->username,
+                'password'=>'123456',
+                'remember'=>1,
+                '_token'  => csrf_token()
+                ];
+        }
+        $this->actingAs();
+    }
+
+    /**
+     * Override actingAs function for setting the current authenticated hotel admin.
+     */
+    public function actingAs($admin = null)
+    {
+        $admin = AdminUser::select('id', 'username', 'password')->first();
+        $login = Auth::admin()->attempt([
+            'username' => $admin->username,
+            'password' => '123456',
+        ]);
+    }
     /**
      * Test display page index listing admin hotel.
      */

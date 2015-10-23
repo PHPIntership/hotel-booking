@@ -8,11 +8,6 @@ Route::get('admin', [
     'uses' => 'Admin\AdminBaseController@index',
     ]);
 
-/*
- * Routes for hotels manager pages
- */
-Route::resource('admin/hotel', 'Admin\HotelController');
-
 Route::group(['prefix' => 'admin'], function () {
     Route::get('login', [
         'as' => 'admin.login',
@@ -45,7 +40,27 @@ Route::group(['middleware' => ['auth.admin']], function () {
         });
 });
 
-Route::resource('admin-hotel', 'Admin\AdminHotelController');
+/**
+ * Route group for adding auththenticate middleware
+ */
+Route::group(['middleware' => ['auth.admin']], function () {
+    /*
+     * Routes for hotels manager pages
+     */
+    Route::resource('admin/hotel', 'Admin\HotelController');
 
-Route::resource('admin/room-type', 'Admin\RoomTypeController');
-Route::resource('admin/user', 'Admin\UserController');
+    /**
+     * Route resource for manage hotel admins
+     */
+    Route::resource('admin-hotel', 'Admin\AdminHotelController');
+
+    /**
+     * Route resource for manage room type
+     */
+    Route::resource('admin/room-type', 'Admin\RoomTypeController');
+
+    /**
+     * Route resource for manage users
+     */
+    Route::resource('admin/user', 'Admin\UserController');
+});

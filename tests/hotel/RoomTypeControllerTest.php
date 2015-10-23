@@ -160,15 +160,7 @@ class RoomTypeControllerTests extends TestCase
         ->see(trans('messages.edit_success_hotel_room_type'))
         ->seeInDatabase('hotel_room_types', ['name' => 'Justin Beiber']);
     }
-    /**
-     * Test display page index listing hotel room type.
-     */
-    public function testViewIndex()
-    {
-        $this->actingAs();
-        $this->visit(route('admin-hotel.index'))
-             ->see(trans('messages.admin_hotel'));
-    }
+
     /**
      * Test status method GET display listing hotel room type.
      */
