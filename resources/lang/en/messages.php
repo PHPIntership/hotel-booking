@@ -178,5 +178,4 @@ return [
     'menu' => 'MENU',
     'room' => 'Room',
     'list' => 'List'
->>>>>>> master
 ];

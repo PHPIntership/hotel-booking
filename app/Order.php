@@ -51,7 +51,7 @@ class Order extends Model
     ];
 
     /**
-     * room.
+     * Get the Room that the booking manage.
      *
      * @return Room
      */
