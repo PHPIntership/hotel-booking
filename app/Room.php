@@ -11,12 +11,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Room extends Model
 {
     use SoftDeletes;
-
-    /**
-     * Constants of Room status.
-     *
-     * @var int
-     */
+    /* Constants of Room status.
+    *
+    * @var int
+    */
     const FREE_STATUS = 0;
     const USED_STATUS = 1;
     const OTHER_STATUS = 2;

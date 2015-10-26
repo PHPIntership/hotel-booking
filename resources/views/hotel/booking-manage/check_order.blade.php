@@ -66,7 +66,11 @@
                                             $rooms->keys()[$key-1] : $checkIn->room_id)
                                             ->class('form-control room-id')!!}
                                         @else
+<<<<<<< HEAD
                                             {{trans('messages.none')}}
+=======
+                                            het phong
+>>>>>>> master
                                         @endif
 
                                 </td>

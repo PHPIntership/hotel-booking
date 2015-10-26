@@ -45,6 +45,7 @@
                                 </label>
                             </td>
                             <td>
+
                                 @if ($order->status_name == trans('messages.waiting'))
                                     {!! Former::open(route('hotel.booking-manage.accept',$order->id))->method('post')->style('display: inline') !!}
                                         {!! Former::button(trans('messages.accept'))->class("btn btn-sm btn-info accept-order")!!}
@@ -60,6 +61,9 @@
                                     {!! Former::open(route('hotel.booking-manage.destroy',$order->id))->method('delete')->style('display: inline') !!}
                                         {!! Former::button(trans('messages.delete'))->class("btn btn-sm btn-danger delete-order") !!}
                                     {!! Former::close() !!}
+                                @endif
+                                @if ($order->status_name != trans('messages.waiting'))
+                                    <a  class='btn btn-sm btn-success' href="{{route('hotel.checkin', $order->id)}}">Check In/Out</a>
                                 @endif
                             </td>
                         </tr>

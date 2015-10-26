@@ -12,7 +12,7 @@ class CreateCheckinsTable extends Migration
     {
         Schema::create('checkins', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('room_id')->unsigned()->index();
+            $table->integer('room_id')->unsigned()->index()->nulllabel();
             $table->integer('order_id')->unsigned()->index();
             $table->integer('hotel_admin_id')->unsigned()->index();
             $table->date('coming_date');
