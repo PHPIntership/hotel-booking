@@ -162,15 +162,6 @@ class RoomTypeControllerTests extends TestCase
     }
 
     /**
-     * Test status method GET display listing hotel room type.
-     */
-    public function testIndexStatus()
-    {
-        $this->actingAs();
-        $response = $this->call('GET', 'hotel/room-type');
-        $this->assertEquals(200, $response->status());
-    }
-    /**
      * Test status delete a hotel room type with id = 0 not exits in database.
      */
     public function testDeleteAdminHotelStatusFail()

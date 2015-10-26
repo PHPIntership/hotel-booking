@@ -9,11 +9,6 @@ class Order extends Model
 {
     use SoftDeletes;
 
-    const WAITING_STATUS = 0;
-    const ACCEPTED_STATUS = 1;
-    const CHECKED_STATUS = 2;
-    const DISABLED_STATUS = 3;
-
     /**
      * Constants of Order status.
      *
@@ -52,16 +47,63 @@ class Order extends Model
         'price',
         'comment',
         'quantity',
-        'status'
+        'status',
     ];
 
-    public function room() {
-		return $this->belongsToMany('\HotelBooking\Room', 'checkins');
-	}
+    /**
+     * room.
+     *
+     * @return Room
+     */
+    public function room()
+    {
+        return $this->belongsToMany('\HotelBooking\Room', 'checkins');
+    }
 
+    /**
+     *  Get the user that the booking manage.
+     *
+     * @return array
+     */
+    public function user()
+    {
+        return $this->belongsTo('HotelBooking\User', 'user_id');
+    }
+
+    /**
+     *  Get the hotel room type that the booking manage.
+     *
+     * @return array
+     */
+    public function hotelRoomType()
+    {
+        return $this->belongsTo('HotelBooking\HotelRoomType', 'hotel_room_type_id');
+    }
+    /**
+     * Get status name for admin hotel manage booking.
+     *
+     * @return string
+     */
+    public function getStatusNameAttribute()
+    {
+        switch ($this->status) {
+            case self::WAITING_STATUS:
+                return trans('messages.waiting');
+                break;
+            case self::ACCEPTED_STATUS:
+                return trans('messages.accepted');
+                break;
+            case self::CHECKED_IN_STATUS:
+                return trans('messages.checked_in');
+                break;
+            default:
+                return trans('messages.disabled');
+                break;
+        }
+    }
     public function syncRoom($data)
     {
-        if(is_array($data)) {
+        if (is_array($data)) {
             $this->room()->sync($data);
         }
     }
@@ -71,6 +113,7 @@ class Order extends Model
         if (!empty($this->coming_date)) {
             return date('Y/m/d', strtotime($this->coming_date));
         }
+
         return '';
     }
 
@@ -79,7 +122,7 @@ class Order extends Model
         if (!empty($this->leave_date)) {
             return date('Y/m/d', strtotime($this->leave_date));
         }
+
         return '';
     }
-
 }

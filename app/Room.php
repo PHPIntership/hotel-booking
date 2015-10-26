@@ -15,14 +15,6 @@ class Room extends Model
     *
     * @var int
     */
-   const FREE_STATUS = 0;
-   const USED_STATUS = 1;
-   const OTHER_STATUS = 2;
-    /**
-     * Constants of Room status.
-     *
-     * @var int
-     */
     const FREE_STATUS = 0;
     const USED_STATUS = 1;
     const OTHER_STATUS = 2;

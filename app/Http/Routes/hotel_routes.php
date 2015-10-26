@@ -64,3 +64,23 @@ Route::group(['prefix' => 'hotel'], function () {
  *Route for hotel room type
  */
 Route::resource('hotel/room-type', 'Hotel\RoomTypeController');
+/*
+ *Route for hotel booking manage
+ */
+Route::resource('hotel/booking-manage', 'Hotel\BookingManageController');
+Route::group(['prefix' => 'hotel/booking-manage'], function () {
+    Route::post('{id}/accept', [
+        'as' => 'hotel.booking-manage.accept',
+        'uses' => 'Hotel\BookingManageController@postAccept',
+    ]);
+
+    Route::post('{id}/decline', [
+        'as' => 'hotel.booking-manage.decline',
+        'uses' => 'Hotel\BookingManageController@postDecline',
+    ]);
+
+    Route::post('{id}/cancel', [
+        'as' => 'hotel.booking-manage.cancel',
+        'uses' => 'Hotel\BookingManageController@postCancel',
+    ]);
+});
