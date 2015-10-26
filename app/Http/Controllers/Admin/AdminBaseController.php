@@ -9,6 +9,9 @@ use HotelBooking\Http\Controllers\Controller;
  */
 class AdminBaseController extends Controller
 {
+    /**
+     * page main for admin
+     */
     public function index()
     {
         return redirect(route('admin.user.index'));

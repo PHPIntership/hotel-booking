@@ -1,5 +1,8 @@
 <?php
-
+Route::get('hotel', [
+    'as' => 'hotel.index',
+    'uses' => 'Hotel\HotelBaseController@index',
+    ]);
 Route::resource('hotel/room', 'Hotel\RoomController');
 
 /*
