@@ -51,7 +51,17 @@ class Order extends Model
     ];
 
     /**
-     *  Get the user that the booking manage.
+     * Get the Room that the booking manage.
+     *
+     * @return Room
+     */
+    public function room()
+    {
+        return $this->belongsToMany('\HotelBooking\Room', 'checkins');
+    }
+
+    /**
+     * Get the user that the booking manage.
      */
     public function user()
     {
@@ -98,5 +108,29 @@ class Order extends Model
                 return trans('messages.disabled');
                 break;
         }
+    }
+    public function syncRoom($data)
+    {
+        if (is_array($data)) {
+            $this->room()->sync($data);
+        }
+    }
+
+    public function getComingDateFormatAttribute()
+    {
+        if (!empty($this->coming_date)) {
+            return date('Y/m/d', strtotime($this->coming_date));
+        }
+
+        return '';
+    }
+
+    public function getLeaveDateFormatAttribute()
+    {
+        if (!empty($this->leave_date)) {
+            return date('Y/m/d', strtotime($this->leave_date));
+        }
+
+        return '';
     }
 }

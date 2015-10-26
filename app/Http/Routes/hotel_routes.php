@@ -42,6 +42,25 @@ Route::group(['prefix' => 'hotel'], function () {
         'as' => 'hotel.profile',
         'uses' => 'Hotel\HotelController@update',
     ]);
+
+    Route::get('checkin/{id}', [
+        'as' => 'hotel.checkin',
+        'uses' =>'Hotel\CheckInController@checkIn'
+    ]);
+    Route::put('checkin/{id}', [
+        'as' => 'hotel.checkin',
+        'uses' =>'Hotel\CheckInController@updateCheckIn'
+    ]);
+
+    Route::get('checkout/{id}', [
+        'as' => 'hotel.checkout',
+        'uses' =>'Hotel\CheckInController@checkOut'
+    ]);
+
+    Route::put('checkout/{id}', [
+        'as' => 'hotel.checkout',
+        'uses' =>'Hotel\CheckInController@updateCheckOut'
+    ]);
 });
 
 /*
