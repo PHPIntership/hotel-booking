@@ -61,7 +61,7 @@ class Order extends Model
     }
 
     /**
-     *  Get the user that the booking manage.
+     * Get the user that the booking manage.
      */
     public function user()
     {

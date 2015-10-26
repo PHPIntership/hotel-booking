@@ -29,7 +29,7 @@ class CheckInController extends Controller
     /**
      * Check permission.
      *
-     * @param  $id order id
+     * @param $id order id
      *
      * @return HotelBooking/Order
      */
@@ -53,9 +53,9 @@ class CheckInController extends Controller
     }
 
     /**
-     * list check in of order.
+     * List check in of order.
      *
-     * @param   $id check in id
+     * @param $id check in id
      *
      * @return Response
      */
@@ -116,9 +116,9 @@ class CheckInController extends Controller
     }
 
     /**
-     * get data check in for action check in.
+     * Get data check in for action check in.
      *
-     * @param   $id check in id
+     * @param $id check in id
      *
      * @return HotelBooking/CheckIn
      */
@@ -138,9 +138,9 @@ class CheckInController extends Controller
     }
 
     /**
-     * get data check in for action check in.
+     * Get data check in for action check in.
      *
-     * @param   $id check in id
+     * @param $id check in id
      *
      * @return HotelBooking/CheckIn
      */
@@ -168,10 +168,10 @@ class CheckInController extends Controller
     }
 
     /**
-     * check in or check out.
+     * Check in or check out.
      *
      * @param Request $request
-     * @param         $id      check in id
+     * @param $id heck in id
      *
      * @return json
      */
