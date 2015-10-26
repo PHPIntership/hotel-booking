@@ -33,6 +33,12 @@
             <li><a href="{{ route('hotel.room-type.create') }}"><i class="fa fa-circle-o"></i>{{ trans('messages.create') }}</a></li>
             <li><a href="{{ route('hotel.room-type.index') }}"><i class="fa fa-circle-o"></i>{{ trans('messages.list') }}</a></li>
         </ul>
+        <a href="#">
+            <i class="fa fa-table"></i> <span>{{ trans('messages.booking_manage') }}</span> <i class="fa fa-angle-left pull-right"></i>
+        </a>
+        <ul class="treeview-menu">
+            <li><a href="{{ route('hotel.booking-manage.index') }}"><i class="fa fa-circle-o"></i>{{ trans('messages.list') }}</a></li>
+        </ul>
     </li>
   </ul>
 </section>
