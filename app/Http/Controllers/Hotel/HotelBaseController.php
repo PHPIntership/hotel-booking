@@ -10,7 +10,7 @@ use HotelBooking\Http\Controllers\Controller;
 class HotelBaseController extends Controller
 {
     /**
-     * page main for hotel admin
+     * Page main for hotel admin
      */
     public function index()
     {
