@@ -6,6 +6,8 @@ use HotelBooking\Http\Controllers\Controller;
 use Auth;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use HotelBooking\User;
+use HotelBooking\Order;
+use HotelBooking\HotelRoomType;
 use HotelBooking\Http\Requests\Frontend\ProfileRequest;
 use Session;
 
@@ -28,6 +30,33 @@ class ProfileController extends FrontendBaseController
     public function getProfile()
     {
         $id = $this->auth->get()->id;
+        $array = [
+            'id',
+            'hotel_room_type_id',
+            'coming_date',
+            'leave_date',
+            'quantity',
+            'price',
+            'status',
+            'comment',
+        ];
+        $withHotel['hotel'] = function ($query) {
+            $query->select('id', 'name');
+        };
+        $with['hotelRoomType'] = function ($query) use ($withHotel) {
+            $query->with($withHotel)
+                ->select('id', 'name', 'hotel_id');
+        };
+        $orders = Order::with($with)
+            ->select($array)
+            ->where('user_id', Auth::user()->get()->id)
+            ->paginate(10);
+        $label = [
+            'info',
+            'success',
+            'warning',
+            'danger',
+        ];
         $columns = [
             'id',
             'name',
@@ -39,7 +68,7 @@ class ProfileController extends FrontendBaseController
         try {
             $user = User::findOrFail($id, $columns);
 
-            return view('frontend.profile.profile', compact('user'));
+            return view('frontend.profile.profile', compact('user', 'orders', 'label'));
         } catch (ModelNotFoundException $ex) {
             return view('frontend.errors.404');
         }
@@ -79,6 +108,29 @@ class ProfileController extends FrontendBaseController
             Session::flash('flash_error', trans('messages.update_fail_profile'));
 
             return redirect(route('user.profile'));
+        }
+    }
+
+    /*
+    * Cancel order if admin hotel want cancel from storage.
+    *
+    * @param $id
+    * @return \Illuminate\Http\Response
+    */
+    public function postCancel($id)
+    {
+        try {
+            $order = Order::findOrFail($id, ['id', 'status']);
+            $order->status = Order::DISABLED_STATUS;
+            $order->save();
+
+            return redirect()
+                ->route('user.profile')
+                ->with(['flash_success' => trans('messages.cancel_success_order'), 'tab' => 2]);
+        } catch (ModelNotFoundException $ex) {
+            return redirect()
+                ->route('user.profile')
+                ->with('flash_error', trans('messages.cancel_fail_order'));
         }
     }
 }

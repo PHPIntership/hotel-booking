@@ -52,12 +52,14 @@ class Hotel extends Model
         return $this->belongsTo('HotelBooking\City', 'city_id');
     }
 
+    /**
+     * Get base link of hotel image.
+     */
     public function getImageLinkAttribute()
     {
         if (!empty($this->image)) {
             return asset(config('uploads.'.self::UPLOAD_KEY).$this->image);
         }
-
         return '';
     }
 }

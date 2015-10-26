@@ -4,6 +4,7 @@ namespace HotelBooking;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Carbon\Carbon;
 
 /**
  * Hotel Roomtype model
@@ -16,6 +17,7 @@ class HotelRoomType extends Model
      * Key congig uploads.
      */
     const UPLOAD_KEY = 'hotel_room_type';
+
     /**
      * The database table used by the model.
      *
@@ -47,7 +49,7 @@ class HotelRoomType extends Model
     ];
 
     /**
-     * Get base link of hotel room type.
+     * Get base link of hotel room type image.
      */
     public function getImageLinkAttribute()
     {
@@ -59,15 +61,16 @@ class HotelRoomType extends Model
     }
 
     /**
-     * Get the room type that the hotel manage.
+     * Get the room type of current hotel room type.
      */
     public function roomType()
     {
         return $this->belongsTo('HotelBooking\RoomType', 'room_type_id');
     }
 
+
     /**
-     * Get the hotel that the roomtype belong
+     * Get the hotel of current hotel room type.
      */
     public function hotel()
     {
@@ -75,7 +78,40 @@ class HotelRoomType extends Model
     }
 
     /**
+     * Get available rooms quantity of hotel room type.
+     *
+     * @param date $fromDate
+     * @param date $toDate
+     */
+    public function getAvailableRoomQuantityAttribute($fromDate = false, $toDate = false)
+    {
+        if (!$fromDate) {
+            $fromDate = Carbon::now()->toDateString();
+        }
+        if (!$toDate) {
+            $toDate = Carbon::now()->toDateString();
+        }
+        $quantityOfUsed = Order::where('status', '<', 3)
+            ->where('hotel_room_type_id', $this->id)
+            ->where(function ($query) use ($fromDate, $toDate) {
+                $query->whereBetween('coming_date', [$fromDate,$toDate])
+                ->orWhereBetween('leave_date', [$fromDate,$toDate])
+                ->orWhere(function ($query) use ($fromDate, $toDate) {
+                    $query->where('coming_date', '<', $fromDate)
+                        ->where('leave_date', '>', $toDate);
+                });
+            })
+            ->sum('quantity');
+        $availableQuantity = $this->quantity - $quantityOfUsed;
+        if ($availableQuantity < 0) {
+            $availableQuantity = 0;
+        }
+        return $availableQuantity;
+    }
+
+    /**
      * Set the avaiable_quantity attribute value
+     *
      * @param [int] $value
      */
     public function setAvaiableQuantityAttribute($value)

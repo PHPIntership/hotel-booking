@@ -93,7 +93,7 @@
                 <div id="loginbar-r">
                     <span ip="logged_info" class="label label-info">Hello
                         @if(Auth::user()->check())
-                        <a href="#">{{Auth::user()->get()->name}} |</a>
+                        <a href="{{ route('user.profile') }}">{{Auth::user()->get()->name}} |</a>
                         <a href="{{ route('user.logout') }}">Log out</a>
                         @endif
                     </span>

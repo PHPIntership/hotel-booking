@@ -1,7 +1,7 @@
-@extends('layouts.admin')
+@extends('layouts.hotel')
 
 @section('title')
-Hotel management
+{{trans('messages.room_management')}}
 @endsection
 
 @section('content')

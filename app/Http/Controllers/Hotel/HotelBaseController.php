@@ -10,6 +10,13 @@ use HotelBooking\Http\Controllers\Controller;
 class HotelBaseController extends Controller
 {
     /**
+     * Page main for hotel admin
+     */
+    public function index()
+    {
+        return redirect(route('hotel.profile'));
+    }
+    /**
      * Save upload image from request file into uploads folder.
      *
      * @param string $path
