@@ -177,5 +177,6 @@ return [
     'home' => 'Home',
     'menu' => 'MENU',
     'room' => 'Room',
-    'list' => 'List'
+    'list' => 'List',
+    'none' => 'None',
 ];
